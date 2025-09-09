@@ -267,7 +267,7 @@ export default function Resources() {
             <section className="bg-white/5 rounded-lg p-8 text-center">
               <h2 className="text-2xl font-bold text-white mb-4 font-dm-mono">Need Help?</h2>
               <p className="text-white/70 mb-6 font-dm-mono">
-                Can't find what you're looking for? Check out our FAQ or join our community.
+                {"Can't find what you're looking for? Check out our FAQ or join our community."}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
