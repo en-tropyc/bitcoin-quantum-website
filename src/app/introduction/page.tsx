@@ -31,14 +31,10 @@ export default function Introduction() {
               <div className="mb-12">
                 <h2 className="text-3xl font-bold text-white mb-6 font-dm-mono">What is BTQ (Bitcoin Quantum)?</h2>
                 <p className="text-white/80 mb-6 font-dm-mono text-lg leading-relaxed">
-                  BTQ is a post-quantum POW cryptocurrency designed for the post-quantum era. It maintains Bitcoin's economic model 
-                  and network architecture while implementing quantum-resistant cryptographic primitives and enhanced 
-                  transaction capacity specifically designed for large post-quantum signatures.
+                  {"BTQ is a post-quantum POW cryptocurrency designed for the post-quantum era. It maintains Bitcoin's economic model and network architecture while implementing quantum-resistant cryptographic primitives and enhanced transaction capacity specifically designed for large post-quantum signatures."}
                 </p>
                 <p className="text-white/80 mb-6 font-dm-mono text-lg leading-relaxed">
-                  Built on Bitcoin Core's proven codebase, BTQ features a 64 MiB block size limit (compared to Bitcoin's 1MB) 
-                  and integrates a PPK (Post-Quantum Key) infrastructure that enables seamless integration of future 
-                  quantum-resistant signature algorithms as they become available.
+                  {"Built on Bitcoin Core's proven codebase, BTQ features a 64 MiB block size limit (compared to Bitcoin's 1MB) and integrates a PPK (Post-Quantum Key) infrastructure that enables seamless integration of future quantum-resistant signature algorithms as they become available."}
                 </p>
               </div>
 
@@ -52,7 +48,7 @@ export default function Introduction() {
                 </p>
                 <ul className="list-disc list-inside text-white/80 mb-6 font-dm-mono text-lg leading-relaxed space-y-2">
                   <li>Current Bitcoin uses ECDSA (Elliptic Curve Digital Signature Algorithm)</li>
-                  <li>Quantum computers could break ECDSA using Shor's algorithm</li>
+                  <li>{"Quantum computers could break ECDSA using Shor's algorithm"}</li>
                   <li>This could compromise private keys and digital signatures</li>
                   <li>The threat is real and approaching within the next 10-20 years</li>
                 </ul>
@@ -68,8 +64,7 @@ export default function Introduction() {
                   <div className="bg-blue-500/20 p-6 rounded-lg border border-blue-500/30">
                     <h3 className="text-xl font-semibold text-blue-300 mb-3 font-dm-mono">Dilithium</h3>
                     <p className="text-white/80 font-dm-mono">
-                      NIST-standardized lattice-based digital signature algorithm integrated into BTQ's 
-                      PPK infrastructure for quantum-resistant transactions.
+                      {"NIST-standardized lattice-based digital signature algorithm integrated into BTQ's PPK infrastructure for quantum-resistant transactions."}
                     </p>
                   </div>
                   <div className="bg-green-500/20 p-6 rounded-lg border border-green-500/30">
@@ -123,8 +118,7 @@ export default function Introduction() {
                     <div>
                       <h3 className="text-xl font-semibold text-white mb-2 font-dm-mono">Bitcoin Economic Model</h3>
                       <p className="text-white/70 font-dm-mono">
-                        Maintains Bitcoin's proven UTXO model, scripting system, and economic incentives 
-                        while adding post-quantum security features.
+                        {"Maintains Bitcoin's proven UTXO model, scripting system, and economic incentives while adding post-quantum security features."}
                       </p>
                     </div>
                   </div>

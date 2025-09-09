@@ -1,7 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
-import Image from 'next/image';
+;
 
 export default function Home() {
   return (
@@ -65,7 +65,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-2 font-dm-mono">Next Generation</h3>
                 <p className="text-white/70 font-dm-mono">
-                  Advanced cryptography meets Bitcoin's proven architecture.
+                  {"Advanced cryptography meets Bitcoin's proven architecture."}
                 </p>
               </div>
 

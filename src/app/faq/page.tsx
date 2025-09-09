@@ -204,7 +204,7 @@ export default function FAQ() {
                 Still Have Questions?
               </h2>
               <p className="text-white/70 mb-6 font-dm-mono">
-                Can't find the answer you're looking for? Explore our other resources or join our community.
+                {"Can't find the answer you're looking for? Explore our other resources or join our community."}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
