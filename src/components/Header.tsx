@@ -39,6 +39,12 @@ export default function Header() {
               Resources
             </Link>
             <Link 
+              href="/development" 
+              className="text-white hover:text-gray-300 px-3 py-2 font-dm-mono font-medium transition-colors"
+            >
+              Development
+            </Link>
+            <Link 
               href="/faq" 
               className="text-white hover:text-gray-300 px-3 py-2 font-dm-mono font-medium transition-colors"
             >
@@ -89,6 +95,13 @@ export default function Header() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Resources
+              </Link>
+              <Link
+                href="/development"
+                className="block text-white hover:bg-white/10 px-3 py-2 rounded-md font-dm-mono font-medium transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Development
               </Link>
               <Link
                 href="/faq"
