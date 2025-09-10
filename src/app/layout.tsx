@@ -19,7 +19,7 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bitcoin Quantum - BTC in Quantum State",
+  title: "Bitcoin Quantum",
   description: "Bitcoin Quantum represents the evolution of Bitcoin for the quantum computing era. Explore quantum-resistant cryptography and the future of decentralized digital currency.",
   keywords: "Bitcoin, Quantum Computing, Cryptocurrency, Quantum Resistance, Blockchain, BTC",
   authors: [{ name: "Bitcoin Quantum" }],
