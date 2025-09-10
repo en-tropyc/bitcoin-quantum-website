@@ -51,10 +51,10 @@ export default function Development() {
   const releases = [
     {
       version: "v0.1.0-beta",
-      date: "2025-01-15",
-      title: "Testnet Beta Release",
+      date: "2025-08-20",
+      title: "First Pre-Release",
       description: "First public testnet with Dilithium signature support",
-      link: "https://github.com/btq-ag/BTQ-Core/releases/tag/v0.1.0-beta"
+      link: "https://github.com/btq-ag/BTQ-Core/releases/tag/v0.1.0"
     },
     {
       version: "v0.2.1",
