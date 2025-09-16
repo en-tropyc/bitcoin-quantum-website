@@ -11,88 +11,65 @@ export default function Development() {
       description: [
         "Initial research into post-quantum cryptographic algorithms",
         "Bitcoin protocol modification analysis",
-        "Security assessment of quantum threats",
+        "Selection of NIST-standardized post-quantum algorithms",
         "Foundation architecture planning"
       ]
     },
     {
-      title: "Dilithium Integration",
-      quarter: "2025 Q4",
-      status: "in-progress", 
-      description: [
-        "Implementation of Dilithium post-quantum signature scheme",
-        "Integration with BTQ Core consensus layer",
-        "Key generation and management systems",
-        "Signature verification optimization"
-      ]
-    },
-    {
-      title: "Testnet Launch",
+      title: "Phase 1: Mainnet Launch",
       quarter: "2025 Q4",
       status: "in-progress",
       description: [
-        "Public testnet deployment with quantum-resistant features",
-        "Community testing and feedback collection",
-        "Performance benchmarking and optimization",
-        "Bug fixes and stability improvements"
-      ]
-    },
-    
-    {
-      title: "Mainnet Preparation",
-      quarter: "2026 Q1",
-      status: "pending",
-      description: [
-        "Final testing and validation",
-        "Security audits and penetration testing",
-        "Network infrastructure preparation",
-        "Documentation and deployment guides"
-      ]
-    },
-    {
-      title: "Mainnet Launch",
-      quarter: "2026 Q2",
-      status: "pending",
-      description: [
         "Official launch of Bitcoin Quantum mainnet",
-        "Full quantum resistance implementation",
+        "Implementation of Dilithium post-quantum signature scheme",
         "Genesis block creation and distribution",
         "Network monitoring and support systems"
       ]
     },
     {
-      title: "Hardware Integration",
+      title: "Phase 2: Network Hardening & Growth",
       quarter: "2026",
       status: "pending",
       description: [
-        "Hardware wallet support development",
-        "Quantum-safe key storage solutions",
-        "Secure element integration",
-        "Hardware security module support"
+        "Expanded PQC test coverage",
+        "Mempool & relay optimizations for PQC transactions",
+        "SDK for PQC wallet/app integration",
+        "Begin research on hybrid PQC (Dilithium + Falcon/SPHINCS+)"
       ]
     },
     {
-      title: "Adversarial Stress Testing",
-      quarter: "2027+",
-      status: "pending",
+      title: "Phase 3: Hybrid Signatures & QPoW Research",
+      quarter: "2027",
+      status: "planned",
       description: [
-        "Exploring adversarial stress testing scenarios",
-        "Partial quantum adversary simulations",
-        "Full quantum adversary resistance testing",
-        "Advanced attack vector analysis"
+        "Multi-algorithm hybrid signature support",
+        "Signature aggregation & compression research",
+        "Public PQC SDK released",
+        "Quantum Proof-of-Work (qPoW) prototype research"
       ]
     },
     {
-      title: "Quantum Monetary Primitives",
-      quarter: "2035+",
-      status: "pending",
+      title: "Phase 4: Community Upgrade Path",
+      quarter: "2028",
+      status: "planned",
       description: [
-        "Quantum Money implementation research",
-        "No-cloning theorem applications",
-        "Quantum state verification protocols",
-        "Advanced quantum cryptographic primitives"
+        "Community governance vote (BIP-style) on qPoW upgrade",
+        "Testnet validation for qPoW designs",
+        "Security audits & adversarial testing"
       ]
-    }
+    },
+    {
+      title: "Phase 5: Quantum Economy & Long-Term",
+      quarter: "2030+",
+      status: "future",
+      description: [
+        "Quantum-native monetary primitives (entangled state issuance, no-cloning scarcity)",
+        "Plugin architecture for qPoW and new primitives",
+        "Decentralized governance foundation",
+        "BTQ as Bitcoin’s quantum canary network"
+      ]
+    },
+   
   ];
 
   const releases = [
@@ -188,49 +165,40 @@ export default function Development() {
                   </p>
                 </div>
 
-                <div className="space-y-8">
-                  {roadmapItems.map((item, index) => (
-                    <div key={index} className="relative">
-                      {/* Timeline line */}
-                      {index < roadmapItems.length - 1 && (
-                        <div className="absolute left-6 top-16 w-0.5 h-20 bg-white/20"></div>
-                      )}
-                      
-                      <div className="flex items-start space-x-6">
-                        {/* Status indicator */}
-                        <div className={`w-12 h-12 rounded-full ${getStatusColor(item.status)} flex items-center justify-center flex-shrink-0 mt-2`}>
-                          <div className="w-4 h-4 bg-white rounded-full"></div>
-                        </div>
-                        
-                        {/* Content - No background box, content on background */}
-                        <div className="flex-1">
-                          <div className="flex items-center justify-between mb-3">
-                            <div className="flex items-center space-x-3">
+                <div className="relative">
+                  {/* Continuous timeline line */}
+                  <div className="absolute left-6 top-6 w-0.5 bg-white/20" style={{height: 'calc(100% - 3rem)'}}></div>
+                  
+                  <div className="space-y-8">
+                    {roadmapItems.map((item, index) => (
+                      <div key={index} className="relative">
+                        <div className="flex items-start space-x-6">
+                          {/* Status indicator */}
+                          <div className={`w-12 h-12 rounded-full ${getStatusColor(item.status)} flex items-center justify-center flex-shrink-0 mt-2 relative z-10`}>
+                            <div className="w-4 h-4 bg-white rounded-full"></div>
+                          </div>
+                          
+                          {/* Content - No background box, content on background */}
+                          <div className="flex-1">
+                            <div className="flex items-center justify-between mb-3">
                               <h3 className="text-xl font-semibold text-white font-dm-mono">{item.title}</h3>
-                              <div className={`px-3 py-1 rounded text-xs font-medium font-dm-mono ${
-                                item.status === 'completed' ? 'bg-green-500/20 text-green-400 border border-green-500/30' :
-                                item.status === 'in-progress' ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' :
-                                'bg-gray-500/20 text-gray-400 border border-gray-500/30'
-                              }`}>
-                                {getStatusText(item.status)}
+                              <div className="bg-white/10 border border-white/20 rounded px-3 py-1">
+                                <span className="text-xs text-white/80 font-dm-mono font-medium">{item.quarter}</span>
                               </div>
                             </div>
-                            <div className="bg-white/10 border border-white/20 rounded px-3 py-1">
-                              <span className="text-xs text-white/80 font-dm-mono font-medium">{item.quarter}</span>
-                            </div>
+                            <ul className="text-white/70 font-dm-mono text-base leading-relaxed space-y-1">
+                              {item.description.map((bullet, bulletIndex) => (
+                                <li key={bulletIndex} className="flex items-start">
+                                  <span className="text-white/50 mr-2 mt-1">•</span>
+                                  <span>{bullet}</span>
+                                </li>
+                              ))}
+                            </ul>
                           </div>
-                          <ul className="text-white/70 font-dm-mono text-base leading-relaxed space-y-1">
-                            {item.description.map((bullet, bulletIndex) => (
-                              <li key={bulletIndex} className="flex items-start">
-                                <span className="text-white/50 mr-2 mt-1">•</span>
-                                <span>{bullet}</span>
-                              </li>
-                            ))}
-                          </ul>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
 
