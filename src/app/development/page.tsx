@@ -76,7 +76,7 @@ export default function Development() {
     {
       version: "v0.1.0",
       date: "2025-08-20",
-      title: "First Pre-Release v0.1.0",
+      title: "Pre-Release v0.1.0",
       description: "Introducing major consensus changes in preperation for PQC signatures, regtest mining support, and genesis block configs",
       link: "https://github.com/btq-ag/BTQ-Core/releases/tag/v0.1.0"
     },
@@ -279,7 +279,7 @@ export default function Development() {
                   
                   <div className="mt-4 text-right">
                     <a
-                      href="https://hackmd.io/@btq-team"
+                      href="https://hackmd.io/team/bitcoinquantum?nav=overview"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-blue-400 hover:text-blue-300 font-dm-mono text-sm"
