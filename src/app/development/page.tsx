@@ -5,53 +5,93 @@ import Link from 'next/link';
 export default function Development() {
   const roadmapItems = [
     {
-      title: "Core Protocol Research",
-      quarter: "2025 Q3",
+      title: "Phase 0: Foundation",
+      quarter: "2025 Q2-Q3",
       status: "completed",
-      description: "Initial research into post-quantum cryptographic algorithms and Bitcoin protocol modifications"
+      description: [
+        "Initial research into post-quantum cryptographic algorithms",
+        "Bitcoin protocol modification analysis",
+        "Security assessment of quantum threats",
+        "Foundation architecture planning"
+      ]
     },
     {
       title: "Dilithium Integration",
       quarter: "2025 Q4",
       status: "in-progress", 
-      description: "Implementation of Dilithium post-quantum signature scheme in BTQ Core"
+      description: [
+        "Implementation of Dilithium post-quantum signature scheme",
+        "Integration with BTQ Core consensus layer",
+        "Key generation and management systems",
+        "Signature verification optimization"
+      ]
     },
     {
       title: "Testnet Launch",
       quarter: "2025 Q4",
       status: "in-progress",
-      description: "Public testnet deployment with quantum-resistant features for community testing"
+      description: [
+        "Public testnet deployment with quantum-resistant features",
+        "Community testing and feedback collection",
+        "Performance benchmarking and optimization",
+        "Bug fixes and stability improvements"
+      ]
     },
     
     {
       title: "Mainnet Preparation",
       quarter: "2026 Q1",
       status: "pending",
-      description: "Final testing, security audits, and preparation for mainnet launch"
+      description: [
+        "Final testing and validation",
+        "Security audits and penetration testing",
+        "Network infrastructure preparation",
+        "Documentation and deployment guides"
+      ]
     },
     {
       title: "Mainnet Launch",
       quarter: "2026 Q2",
       status: "pending",
-      description: "Official launch of Bitcoin Quantum mainnet with full quantum resistance"
+      description: [
+        "Official launch of Bitcoin Quantum mainnet",
+        "Full quantum resistance implementation",
+        "Genesis block creation and distribution",
+        "Network monitoring and support systems"
+      ]
     },
     {
       title: "Hardware Integration",
       quarter: "2026",
       status: "pending",
-      description: "Hardware wallet support and quantum-safe key storage solutions"
+      description: [
+        "Hardware wallet support development",
+        "Quantum-safe key storage solutions",
+        "Secure element integration",
+        "Hardware security module support"
+      ]
     },
     {
       title: "Adversarial Stress Testing",
       quarter: "2027+",
       status: "pending",
-      description: "Exploring adversarial stress testing of under partial and full quantum adversaries"
+      description: [
+        "Exploring adversarial stress testing scenarios",
+        "Partial quantum adversary simulations",
+        "Full quantum adversary resistance testing",
+        "Advanced attack vector analysis"
+      ]
     },
     {
       title: "Quantum Monetary Primitives",
       quarter: "2035+",
       status: "pending",
-      description: "Quantum Money implementation using no-cloning theorem"
+      description: [
+        "Quantum Money implementation research",
+        "No-cloning theorem applications",
+        "Quantum state verification protocols",
+        "Advanced quantum cryptographic primitives"
+      ]
     }
   ];
 
@@ -179,7 +219,14 @@ export default function Development() {
                               <span className="text-xs text-white/80 font-dm-mono font-medium">{item.quarter}</span>
                             </div>
                           </div>
-                          <p className="text-white/70 font-dm-mono text-base leading-relaxed">{item.description}</p>
+                          <ul className="text-white/70 font-dm-mono text-base leading-relaxed space-y-1">
+                            {item.description.map((bullet, bulletIndex) => (
+                              <li key={bulletIndex} className="flex items-start">
+                                <span className="text-white/50 mr-2 mt-1">•</span>
+                                <span>{bullet}</span>
+                              </li>
+                            ))}
+                          </ul>
                         </div>
                       </div>
                     </div>
