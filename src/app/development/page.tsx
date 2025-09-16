@@ -22,12 +22,7 @@ export default function Development() {
       status: "in-progress",
       description: "Public testnet deployment with quantum-resistant features for community testing"
     },
-    {
-      title: "PPK Infrastructure",
-      quarter: "2026 Q1",
-      status: "pending",
-      description: "Complete Post-Quantum Key infrastructure implementation and testing"
-    },
+    
     {
       title: "Mainnet Preparation",
       quarter: "2026 Q1",
@@ -42,72 +37,57 @@ export default function Development() {
     },
     {
       title: "Hardware Integration",
-      quarter: "2026 Q3",
+      quarter: "2026",
       status: "pending",
       description: "Hardware wallet support and quantum-safe key storage solutions"
+    },
+    {
+      title: "Adversarial Stress Testing",
+      quarter: "2027+",
+      status: "pending",
+      description: "Exploring adversarial stress testing of under partial and full quantum adversaries"
+    },
+    {
+      title: "Quantum Monetary Primitives",
+      quarter: "2035+",
+      status: "pending",
+      description: "Quantum Money implementation using no-cloning theorem"
     }
   ];
 
   const releases = [
     {
-      version: "v0.1.0-beta",
-      date: "2025-08-20",
-      title: "First Pre-Release",
-      description: "First public testnet with Dilithium signature support",
-      link: "https://github.com/btq-ag/BTQ-Core/releases/tag/v0.1.0"
-    },
-    {
-      version: "v0.2.1",
-      date: "2024-12-20",
-      title: "Core Protocol Updates",
-      description: "Enhanced post-quantum cryptographic implementations",
-      link: "https://github.com/btq-ag/BTQ-Core/releases/tag/v0.2.1"
-    },
-    {
-      version: "v0.2.0",
-      date: "2024-11-10",
-      title: "Dilithium Integration",
-      description: "Initial implementation of Dilithium post-quantum signatures",
-      link: "https://github.com/btq-ag/BTQ-Core/releases/tag/v0.2.0"
-    },
-    {
       version: "v0.1.0",
-      date: "2024-10-01",
-      title: "Initial Release",
-      description: "First release with basic post-quantum research implementation",
+      date: "2025-08-20",
+      title: "First Pre-Release v0.1.0",
+      description: "Introducing major consensus changes in preperation for PQC signatures, regtest mining support, and genesis block configs",
       link: "https://github.com/btq-ag/BTQ-Core/releases/tag/v0.1.0"
-    }
+    },
+ 
   ];
 
   const developerNotes = [
     {
-      title: "Dilithium Signature Performance Analysis",
-      date: "2025-01-20",
+      title: "Dilithium Integration Phase 1 Complete",
+      date: "2025-09-10",
       author: "Core Team",
-      description: "Detailed analysis of Dilithium signature performance on various hardware configurations",
-      link: "https://hackmd.io/@btq-team/dilithium-performance"
+      description: "Phase 1 of Dilithium integration is complete. We added secure key handling, signing and verification APIs, Hash160 address derivation, and full unit tests. This milestone lays the foundation for address, script, and wallet integration.",
+      link: "https://hackmd.io/WuxQHXcKSlO_VfTXkwmz7A"
     },
     {
-      title: "Post-Quantum Key Migration Strategy",
-      date: "2025-01-15",
-      author: "Research Team",
-      description: "Comprehensive guide for migrating from ECDSA to post-quantum signatures",
-      link: "https://hackmd.io/@btq-team/key-migration"
+      title: "SegWit v2 for PQC: Architectural Decision",
+      date: "2025-09-05",
+      author: "Core Team",
+      description: "We’re integrating post-quantum signatures via SegWit v2: Dilithium keys/signatures live in the witness while outputs stay compact (P2PPH). Consensus-level changes like quantum PoW are deferred, keeping focus on the immediate risk: signature security.",
+      link: "https://hackmd.io/q7D9SELdSFOgeHFZb_-E3A"
     },
     {
-      title: "Testnet Configuration Guide",
-      date: "2025-01-10",
-      author: "DevOps Team",
-      description: "Step-by-step guide for setting up and running BTQ testnet nodes",
-      link: "https://hackmd.io/@btq-team/testnet-setup"
+      title: "v0.1.0 Pre-Release: Chain Live + Genesis Mined",
+      date: "2025-08-19",
+      author: "Core Team",
+      description: "BTQ Core v0.1.0 is live. Executables build and run across platforms, AWS nodes are up, and genesis blocks have been mined on mainnet and testnet. This baseline unlocks the next stage: rigorous test coverage and protocol work for PQ signatures.",
+      link: "https://hackmd.io/@bitcoinquantum/SyUdwPIsgx"
     },
-    {
-      title: "Quantum Threat Assessment",
-      date: "2025-01-05",
-      author: "Security Team",
-      description: "Analysis of current quantum computing threats to Bitcoin and mitigation strategies",
-      link: "https://hackmd.io/@btq-team/quantum-threats"
-    }
   ];
 
   const getStatusColor = (status: string) => {
@@ -214,7 +194,6 @@ export default function Development() {
                 <div>
                   <div className="mb-6">
                     <h2 className="text-2xl font-bold text-white mb-2 font-dm-mono">Releases</h2>
-                    <p className="text-white/70 font-dm-mono">Latest releases and updates</p>
                   </div>
                   
                   <div className="space-y-4">
@@ -258,7 +237,6 @@ export default function Development() {
                 <div>
                   <div className="mb-6">
                     <h2 className="text-2xl font-bold text-white mb-2 font-dm-mono">Latest Developer Notes</h2>
-                    <p className="text-white/70 font-dm-mono">Technical insights and updates from our team</p>
                   </div>
                   
                   <div className="space-y-4">
