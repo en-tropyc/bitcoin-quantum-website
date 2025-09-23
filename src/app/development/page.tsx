@@ -6,7 +6,7 @@ export default function Development() {
   const roadmapItems = [
     {
       title: "Phase 0: Foundation",
-      quarter: "2025 Q2-Q3",
+      quarter: "2025 Q3",
       status: "completed",
       description: [
         "Initial research into post-quantum cryptographic algorithms",
@@ -16,59 +16,23 @@ export default function Development() {
       ]
     },
     {
-      title: "Phase 1: Mainnet Launch",
+      title: "Phase 1: Integrating Dilithium",
       quarter: "2025 Q4",
       status: "in-progress",
-      description: [
-        "Official launch of Bitcoin Quantum mainnet",
-        "Implementation of Dilithium post-quantum signature scheme",
-        "Genesis block creation and distribution",
-        "Network monitoring and support systems"
-      ]
+      description: "Extending Dilithium support for addresses, transactions, scripts and consensus/mining"
     },
     {
-      title: "Phase 2: Network Hardening & Growth",
-      quarter: "2026",
+      title: "Phase 2: Testnet",
+      quarter: "2025 Q4",
       status: "pending",
-      description: [
-        "Expanded PQC test coverage",
-        "Mempool & relay optimizations for PQC transactions",
-        "SDK for PQC wallet/app integration",
-        "Begin research on hybrid PQC (Dilithium + Falcon/SPHINCS+)"
-      ]
+      description: "Security, testing, and deployment, and whitepaper release"
     },
     {
-      title: "Phase 3: Hybrid Signatures & QPoW Research",
-      quarter: "2027",
+      title: "Phase 3: Mainnet",
+      quarter: "2026 Q1",
       status: "planned",
-      description: [
-        "Multi-algorithm hybrid signature support",
-        "Signature aggregation & compression research",
-        "Public PQC SDK released",
-        "Quantum Proof-of-Work (qPoW) prototype research"
-      ]
-    },
-    {
-      title: "Phase 4: Community Upgrade Path",
-      quarter: "2028",
-      status: "planned",
-      description: [
-        "Community governance vote (BIP-style) on qPoW upgrade",
-        "Testnet validation for qPoW designs",
-        "Security audits & adversarial testing"
-      ]
-    },
-    {
-      title: "Phase 5: Quantum Economy & Long-Term",
-      quarter: "2030+",
-      status: "future",
-      description: [
-        "Quantum-native monetary primitives (entangled state issuance, no-cloning scarcity)",
-        "Plugin architecture for qPoW and new primitives",
-        "Decentralized governance foundation",
-        "BTQ as Bitcoin’s quantum canary network"
-      ]
-    },
+      description: "Mainnet launch with Dilithium support and open-source release"
+    }
    
   ];
 
@@ -88,21 +52,21 @@ export default function Development() {
       title: "Dilithium Integration Phase 1 Complete",
       date: "2025-09-10",
       author: "Core Team",
-      description: "Phase 1 of Dilithium integration is complete. We added secure key handling, signing and verification APIs, Hash160 address derivation, and full unit tests. This milestone lays the foundation for address, script, and wallet integration.",
+      description: "Phase 1 of Dilithium integration is complete. This milestone lays the foundation for address, script, and wallet integration.",
       link: "https://hackmd.io/WuxQHXcKSlO_VfTXkwmz7A"
     },
     {
       title: "SegWit v2 for PQC: Architectural Decision",
       date: "2025-09-05",
       author: "Core Team",
-      description: "We’re integrating post-quantum signatures via SegWit v2: Dilithium keys/signatures live in the witness while outputs stay compact (P2PPH). Consensus-level changes like quantum PoW are deferred, keeping focus on the immediate risk: signature security.",
+      description: "We’re integrating post-quantum signatures via SegWit v2. Consensus-level changes like quantum PoW are deferred, keeping focus on the immediate risk: signature security.",
       link: "https://hackmd.io/q7D9SELdSFOgeHFZb_-E3A"
     },
     {
       title: "v0.1.0 Pre-Release: Chain Live + Genesis Mined",
       date: "2025-08-19",
       author: "Core Team",
-      description: "BTQ Core v0.1.0 is live. Executables build and run across platforms, AWS nodes are up, and genesis blocks have been mined on mainnet and testnet. This baseline unlocks the next stage: rigorous test coverage and protocol work for PQ signatures.",
+      description: "BTQ Core v0.1.0 is live. This baseline unlocks the next stage: rigorous test coverage and protocol work for PQC signatures.",
       link: "https://hackmd.io/@bitcoinquantum/SyUdwPIsgx"
     },
   ];
@@ -186,14 +150,20 @@ export default function Development() {
                                 <span className="text-xs text-white/80 font-dm-mono font-medium">{item.quarter}</span>
                               </div>
                             </div>
-                            <ul className="text-white/70 font-dm-mono text-base leading-relaxed space-y-1">
-                              {item.description.map((bullet, bulletIndex) => (
-                                <li key={bulletIndex} className="flex items-start">
-                                  <span className="text-white/50 mr-2 mt-1">•</span>
-                                  <span>{bullet}</span>
-                                </li>
-                              ))}
-                            </ul>
+                            {Array.isArray(item.description) ? (
+                              <ul className="text-white/70 font-dm-mono text-base leading-relaxed space-y-1">
+                                {item.description.map((bullet, bulletIndex) => (
+                                  <li key={bulletIndex} className="flex items-start">
+                                    <span className="text-white/50 mr-2 mt-1">•</span>
+                                    <span>{bullet}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            ) : (
+                              <p className="text-white/70 font-dm-mono text-base leading-relaxed">
+                                {item.description}
+                              </p>
+                            )}
                           </div>
                         </div>
                       </div>
