@@ -76,8 +76,10 @@ export default function Development() {
       case 'completed':
         return 'bg-green-500';
       case 'in-progress':
-        return 'bg-blue-500';
+        return 'bg-blue-500 animate-pulse';
       case 'pending':
+        return 'bg-gray-500';
+      case 'planned':
         return 'bg-gray-500';
       default:
         return 'bg-gray-500';
@@ -134,40 +136,43 @@ export default function Development() {
                   <div className="absolute left-6 top-6 w-0.5 bg-white/20" style={{height: 'calc(100% - 3rem)'}}></div>
                   
                   <div className="space-y-8">
-                    {roadmapItems.map((item, index) => (
-                      <div key={index} className="relative">
-                        <div className="flex items-start space-x-6">
-                          {/* Status indicator */}
-                          <div className={`w-12 h-12 rounded-full ${getStatusColor(item.status)} flex items-center justify-center flex-shrink-0 mt-2 relative z-10`}>
-                            <div className="w-4 h-4 bg-white rounded-full"></div>
-                          </div>
-                          
-                          {/* Content - No background box, content on background */}
-                          <div className="flex-1">
-                            <div className="flex items-center justify-between mb-3">
-                              <h3 className="text-xl font-semibold text-white font-dm-mono">{item.title}</h3>
-                              <div className="bg-white/10 border border-white/20 rounded px-3 py-1">
-                                <span className="text-xs text-white/80 font-dm-mono font-medium">{item.quarter}</span>
-                              </div>
+                    {roadmapItems.map((item, index) => {
+                      const isSubtle = item.status === 'pending' || item.status === 'planned';
+                      return (
+                        <div key={index} className={`relative ${isSubtle ? 'opacity-60' : ''}`}>
+                          <div className="flex items-start space-x-6">
+                            {/* Status indicator */}
+                            <div className={`w-12 h-12 rounded-full ${getStatusColor(item.status)} flex items-center justify-center flex-shrink-0 mt-2 relative z-10`}>
+                              <div className="w-4 h-4 bg-white rounded-full"></div>
                             </div>
-                            {Array.isArray(item.description) ? (
-                              <ul className="text-white/70 font-dm-mono text-base leading-relaxed space-y-1">
-                                {item.description.map((bullet, bulletIndex) => (
-                                  <li key={bulletIndex} className="flex items-start">
-                                    <span className="text-white/50 mr-2 mt-1">•</span>
-                                    <span>{bullet}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            ) : (
-                              <p className="text-white/70 font-dm-mono text-base leading-relaxed">
-                                {item.description}
-                              </p>
-                            )}
+                            
+                            {/* Content - No background box, content on background */}
+                            <div className="flex-1">
+                              <div className="flex items-center justify-between mb-3">
+                                <h3 className={`text-xl font-semibold font-dm-mono ${isSubtle ? 'text-white/70' : 'text-white'}`}>{item.title}</h3>
+                                <div className={`border rounded px-3 py-1 ${isSubtle ? 'bg-white/5 border-white/10' : 'bg-white/10 border-white/20'}`}>
+                                  <span className={`text-xs font-dm-mono font-medium ${isSubtle ? 'text-white/60' : 'text-white/80'}`}>{item.quarter}</span>
+                                </div>
+                              </div>
+                              {Array.isArray(item.description) ? (
+                                <ul className={`font-dm-mono text-base leading-relaxed space-y-1 ${isSubtle ? 'text-white/50' : 'text-white/70'}`}>
+                                  {item.description.map((bullet, bulletIndex) => (
+                                    <li key={bulletIndex} className="flex items-start">
+                                      <span className={`mr-2 mt-1 ${isSubtle ? 'text-white/40' : 'text-white/50'}`}>•</span>
+                                      <span>{bullet}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              ) : (
+                                <p className={`font-dm-mono text-base leading-relaxed ${isSubtle ? 'text-white/50' : 'text-white/70'}`}>
+                                  {item.description}
+                                </p>
+                              )}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               </div>
