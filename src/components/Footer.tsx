@@ -49,18 +49,13 @@ export default function Footer() {
             <h4 className="font-semibold text-white mb-4 font-dm-mono">Community</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-white/70 hover:text-white transition-colors font-dm-mono">
-                  GitHub
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-white/70 hover:text-white transition-colors font-dm-mono">
+                <a href="https://x.com/btc_quantum" target="_blank" className="text-white/70 hover:text-white transition-colors font-dm-mono">
                   Twitter
                 </a>
               </li>
               <li>
                 <a href="#" className="text-white/70 hover:text-white transition-colors font-dm-mono">
-                  Discord
+                  GitHub (coming soon)
                 </a>
               </li>
             </ul>
