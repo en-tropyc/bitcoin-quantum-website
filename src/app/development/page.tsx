@@ -63,7 +63,7 @@ export default function Development() {
       link: "https://hackmd.io/q7D9SELdSFOgeHFZb_-E3A"
     },
     {
-      title: "v0.1.0 Pre-Release: Chain Live + Genesis Mined",
+      title: "Pre-Release: Chain Live for Testing",
       date: "2025-08-19",
       author: "Core Team",
       description: "BTQ Core v0.1.0 is live. This baseline unlocks the next stage: rigorous test coverage and protocol work for PQC signatures.",
@@ -198,20 +198,20 @@ export default function Development() {
                           <span className="text-sm font-mono text-white/80 bg-white/10 px-2 py-1 rounded">
                             {release.version}
                           </span>
-                          <a
+                          {/* <a
                             href={release.link}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-400 hover:text-blue-300 font-dm-mono text-sm"
                           >
                             View on GitHub →
-                          </a>
+                          </a> */}
                         </div>
                       </div>
                     ))}
                   </div>
                   
-                  <div className="mt-4 text-right">
+                  {/* <div className="mt-4 text-right">
                     <a
                       href="https://github.com/btq-ag/BTQ-Core/releases"
                       target="_blank"
@@ -220,7 +220,7 @@ export default function Development() {
                     >
                       View all releases →
                     </a>
-                  </div>
+                  </div> */}
                 </div>
 
                 {/* Developer Notes Section */}
@@ -239,20 +239,20 @@ export default function Development() {
                         <p className="text-white/70 mb-3 font-dm-mono text-sm">{note.description}</p>
                         <div className="flex items-center justify-between">
                           <span className="text-sm text-white/60 font-dm-mono">by {note.author}</span>
-                          <a
+                          {/*<a
                             href={note.link}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-400 hover:text-blue-300 font-dm-mono text-sm"
                           >
                             Read on HackMD →
-                          </a>
+                          </a> */}
                         </div>
                       </div>
                     ))}
                   </div>
                   
-                  <div className="mt-4 text-right">
+                  {/* <div className="mt-4 text-right">
                     <a
                       href="https://hackmd.io/team/bitcoinquantum?nav=overview"
                       target="_blank"
@@ -261,7 +261,7 @@ export default function Development() {
                     >
                       View all notes →
                     </a>
-                  </div>
+                  </div> */}
                 </div>
 
               </div>
@@ -275,18 +275,17 @@ export default function Development() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="https://github.com/btq-ag/BTQ-Core"
-                  target="_blank"
+                  href="#"
                   rel="noopener noreferrer"
-                  className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors font-dm-mono"
+                  className="bg-blue-600/50 text-white/70 px-6 py-3 rounded-lg font-semibold hover:bg-blue-600/70 transition-colors font-dm-mono"
                 >
-                  Contribute on GitHub
+                  Contribute on GitHub (Coming Soon)
                 </a>
                 <Link
-                  href="/resources"
+                  href="/faq"
                   className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-colors font-dm-mono"
                 >
-                  View Resources
+                  Read FAQ
                 </Link>
               </div>
             </section>
