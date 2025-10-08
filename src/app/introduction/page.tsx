@@ -16,7 +16,7 @@ export default function Introduction() {
                 Introduction to Bitcoin Quantum
               </h1>
               <p className="text-xl md:text-2xl text-white/80 font-dm-mono">
-                Bitcoin evolved for the quantum computing era
+                Bitcoin evolved for the quantum era
               </p>
             </div>
           </div>
