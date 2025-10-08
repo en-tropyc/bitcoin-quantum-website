@@ -52,7 +52,7 @@ export default function Development() {
       title: "Dilithium Integration Phase 1 Complete",
       date: "2025-09-10",
       author: "Core Team",
-      description: "Phase 1 of Dilithium integration is complete. This milestone lays the foundation for address, script, and wallet integration.",
+      description: "Phase 1 of Dilithium integration is complete. This milestone lays the foundation for address, script, and wallet integration. Moving onto Phase 2 of Address and Script Integration",
       link: "https://hackmd.io/WuxQHXcKSlO_VfTXkwmz7A"
     },
     {
