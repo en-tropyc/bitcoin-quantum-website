@@ -25,7 +25,7 @@ export default function Home() {
           </div>
           <div className="relative text-center">
             <p className="text-xl md:text-2xl text-white/80 font-dm-mono">
-              BTC in quantum state
+              BTC in Quantum State
             </p>
           </div>
         </section>

@@ -64,7 +64,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 mt-8 pt-8 text-center">
           <p className="text-white/50 font-dm-mono">
-            © 2025 Bitcoin Quantum. All rights reserved.
+            © 2025 Bitcoin Quantum • All Rights Reserved
           </p>
         </div>
       </div>

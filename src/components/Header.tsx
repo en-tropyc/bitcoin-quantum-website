@@ -50,9 +50,9 @@ export default function Header() {
             >
               FAQ
             </Link>
-            <div className="ml-8 pl-8 border-l border-gray-600">
-              <span className="text-white font-dm-mono text-sm tracking-widest opacity-80">
-                BTC IN QUANTUM STATE
+            <div className="ml-8 pl-8 border-l border-gray-600 text-right">
+              <span className="text-white font-dm-mono text-sm tracking-widest opacity-80 text-right">
+                POWERED BY BTQ TECHNOLOGIES 
               </span>
             </div>
           </nav>
@@ -110,9 +110,9 @@ export default function Header() {
               >
                 FAQ
               </Link>
-              <div className="pt-4 mt-4 border-t border-gray-600">
-                <span className="block text-white font-dm-mono text-sm tracking-widest opacity-80 px-3">
-                  BTC IN QUANTUM STATE
+              <div className="pt-4 mt-4 border-t border-gray-600 text-right">
+                <span className="block text-white font-dm-mono text-sm tracking-widest opacity-80 px-3 text-right">
+                  POWERED BY BTQ TECHNOLOGIES
                 </span>
               </div>
             </div>
