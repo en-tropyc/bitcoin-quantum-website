@@ -13,7 +13,7 @@ export default function Footer() {
               </h3>
             </div>
             <p className="text-white/70 font-dm-mono max-w-md">
-              BTC in quantum state - the evolution of Bitcoin for the quantum computing era.
+              BTC in quantum state - the evolution of Bitcoin for the quantum era.
             </p>
           </div>
 
@@ -26,9 +26,14 @@ export default function Footer() {
                   Introduction
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/resources" className="text-white/70 hover:text-white transition-colors font-dm-mono">
                   Resources
+                </Link>
+              </li> */}
+              <li>
+                <Link href="/development" className="text-white/70 hover:text-white transition-colors font-dm-mono">
+                  Development
                 </Link>
               </li>
               <li>
@@ -64,7 +69,7 @@ export default function Footer() {
 
         <div className="border-t border-white/10 mt-8 pt-8 text-center">
           <p className="text-white/50 font-dm-mono">
-            © 2025 Bitcoin Quantum. All rights reserved.
+            © 2025 Bitcoin Quantum • All Rights Reserved
           </p>
         </div>
       </div>
