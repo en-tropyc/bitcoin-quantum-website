@@ -26,20 +26,20 @@ export default function Header() {
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link 
-              href="/introduction" 
+            <Link
+              href="/introduction"
               className="text-white hover:text-gray-300 px-3 py-2 font-dm-mono font-medium transition-colors"
             >
               Introduction
             </Link>
-            <Link 
-              href="/resources" 
+            {/* <Link
+              href="/resources"
               className="text-white hover:text-gray-300 px-3 py-2 font-dm-mono font-medium transition-colors"
             >
               Resources
-            </Link>
-            <Link 
-              href="/development" 
+            </Link> */}
+            <Link
+              href="/development"
               className="text-white hover:text-gray-300 px-3 py-2 font-dm-mono font-medium transition-colors"
             >
               Development
@@ -50,9 +50,9 @@ export default function Header() {
             >
               FAQ
             </Link>
-            <div className="ml-8 pl-8 border-l border-gray-600">
-              <span className="text-white font-dm-mono text-sm tracking-widest opacity-80">
-                BTC IN QUANTUM STATE
+            <div className="ml-8 pl-8 border-l border-gray-600 text-right">
+              <span className="text-white font-dm-mono text-sm tracking-widest opacity-80 text-right">
+                POWERED BY BTQ TECHNOLOGIES 
               </span>
             </div>
           </nav>
@@ -89,13 +89,13 @@ export default function Header() {
               >
                 Introduction
               </Link>
-              <Link
+              {/* <Link
                 href="/resources"
                 className="block text-white hover:bg-white/10 px-3 py-2 rounded-md font-dm-mono font-medium transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Resources
-              </Link>
+              </Link> */}
               <Link
                 href="/development"
                 className="block text-white hover:bg-white/10 px-3 py-2 rounded-md font-dm-mono font-medium transition-colors"
@@ -110,9 +110,9 @@ export default function Header() {
               >
                 FAQ
               </Link>
-              <div className="pt-4 mt-4 border-t border-gray-600">
-                <span className="block text-white font-dm-mono text-sm tracking-widest opacity-80 px-3">
-                  BTC IN QUANTUM STATE
+              <div className="pt-4 mt-4 border-t border-gray-600 text-right">
+                <span className="block text-white font-dm-mono text-sm tracking-widest opacity-80 px-3 text-right">
+                  POWERED BY BTQ TECHNOLOGIES
                 </span>
               </div>
             </div>
