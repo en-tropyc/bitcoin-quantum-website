@@ -143,14 +143,14 @@ export default function Introduction() {
               <div className="bg-white/5 p-8 rounded-lg text-center">
                 <h2 className="text-2xl font-bold text-white mb-4 font-dm-mono">Ready to Learn More?</h2>
                 <p className="text-white/70 mb-6 font-dm-mono">
-                  Explore our Progress, FAQ and prepare to use Bitcoin Quantum.
+                  Explore our resources and start using Bitcoin Quantum today.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link
                     href="/resources"
                     className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors font-dm-mono"
                   >
-                    View Development
+                    View Resources
                   </Link>
                   <Link
                     href="/faq"
