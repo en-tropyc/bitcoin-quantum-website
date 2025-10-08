@@ -112,7 +112,7 @@ export default function Development() {
                 Development Progress
               </h1>
               <p className="text-xl md:text-2xl text-white/80 font-dm-mono">
-                Building Bitcoin Quantum for the quantum era
+                Building Bitcoin for the quantum era
               </p>
             </div>
           </div>

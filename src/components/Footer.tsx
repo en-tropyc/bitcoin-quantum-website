@@ -13,7 +13,7 @@ export default function Footer() {
               </h3>
             </div>
             <p className="text-white/70 font-dm-mono max-w-md">
-              BTC in quantum state - the evolution of Bitcoin for the quantum computing era.
+              BTC in quantum state - the evolution of Bitcoin for the quantum era.
             </p>
           </div>
 
@@ -26,9 +26,14 @@ export default function Footer() {
                   Introduction
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/resources" className="text-white/70 hover:text-white transition-colors font-dm-mono">
                   Resources
+                </Link>
+              </li> */}
+              <li>
+                <Link href="/development" className="text-white/70 hover:text-white transition-colors font-dm-mono">
+                  Development
                 </Link>
               </li>
               <li>

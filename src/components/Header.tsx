@@ -26,20 +26,20 @@ export default function Header() {
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link 
-              href="/introduction" 
+            <Link
+              href="/introduction"
               className="text-white hover:text-gray-300 px-3 py-2 font-dm-mono font-medium transition-colors"
             >
               Introduction
             </Link>
-            <Link 
-              href="/resources" 
+            {/* <Link
+              href="/resources"
               className="text-white hover:text-gray-300 px-3 py-2 font-dm-mono font-medium transition-colors"
             >
               Resources
-            </Link>
-            <Link 
-              href="/development" 
+            </Link> */}
+            <Link
+              href="/development"
               className="text-white hover:text-gray-300 px-3 py-2 font-dm-mono font-medium transition-colors"
             >
               Development
@@ -89,13 +89,13 @@ export default function Header() {
               >
                 Introduction
               </Link>
-              <Link
+              {/* <Link
                 href="/resources"
                 className="block text-white hover:bg-white/10 px-3 py-2 rounded-md font-dm-mono font-medium transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Resources
-              </Link>
+              </Link> */}
               <Link
                 href="/development"
                 className="block text-white hover:bg-white/10 px-3 py-2 rounded-md font-dm-mono font-medium transition-colors"
