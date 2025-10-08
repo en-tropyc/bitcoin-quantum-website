@@ -20,7 +20,7 @@ const dmMono = DM_Mono({
 
 export const metadata: Metadata = {
   title: "Bitcoin Quantum",
-  description: "Bitcoin Quantum represents the evolution of Bitcoin for the quantum computing era. Explore quantum-resistant cryptography and the future of decentralized digital currency.",
+  description: "Bitcoin Quantum represents the evolution of Bitcoin for the quantum era. Explore quantum-resistant cryptography and the future of decentralized digital currency.",
   keywords: "Bitcoin, Quantum Computing, Cryptocurrency, Quantum Resistance, Blockchain, BTC",
   authors: [{ name: "Bitcoin Quantum" }],
   creator: "Bitcoin Quantum",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Bitcoin Quantum - BTC in Quantum State",
-    description: "The evolution of Bitcoin for the quantum computing era",
+    description: "The evolution of Bitcoin for the quantum era",
     url: "https://bitcoinquantum.com",
     siteName: "Bitcoin Quantum",
     locale: "en_US",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Bitcoin Quantum - BTC in Quantum State",
-    description: "The evolution of Bitcoin for the quantum computing era",
+    description: "The evolution of Bitcoin for the quantum era",
     creator: "@bitcoinquantum",
   },
   robots: {
