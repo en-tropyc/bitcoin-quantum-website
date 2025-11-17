@@ -62,29 +62,47 @@ export default function Introduction() {
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                   <div className="bg-blue-500/20 p-6 rounded-lg border border-blue-500/30">
-                    <h3 className="text-xl font-semibold text-blue-300 mb-3 font-dm-mono">Dilithium</h3>
+                    <h3 className="text-xl font-semibold text-blue-300 mb-3 font-dm-mono">
+                      <a
+                        href="https://pq-crystals.org/dilithium/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-200 transition-colors"
+                      >
+                        Dilithium
+                      </a>
+                    </h3>
                     <p className="text-white/80 font-dm-mono">
                       {"NIST-standardized lattice-based digital signature algorithm integrated into BTQ's PPK infrastructure for quantum-resistant transactions."}
                     </p>
                   </div>
                   <div className="bg-green-500/20 p-6 rounded-lg border border-green-500/30">
-                    <h3 className="text-xl font-semibold text-green-300 mb-3 font-dm-mono">Falcon</h3>
+                    <h3 className="text-xl font-semibold text-green-300 mb-3 font-dm-mono">
+                      <a
+                        href="https://falcon-sign.info/" target="_blank" rel="noopener noreferrer" className="hover:text-green-200 transition-colors"
+                      >
+                        Falcon
+                      </a>
+                    </h3>
                     <p className="text-green-200 font-dm-mono">
                       Compact lattice-based signatures optimized for smaller signature sizes 
                       while maintaining post-quantum security guarantees.
                     </p>
                   </div>
                   <div className="bg-purple-500/20 p-6 rounded-lg border border-purple-500/30">
-                    <h3 className="text-xl font-semibold text-purple-300 mb-3 font-dm-mono">SPHINCS+</h3>
+                    <h3 className="text-xl font-semibold text-purple-300 mb-3 font-dm-mono">
+                      <a
+                        href="https://sphincs.org/" target="_blank" rel="noopener noreferrer" className="hover:text-purple-200 transition-colors"
+                      >
+                        SPHINCS+
+                      </a>
+                    </h3>
                     <p className="text-purple-200 font-dm-mono">
                       Hash-based signature scheme providing conservative security assumptions 
                       and additional quantum resistance layers.
                     </p>
                   </div>
                   <div className="bg-orange-500/20 p-6 rounded-lg border border-orange-500/30">
-                    <h3 className="text-xl font-semibold text-orange-300 mb-3 font-dm-mono">PPK Infrastructure</h3>
+                    <h3 className="text-xl font-semibold text-orange-300 mb-3 font-dm-mono">PQC Infrastructure</h3>
                     <p className="text-orange-200 font-dm-mono">
-                      Post-Quantum Key infrastructure enabling future integration of new 
+                      Post-Quantum cryptographic agility enabling future integration of new 
                       quantum-resistant algorithms as they are developed and standardized.
                     </p>
                   </div>
