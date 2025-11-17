@@ -49,6 +49,28 @@ export default function Development() {
 
   const developerNotes = [
     {
+      title: "CCMiner",
+      date: "2025-11-12",
+      author: "Core Team",
+      description: "CCminer now fully connects with the BTQ network for solo and pool mining — including Dilithium address support and working payout logic. End-to-end mining flow tested successfully, marking a major step toward Testnet launch readiness.",
+      link: ""
+    },
+    {
+      title: "BTQ Explorer",
+      date: "2025-11-05",
+      author: "Core Team",
+      description: "The explorer is feature-rich, offering real-time visibility into blocks, transactions, hashrates and UTXOs. Built on a fully modernized CLI stack, it supports BTQ’s new post-quantum transaction model and Dilithium-based cryptography. Extensive bug fixes, test coverage, and performance tuning preparing for rollout in the next phase.",
+      link: ""
+    },
+    {
+      title: "Dilithium Integration Phase 6",
+      date: "2025-10-01",
+      author: "Core Team",
+      description: "Phase 6 implements comprehensive Dilithium transaction signing functionality for the BTQ wallet, enabling users to create and sign transactions using post-quantum cryptographic keys. The implementation provides full support for both legacy and witness script types, with proper signature placement and error handling.",
+      link: ""
+    }
+    /*
+    {
       title: "Dilithium Integration Phase 1 Complete",
       date: "2025-09-10",
       author: "Core Team",
@@ -69,6 +91,7 @@ export default function Development() {
       description: "BTQ Core v0.1.0 is live. This baseline unlocks the next stage: rigorous test coverage and protocol work for PQC signatures.",
       link: "https://hackmd.io/@bitcoinquantum/SyUdwPIsgx"
     },
+    */
   ];
 
   const getStatusColor = (status: string) => {
