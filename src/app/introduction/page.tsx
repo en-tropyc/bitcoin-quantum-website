@@ -31,10 +31,10 @@ export default function Introduction() {
               <div className="mb-12">
                 <h2 className="text-3xl font-bold text-white mb-6 font-dm-mono">What is BTQ (Bitcoin Quantum)?</h2>
                 <p className="text-white/80 mb-6 font-dm-mono text-lg leading-relaxed">
-                  {"BTQ is a post-quantum POW cryptocurrency designed for the post-quantum era. It maintains Bitcoin's economic model and network architecture while implementing quantum-resistant cryptographic primitives and enhanced transaction capacity specifically designed for large post-quantum signatures."}
+                  {"BTQ is Bitcoin designed for the post-quantum era. It maintains Bitcoin's economic model and network architecture while implementing quantum-resistant cryptographic primitives and enhanced transaction capacity specifically designed for large post-quantum signatures."}
                 </p>
                 <p className="text-white/80 mb-6 font-dm-mono text-lg leading-relaxed">
-                  {"Built on Bitcoin Core's proven codebase, BTQ features a 64 MiB block size limit (compared to Bitcoin's 1MB) and integrates a PPK (Post-Quantum Key) infrastructure that enables seamless integration of future quantum-resistant signature algorithms as they become available."}
+                  {"Built on Bitcoin Core's proven codebase, BTQ features a 64 MB block size limit (compared to Bitcoin's 1MB) and integrates post-quantum signature algorithms that enables seamless integration of future quantum-resistant signature algorithms as they become available."}
                 </p>
               </div>
 
