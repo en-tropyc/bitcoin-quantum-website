@@ -34,14 +34,11 @@ export default function Home() {
         <section className="py-20 bg-[#0B1426]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <p className="text-white/80 mb-12 font-dm-mono text-lg leading-relaxed max-w-3xl mx-auto">
-                {"Bitcoin Quantum is a peer-to-peer electronic cash system that enables instant payments to anyone, anywhere in the world. It is decentralized, without a central authority, and uses a proof-of-work consensus mechanism to secure the network."}
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 font-dm-mono">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 font-dm-mono">
                 Quantum State of Mind
               </h2>
-              <p className="text-xl text-white/80 font-dm-mono max-w-3xl mx-auto">
-                Bitcoin for a quantum era.
+              <p className="text-white/80 font-dm-mono text-lg leading-relaxed max-w-3xl mx-auto">
+                {"Bitcoin Quantum is a peer-to-peer electronic cash system that enables instant payments to anyone, anywhere in the world. It is decentralized, without a central authority, and uses a proof-of-work consensus mechanism to secure the network."}
               </p>
             </div>
 
@@ -91,12 +88,9 @@ export default function Home() {
         {/* CTA Section */}
         <section className="py-20 bg-[#0B1426]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 font-dm-mono">
-              Experience Bitcoin Quantum
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 font-dm-mono">
+              Bitcoin for a Quantum Era
             </h2>
-            <p className="text-xl text-white/80 mb-8 font-dm-mono">
-              The evolution of Bitcoin for the quantum age.
-            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/introduction"
