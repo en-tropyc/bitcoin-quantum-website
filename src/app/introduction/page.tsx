@@ -48,8 +48,8 @@ export default function Introduction() {
                 </p>
                 <ul className="list-disc list-inside text-white/80 mb-6 font-dm-mono text-lg leading-relaxed space-y-2">
                   <li>Current Bitcoin uses ECDSA (Elliptic Curve Digital Signature Algorithm)</li>
-                  <li>Quantum computers could break ECDSA using <a href="https://en.wikipedia.org/wiki/Shor's_algorithm" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Shor's algorithm</a></li>
-                  <li>This could compromise user's private keys, making funds vulnerable to theft or unauthorized access</li>
+                  <li>Quantum computers could break ECDSA using <a href="https://en.wikipedia.org/wiki/Shor%27s_algorithm" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Shor&apos;s algorithm</a></li>
+                  <li>This could compromise user&apos;s private keys, making funds vulnerable to theft or unauthorized access</li>
                   <li>The threat is real and approaching quickly</li>
                 </ul>
               </div>
@@ -61,14 +61,14 @@ export default function Introduction() {
                   {"Bitcoin's security model, rebuilt for the quantum era."}
                 </p>
                 <p className="text-white/80 mb-8 font-dm-mono text-lg leading-relaxed">
-                  BTQ combines NIST-standardized post-quantum cryptography with Bitcoin's proven consensus architecture to create a blockchain secured against both classical and quantum threats.
+                  BTQ combines NIST-standardized post-quantum cryptography with Bitcoin&apos;s proven consensus architecture to create a blockchain secured against both classical and quantum threats.
                 </p>
                 <ul className="space-y-6 text-white/80 font-dm-mono text-lg leading-relaxed">
                   <li>
-                    <strong className="text-white">Quantum-Resistant Signatures:</strong> NIST-standardized CRYSTALS-Dilithium signatures replace Bitcoin's quantum-vulnerable ECDSA, providing long-term security against emerging quantum computers.
+                    <strong className="text-white">Quantum-Resistant Signatures:</strong> NIST-standardized CRYSTALS-Dilithium signatures replace Bitcoin&apos;s quantum-vulnerable ECDSA, providing long-term security against emerging quantum computers.
                   </li>
                   <li>
-                    <strong className="text-white">Bitcoin Foundation:</strong> Built on Bitcoin's proven UTXO model, scripting system, and SHA-256 consensus—battle-tested architecture with modern cryptographic foundations.
+                    <strong className="text-white">Bitcoin Foundation:</strong> Built on Bitcoin&apos;s proven UTXO model, scripting system, and SHA-256 consensus—battle-tested architecture with modern cryptographic foundations.
                   </li>
                   <li>
                     <strong className="text-white">Cryptographic Agility:</strong> Extensible protocol design enables future integration of additional post-quantum algorithms as cryptographic standards evolve.
@@ -95,7 +95,7 @@ export default function Introduction() {
                   <div className="bg-white/5 p-6 rounded-lg border border-white/10">
                     <h3 className="text-xl font-semibold text-white mb-3 font-dm-mono">Canary Network</h3>
                     <p className="text-white/80 font-dm-mono">
-                      An experimental proving ground for quantum-safe technologies—validating solutions that may inform Bitcoin's own evolution.
+                      An experimental proving ground for quantum-safe technologies—validating solutions that may inform Bitcoin&apos;s own evolution.
                     </p>
                   </div>
                   <div className="bg-white/5 p-6 rounded-lg border border-white/10">
