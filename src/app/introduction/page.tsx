@@ -61,7 +61,7 @@ export default function Introduction() {
                   {"Bitcoin's security model, rebuilt for the quantum era."}
                 </p>
                 <p className="text-white/80 mb-8 font-dm-mono text-lg leading-relaxed">
-                  BTQ combines NIST-standardized post-quantum cryptography with Bitcoin&apos;s proven consensus architecture to create a blockchain secured against both classical and quantum threats.
+                  Bitcoin Quantum combines NIST-standardized post-quantum cryptography with Bitcoin&apos;s proven architecture to create a digital store of value secure against both classical and quantum threats.
                 </p>
                 <ul className="space-y-6 text-white/80 font-dm-mono text-lg leading-relaxed">
                   <li>
@@ -81,9 +81,9 @@ export default function Introduction() {
                 <h2 className="text-3xl font-bold text-white mb-6 font-dm-mono">Key Features</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="bg-white/5 p-6 rounded-lg border border-white/10">
-                    <h3 className="text-xl font-semibold text-white mb-3 font-dm-mono">Quantum-Safe Today</h3>
+                    <h3 className="text-xl font-semibold text-white mb-3 font-dm-mono">Quantum Secure From Day One</h3>
                     <p className="text-white/80 font-dm-mono">
-                      Production-ready protection using NIST FIPS 204 standardized cryptography, securing your assets against future quantum threats.
+                      Genesis block protection with NIST FIPS 204 standardized cryptography, securing assets against cryptographic threats now and into the future.
                     </p>
                   </div>
                   <div className="bg-white/5 p-6 rounded-lg border border-white/10">
@@ -95,23 +95,17 @@ export default function Introduction() {
                   <div className="bg-white/5 p-6 rounded-lg border border-white/10">
                     <h3 className="text-xl font-semibold text-white mb-3 font-dm-mono">Canary Network</h3>
                     <p className="text-white/80 font-dm-mono">
-                      An experimental proving ground for quantum-safe technologies—validating solutions that may inform Bitcoin&apos;s own evolution.
-                    </p>
-                  </div>
-                  <div className="bg-white/5 p-6 rounded-lg border border-white/10">
-                    <h3 className="text-xl font-semibold text-white mb-3 font-dm-mono">NIST Standardized</h3>
-                    <p className="text-white/80 font-dm-mono">
-                      Built on peer-reviewed, government-validated post-quantum cryptography—not experimental or unproven algorithms.
+                      A proving ground for quantum-safe technologies, validating solutions that will secure our digital future.
                     </p>
                   </div>
                   <div className="bg-white/5 p-6 rounded-lg border border-white/10">
                     <h3 className="text-xl font-semibold text-white mb-3 font-dm-mono">Future Ready</h3>
                     <p className="text-white/80 font-dm-mono">
-                      Designed for cryptographic agility, ready to adopt emerging NIST-standardized algorithms like Falcon and SPHINCS+ as the ecosystem matures.
+                      Designed for cryptographic agility, ready to adopt emerging NIST or otherwise standardized algorithms as the post-quantum ecosystem matures.
                     </p>
                   </div>
                   <div className="bg-white/5 p-6 rounded-lg border border-white/10">
-                    <h3 className="text-xl font-semibold text-white mb-3 font-dm-mono">Independent Network</h3>
+                    <h3 className="text-xl font-semibold text-white mb-3 font-dm-mono">A New Network</h3>
                     <p className="text-white/80 font-dm-mono">
                       Distinct genesis block, network identifiers, and address formats ensure clean separation and prevent cross-chain replay attacks.
                     </p>
