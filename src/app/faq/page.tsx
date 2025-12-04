@@ -17,19 +17,19 @@ const faqData: FAQItem[] = [
     id: 1,
     category: 'general',
     question: 'What is BTQ (Bitcoin Quantum)?',
-    answer: `BTQ is a post-quantum POW cryptocurrency designed for the post-quantum era. It maintains Bitcoin's economic model and network architecture while implementing quantum-resistant cryptographic primitives and enhanced transaction capacity for large post-quantum signatures. Currently in Phase 2 (v1.1.0) of development with active Dilithium integration.`
+    answer: `Bitcoin Quantum is Bitcoin designed for the post-quantum era. It maintains Bitcoin's economic model and network architecture while implementing quantum-resistant cryptographic primitives. Bitcoin Quantum remains a peer-to-peer network with no central authority or banks. It is open, its design is public, nobody owns or controls Bitcoin Quantum and everyone can take part.`
   },
   {
     id: 2,
     category: 'security',
     question: 'Why do we need quantum-resistant cryptocurrency?',
-    answer: `Current cryptocurrencies like Bitcoin use ECDSA signatures that could be broken by sufficiently powerful quantum computers using Shor's algorithm. BTQ uses NIST-standardized post-quantum algorithms (Dilithium, Falcon, SPHINCS+) that remain secure against both classical and quantum computer attacks.`
+    answer: `Current cryptocurrencies like Bitcoin use ECDSA signatures that could be broken by sufficiently powerful quantum computers using Shor's algorithm. Bitcoin Quantum uses NIST-standardized post-quantum algorithms that remain secure against both classical and quantum computer attacks.`
   },
   {
     id: 3,
     category: 'technical',
     question: 'What cryptographic algorithms does BTQ use?',
-    answer: `BTQ implements integrated support for multiple post-quantum signature algorithms: Dilithium (lattice-based), Falcon (compact signatures), and SPHINCS+ (hash-based). These are integrated through BTQ's PPK (Post-Quantum Key) infrastructure, which enables future algorithm integration as standards evolve.`
+    answer: `Bitcoin Quantum combines NIST-standardized post-quantum cryptography with Bitcoin's proven architecture to create a digital store of value secure against both classical and quantum threats. BTQ uses NIST-standardized CRYSTALS-Dilithium signatures to replace Bitcoin's quantum-vulnerable ECDSA, providing long-term security against emerging quantum computers. The protocol is designed with cryptographic agility, ready to adopt emerging NIST or otherwise standardized algorithms as the post-quantum ecosystem matures.`
   },
   {
     id: 4,
