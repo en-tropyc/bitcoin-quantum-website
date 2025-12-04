@@ -34,8 +34,8 @@ export default function Home() {
         <section className="py-20 bg-[#0B1426]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <p className="text-white/80 mb-6 font-dm-mono text-lg leading-relaxed max-w-3xl mx-auto">
-                {"Like Bitcoin, Bitcoin Quantum is a peer-to-peer electronic cash system that enables instant payments to anyone, anywhere in the world. It is decentralized, without a central authority, and uses a proof-of-work consensus mechanism to secure the network."}
+              <p className="text-white/80 mb-12 font-dm-mono text-lg leading-relaxed max-w-3xl mx-auto">
+                {"Bitcoin Quantum is a peer-to-peer electronic cash system that enables instant payments to anyone, anywhere in the world. It is decentralized, without a central authority, and uses a proof-of-work consensus mechanism to secure the network."}
               </p>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 font-dm-mono">
                 Quantum State of Mind
