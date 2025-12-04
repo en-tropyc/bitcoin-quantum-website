@@ -33,6 +33,9 @@ export default function Introduction() {
                 <p className="text-white/80 mb-6 font-dm-mono text-lg leading-relaxed">
                   {"Bitcoin Quantum is Bitcoin designed for the post-quantum era. It maintains Bitcoin's economic model and network architecture while implementing quantum-resistant cryptographic primitives and enhanced transaction capacity specifically designed for large post-quantum signatures."}
                 </p>
+                <p className="text-white/80 mb-6 font-dm-mono text-lg leading-relaxed">
+                  Like Bitcoin, Bitcoin Quantum is peer-to-peer with no central authority or banks. Managing transactions and the issuing of bitcoins is carried out collectively by the network. Bitcoin Quantum is open, its design is public, nobody owns or controls Bitcoin Quantum and <strong>everyone can take part</strong>.
+                </p>
               </div>
 
               {/* The Quantum Threat */}
