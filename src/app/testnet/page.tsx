@@ -65,10 +65,7 @@ export default function Testnet() {
             <div className="mb-12">
               <h2 className="text-3xl font-bold text-white mb-6 font-dm-mono">Overview</h2>
               <p className="text-white/80 mb-6 font-dm-mono text-lg leading-relaxed">
-                The Bitcoin Quantum testnet is a public testing environment where miners and developers can experiment with quantum-resistant mining before mainnet launch. Participate in validating the first blockchain secured by NIST-standardized post-quantum cryptography.
-              </p>
-              <p className="text-white/80 mb-6 font-dm-mono text-lg leading-relaxed">
-                As an early testnet participant, you will help stress-test the network, identify potential issues, and contribute to the development of quantum-safe cryptocurrency infrastructure. Your feedback directly shapes the future of Bitcoin Quantum.
+                The Bitcoin Quantum testnet is a public testing environment where miners and developers can experiment with quantum-resistant mining before mainnet launch. 
               </p>
               <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4">
                 <p className="text-yellow-200/90 font-dm-mono text-sm">
@@ -77,7 +74,7 @@ export default function Testnet() {
               </div>
             </div>
 
-            {/* Network Details */}
+            {/* Network Details
             <div className="mb-12">
               <h2 className="text-3xl font-bold text-white mb-6 font-dm-mono">Network Details</h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -88,7 +85,7 @@ export default function Testnet() {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             {/* Testnet Resources */}
             <div className="mb-12">
