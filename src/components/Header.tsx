@@ -44,8 +44,14 @@ export default function Header() {
             >
               Development
             </Link>
-            <Link 
-              href="/faq" 
+            <Link
+              href="/testnet"
+              className="text-white hover:text-gray-300 px-3 py-2 font-dm-mono font-medium transition-colors"
+            >
+              Testnet
+            </Link>
+            <Link
+              href="/faq"
               className="text-white hover:text-gray-300 px-3 py-2 font-dm-mono font-medium transition-colors"
             >
               FAQ
@@ -102,6 +108,13 @@ export default function Header() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Development
+              </Link>
+              <Link
+                href="/testnet"
+                className="block text-white hover:bg-white/10 px-3 py-2 rounded-md font-dm-mono font-medium transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Testnet
               </Link>
               <Link
                 href="/faq"

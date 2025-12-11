@@ -37,6 +37,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/testnet" className="text-white/70 hover:text-white transition-colors font-dm-mono">
+                  Testnet
+                </Link>
+              </li>
+              <li>
                 <Link href="/faq" className="text-white/70 hover:text-white transition-colors font-dm-mono">
                   FAQ
                 </Link>
