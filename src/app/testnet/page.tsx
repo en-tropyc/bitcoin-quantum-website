@@ -51,7 +51,7 @@ export default function Testnet() {
                 </span>
               </div>
               <p className="text-xl md:text-2xl text-white/80 font-dm-mono">
-                Run a miner node on the Bitcoin Quantum testnet
+                Run a miner on the Bitcoin Quantum testnet
               </p>
             </div>
           </div>
