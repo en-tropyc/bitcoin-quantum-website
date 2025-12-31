@@ -83,16 +83,15 @@ export default function Testnet() {
                 </svg>
                 Download for Linux
               </a>
-              <a
-                href="/btq_mining_instructions.md"
-                download
+              <Link
+                href="/testnet/mining-guide"
                 className="inline-flex items-center gap-2 bg-transparent text-white border border-[rgba(0,240,255,0.1)] px-7 py-3.5 rounded-lg font-semibold hover:border-[rgba(0,240,255,0.25)] hover:bg-[#0c1017] transition-all"
               >
                 <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"/>
                 </svg>
                 Mining Guide
-              </a>
+              </Link>
             </div>
           </div>
         </header>
@@ -128,12 +127,12 @@ export default function Testnet() {
                     2
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-semibold mb-1">Download the mining guide</h3>
+                    <h3 className="text-lg font-semibold mb-1">Read the mining guide</h3>
                     <p className="text-white/60 text-sm">
-                      Get the{' '}
-                      <a href="/btq_mining_instructions.md" download className="text-[#00f0ff] hover:underline">
+                      Read the{' '}
+                      <Link href="/testnet/mining-guide" className="text-[#00f0ff] hover:underline">
                         mining guide
-                      </a>
+                      </Link>
                       {' '}for step-by-step instructions on setup, configuration, and connecting to the pool.
                     </p>
                   </div>
@@ -256,7 +255,7 @@ export default function Testnet() {
           <div className="flex gap-6">
             <Link href="/" className="text-white/50 text-sm hover:text-[#00f0ff] transition-colors">Main Site</Link>
             <a href="https://github.com/btq-ag/btq-core" target="_blank" rel="noopener noreferrer" className="text-white/50 text-sm hover:text-[#00f0ff] transition-colors">GitHub</a>
-            <a href="#" className="text-white/50 text-sm hover:text-[#00f0ff] transition-colors">Docs</a>
+            <Link href="/testnet/mining-guide" className="text-white/50 text-sm hover:text-[#00f0ff] transition-colors">Mining Guide</Link>
             <a href="#" className="text-white/50 text-sm hover:text-[#00f0ff] transition-colors">Discord</a>
             <a href="https://x.com/btc_quantum" target="_blank" rel="noopener noreferrer" className="text-white/50 text-sm hover:text-[#00f0ff] transition-colors">Twitter</a>
           </div>
