@@ -260,7 +260,7 @@ export default function Testnet() {
             <a href="https://x.com/btc_quantum" target="_blank" rel="noopener noreferrer" className="text-white/50 text-sm hover:text-[#00f0ff] transition-colors">Twitter</a>
           </div>
           <div className="font-dm-mono text-xs text-white/50 bg-[#0c1017] px-3 py-1.5 rounded-md border border-[rgba(0,240,255,0.1)]">
-            testnet v0.1.0
+            testnet-v0.1.0
           </div>
         </div>
       </footer>
