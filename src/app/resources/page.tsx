@@ -47,25 +47,46 @@ export default function Resources() {
       name: "BTQ Network Info",
       description: "Network ports: Mainnet P2P 8334, RPC 8332, Testnet P2P 18334, RPC 18332",
       link: "#",
-      icon: "🌐"
+      icon: (
+        <svg width="32" height="32" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+      )
     },
     {
       name: "Build Instructions",
       description: "Complete build guide for compiling BTQ Core from source",
       link: "https://github.com/btq-ag/BTQ-Core",
-      icon: "🔨"
+      icon: (
+        <svg width="32" height="32" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+          <path d="M15 12l-8.5 8.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L12 9"/>
+          <path d="M17.64 15L22 10.64a1 1 0 0 0 0-1.41l-4.23-4.23a1 1 0 0 0-1.41 0L12 9.36"/>
+          <path d="M21 2l-2 2"/>
+        </svg>
+      )
     },
     {
       name: "Regtest Environment",
       description: "Local development environment with instant block generation",
       link: "#",
-      icon: "⚙️"
+      icon: (
+        <svg width="32" height="32" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </svg>
+      )
     },
     {
       name: "Network Status",
       description: "Monitor BTQ network health and post-quantum signature adoption",
       link: "#",
-      icon: "📊"
+      icon: (
+        <svg width="32" height="32" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+          <path d="M3 3v18h18"/>
+          <path d="M18 17V9M13 17V5M8 17v-3"/>
+        </svg>
+      )
     }
   ];
 
@@ -74,25 +95,43 @@ export default function Resources() {
       name: "BTQ-Core Repository",
       description: "Official BTQ Core source code, documentation, and development resources",
       link: "https://github.com/btq-ag/BTQ-Core",
-      icon: "💻"
+      icon: (
+        <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <polyline points="16 18 22 12 16 6"/>
+          <polyline points="8 6 2 12 8 18"/>
+        </svg>
+      )
     },
     {
       name: "Build Documentation",
       description: "Platform-specific build instructions for Windows, macOS, Linux, and more",
       link: "https://github.com/btq-ag/BTQ-Core/tree/master/doc",
-      icon: "📚"
+      icon: (
+        <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+        </svg>
+      )
     },
     {
       name: "Post-Quantum Integration",
       description: "PPK infrastructure and Dilithium signature implementation details",
       link: "https://github.com/btq-ag/BTQ-Core/tree/master/doc-btq",
-      icon: "🔐"
+      icon: (
+        <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      )
     },
     {
       name: "Developer Notes",
       description: "Contributing guidelines, code review process, and development workflow",
       link: "https://github.com/btq-ag/BTQ-Core/blob/master/doc-btq/CONTRIBUTING.md",
-      icon: "🛠️"
+      icon: (
+        <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+        </svg>
+      )
     }
   ];
 
@@ -221,7 +260,7 @@ export default function Resources() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {tools.map((tool, index) => (
                   <div key={index} className="bg-white/5 border border-white/10 rounded-lg p-6 text-center hover:bg-white/10 transition-colors">
-                    <div className="text-4xl mb-4">{tool.icon}</div>
+                    <div className="text-[#00f0ff] mb-4 flex justify-center">{tool.icon}</div>
                     <h3 className="text-lg font-semibold text-white mb-2 font-dm-mono">{tool.name}</h3>
                     <p className="text-white/70 mb-4 font-dm-mono text-sm">{tool.description}</p>
                     <Link
@@ -248,7 +287,7 @@ export default function Resources() {
                 {developers.map((resource, index) => (
                   <div key={index} className="bg-white/5 border border-white/10 rounded-lg p-6 hover:bg-white/10 transition-colors">
                     <div className="flex items-center mb-4">
-                      <span className="text-2xl mr-4">{resource.icon}</span>
+                      <span className="text-[#00f0ff] mr-4">{resource.icon}</span>
                       <h3 className="text-lg font-semibold text-white font-dm-mono">{resource.name}</h3>
                     </div>
                     <p className="text-white/70 mb-4 font-dm-mono">{resource.description}</p>
