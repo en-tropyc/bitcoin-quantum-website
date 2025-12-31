@@ -106,7 +106,8 @@ export default function Testnet() {
 
             <div className="flex flex-wrap gap-4 justify-center">
               <a
-                href="#"
+                href="/btq-miner-v0.1.0-linux-x64.zip"
+                download
                 className="inline-flex items-center gap-2 bg-[#00f0ff] text-[#06080c] px-7 py-3.5 rounded-lg font-semibold hover:shadow-[0_0_30px_rgba(0,240,255,0.3),0_0_60px_rgba(0,240,255,0.15)] hover:-translate-y-0.5 transition-all"
               >
                 <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
