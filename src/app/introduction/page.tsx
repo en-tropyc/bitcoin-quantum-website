@@ -4,16 +4,19 @@ import Link from 'next/link';
 
 export default function Introduction() {
   return (
-    <div className="min-h-screen bg-[#0B1426] flex flex-col">
+    <div className="min-h-screen bg-[#06080c] flex flex-col relative">
+      {/* Grid background */}
+      <div className="grid-background" />
+
       <Header />
-      
-      <main className="flex-1">
+
+      <main className="flex-1 relative z-10">
         {/* Hero Section */}
-        <section className="bg-[#0B1426] text-white py-20">
+        <section className="text-white py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 font-dm-mono">
-                Introducing Bitcoin Quantum
+                Introducing <span className="gradient-text">Bitcoin Quantum</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/80 font-dm-mono">
                 Bitcoin evolved for the quantum era
@@ -23,7 +26,7 @@ export default function Introduction() {
         </section>
 
         {/* Content Sections */}
-        <section className="py-16 bg-[#0B1426]">
+        <section className="py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="prose prose-lg max-w-none">
               
@@ -48,7 +51,7 @@ export default function Introduction() {
                 </p>
                 <ul className="list-disc list-inside text-white/80 mb-6 font-dm-mono text-lg leading-relaxed space-y-2">
                   <li>Current Bitcoin uses ECDSA (Elliptic Curve Digital Signature Algorithm)</li>
-                  <li>Quantum computers could break ECDSA using <a href="https://en.wikipedia.org/wiki/Shor%27s_algorithm" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Shor&apos;s algorithm</a></li>
+                  <li>Quantum computers could break ECDSA using <a href="https://en.wikipedia.org/wiki/Shor%27s_algorithm" target="_blank" rel="noopener noreferrer" className="text-[#00f0ff] hover:text-[#00f0ff]/80 underline">Shor&apos;s algorithm</a></li>
                   <li>This could compromise user&apos;s private keys, making funds vulnerable to theft or unauthorized access</li>
                   <li>The threat is real and approaching quickly</li>
                 </ul>
@@ -80,31 +83,31 @@ export default function Introduction() {
               <div className="mb-12">
                 <h2 className="text-3xl font-bold text-white mb-6 font-dm-mono">Key Features</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-white/5 p-6 rounded-lg border border-white/10">
+                  <div className="bg-[#0c1017] p-6 rounded-lg border border-[rgba(0,240,255,0.1)] hover:border-[rgba(0,240,255,0.25)] transition-all">
                     <h3 className="text-xl font-semibold text-white mb-3 font-dm-mono">Quantum Secure From Day One</h3>
                     <p className="text-white/80 font-dm-mono">
                       Genesis block protection with NIST FIPS 204 standardized cryptography, securing assets against cryptographic threats now and into the future.
                     </p>
                   </div>
-                  <div className="bg-white/5 p-6 rounded-lg border border-white/10">
+                  <div className="bg-[#0c1017] p-6 rounded-lg border border-[rgba(0,240,255,0.1)] hover:border-[rgba(0,240,255,0.25)] transition-all">
                     <h3 className="text-xl font-semibold text-white mb-3 font-dm-mono">Bitcoin Compatible</h3>
                     <p className="text-white/80 font-dm-mono">
                       Familiar architecture, transaction model, and wallet experience. If you understand Bitcoin, you understand BTQ.
                     </p>
                   </div>
-                  <div className="bg-white/5 p-6 rounded-lg border border-white/10">
+                  <div className="bg-[#0c1017] p-6 rounded-lg border border-[rgba(0,240,255,0.1)] hover:border-[rgba(0,240,255,0.25)] transition-all">
                     <h3 className="text-xl font-semibold text-white mb-3 font-dm-mono">Canary Network</h3>
                     <p className="text-white/80 font-dm-mono">
                       A proving ground for quantum-safe technologies, validating solutions that will secure our digital future.
                     </p>
                   </div>
-                  <div className="bg-white/5 p-6 rounded-lg border border-white/10">
+                  <div className="bg-[#0c1017] p-6 rounded-lg border border-[rgba(0,240,255,0.1)] hover:border-[rgba(0,240,255,0.25)] transition-all">
                     <h3 className="text-xl font-semibold text-white mb-3 font-dm-mono">Future Ready</h3>
                     <p className="text-white/80 font-dm-mono">
                       Designed for cryptographic agility, ready to adopt emerging NIST or otherwise standardized algorithms as the post-quantum ecosystem matures.
                     </p>
                   </div>
-                  <div className="bg-white/5 p-6 rounded-lg border border-white/10">
+                  <div className="bg-[#0c1017] p-6 rounded-lg border border-[rgba(0,240,255,0.1)] hover:border-[rgba(0,240,255,0.25)] transition-all">
                     <h3 className="text-xl font-semibold text-white mb-3 font-dm-mono">A New Network</h3>
                     <p className="text-white/80 font-dm-mono">
                       Distinct genesis block, network identifiers, and address formats ensure clean separation and prevent cross-chain replay attacks.
@@ -114,7 +117,7 @@ export default function Introduction() {
               </div>
 
               {/* Call to Action */}
-              <div className="bg-white/5 p-8 rounded-lg text-center">
+              <div className="bg-gradient-to-br from-[rgba(0,240,255,0.08)] to-[rgba(167,139,250,0.08)] p-8 rounded-lg border border-[rgba(0,240,255,0.1)] text-center">
                 <h2 className="text-2xl font-bold text-white mb-4 font-dm-mono">Ready to Learn More?</h2>
                 <p className="text-white/70 mb-6 font-dm-mono">
                   Explore our Progress, FAQ and prepare to use Bitcoin Quantum.
@@ -122,13 +125,13 @@ export default function Introduction() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link
                     href="/development"
-                    className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors font-dm-mono"
+                    className="bg-[#00f0ff] text-[#06080c] px-6 py-3 rounded-lg font-semibold hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] hover:-translate-y-0.5 transition-all font-dm-mono"
                   >
                     View Development
                   </Link>
                   <Link
                     href="/faq"
-                    className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-colors font-dm-mono"
+                    className="border border-[rgba(0,240,255,0.1)] text-white px-6 py-3 rounded-lg font-semibold hover:border-[rgba(0,240,255,0.25)] hover:bg-[#0c1017] transition-all font-dm-mono"
                   >
                     Read FAQ
                   </Link>

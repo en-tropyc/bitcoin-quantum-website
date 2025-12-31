@@ -97,9 +97,9 @@ export default function Development() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'completed':
-        return 'bg-green-500';
+        return 'bg-[#00f0ff]';
       case 'in-progress':
-        return 'bg-blue-500 animate-pulse';
+        return 'bg-[#00f0ff] animate-pulse';
       case 'pending':
         return 'bg-gray-500';
       case 'planned':
@@ -123,16 +123,19 @@ export default function Development() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0B1426] flex flex-col">
+    <div className="min-h-screen bg-[#06080c] flex flex-col relative">
+      {/* Grid background */}
+      <div className="grid-background" />
+
       <Header />
-      
-      <main className="flex-1">
+
+      <main className="flex-1 relative z-10">
         {/* Hero Section */}
-        <section className="bg-[#0B1426] text-white py-20">
+        <section className="text-white py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 font-dm-mono">
-                Development Progress
+                <span className="gradient-text">Development</span> Progress
               </h1>
               <p className="text-xl md:text-2xl text-white/80 font-dm-mono">
                 Building Bitcoin for the quantum era
@@ -141,7 +144,7 @@ export default function Development() {
           </div>
         </section>
 
-        <div className="py-16 bg-[#0B1426]">
+        <div className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               
@@ -156,7 +159,7 @@ export default function Development() {
 
                 <div className="relative">
                   {/* Continuous timeline line */}
-                  <div className="absolute left-6 top-6 w-0.5 bg-white/20" style={{height: 'calc(100% - 3rem)'}}></div>
+                  <div className="absolute left-6 top-6 w-0.5 bg-[rgba(0,240,255,0.2)]" style={{height: 'calc(100% - 3rem)'}}></div>
                   
                   <div className="space-y-8">
                     {roadmapItems.map((item, index) => {
@@ -211,7 +214,7 @@ export default function Development() {
                   
                   <div className="space-y-4">
                     {releases.slice(0, 3).map((release, index) => (
-                      <div key={index} className="bg-white/5 border border-white/10 rounded-lg p-4 hover:bg-white/10 transition-colors">
+                      <div key={index} className="bg-[#0c1017] border border-[rgba(0,240,255,0.1)] rounded-lg p-4 hover:border-[rgba(0,240,255,0.25)] hover:bg-[#111820] transition-all">
                         <div className="flex items-center justify-between mb-2">
                           <h3 className="text-lg font-semibold text-white font-dm-mono">{release.title}</h3>
                           <span className="text-sm text-white/60 font-dm-mono">{release.date}</span>
@@ -254,7 +257,7 @@ export default function Development() {
                   
                   <div className="space-y-4">
                     {developerNotes.slice(0, 3).map((note, index) => (
-                      <div key={index} className="bg-white/5 border border-white/10 rounded-lg p-4 hover:bg-white/10 transition-colors">
+                      <div key={index} className="bg-[#0c1017] border border-[rgba(0,240,255,0.1)] rounded-lg p-4 hover:border-[rgba(0,240,255,0.25)] hover:bg-[#111820] transition-all">
                         <div className="flex items-center justify-between mb-2">
                           <h3 className="text-lg font-semibold text-white font-dm-mono">{note.title}</h3>
                           <span className="text-sm text-white/60 font-dm-mono">{note.date}</span>
@@ -291,7 +294,7 @@ export default function Development() {
             </div>
 
             {/* Call to Action */}
-            <section className="mt-16 bg-white/5 rounded-lg p-8 text-center">
+            <section className="mt-16 bg-gradient-to-br from-[rgba(0,240,255,0.08)] to-[rgba(167,139,250,0.08)] border border-[rgba(0,240,255,0.1)] rounded-lg p-8 text-center">
               <h2 className="text-2xl font-bold text-white mb-4 font-dm-mono">Get Involved</h2>
               <p className="text-white/70 mb-6 font-dm-mono">
                 Join our development community and help build the future of quantum-resistant Bitcoin
@@ -300,13 +303,13 @@ export default function Development() {
                 <a
                   href="#"
                   rel="noopener noreferrer"
-                  className="bg-blue-600/50 text-white/70 px-6 py-3 rounded-lg font-semibold hover:bg-blue-600/70 transition-colors font-dm-mono"
+                  className="bg-[#00f0ff]/50 text-white/70 px-6 py-3 rounded-lg font-semibold hover:bg-[#00f0ff]/70 transition-all font-dm-mono"
                 >
                   Contribute on GitHub (Coming Soon)
                 </a>
                 <Link
                   href="/faq"
-                  className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-colors font-dm-mono"
+                  className="border border-[rgba(0,240,255,0.1)] text-white px-6 py-3 rounded-lg font-semibold hover:border-[rgba(0,240,255,0.25)] hover:bg-[#0c1017] transition-all font-dm-mono"
                 >
                   Read FAQ
                 </Link>

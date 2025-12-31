@@ -112,16 +112,19 @@ export default function FAQ() {
     : faqData.filter(faq => faq.category === activeCategory);
 
   return (
-    <div className="min-h-screen bg-[#0B1426] flex flex-col">
+    <div className="min-h-screen bg-[#06080c] flex flex-col relative">
+      {/* Grid background */}
+      <div className="grid-background" />
+
       <Header />
-      
-      <main className="flex-1">
+
+      <main className="flex-1 relative z-10">
         {/* Hero Section */}
-        <section className="bg-[#0B1426] text-white py-20">
+        <section className="text-white py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 font-dm-mono">
-                Frequently Asked Questions
+                Frequently Asked <span className="gradient-text">Questions</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/80 font-dm-mono">
                 Everything you need to know about BTC in quantum state
@@ -130,7 +133,7 @@ export default function FAQ() {
           </div>
         </section>
 
-        <div className="py-16 bg-[#0B1426]">
+        <div className="py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             
             {/* Category Filter */}
@@ -140,10 +143,10 @@ export default function FAQ() {
                   <button
                     key={category.id}
                     onClick={() => setActiveCategory(category.id)}
-                    className={`px-4 py-2 rounded-lg font-medium font-dm-mono transition-colors ${
+                    className={`px-4 py-2 rounded-lg font-medium font-dm-mono transition-all ${
                       activeCategory === category.id
-                        ? 'bg-white/20 text-white'
-                        : 'bg-white/5 text-white/70 hover:bg-white/10'
+                        ? 'bg-[rgba(0,240,255,0.2)] text-[#00f0ff] border border-[rgba(0,240,255,0.25)]'
+                        : 'bg-[#0c1017] text-white/70 border border-[rgba(0,240,255,0.1)] hover:bg-[rgba(0,240,255,0.1)] hover:text-[#00f0ff]'
                     }`}
                   >
                     {category.label} ({category.count})
@@ -155,10 +158,10 @@ export default function FAQ() {
             {/* FAQ Items */}
             <div className="space-y-4">
               {filteredFAQs.map((faq) => (
-                <div key={faq.id} className="border border-white/10 rounded-lg">
+                <div key={faq.id} className="border border-[rgba(0,240,255,0.1)] rounded-lg hover:border-[rgba(0,240,255,0.25)] transition-all">
                   <button
                     onClick={() => toggleItem(faq.id)}
-                    className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-white/5 transition-colors"
+                    className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-[rgba(0,240,255,0.05)] transition-all"
                   >
                     <span className="text-lg font-medium text-white font-dm-mono pr-4">
                       {faq.question}
@@ -178,7 +181,7 @@ export default function FAQ() {
                   
                   {openItems.includes(faq.id) && (
                     <div className="px-6 pb-4">
-                      <div className="border-t border-white/10 pt-4">
+                      <div className="border-t border-[rgba(0,240,255,0.1)] pt-4">
                         <p className="text-white/80 leading-relaxed font-dm-mono">
                           {faq.answer}
                         </p>
@@ -199,7 +202,7 @@ export default function FAQ() {
             )}
 
             {/* Call to Action */}
-            <section className="mt-16 bg-white/5 rounded-lg p-8 text-center">
+            <section className="mt-16 bg-gradient-to-br from-[rgba(0,240,255,0.08)] to-[rgba(167,139,250,0.08)] border border-[rgba(0,240,255,0.1)] rounded-lg p-8 text-center">
               <h2 className="text-2xl font-bold text-white mb-4 font-dm-mono">
                 Still Have Questions?
               </h2>
@@ -208,20 +211,21 @@ export default function FAQ() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
-                  href="/resources"
-                  className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors font-dm-mono"
+                  href="/testnet"
+                  className="bg-[#00f0ff] text-[#06080c] px-6 py-3 rounded-lg font-semibold hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] hover:-translate-y-0.5 transition-all font-dm-mono"
                 >
-                  View Resources
+                  Explore Testnet
                 </Link>
                 <a
-                  href="#"
-                  className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-colors font-dm-mono"
+                  href="https://x.com/btc_quantum"
+                  target="_blank"
+                  className="border border-[rgba(0,240,255,0.1)] text-white px-6 py-3 rounded-lg font-semibold hover:border-[rgba(0,240,255,0.25)] hover:bg-[#0c1017] transition-all font-dm-mono"
                 >
                   Join Community
                 </a>
                 <Link
                   href="/introduction"
-                  className="text-blue-600 hover:text-blue-700 px-6 py-3 font-semibold font-dm-mono"
+                  className="text-[#00f0ff] hover:text-[#00f0ff]/80 px-6 py-3 font-semibold font-dm-mono"
                 >
                   Learn More →
                 </Link>
