@@ -116,7 +116,7 @@ export default function Testnet() {
                 Download for Linux
               </a>
               <a
-                href="https://github.com/bitcoinquantum"
+                href="https://github.com/btq-ag/btq-core"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-transparent text-white border border-[rgba(0,240,255,0.1)] px-7 py-3.5 rounded-lg font-semibold hover:border-[rgba(0,240,255,0.25)] hover:bg-[#0c1017] transition-all"
@@ -238,7 +238,7 @@ export default function Testnet() {
           <div className="text-white/50 text-sm">Bitcoin Quantum © 2025</div>
           <div className="flex gap-6">
             <Link href="/" className="text-white/50 text-sm hover:text-[#00f0ff] transition-colors">Main Site</Link>
-            <a href="https://github.com/bitcoinquantum" target="_blank" rel="noopener noreferrer" className="text-white/50 text-sm hover:text-[#00f0ff] transition-colors">GitHub</a>
+            <a href="https://github.com/btq-ag/btq-core" target="_blank" rel="noopener noreferrer" className="text-white/50 text-sm hover:text-[#00f0ff] transition-colors">GitHub</a>
             <a href="#" className="text-white/50 text-sm hover:text-[#00f0ff] transition-colors">Docs</a>
             <a href="#" className="text-white/50 text-sm hover:text-[#00f0ff] transition-colors">Discord</a>
             <a href="https://x.com/btc_quantum" target="_blank" rel="noopener noreferrer" className="text-white/50 text-sm hover:text-[#00f0ff] transition-colors">Twitter</a>
