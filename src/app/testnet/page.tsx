@@ -28,12 +28,9 @@ const participantGuides = [
 ];
 
 const resources = [
-  { icon: "🚰", title: "Faucet", subtitle: "Get free testnet coins", href: "#" },
   { icon: "🔍", title: "Block Explorer", subtitle: "View transactions & blocks", href: "https://explorer.bitcoinquantum.com" },
-  { icon: "📊", title: "Network Status", subtitle: "Live stats dashboard", href: "#" },
-  { icon: "📁", title: "GitHub Releases", subtitle: "Binaries & checksums", href: "https://github.com/bitcoinquantum" },
-  { icon: "📖", title: "Documentation", subtitle: "Full technical docs", href: "#" },
-  { icon: "💬", title: "Discord", subtitle: "Community & support", href: "#" },
+  { icon: "⛏️", title: "Mining Pool", subtitle: "Join the testnet pool", href: "https://pool.bitcoinquantum.com" },
+  { icon: "📁", title: "GitHub Releases", subtitle: "Binaries & checksums", href: "https://github.com/btq-ag/BTQ-Core/tags" },
 ];
 
 export default function Testnet() {
@@ -211,7 +208,7 @@ export default function Testnet() {
               <p className="text-white/60 text-lg">Everything you need to explore and test the network.</p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {resources.map((resource) => (
                 <a
                   key={resource.title}
@@ -237,13 +234,15 @@ export default function Testnet() {
             <div className="bg-gradient-to-br from-[rgba(0,240,255,0.08)] to-[rgba(167,139,250,0.08)] border border-[rgba(0,240,255,0.1)] rounded-2xl p-12 md:p-16 text-center">
               <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">Need Help?</h2>
               <p className="text-white/60 text-lg max-w-lg mx-auto mb-8">
-                Join our Discord community to get support, report bugs, and connect with other testnet participants.
+                Join our Telegram community to get support, report bugs, and connect with other testnet participants.
               </p>
               <a
-                href="#"
+                href="https://t.me/+bE6I4gqX4Vo1ODJh"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-[#00f0ff] text-[#06080c] px-7 py-3.5 rounded-lg font-semibold hover:shadow-[0_0_30px_rgba(0,240,255,0.3),0_0_60px_rgba(0,240,255,0.15)] hover:-translate-y-0.5 transition-all"
               >
-                Join Discord
+                Join Telegram
               </a>
             </div>
           </div>
