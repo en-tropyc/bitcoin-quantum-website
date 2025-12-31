@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import FeatureCarousel from '@/components/FeatureCarousel';
 import Link from 'next/link';
 
 export default function Introduction() {
@@ -27,11 +28,65 @@ export default function Introduction() {
 
         {/* Content Sections */}
         <section className="py-16">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="prose prose-lg max-w-none">
-              
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="lg:grid lg:grid-cols-12 lg:gap-12">
+              {/* Sticky Sidebar */}
+              <aside className="hidden lg:block lg:col-span-4">
+                <div className="sticky top-24 space-y-6 max-h-[calc(100vh-8rem)] overflow-y-auto">
+                  {/* Quick Facts */}
+                  <div className="bg-[#0c1017] p-6 rounded-lg border border-[rgba(0,240,255,0.1)]">
+                    <h3 className="text-lg font-semibold text-white mb-4 font-dm-mono">Quick Facts</h3>
+                    <ul className="space-y-3 text-sm font-dm-mono">
+                      <li className="flex items-start gap-3">
+                        <span className="text-[#00f0ff] mt-0.5">&#x2022;</span>
+                        <span className="text-white/80">CRYSTALS-Dilithium signatures (NIST FIPS 204)</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="text-[#00f0ff] mt-0.5">&#x2022;</span>
+                        <span className="text-white/80">SHA-256 proof-of-work consensus</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="text-[#00f0ff] mt-0.5">&#x2022;</span>
+                        <span className="text-white/80">Bitcoin-compatible UTXO model</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="text-[#00f0ff] mt-0.5">&#x2022;</span>
+                        <span className="text-white/80">21 million BTQ supply cap</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="text-[#00f0ff] mt-0.5">&#x2022;</span>
+                        <span className="text-white/80">Quantum-safe from genesis block</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Section Navigation */}
+                  <div className="bg-[#0c1017] p-6 rounded-lg border border-[rgba(0,240,255,0.1)]">
+                    <h3 className="text-lg font-semibold text-white mb-4 font-dm-mono">On This Page</h3>
+                    <nav className="space-y-2 font-dm-mono">
+                      <a href="#what-is-btq" className="block text-white/60 hover:text-[#00f0ff] transition-colors text-sm">
+                        What is Bitcoin Quantum?
+                      </a>
+                      <a href="#quantum-threat" className="block text-white/60 hover:text-[#00f0ff] transition-colors text-sm">
+                        The Quantum Threat
+                      </a>
+                      <a href="#architecture" className="block text-white/60 hover:text-[#00f0ff] transition-colors text-sm">
+                        Post-Quantum Architecture
+                      </a>
+                      <a href="#features" className="block text-white/60 hover:text-[#00f0ff] transition-colors text-sm">
+                        Key Features
+                      </a>
+                    </nav>
+                  </div>
+                </div>
+              </aside>
+
+              {/* Main Content */}
+              <div className="lg:col-span-8">
+                <div className="prose prose-lg max-w-none">
+
               {/* What is Bitcoin Quantum */}
-              <div className="mb-12">
+              <div id="what-is-btq" className="mb-12 scroll-mt-24">
                 <h2 className="text-3xl font-bold text-white mb-6 font-dm-mono">What is Bitcoin Quantum?</h2>
                 <p className="text-white/80 mb-6 font-dm-mono text-lg leading-relaxed">
                   {"Bitcoin Quantum is Bitcoin designed for the post-quantum era. It maintains Bitcoin's economic model and network architecture while implementing quantum-resistant cryptographic primitives and enhanced transaction capacity specifically designed for large post-quantum signatures."}
@@ -42,7 +97,7 @@ export default function Introduction() {
               </div>
 
               {/* The Quantum Threat */}
-              <div className="mb-12">
+              <div id="quantum-threat" className="mb-12 scroll-mt-24">
                 <h2 className="text-3xl font-bold text-white mb-6 font-dm-mono">The Quantum Threat</h2>
                 <p className="text-white/80 mb-6 font-dm-mono text-lg leading-relaxed">
                   Quantum computers use the principles of quantum mechanics to process information in ways that 
@@ -58,7 +113,7 @@ export default function Introduction() {
               </div>
 
               {/* Post-Quantum Architecture */}
-              <div className="mb-12">
+              <div id="architecture" className="mb-12 scroll-mt-24">
                 <h2 className="text-3xl font-bold text-white mb-6 font-dm-mono">Post-Quantum Architecture</h2>
                 <p className="text-xl text-white/90 mb-6 font-dm-mono leading-relaxed">
                   {"Bitcoin's security model, rebuilt for the quantum era."}
@@ -79,42 +134,8 @@ export default function Introduction() {
                 </ul>
               </div>
 
-              {/* Key Features */}
-              <div className="mb-12">
-                <h2 className="text-3xl font-bold text-white mb-6 font-dm-mono">Key Features</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-[#0c1017] p-6 rounded-lg border border-[rgba(0,240,255,0.1)] hover:border-[rgba(0,240,255,0.25)] transition-all">
-                    <h3 className="text-xl font-semibold text-white mb-3 font-dm-mono">Quantum Secure From Day One</h3>
-                    <p className="text-white/80 font-dm-mono">
-                      Genesis block protection with NIST FIPS 204 standardized cryptography, securing assets against cryptographic threats now and into the future.
-                    </p>
-                  </div>
-                  <div className="bg-[#0c1017] p-6 rounded-lg border border-[rgba(0,240,255,0.1)] hover:border-[rgba(0,240,255,0.25)] transition-all">
-                    <h3 className="text-xl font-semibold text-white mb-3 font-dm-mono">Bitcoin Compatible</h3>
-                    <p className="text-white/80 font-dm-mono">
-                      Familiar architecture, transaction model, and wallet experience. If you understand Bitcoin, you understand BTQ.
-                    </p>
-                  </div>
-                  <div className="bg-[#0c1017] p-6 rounded-lg border border-[rgba(0,240,255,0.1)] hover:border-[rgba(0,240,255,0.25)] transition-all">
-                    <h3 className="text-xl font-semibold text-white mb-3 font-dm-mono">Canary Network</h3>
-                    <p className="text-white/80 font-dm-mono">
-                      A proving ground for quantum-safe technologies, validating solutions that will secure our digital future.
-                    </p>
-                  </div>
-                  <div className="bg-[#0c1017] p-6 rounded-lg border border-[rgba(0,240,255,0.1)] hover:border-[rgba(0,240,255,0.25)] transition-all">
-                    <h3 className="text-xl font-semibold text-white mb-3 font-dm-mono">Future Ready</h3>
-                    <p className="text-white/80 font-dm-mono">
-                      Designed for cryptographic agility, ready to adopt emerging NIST or otherwise standardized algorithms as the post-quantum ecosystem matures.
-                    </p>
-                  </div>
-                  <div className="bg-[#0c1017] p-6 rounded-lg border border-[rgba(0,240,255,0.1)] hover:border-[rgba(0,240,255,0.25)] transition-all">
-                    <h3 className="text-xl font-semibold text-white mb-3 font-dm-mono">A New Network</h3>
-                    <p className="text-white/80 font-dm-mono">
-                      Distinct genesis block, network identifiers, and address formats ensure clean separation and prevent cross-chain replay attacks.
-                    </p>
-                  </div>
-                </div>
-              </div>
+              {/* Key Features Carousel */}
+              <FeatureCarousel />
 
               {/* Call to Action */}
               <div className="bg-gradient-to-br from-[rgba(0,240,255,0.08)] to-[rgba(167,139,250,0.08)] p-8 rounded-lg border border-[rgba(0,240,255,0.1)] text-center">
@@ -135,6 +156,9 @@ export default function Introduction() {
                   >
                     Read FAQ
                   </Link>
+                </div>
+              </div>
+
                 </div>
               </div>
             </div>
