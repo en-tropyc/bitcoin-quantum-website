@@ -1,21 +1,52 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0B1426;
+  --background: #06080c;
   --foreground: #ffffff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-primary: #4d65ff;
-  --color-dark: #0B1426;
+  --color-primary: #00f0ff;
+  --color-secondary: #a78bfa;
+  --color-dark: #06080c;
+  --color-card: #0c1017;
   --color-light: #ffffff;
   --font-sans: var(--font-dm-sans);
   --font-mono: var(--font-dm-mono);
   --font-manrope: var(--font-manrope);
   --font-dm-sans: var(--font-dm-sans);
   --font-dm-mono: var(--font-dm-mono);
+}
+
+/* Grid Background Overlay */
+.grid-background {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(to right, #00f0ff, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow Button Hover Effect */
+.btn-glow {
+  transition: all 0.2s ease;
+}
+.btn-glow:hover {
+  box-shadow: 0 0 30px rgba(0,240,255,0.3), 0 0 60px rgba(0,240,255,0.15);
+  transform: translateY(-2px);
 }
 
 /* Custom Animations */
