@@ -3,14 +3,23 @@ import Link from 'next/link';
 
 const participantGuides = [
   {
-    icon: "⛏️",
+    icon: (
+      <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <path d="M14 10l-1 1-5-5-5 5 1 1 4-4v14h2V8l4 4 1-1-6-6z" transform="rotate(45 12 12)"/>
+        <path d="M20 14l-4-4-4 4M16 10v10"/>
+      </svg>
+    ),
     title: "Miners",
     description: "Run a node, help secure the network, and mine blocks on testnet. Download the binaries and mining guide above to get started.",
     link: "#quickstart",
     linkText: "Quick Start →",
   },
   {
-    icon: "🔧",
+    icon: (
+      <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+      </svg>
+    ),
     title: "Developers",
     description: "Build on Bitcoin Quantum. Create interfaces, build tooling, launch a mining pool, or integrate BTQ into your applications using the RPC API.",
     link: "https://github.com/btq-ag/btq-core",
@@ -18,7 +27,14 @@ const participantGuides = [
     external: true,
   },
   {
-    icon: "🔬",
+    icon: (
+      <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <path d="M9 3h6v2H9zM10 5v4M14 5v4"/>
+        <path d="M8 9h8l1 6H7l1-6z"/>
+        <path d="M7 15l-1 4h12l-1-4"/>
+        <path d="M10 15v4M14 15v4"/>
+      </svg>
+    ),
     title: "Researchers",
     description: "Dive into our post-quantum cryptographic primitives. Review the technical blueprint for BTQ-Core integration and how Bitcoin Quantum works.",
     link: "https://github.com/btq-ag/BTQ-Core/blob/master/WHITEPAPER_INTEGRATION_DESIGN.md",
@@ -28,9 +44,57 @@ const participantGuides = [
 ];
 
 const resources = [
-  { icon: "🔍", title: "Block Explorer", subtitle: "View transactions & blocks", href: "https://explorer.bitcoinquantum.com" },
-  { icon: "⛏️", title: "Mining Pool", subtitle: "Join the testnet pool", href: "https://pool.bitcoinquantum.com" },
-  { icon: "📁", title: "GitHub Releases", subtitle: "Binaries & checksums", href: "https://github.com/btq-ag/BTQ-Core/tags" },
+  {
+    icon: (
+      <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+      </svg>
+    ),
+    title: "Download for Linux",
+    subtitle: "Testnet binaries v0.1.0",
+    href: "/btq-miner-v0.1.0-linux-x64.zip",
+    download: true
+  },
+  {
+    icon: (
+      <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"/>
+      </svg>
+    ),
+    title: "Mining Guide",
+    subtitle: "Step-by-step instructions",
+    href: "/testnet/mining-guide"
+  },
+  {
+    icon: (
+      <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+    ),
+    title: "Block Explorer",
+    subtitle: "View transactions & blocks",
+    href: "https://explorer.bitcoinquantum.com"
+  },
+  {
+    icon: (
+      <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+      </svg>
+    ),
+    title: "Mining Pool",
+    subtitle: "Join the testnet pool",
+    href: "https://pool.bitcoinquantum.com"
+  },
+  {
+    icon: (
+      <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+      </svg>
+    ),
+    title: "GitHub Releases",
+    subtitle: "Binaries & checksums",
+    href: "https://github.com/btq-ag/BTQ-Core/tags"
+  },
 ];
 
 export default function Testnet() {
@@ -57,7 +121,7 @@ export default function Testnet() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-[rgba(0,240,255,0.15)] border border-[rgba(0,240,255,0.1)] px-4 py-2 rounded-full font-dm-mono text-xs text-[#00f0ff] mb-8 uppercase tracking-widest">
               <span className="w-2 h-2 bg-[#00f0ff] rounded-full animate-pulse" />
-              Testnet Live
+              Testnet Loading...
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-5">
@@ -185,7 +249,7 @@ export default function Testnet() {
                   rel={guide.external ? 'noopener noreferrer' : undefined}
                   className="block bg-[#0c1017] border border-[rgba(0,240,255,0.1)] rounded-xl p-7 hover:border-[rgba(0,240,255,0.25)] hover:bg-[#111820] hover:-translate-y-1 transition-all group"
                 >
-                  <div className="w-12 h-12 bg-[rgba(0,240,255,0.15)] rounded-xl flex items-center justify-center text-2xl mb-5">
+                  <div className="w-12 h-12 bg-[rgba(0,240,255,0.15)] rounded-xl flex items-center justify-center text-white/60 mb-5">
                     {guide.icon}
                   </div>
                   <h3 className="text-lg font-semibold mb-2">{guide.title}</h3>
@@ -207,16 +271,17 @@ export default function Testnet() {
               <p className="text-white/60 text-lg">Everything you need to explore and test the network.</p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {resources.map((resource) => (
                 <a
                   key={resource.title}
                   href={resource.href}
+                  download={'download' in resource ? true : undefined}
                   target={resource.href.startsWith('http') ? '_blank' : undefined}
                   rel={resource.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className="flex items-center gap-3 bg-[#0c1017] border border-[rgba(0,240,255,0.1)] rounded-xl p-5 hover:border-[rgba(0,240,255,0.25)] hover:bg-[#111820] transition-all"
                 >
-                  <span className="text-2xl">{resource.icon}</span>
+                  <span className="text-white/60">{resource.icon}</span>
                   <div>
                     <strong className="block font-semibold">{resource.title}</strong>
                     <small className="text-white/50 text-sm">{resource.subtitle}</small>
