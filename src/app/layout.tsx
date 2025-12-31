@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Manrope, DM_Sans, DM_Mono } from "next/font/google";
+import { Manrope, DM_Sans } from "next/font/google";
+import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -10,12 +11,6 @@ const manrope = Manrope({
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
   subsets: ["latin"],
-});
-
-const dmMono = DM_Mono({
-  variable: "--font-dm-mono",
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -65,7 +60,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${manrope.variable} ${dmSans.variable} ${dmMono.variable} antialiased`}
+        className={`${manrope.variable} ${dmSans.variable} ${GeistMono.variable} antialiased`}
       >
         {children}
       </body>

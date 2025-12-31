@@ -28,35 +28,35 @@ export default function Header() {
           <nav className="hidden md:flex items-center space-x-8">
             <Link
               href="/introduction"
-              className="text-white hover:text-gray-300 px-3 py-2 font-dm-mono font-medium transition-colors"
+              className="text-white hover:text-[#00f0ff] px-3 py-2 font-dm-mono font-medium transition-colors"
             >
               Introduction
             </Link>
             {/* <Link
               href="/resources"
-              className="text-white hover:text-gray-300 px-3 py-2 font-dm-mono font-medium transition-colors"
+              className="text-white hover:text-[#00f0ff] px-3 py-2 font-dm-mono font-medium transition-colors"
             >
               Resources
             </Link> */}
             <Link
               href="/development"
-              className="text-white hover:text-gray-300 px-3 py-2 font-dm-mono font-medium transition-colors"
+              className="text-white hover:text-[#00f0ff] px-3 py-2 font-dm-mono font-medium transition-colors"
             >
               Development
             </Link>
             <Link
               href="/testnet"
-              className="text-white hover:text-gray-300 px-3 py-2 font-dm-mono font-medium transition-colors"
+              className="text-white hover:text-[#00f0ff] px-3 py-2 font-dm-mono font-medium transition-colors"
             >
               Testnet
             </Link>
             <Link
               href="/faq"
-              className="text-white hover:text-gray-300 px-3 py-2 font-dm-mono font-medium transition-colors"
+              className="text-white hover:text-[#00f0ff] px-3 py-2 font-dm-mono font-medium transition-colors"
             >
               FAQ
             </Link>
-            <div className="ml-8 pl-8 border-l border-gray-600 text-right">
+            <div className="ml-8 pl-8 border-l border-[rgba(0,240,255,0.1)] text-right">
               <span className="text-white font-dm-mono text-sm tracking-widest opacity-80 text-right">
                 POWERED BY BTQ TECHNOLOGIES 
               </span>
@@ -87,43 +87,43 @@ export default function Header() {
         {/* Mobile Navigation Menu */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-[#0B1426] rounded-lg mt-2">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-[#0c1017] border border-[rgba(0,240,255,0.1)] rounded-lg mt-2">
               <Link
                 href="/introduction"
-                className="block text-white hover:bg-white/10 px-3 py-2 rounded-md font-dm-mono font-medium transition-colors"
+                className="block text-white hover:bg-[rgba(0,240,255,0.1)] hover:text-[#00f0ff] px-3 py-2 rounded-md font-dm-mono font-medium transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Introduction
               </Link>
               {/* <Link
                 href="/resources"
-                className="block text-white hover:bg-white/10 px-3 py-2 rounded-md font-dm-mono font-medium transition-colors"
+                className="block text-white hover:bg-[rgba(0,240,255,0.1)] hover:text-[#00f0ff] px-3 py-2 rounded-md font-dm-mono font-medium transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Resources
               </Link> */}
               <Link
                 href="/development"
-                className="block text-white hover:bg-white/10 px-3 py-2 rounded-md font-dm-mono font-medium transition-colors"
+                className="block text-white hover:bg-[rgba(0,240,255,0.1)] hover:text-[#00f0ff] px-3 py-2 rounded-md font-dm-mono font-medium transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Development
               </Link>
               <Link
                 href="/testnet"
-                className="block text-white hover:bg-white/10 px-3 py-2 rounded-md font-dm-mono font-medium transition-colors"
+                className="block text-white hover:bg-[rgba(0,240,255,0.1)] hover:text-[#00f0ff] px-3 py-2 rounded-md font-dm-mono font-medium transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Testnet
               </Link>
               <Link
                 href="/faq"
-                className="block text-white hover:bg-white/10 px-3 py-2 rounded-md font-dm-mono font-medium transition-colors"
+                className="block text-white hover:bg-[rgba(0,240,255,0.1)] hover:text-[#00f0ff] px-3 py-2 rounded-md font-dm-mono font-medium transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 FAQ
               </Link>
-              <div className="pt-4 mt-4 border-t border-gray-600 text-right">
+              <div className="pt-4 mt-4 border-t border-[rgba(0,240,255,0.1)] text-right">
                 <span className="block text-white font-dm-mono text-sm tracking-widest opacity-80 px-3 text-right">
                   POWERED BY BTQ TECHNOLOGIES
                 </span>

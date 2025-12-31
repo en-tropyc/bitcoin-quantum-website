@@ -2,75 +2,18 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0B1426] border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Logo and Description */}
-          <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center mb-4">
-              <h3 className="font-bold text-xl text-white font-dm-mono">
-                Bitcoin Quantum
-              </h3>
-            </div>
-            <p className="text-white/70 font-dm-mono max-w-md">
-              BTC in quantum state - the evolution of Bitcoin for the quantum era.
-            </p>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h4 className="font-semibold text-white mb-4 font-dm-mono">Quick Links</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/introduction" className="text-white/70 hover:text-white transition-colors font-dm-mono">
-                  Introduction
-                </Link>
-              </li>
-              {/* <li>
-                <Link href="/resources" className="text-white/70 hover:text-white transition-colors font-dm-mono">
-                  Resources
-                </Link>
-              </li> */}
-              <li>
-                <Link href="/development" className="text-white/70 hover:text-white transition-colors font-dm-mono">
-                  Development
-                </Link>
-              </li>
-              <li>
-                <Link href="/testnet" className="text-white/70 hover:text-white transition-colors font-dm-mono">
-                  Testnet
-                </Link>
-              </li>
-              <li>
-                <Link href="/faq" className="text-white/70 hover:text-white transition-colors font-dm-mono">
-                  FAQ
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Community */}
-          <div>
-            <h4 className="font-semibold text-white mb-4 font-dm-mono">Community</h4>
-            <ul className="space-y-2">
-              <li>
-                <a href="https://x.com/btc_quantum" target="_blank" className="text-white/70 hover:text-white transition-colors font-dm-mono">
-                  Twitter
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-white/70 hover:text-white transition-colors font-dm-mono">
-                  GitHub (coming soon)
-                </a>
-              </li>
-            </ul>
-          </div>
+    <footer className="border-t border-[rgba(0,240,255,0.1)] py-8 mt-10 relative z-10">
+      <div className="max-w-[1100px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-5">
+        <div className="text-white/50 text-sm font-dm-mono">Bitcoin Quantum © 2025</div>
+        <div className="flex flex-wrap justify-center gap-6">
+          <Link href="/introduction" className="text-white/50 text-sm hover:text-[#00f0ff] transition-colors font-dm-mono">Introduction</Link>
+          <Link href="/development" className="text-white/50 text-sm hover:text-[#00f0ff] transition-colors font-dm-mono">Development</Link>
+          <Link href="/testnet" className="text-white/50 text-sm hover:text-[#00f0ff] transition-colors font-dm-mono">Testnet</Link>
+          <Link href="/faq" className="text-white/50 text-sm hover:text-[#00f0ff] transition-colors font-dm-mono">FAQ</Link>
+          <a href="https://x.com/btc_quantum" target="_blank" rel="noopener noreferrer" className="text-white/50 text-sm hover:text-[#00f0ff] transition-colors font-dm-mono">Twitter</a>
         </div>
-
-        <div className="border-t border-white/10 mt-8 pt-8 text-center">
-          <p className="text-white/50 font-dm-mono">
-            © 2025 Bitcoin Quantum • All Rights Reserved
-          </p>
+        <div className="font-dm-mono text-xs text-white/50 bg-[#0c1017] px-3 py-1.5 rounded-md border border-[rgba(0,240,255,0.1)]">
+          testnet-v0.1.0
         </div>
       </div>
     </footer>
