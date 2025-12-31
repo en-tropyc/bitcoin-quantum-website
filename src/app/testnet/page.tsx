@@ -3,32 +3,27 @@ import Link from 'next/link';
 
 const participantGuides = [
   {
-    icon: "⚡",
-    title: "Node Operators",
-    description: "Run a full node and help secure the network. Binaries for Linux, macOS, and Windows.",
-    link: "#",
-    linkText: "Node Setup Guide →",
-  },
-  {
     icon: "⛏️",
     title: "Miners",
-    description: "Test our quantum-secure proof-of-work. CPU mining enabled for fair testnet participation.",
-    link: "#",
-    linkText: "Mining Instructions →",
+    description: "Run a node, help secure the network, and mine blocks on testnet. Download the binaries and mining guide above to get started.",
+    link: "#quickstart",
+    linkText: "Quick Start →",
   },
   {
     icon: "🔧",
     title: "Developers",
-    description: "Build on Bitcoin Quantum. Explore the RPC API and integrate with your applications.",
-    link: "#",
-    linkText: "Developer Docs →",
+    description: "Build on Bitcoin Quantum. Create interfaces, build tooling, launch a mining pool, or integrate BTQ into your applications using the RPC API.",
+    link: "https://github.com/btq-ag/btq-core",
+    linkText: "View on GitHub →",
+    external: true,
   },
   {
     icon: "🔬",
     title: "Researchers",
-    description: "Dive into our post-quantum cryptographic primitives. Review our approach. Break things.",
-    link: "#",
-    linkText: "Technical Paper →",
+    description: "Dive into our post-quantum cryptographic primitives. Review the technical blueprint for BTQ-Core integration and how Bitcoin Quantum works.",
+    link: "https://github.com/btq-ag/BTQ-Core/blob/master/WHITEPAPER_INTEGRATION_DESIGN.md",
+    linkText: "Technical Blueprint →",
+    external: true,
   },
 ];
 
@@ -185,11 +180,13 @@ export default function Testnet() {
               <p className="text-white/60 text-lg">Detailed guides for every type of participant.</p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {participantGuides.map((guide) => (
                 <a
                   key={guide.title}
                   href={guide.link}
+                  target={guide.external ? '_blank' : undefined}
+                  rel={guide.external ? 'noopener noreferrer' : undefined}
                   className="block bg-[#0c1017] border border-[rgba(0,240,255,0.1)] rounded-xl p-7 hover:border-[rgba(0,240,255,0.25)] hover:bg-[#111820] hover:-translate-y-1 transition-all group"
                 >
                   <div className="w-12 h-12 bg-[rgba(0,240,255,0.15)] rounded-xl flex items-center justify-center text-2xl mb-5">
