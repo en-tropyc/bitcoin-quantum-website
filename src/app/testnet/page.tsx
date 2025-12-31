@@ -1,30 +1,6 @@
 import Header from '@/components/Header';
 import Link from 'next/link';
 
-const quickStartSteps = [
-  {
-    num: 1,
-    title: "Download the binary",
-    description: "Grab the latest release for your platform from GitHub Releases.",
-  },
-  {
-    num: 2,
-    title: "Extract and run",
-    description: "Unpack the archive and start the node.",
-    code: "tar -xzf btcq-node-v0.1.0-linux-x64.tar.gz && ./btcq-node --testnet",
-  },
-  {
-    num: 3,
-    title: "Get test coins",
-    description: "Visit the faucet to receive testnet coins to your wallet address.",
-  },
-  {
-    num: 4,
-    title: "Start mining or transacting",
-    description: "CPU mining is enabled. Run btcq-cli setgenerate true to start.",
-  },
-];
-
 const participantGuides = [
   {
     icon: "⚡",
@@ -116,12 +92,14 @@ export default function Testnet() {
                 Download for Linux
               </a>
               <a
-                href="https://github.com/btq-ag/btq-core"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/btq_mining_instructions.md"
+                download
                 className="inline-flex items-center gap-2 bg-transparent text-white border border-[rgba(0,240,255,0.1)] px-7 py-3.5 rounded-lg font-semibold hover:border-[rgba(0,240,255,0.25)] hover:bg-[#0c1017] transition-all"
               >
-                View on GitHub
+                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"/>
+                </svg>
+                Mining Guide
               </a>
             </div>
           </div>
@@ -132,25 +110,68 @@ export default function Testnet() {
           <div className="max-w-[1100px] mx-auto px-6">
             <div className="bg-[#0c1017] border border-[rgba(0,240,255,0.1)] rounded-2xl p-8 md:p-12">
               <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-3">Quick Start</h2>
-              <p className="text-white/60 text-lg mb-8">Get your node running in under 5 minutes.</p>
+              <p className="text-white/60 text-lg mb-8">Get your node running in under 15 minutes.</p>
 
               <div className="space-y-6">
-                {quickStartSteps.map((step) => (
-                  <div key={step.num} className="flex gap-5 items-start">
-                    <div className="flex-shrink-0 w-9 h-9 bg-[rgba(0,240,255,0.15)] border border-[rgba(0,240,255,0.1)] rounded-full flex items-center justify-center font-dm-mono font-semibold text-[#00f0ff] text-sm">
-                      {step.num}
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold mb-1">{step.title}</h3>
-                      <p className="text-white/60 text-sm">{step.description}</p>
-                      {step.code && (
-                        <div className="bg-[#06080c] border border-[rgba(0,240,255,0.1)] rounded-lg px-5 py-4 mt-2 font-dm-mono text-sm text-[#00f0ff] overflow-x-auto">
-                          {step.code}
-                        </div>
-                      )}
-                    </div>
+                {/* Step 1 */}
+                <div className="flex gap-5 items-start">
+                  <div className="flex-shrink-0 w-9 h-9 bg-[rgba(0,240,255,0.15)] border border-[rgba(0,240,255,0.1)] rounded-full flex items-center justify-center font-dm-mono font-semibold text-[#00f0ff] text-sm">
+                    1
                   </div>
-                ))}
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold mb-1">Download the binary</h3>
+                    <p className="text-white/60 text-sm">
+                      Grab the{' '}
+                      <a href="/btq-miner-v0.1.0-linux-x64.zip" download className="text-[#00f0ff] hover:underline">
+                        latest release for Linux
+                      </a>
+                      {' '}for your platform.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Step 2 */}
+                <div className="flex gap-5 items-start">
+                  <div className="flex-shrink-0 w-9 h-9 bg-[rgba(0,240,255,0.15)] border border-[rgba(0,240,255,0.1)] rounded-full flex items-center justify-center font-dm-mono font-semibold text-[#00f0ff] text-sm">
+                    2
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold mb-1">Download the mining guide</h3>
+                    <p className="text-white/60 text-sm">
+                      Get the{' '}
+                      <a href="/btq_mining_instructions.md" download className="text-[#00f0ff] hover:underline">
+                        mining guide
+                      </a>
+                      {' '}for step-by-step instructions on setup, configuration, and connecting to the pool.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Step 3 */}
+                <div className="flex gap-5 items-start">
+                  <div className="flex-shrink-0 w-9 h-9 bg-[rgba(0,240,255,0.15)] border border-[rgba(0,240,255,0.1)] rounded-full flex items-center justify-center font-dm-mono font-semibold text-[#00f0ff] text-sm">
+                    3
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold mb-1">Follow the guide to run your node</h3>
+                    <p className="text-white/60 text-sm">
+                      The mining guide covers extraction, daemon configuration, and launching the node.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Step 4 */}
+                <div className="flex gap-5 items-start">
+                  <div className="flex-shrink-0 w-9 h-9 bg-[rgba(0,240,255,0.15)] border border-[rgba(0,240,255,0.1)] rounded-full flex items-center justify-center font-dm-mono font-semibold text-[#00f0ff] text-sm">
+                    4
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold mb-1">Create a wallet and start mining</h3>
+                    <p className="text-white/60 text-sm">
+                      Set up your quantum-resistant Dilithium wallet and connect to the pool. The guide walks you through every command.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
