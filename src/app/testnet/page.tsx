@@ -1,176 +1,252 @@
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import Link from 'next/link';
 
-const networkSpecs = [
-  { label: "Network", value: "BTQ Testnet" },
-  { label: "Consensus", value: "SHA-256 PoW" },
-  { label: "Block Time", value: "TBD" },
-  { label: "Block Size", value: "TBD" },
-  { label: "P2P Port", value: "TBD" },
-  { label: "RPC Port", value: "TBD" },
-];
-
-const testnetResources = [
+const quickStartSteps = [
   {
-    title: "Block Explorer",
-    url: "https://explorer.bitcoinquantum.com",
-    description: "View blocks, transactions, and network statistics in real-time.",
+    num: 1,
+    title: "Download the binary",
+    description: "Grab the latest release for your platform from GitHub Releases.",
   },
   {
-    title: "Mining Pool",
-    url: "https://pool.bitcoinquantum.com",
-    description: "Join the official Bitcoin Quantum mining pool and contribute hashpower.",
+    num: 2,
+    title: "Extract and run",
+    description: "Unpack the archive and start the node.",
+    code: "tar -xzf btcq-node-v0.1.0-linux-x64.tar.gz && ./btcq-node --testnet",
+  },
+  {
+    num: 3,
+    title: "Get test coins",
+    description: "Visit the faucet to receive testnet coins to your wallet address.",
+  },
+  {
+    num: 4,
+    title: "Start mining or transacting",
+    description: "CPU mining is enabled. Run btcq-cli setgenerate true to start.",
   },
 ];
 
-const joiningSteps = [
-  { step: 1, title: "Download BTQ Core", description: "Coming soon" },
-  { step: 2, title: "Configure for Testnet", description: "Coming soon" },
-  { step: 3, title: "Connect to Network", description: "Coming soon" },
-  { step: 4, title: "Start Mining", description: "Coming soon" },
+const participantGuides = [
+  {
+    icon: "⚡",
+    title: "Node Operators",
+    description: "Run a full node and help secure the network. Binaries for Linux, macOS, and Windows.",
+    link: "#",
+    linkText: "Node Setup Guide →",
+  },
+  {
+    icon: "⛏️",
+    title: "Miners",
+    description: "Test our quantum-secure proof-of-work. CPU mining enabled for fair testnet participation.",
+    link: "#",
+    linkText: "Mining Instructions →",
+  },
+  {
+    icon: "🔧",
+    title: "Developers",
+    description: "Build on Bitcoin Quantum. Explore the RPC API and integrate with your applications.",
+    link: "#",
+    linkText: "Developer Docs →",
+  },
+  {
+    icon: "🔬",
+    title: "Researchers",
+    description: "Dive into our post-quantum cryptographic primitives. Review our approach. Break things.",
+    link: "#",
+    linkText: "Technical Paper →",
+  },
+];
+
+const resources = [
+  { icon: "🚰", title: "Faucet", subtitle: "Get free testnet coins", href: "#" },
+  { icon: "🔍", title: "Block Explorer", subtitle: "View transactions & blocks", href: "https://explorer.bitcoinquantum.com" },
+  { icon: "📊", title: "Network Status", subtitle: "Live stats dashboard", href: "#" },
+  { icon: "📁", title: "GitHub Releases", subtitle: "Binaries & checksums", href: "https://github.com/bitcoinquantum" },
+  { icon: "📖", title: "Documentation", subtitle: "Full technical docs", href: "#" },
+  { icon: "💬", title: "Discord", subtitle: "Community & support", href: "#" },
 ];
 
 export default function Testnet() {
   return (
-    <div className="min-h-screen bg-[#0B1426] flex flex-col">
+    <div className="min-h-screen bg-[#06080c] flex flex-col relative">
+      {/* Grid background */}
+      <div
+        className="fixed inset-0 pointer-events-none z-0"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px',
+        }}
+      />
+
       <Header />
 
-      <main className="flex-1">
+      <main className="flex-1 relative z-10">
         {/* Hero Section */}
-        <section className="bg-[#0B1426] text-white py-20">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <div className="flex items-center justify-center gap-4 mb-6">
-                <h1 className="text-4xl md:text-5xl font-bold font-dm-mono">
-                  Testnet
-                </h1>
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-dm-mono bg-blue-500/20 text-blue-400 border border-blue-500/30">
-                  <span className="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse"></span>
-                  Coming Soon
-                </span>
+        <header className="py-24 md:py-32 text-center">
+          <div className="max-w-[1100px] mx-auto px-6">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 bg-[rgba(0,240,255,0.15)] border border-[rgba(0,240,255,0.1)] px-4 py-2 rounded-full font-dm-mono text-xs text-[#00f0ff] mb-8 uppercase tracking-widest">
+              <span className="w-2 h-2 bg-[#00f0ff] rounded-full animate-pulse" />
+              Testnet Live
+            </div>
+
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-5">
+              Run a{' '}
+              <span className="bg-gradient-to-r from-[#00f0ff] to-[#a78bfa] bg-clip-text text-transparent">
+                Quantum-Secure
+              </span>{' '}
+              Node
+            </h1>
+
+            <p className="text-lg md:text-xl text-white/60 max-w-xl mx-auto mb-10">
+              Download the testnet binaries and join the network. Help us build and test the future of Bitcoin.
+            </p>
+
+            <div className="flex flex-wrap gap-4 justify-center">
+              <a
+                href="#"
+                className="inline-flex items-center gap-2 bg-[#00f0ff] text-[#06080c] px-7 py-3.5 rounded-lg font-semibold hover:shadow-[0_0_30px_rgba(0,240,255,0.3),0_0_60px_rgba(0,240,255,0.15)] hover:-translate-y-0.5 transition-all"
+              >
+                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                </svg>
+                Download for Linux
+              </a>
+              <a
+                href="https://github.com/bitcoinquantum"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-transparent text-white border border-[rgba(0,240,255,0.1)] px-7 py-3.5 rounded-lg font-semibold hover:border-[rgba(0,240,255,0.25)] hover:bg-[#0c1017] transition-all"
+              >
+                View on GitHub
+              </a>
+            </div>
+          </div>
+        </header>
+
+        {/* Quick Start Section */}
+        <section id="quickstart" className="py-20">
+          <div className="max-w-[1100px] mx-auto px-6">
+            <div className="bg-[#0c1017] border border-[rgba(0,240,255,0.1)] rounded-2xl p-8 md:p-12">
+              <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-3">Quick Start</h2>
+              <p className="text-white/60 text-lg mb-8">Get your node running in under 5 minutes.</p>
+
+              <div className="space-y-6">
+                {quickStartSteps.map((step) => (
+                  <div key={step.num} className="flex gap-5 items-start">
+                    <div className="flex-shrink-0 w-9 h-9 bg-[rgba(0,240,255,0.15)] border border-[rgba(0,240,255,0.1)] rounded-full flex items-center justify-center font-dm-mono font-semibold text-[#00f0ff] text-sm">
+                      {step.num}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold mb-1">{step.title}</h3>
+                      <p className="text-white/60 text-sm">{step.description}</p>
+                      {step.code && (
+                        <div className="bg-[#06080c] border border-[rgba(0,240,255,0.1)] rounded-lg px-5 py-4 mt-2 font-dm-mono text-sm text-[#00f0ff] overflow-x-auto">
+                          {step.code}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
               </div>
-              <p className="text-xl md:text-2xl text-white/80 font-dm-mono">
-                Run a miner on the Bitcoin Quantum testnet
-              </p>
             </div>
           </div>
         </section>
 
-        {/* Content Sections */}
-        <section className="py-16 bg-[#0B1426]">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-
-            {/* Overview */}
-            <div className="mb-12">
-              <h2 className="text-3xl font-bold text-white mb-6 font-dm-mono">Overview</h2>
-              <p className="text-white/80 mb-6 font-dm-mono text-lg leading-relaxed">
-                The Bitcoin Quantum testnet is a public testing environment where miners and developers can experiment with quantum-resistant mining before mainnet launch. 
-              </p>
-              <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4">
-                <p className="text-yellow-200/90 font-dm-mono text-sm">
-                  <strong>Note:</strong> Testnet coins have no real-world value. The testnet may be reset during development as needed.
-                </p>
-              </div>
+        {/* Guides Section */}
+        <section id="guides" className="py-20">
+          <div className="max-w-[1100px] mx-auto px-6">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-3">Choose Your Path</h2>
+              <p className="text-white/60 text-lg">Detailed guides for every type of participant.</p>
             </div>
 
-            {/* Network Details
-            <div className="mb-12">
-              <h2 className="text-3xl font-bold text-white mb-6 font-dm-mono">Network Details</h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {networkSpecs.map((spec) => (
-                  <div key={spec.label} className="bg-white/5 p-4 rounded-lg border border-white/10">
-                    <p className="text-white/50 text-sm font-dm-mono mb-1">{spec.label}</p>
-                    <p className="text-white font-semibold font-dm-mono">{spec.value}</p>
-                  </div>
-                ))}
-              </div>
-            </div> */}
-
-            {/* Testnet Resources */}
-            <div className="mb-12">
-              <h2 className="text-3xl font-bold text-white mb-6 font-dm-mono">Testnet Resources</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {testnetResources.map((resource) => (
-                  <a
-                    key={resource.title}
-                    href={resource.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-white/5 p-6 rounded-lg border border-white/10 hover:bg-white/10 transition-colors group"
-                  >
-                    <div className="flex items-start justify-between mb-3">
-                      <h3 className="text-xl font-semibold text-white font-dm-mono">{resource.title}</h3>
-                      <svg
-                        className="w-5 h-5 text-white/50 group-hover:text-white transition-colors"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    </div>
-                    <p className="text-white/70 font-dm-mono">{resource.description}</p>
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {/* How to Join */}
-            <div className="mb-12">
-              <h2 className="text-3xl font-bold text-white mb-6 font-dm-mono">How to Join</h2>
-              <p className="text-white/80 mb-6 font-dm-mono text-lg leading-relaxed">
-                Detailed instructions for joining the testnet will be available when the network launches. Here is what the process will look like:
-              </p>
-              <div className="space-y-4">
-                {joiningSteps.map((item) => (
-                  <div key={item.step} className="flex items-start gap-4 bg-white/5 p-4 rounded-lg border border-white/10">
-                    <div className="flex-shrink-0 w-8 h-8 bg-white/10 rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold font-dm-mono">{item.step}</span>
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-white font-dm-mono">{item.title}</h3>
-                      <p className="text-white/50 font-dm-mono text-sm">{item.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Call to Action */}
-            <div className="bg-white/5 p-8 rounded-lg text-center">
-              <h2 className="text-2xl font-bold text-white mb-4 font-dm-mono">Stay Updated</h2>
-              <p className="text-white/70 mb-6 font-dm-mono">
-                Follow our progress and be notified when the testnet launches.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/development"
-                  className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors font-dm-mono"
-                >
-                  View Development
-                </Link>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {participantGuides.map((guide) => (
                 <a
-                  href="https://x.com/btc_quantum"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-colors font-dm-mono"
+                  key={guide.title}
+                  href={guide.link}
+                  className="block bg-[#0c1017] border border-[rgba(0,240,255,0.1)] rounded-xl p-7 hover:border-[rgba(0,240,255,0.25)] hover:bg-[#111820] hover:-translate-y-1 transition-all group"
                 >
-                  Follow on Twitter
+                  <div className="w-12 h-12 bg-[rgba(0,240,255,0.15)] rounded-xl flex items-center justify-center text-2xl mb-5">
+                    {guide.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">{guide.title}</h3>
+                  <p className="text-white/60 text-sm leading-relaxed mb-4">{guide.description}</p>
+                  <span className="text-[#00f0ff] text-sm font-medium flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+                    {guide.linkText}
+                  </span>
                 </a>
-                <Link
-                  href="/faq"
-                  className="text-white/70 hover:text-white px-6 py-3 font-dm-mono transition-colors"
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Resources Section */}
+        <section id="resources" className="py-20">
+          <div className="max-w-[1100px] mx-auto px-6">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-3">Testnet Resources</h2>
+              <p className="text-white/60 text-lg">Everything you need to explore and test the network.</p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {resources.map((resource) => (
+                <a
+                  key={resource.title}
+                  href={resource.href}
+                  target={resource.href.startsWith('http') ? '_blank' : undefined}
+                  rel={resource.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className="flex items-center gap-3 bg-[#0c1017] border border-[rgba(0,240,255,0.1)] rounded-xl p-5 hover:border-[rgba(0,240,255,0.25)] hover:bg-[#111820] transition-all"
                 >
-                  Read FAQ →
-                </Link>
-              </div>
+                  <span className="text-2xl">{resource.icon}</span>
+                  <div>
+                    <strong className="block font-semibold">{resource.title}</strong>
+                    <small className="text-white/50 text-sm">{resource.subtitle}</small>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Community CTA Section */}
+        <section className="py-20">
+          <div className="max-w-[1100px] mx-auto px-6">
+            <div className="bg-gradient-to-br from-[rgba(0,240,255,0.08)] to-[rgba(167,139,250,0.08)] border border-[rgba(0,240,255,0.1)] rounded-2xl p-12 md:p-16 text-center">
+              <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">Need Help?</h2>
+              <p className="text-white/60 text-lg max-w-lg mx-auto mb-8">
+                Join our Discord community to get support, report bugs, and connect with other testnet participants.
+              </p>
+              <a
+                href="#"
+                className="inline-flex items-center gap-2 bg-[#00f0ff] text-[#06080c] px-7 py-3.5 rounded-lg font-semibold hover:shadow-[0_0_30px_rgba(0,240,255,0.3),0_0_60px_rgba(0,240,255,0.15)] hover:-translate-y-0.5 transition-all"
+              >
+                Join Discord
+              </a>
             </div>
           </div>
         </section>
       </main>
 
-      <Footer />
+      {/* Custom Footer for Testnet */}
+      <footer className="border-t border-[rgba(0,240,255,0.1)] py-8 mt-10 relative z-10">
+        <div className="max-w-[1100px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-5">
+          <div className="text-white/50 text-sm">Bitcoin Quantum © 2025</div>
+          <div className="flex gap-6">
+            <Link href="/" className="text-white/50 text-sm hover:text-[#00f0ff] transition-colors">Main Site</Link>
+            <a href="https://github.com/bitcoinquantum" target="_blank" rel="noopener noreferrer" className="text-white/50 text-sm hover:text-[#00f0ff] transition-colors">GitHub</a>
+            <a href="#" className="text-white/50 text-sm hover:text-[#00f0ff] transition-colors">Docs</a>
+            <a href="#" className="text-white/50 text-sm hover:text-[#00f0ff] transition-colors">Discord</a>
+            <a href="https://x.com/btc_quantum" target="_blank" rel="noopener noreferrer" className="text-white/50 text-sm hover:text-[#00f0ff] transition-colors">Twitter</a>
+          </div>
+          <div className="font-dm-mono text-xs text-white/50 bg-[#0c1017] px-3 py-1.5 rounded-md border border-[rgba(0,240,255,0.1)]">
+            testnet v0.1.0
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
