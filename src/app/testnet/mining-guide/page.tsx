@@ -104,7 +104,9 @@ export default function MiningGuide() {
 
             <div className="flex flex-wrap gap-4 justify-center">
               <a
-                href="/btq-miner-v0.1.0-linux-x64.zip"
+                href="https://github.com/btq-ag/BTQ-Core/releases/tag/v0.1.0-testnet"
+                target="_blank"
+                rel="noopener noreferrer"
                 download
                 className="inline-flex items-center gap-2 bg-[#00f0ff] text-[#06080c] px-7 py-3.5 rounded-lg font-semibold hover:shadow-[0_0_30px_rgba(0,240,255,0.3),0_0_60px_rgba(0,240,255,0.15)] hover:-translate-y-0.5 transition-all"
               >

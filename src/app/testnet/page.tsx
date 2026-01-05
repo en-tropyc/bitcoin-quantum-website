@@ -50,9 +50,9 @@ const resources = [
         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
       </svg>
     ),
-    title: "Download for Linux",
-    subtitle: "Testnet binaries v0.1.0",
-    href: "/btq-miner-v0.1.0-linux-x64.zip",
+    title: "Testnet V0.1.0 Release",
+    subtitle: "Binaries for Linux and Windows",
+    href: "https://github.com/btq-ag/BTQ-Core/releases/tag/v0.1.0-testnet",
     download: true
   },
   {
@@ -138,14 +138,16 @@ export default function Testnet() {
 
             <div className="flex flex-wrap gap-4 justify-center">
               <a
-                href="/btq-miner-v0.1.0-linux-x64.zip"
+                href="https://github.com/btq-ag/BTQ-Core/releases/tag/v0.1.0-testnet"
+                target="_blank"
+                rel="noopener noreferrer"
                 download
                 className="inline-flex items-center gap-2 bg-[#00f0ff] text-[#06080c] px-7 py-3.5 rounded-lg font-semibold hover:shadow-[0_0_30px_rgba(0,240,255,0.3),0_0_60px_rgba(0,240,255,0.15)] hover:-translate-y-0.5 transition-all"
               >
                 <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
                 </svg>
-                Download for Linux
+                Download Bitcoin Quantum
               </a>
               <Link
                 href="/testnet/mining-guide"
@@ -177,8 +179,8 @@ export default function Testnet() {
                     <h3 className="text-lg font-semibold mb-1">Download the binary</h3>
                     <p className="text-white/60 text-sm">
                       Grab the{' '}
-                      <a href="/btq-miner-v0.1.0-linux-x64.zip" download className="text-[#00f0ff] hover:underline">
-                        latest release for Linux
+                      <a href="https://github.com/btq-ag/BTQ-Core/releases/tag/v0.1.0-testnet" download className="text-[#00f0ff] hover:underline" target="_blank" rel="noopener noreferrer">
+                        latest release for Linux and Windows
                       </a>
                       {' '}for your platform.
                     </p>
