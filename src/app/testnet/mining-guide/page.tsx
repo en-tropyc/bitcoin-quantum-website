@@ -66,6 +66,10 @@ function Note({ type = 'info', children }: { type?: 'info' | 'warning' | 'critic
 }
 
 export default function MiningGuide() {
+  const leftColumnCount = Math.ceil(tableOfContents.length / 2);
+  const leftColumnItems = tableOfContents.slice(0, leftColumnCount);
+  const rightColumnItems = tableOfContents.slice(leftColumnCount);
+
   return (
     <div className="min-h-screen bg-[#06080c] flex flex-col relative">
       {/* Grid background */}
@@ -104,14 +108,19 @@ export default function MiningGuide() {
 
             <div className="flex flex-wrap gap-4 justify-center">
               <a
-                href="/btq-miner-v0.1.0-linux-x64.zip"
+                href="https://github.com/btq-ag/BTQ-Core/releases/tag/v0.1.0-testnet"
+                target="_blank"
+                rel="noopener noreferrer"
                 download
-                className="inline-flex items-center gap-2 bg-[#00f0ff] text-[#06080c] px-7 py-3.5 rounded-lg font-semibold hover:shadow-[0_0_30px_rgba(0,240,255,0.3),0_0_60px_rgba(0,240,255,0.15)] hover:-translate-y-0.5 transition-all"
+                className="inline-flex items-center gap-3 bg-[#00f0ff] text-[#06080c] px-7 py-3.5 rounded-lg font-semibold hover:shadow-[0_0_30px_rgba(0,240,255,0.3),0_0_60px_rgba(0,240,255,0.15)] hover:-translate-y-0.5 transition-all"
               >
                 <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
                 </svg>
-                Download Binaries
+                <span className="flex flex-col items-start leading-tight">
+                  <span>Download Binaries</span>
+                  <span className="text-xs font-normal opacity-70">Available for Windows & Linux</span>
+                </span>
               </a>
               <Link
                 href="/testnet"
@@ -129,16 +138,34 @@ export default function MiningGuide() {
             <div className="bg-[#0c1017] border border-[rgba(0,240,255,0.1)] rounded-xl p-6">
               <h2 className="text-lg font-semibold mb-4">Table of Contents</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {tableOfContents.map((item, index) => (
-                  <a
-                    key={item.id}
-                    href={`#${item.id}`}
-                    className="flex items-center gap-3 text-white/70 hover:text-[#00f0ff] transition-colors py-1"
-                  >
-                    <span className="text-[#00f0ff]/50 font-dm-mono text-sm">{index + 1}.</span>
-                    <span className="text-sm">{item.title}</span>
-                  </a>
-                ))}
+                <div className="flex flex-col gap-2">
+                  {leftColumnItems.map((item, index) => (
+                    <a
+                      key={item.id}
+                      href={`#${item.id}`}
+                      className="flex items-center gap-3 text-white/70 hover:text-[#00f0ff] transition-colors py-1"
+                    >
+                      <span className="text-[#00f0ff]/50 font-dm-mono text-sm">{index + 1}.</span>
+                      <span className="text-sm">{item.title}</span>
+                    </a>
+                  ))}
+                </div>
+                {rightColumnItems.length > 0 && (
+                  <div className="flex flex-col gap-2">
+                    {rightColumnItems.map((item, index) => (
+                      <a
+                        key={item.id}
+                        href={`#${item.id}`}
+                        className="flex items-center gap-3 text-white/70 hover:text-[#00f0ff] transition-colors py-1"
+                      >
+                        <span className="text-[#00f0ff]/50 font-dm-mono text-sm">
+                          {leftColumnCount + index + 1}.
+                        </span>
+                        <span className="text-sm">{item.title}</span>
+                      </a>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -154,7 +181,7 @@ export default function MiningGuide() {
             <SubHeading>Required Software</SubHeading>
             <ul className="list-disc list-inside space-y-2 text-white/70 mb-6">
               <li>BTQ Core daemon (<code className="text-[#00f0ff] bg-[#0a0e14] px-1.5 py-0.5 rounded">btqd</code> and <code className="text-[#00f0ff] bg-[#0a0e14] px-1.5 py-0.5 rounded">btq-cli</code>)</li>
-              <li>BTQ-CCMiner (<code className="text-[#00f0ff] bg-[#0a0e14] px-1.5 py-0.5 rounded">ccminer</code>) - <a href="https://github.com/btq-ag/btq-cc-minter" className="text-[#00f0ff] hover:underline" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+              <li>BTQ-CCMiner (<code className="text-[#00f0ff] bg-[#0a0e14] px-1.5 py-0.5 rounded">ccminer</code>)</li>
               <li>Access to a BTQ mining pool</li>
             </ul>
 
@@ -165,7 +192,7 @@ export default function MiningGuide() {
             <SubHeading>System Requirements</SubHeading>
             <ul className="list-disc list-inside space-y-2 text-white/70">
               <li>Linux/WSL or UNIX environment (including macOS)</li>
-              <li>NVIDIA GPU with CUDA support (for GPU mining)</li>
+              <li>NVIDIA GPU with CUDA 11 support (for GPU mining)</li>
             </ul>
 
             {/* Starting BTQ Daemon */}
