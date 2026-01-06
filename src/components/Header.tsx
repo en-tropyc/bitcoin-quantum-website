@@ -10,61 +10,56 @@ export default function Header() {
   return (
     <header className="bg-transparent relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex items-center h-20">
           {/* Logo */}
-          <div className="flex items-center">
-            <Link href="/">
-              <Image
-                src="/bitcoin-quantum-logo.svg"
-                alt="Bitcoin Quantum Logo"
-                width={200}
-                height={50}
-                className="h-12"
-              />
-            </Link>
-          </div>
+          <Link href="/">
+            <Image
+              src="/bitcoin-quantum-logo.svg"
+              alt="Bitcoin Quantum Logo"
+              width={200}
+              height={50}
+              className="h-8 w-auto"
+            />
+          </Link>
 
-          {/* Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          {/* Spacer */}
+          <div className="flex-1" />
+
+          {/* Navigation + Right side */}
+          <nav className="hidden xl:flex items-center gap-6">
             <Link
               href="/introduction"
-              className="text-white hover:text-[#00f0ff] px-3 py-2 font-dm-mono font-medium transition-colors"
+              className="text-white hover:text-[#00f0ff] py-2 font-dm-mono font-medium transition-colors"
             >
               Introduction
             </Link>
-            {/* <Link
-              href="/resources"
-              className="text-white hover:text-[#00f0ff] px-3 py-2 font-dm-mono font-medium transition-colors"
-            >
-              Resources
-            </Link> */}
             <Link
               href="/development"
-              className="text-white hover:text-[#00f0ff] px-3 py-2 font-dm-mono font-medium transition-colors"
+              className="text-white hover:text-[#00f0ff] py-2 font-dm-mono font-medium transition-colors"
             >
               Development
             </Link>
             <Link
               href="/testnet"
-              className="text-white hover:text-[#00f0ff] px-3 py-2 font-dm-mono font-medium transition-colors"
+              className="text-white hover:text-[#00f0ff] py-2 font-dm-mono font-medium transition-colors"
             >
               Testnet
             </Link>
             <Link
               href="/faq"
-              className="text-white hover:text-[#00f0ff] px-3 py-2 font-dm-mono font-medium transition-colors"
+              className="text-white hover:text-[#00f0ff] py-2 font-dm-mono font-medium transition-colors"
             >
               FAQ
             </Link>
-            <div className="ml-8 pl-8 border-l border-[rgba(0,240,255,0.1)] text-right">
-              <span className="text-white font-dm-mono text-sm tracking-widest opacity-80 text-right">
-                POWERED BY BTQ TECHNOLOGIES 
+            <div className="pl-6 border-l border-[rgba(0,240,255,0.1)]">
+              <span className="text-white font-dm-mono text-sm tracking-widest opacity-80">
+                POWERED BY BTQ TECHNOLOGIES
               </span>
             </div>
           </nav>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="xl:hidden">
             <button
               type="button"
               className="text-white hover:text-gray-300 focus:outline-none focus:text-gray-300"
@@ -86,8 +81,8 @@ export default function Header() {
 
         {/* Mobile Navigation Menu */}
         {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-[#0c1017] border border-[rgba(0,240,255,0.1)] rounded-lg mt-2">
+          <div className="xl:hidden flex justify-end">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-[#0c1017] border border-[rgba(0,240,255,0.1)] rounded-lg mt-2 w-fit">
               <Link
                 href="/introduction"
                 className="block text-white hover:bg-[rgba(0,240,255,0.1)] hover:text-[#00f0ff] px-3 py-2 rounded-md font-dm-mono font-medium transition-colors"

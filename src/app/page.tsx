@@ -95,12 +95,14 @@ export default function Home() {
               Bitcoin for a <span className="gradient-text">Quantum Era</span>
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/introduction"
+              <a
+                href="https://explorer.bitcoinquantum.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-[#00f0ff] text-[#06080c] px-8 py-3 rounded-lg font-semibold hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] hover:-translate-y-0.5 transition-all font-dm-mono"
               >
-                Learn About Bitcoin Quantum
-              </Link>
+                View Testnet Explorer
+              </a>
               <Link
                 href="/faq"
                 className="border border-[rgba(0,240,255,0.1)] text-white px-8 py-3 rounded-lg font-semibold hover:border-[rgba(0,240,255,0.25)] hover:bg-[#0c1017] transition-all font-dm-mono"

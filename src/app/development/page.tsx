@@ -18,14 +18,14 @@ export default function Development() {
     {
       title: "Phase 1: Integrating Dilithium",
       quarter: "2025 Q4",
-      status: "in-progress",
+      status: "completed",
       description: "Extending Dilithium support for addresses, transactions, scripts and consensus/mining"
     },
     {
       title: "Phase 2: Testnet",
-      quarter: "2025 Q4",
-      status: "pending",
-      description: "Security, testing, and deployment, and whitepaper release"
+      quarter: "2026 Q1",
+      status: "in-progress",
+      description: "Testnet is live — security testing, community mining, and whitepaper release"
     },
     {
       title: "Phase 3: Mainnet",
@@ -38,13 +38,19 @@ export default function Development() {
 
   const releases = [
     {
+      version: "v0.1.0-testnet",
+      date: "2026-01-05",
+      title: "Testnet Release",
+      description: "Public testnet launch with GPU mining support for Windows and Linux. Includes Dilithium post-quantum signatures and full network connectivity.",
+      link: "https://github.com/btq-ag/BTQ-Core/releases/tag/v0.1.0-testnet"
+    },
+    {
       version: "v0.1.0",
       date: "2025-08-20",
       title: "Pre-Release v0.1.0",
       description: "Introducing major consensus changes in preperation for PQC signatures, regtest mining support, and genesis block configs",
       link: "https://github.com/btq-ag/BTQ-Core/releases/tag/v0.1.0"
     },
- 
   ];
 
   const developerNotes = [
@@ -301,11 +307,12 @@ export default function Development() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="#"
+                  href="https://github.com/btq-ag/btq-core"
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#00f0ff]/50 text-white/70 px-6 py-3 rounded-lg font-semibold hover:bg-[#00f0ff]/70 transition-all font-dm-mono"
+                  className="bg-[#00f0ff] text-[#06080c] px-6 py-3 rounded-lg font-semibold hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] transition-all font-dm-mono"
                 >
-                  Contribute on GitHub (Coming Soon)
+                  View on GitHub
                 </a>
                 <Link
                   href="/faq"
