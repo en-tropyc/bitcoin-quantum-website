@@ -1,4 +1,5 @@
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import Link from 'next/link';
 
 const tableOfContents = [
@@ -622,18 +623,7 @@ tail -f ~/.btq/testnet3/debug.log`}</CodeBlock>
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-[rgba(0,240,255,0.1)] py-8 mt-10 relative z-10">
-        <div className="max-w-[1100px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-5">
-          <div className="text-white/50 text-sm">Bitcoin Quantum © 2025</div>
-          <div className="flex gap-6">
-            <Link href="/" className="text-white/50 text-sm hover:text-[#00f0ff] transition-colors">Main Site</Link>
-            <Link href="/testnet" className="text-white/50 text-sm hover:text-[#00f0ff] transition-colors">Testnet</Link>
-            <a href="https://github.com/btq-ag/btq-core" target="_blank" rel="noopener noreferrer" className="text-white/50 text-sm hover:text-[#00f0ff] transition-colors">GitHub</a>
-            <a href="https://x.com/btc_quantum" target="_blank" rel="noopener noreferrer" className="text-white/50 text-sm hover:text-[#00f0ff] transition-colors">Twitter</a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
