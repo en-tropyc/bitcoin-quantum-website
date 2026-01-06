@@ -81,8 +81,8 @@ export default function Header() {
 
         {/* Mobile Navigation Menu */}
         {isMenuOpen && (
-          <div className="xl:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-[#0c1017] border border-[rgba(0,240,255,0.1)] rounded-lg mt-2">
+          <div className="xl:hidden flex justify-end">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-[#0c1017] border border-[rgba(0,240,255,0.1)] rounded-lg mt-2 w-fit">
               <Link
                 href="/introduction"
                 className="block text-white hover:bg-[rgba(0,240,255,0.1)] hover:text-[#00f0ff] px-3 py-2 rounded-md font-dm-mono font-medium transition-colors"
