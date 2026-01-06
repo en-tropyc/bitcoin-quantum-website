@@ -182,7 +182,7 @@ export default function MiningGuide() {
             <ul className="list-disc list-inside space-y-2 text-white/70 mb-6">
               <li>BTQ Core daemon (<code className="text-[#00f0ff] bg-[#0a0e14] px-1.5 py-0.5 rounded">btqd</code> and <code className="text-[#00f0ff] bg-[#0a0e14] px-1.5 py-0.5 rounded">btq-cli</code>)</li>
               <li>BTQ-CCMiner (<code className="text-[#00f0ff] bg-[#0a0e14] px-1.5 py-0.5 rounded">ccminer</code>)</li>
-              <li>Access to a BTQ mining pool</li>
+              <li>Access to a <a href="https://pool.bitcoinquantum.com" className="text-[#00f0ff] hover:underline" target="_blank" rel="noopener noreferrer">BTQ mining pool</a></li>
             </ul>
 
             <Note type="info">
