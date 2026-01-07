@@ -122,7 +122,7 @@ export default function Testnet() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-[rgba(0,240,255,0.15)] border border-[rgba(0,240,255,0.1)] px-4 py-2 rounded-full font-dm-mono text-xs text-[#00f0ff] mb-8 uppercase tracking-widest">
               <span className="w-2 h-2 bg-[#00f0ff] rounded-full animate-pulse" />
-              Testnet Loading...
+              Testnet Live
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-5">
