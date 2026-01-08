@@ -82,6 +82,7 @@ port=19333
 listen=1
 gen=0
 maxconnections=50
+addnode=16.16.123.185:19333
 EOF
 ```
 

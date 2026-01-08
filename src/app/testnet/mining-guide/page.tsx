@@ -224,6 +224,7 @@ port=19333
 listen=1
 gen=0
 maxconnections=50
+addnode=13.53.68.231:19333
 EOF`}</CodeBlock>
 
             <CodeBlock title="Mainnet Configuration">{`cat > ~/.btq/btq.conf << EOF
