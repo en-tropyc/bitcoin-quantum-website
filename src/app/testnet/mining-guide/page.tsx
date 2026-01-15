@@ -253,8 +253,13 @@ EOF`}</CodeBlock>
             <CodeBlock title="For Mainnet">{`./btqd -daemon`}</CodeBlock>
             <CodeBlock title="For Regtest (Local Testing)">{`./btqd -daemon -regtest`}</CodeBlock>
 
-            <SubHeading>4. Verify Daemon is Running</SubHeading>
-            <CodeBlock>{`# Check blockchain info
+            <SubHeading>4. Verify Daemon is Synced & Running</SubHeading>
+            <p className="text-white/70 mb-4">After connecting with a seed node, you can verify the daemon is synced up with the blockchain network:</p>
+
+            <CodeBlock>{`# Sync with blockchain network
+./btq-cli -testnet addnode "16.16.123.185" "onetry"
+
+# Check blockchain info
 ./btq-cli -testnet getblockchaininfo
 
 # Check network info
