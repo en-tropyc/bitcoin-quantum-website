@@ -1,6 +1,25 @@
+import { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Resources | Bitcoin Quantum Tools & Downloads',
+  description:
+    'Bitcoin Quantum resources including BTQ Core wallet downloads, developer documentation, build instructions, network tools, and testnet access. Everything you need to build on BTQ.',
+  keywords:
+    'BTQ resources, Bitcoin Quantum wallet, BTQ Core download, BTQ developer tools, BTQ documentation',
+  alternates: {
+    canonical: '/resources',
+  },
+  openGraph: {
+    title: 'Bitcoin Quantum Resources & Tools',
+    description:
+      'Download wallets, access developer documentation, and explore network tools for Bitcoin Quantum.',
+    url: 'https://bitcoinquantum.com/resources',
+    type: 'website',
+  },
+};
 
 export default function Resources() {
   const wallets = [
