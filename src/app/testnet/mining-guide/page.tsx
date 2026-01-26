@@ -1,6 +1,26 @@
+import { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
+import JsonLd from '@/components/JsonLd';
+
+export const metadata: Metadata = {
+  title: 'BTQ Mining Guide | How to Mine Bitcoin Quantum',
+  description:
+    'Complete guide to mining Bitcoin Quantum. Learn how to set up BTQ daemon, create a Dilithium wallet, generate mining addresses, and connect to the mining pool with CCMiner.',
+  keywords:
+    'BTQ mining guide, mine Bitcoin Quantum, BTQ wallet setup, Dilithium address, CCMiner BTQ, BTQ mining pool',
+  alternates: {
+    canonical: '/testnet/mining-guide',
+  },
+  openGraph: {
+    title: 'BTQ Mining Guide - How to Mine Bitcoin Quantum',
+    description:
+      'Step-by-step instructions for mining BTQ. Set up your wallet, configure your node, and start mining.',
+    url: 'https://bitcoinquantum.com/testnet/mining-guide',
+    type: 'article',
+  },
+};
 
 const tableOfContents = [
   { id: 'prerequisites', title: 'Prerequisites' },
@@ -73,6 +93,64 @@ export default function MiningGuide() {
 
   return (
     <div className="min-h-screen bg-[#06080c] flex flex-col relative">
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'HowTo',
+          name: 'How to Mine Bitcoin Quantum (BTQ)',
+          description:
+            'Complete guide to setting up BTQ mining with Dilithium wallet and CCMiner.',
+          totalTime: 'PT15M',
+          estimatedCost: {
+            '@type': 'MonetaryAmount',
+            currency: 'USD',
+            value: '0',
+          },
+          supply: [
+            { '@type': 'HowToSupply', name: 'Computer with NVIDIA GPU' },
+            { '@type': 'HowToSupply', name: 'BTQ Core binaries' },
+            { '@type': 'HowToSupply', name: 'CCMiner software' },
+          ],
+          tool: [
+            { '@type': 'HowToTool', name: 'BTQ daemon (btqd)' },
+            { '@type': 'HowToTool', name: 'BTQ CLI (btq-cli)' },
+            { '@type': 'HowToTool', name: 'CCMiner' },
+          ],
+          step: [
+            {
+              '@type': 'HowToStep',
+              name: 'Download the binary',
+              text: 'Download the latest BTQ Core release for your platform from GitHub.',
+              url: 'https://github.com/btq-ag/BTQ-Core/releases/tag/v0.1.0-testnet',
+            },
+            {
+              '@type': 'HowToStep',
+              name: 'Create Configuration',
+              text: 'Create the BTQ data directory and configuration file at ~/.btq/btq.conf',
+            },
+            {
+              '@type': 'HowToStep',
+              name: 'Start BTQ Daemon',
+              text: 'Start the daemon with ./btqd -daemon -testnet',
+            },
+            {
+              '@type': 'HowToStep',
+              name: 'Create Wallet',
+              text: 'Create a Dilithium wallet using btq-cli createwallet command',
+            },
+            {
+              '@type': 'HowToStep',
+              name: 'Generate Mining Address',
+              text: 'Generate a quantum-resistant Dilithium address for receiving mining rewards',
+            },
+            {
+              '@type': 'HowToStep',
+              name: 'Connect to Mining Pool',
+              text: 'Use CCMiner to connect to the mining pool at stratum+tcp://16.16.123.185:3333',
+            },
+          ],
+        }}
+      />
       {/* Grid background */}
       <div
         className="fixed inset-0 pointer-events-none z-0"
