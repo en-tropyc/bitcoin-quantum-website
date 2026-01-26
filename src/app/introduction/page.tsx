@@ -1,7 +1,26 @@
+import { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FeatureCarousel from '@/components/FeatureCarousel';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'What is Bitcoin Quantum? | Introduction to BTQ',
+  description:
+    "Learn what Bitcoin Quantum is and how it protects against quantum computer threats. Understand CRYSTALS-Dilithium signatures, the quantum threat to Bitcoin, and BTQ's post-quantum architecture.",
+  keywords:
+    'what is Bitcoin Quantum, BTQ introduction, quantum threat Bitcoin, CRYSTALS-Dilithium, post-quantum cryptography, Shor algorithm Bitcoin',
+  alternates: {
+    canonical: '/introduction',
+  },
+  openGraph: {
+    title: 'What is Bitcoin Quantum? | BTQ Introduction',
+    description:
+      'Learn how Bitcoin Quantum protects against quantum computer threats with NIST-standardized cryptography.',
+    url: 'https://bitcoinquantum.com/introduction',
+    type: 'article',
+  },
+};
 
 export default function Introduction() {
   return (

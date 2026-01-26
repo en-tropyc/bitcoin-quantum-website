@@ -1,6 +1,25 @@
+import { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Development Roadmap | Bitcoin Quantum Progress',
+  description:
+    'Track Bitcoin Quantum development progress. View our roadmap from foundation research through testnet to mainnet launch, including Dilithium integration milestones and release notes.',
+  keywords:
+    'Bitcoin Quantum roadmap, BTQ development, Dilithium integration, BTQ testnet, BTQ mainnet, cryptocurrency development',
+  alternates: {
+    canonical: '/development',
+  },
+  openGraph: {
+    title: 'Bitcoin Quantum Development Roadmap',
+    description:
+      'Track our progress building quantum-resistant Bitcoin. View milestones, releases, and technical updates.',
+    url: 'https://bitcoinquantum.com/development',
+    type: 'article',
+  },
+};
 
 export default function Development() {
   const roadmapItems = [

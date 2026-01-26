@@ -1,7 +1,30 @@
+import { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
-;
+
+export const metadata: Metadata = {
+  title: 'Bitcoin Quantum - Quantum-Resistant Bitcoin for the Post-Quantum Era',
+  description:
+    "Bitcoin Quantum (BTQ) is a quantum-resistant cryptocurrency built on Bitcoin's proven architecture with NIST-standardized CRYSTALS-Dilithium signatures. Secure your digital assets against quantum computer threats.",
+  keywords:
+    'Bitcoin Quantum, BTQ, quantum-resistant cryptocurrency, post-quantum Bitcoin, CRYSTALS-Dilithium, quantum-safe blockchain, quantum computing Bitcoin',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Bitcoin Quantum - Quantum-Resistant Bitcoin',
+    description:
+      'The evolution of Bitcoin for the quantum era. Built with NIST-standardized post-quantum cryptography.',
+    url: 'https://bitcoinquantum.com',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Bitcoin Quantum - Quantum-Resistant Bitcoin',
+    description: 'The evolution of Bitcoin for the quantum era.',
+  },
+};
 
 export default function Home() {
   return (

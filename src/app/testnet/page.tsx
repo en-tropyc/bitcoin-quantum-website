@@ -1,6 +1,25 @@
+import { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'BTQ Testnet | Run a Quantum-Secure Node',
+  description:
+    'Join the Bitcoin Quantum testnet. Download BTQ Core binaries, run a quantum-secure node, and help test the future of quantum-resistant Bitcoin. Available for Windows and Linux.',
+  keywords:
+    'BTQ testnet, Bitcoin Quantum testnet, download BTQ, run BTQ node, quantum-resistant node, BTQ mining',
+  alternates: {
+    canonical: '/testnet',
+  },
+  openGraph: {
+    title: 'BTQ Testnet - Run a Quantum-Secure Node',
+    description:
+      'Download testnet binaries and join the Bitcoin Quantum network. Help build the future of quantum-resistant Bitcoin.',
+    url: 'https://bitcoinquantum.com/testnet',
+    type: 'website',
+  },
+};
 
 const participantGuides = [
   {
