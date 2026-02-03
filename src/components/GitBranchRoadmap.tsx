@@ -54,6 +54,24 @@ export default function GitBranchRoadmap() {
         <div className="relative">
           {/* SVG for all lines */}
           <svg className="absolute inset-0 w-full overflow-visible" style={{ height: '200px' }} preserveAspectRatio="none">
+            {/* Upper shaded region - Classical Bitcoin (gray) */}
+            <rect
+              x="28%"
+              y="0"
+              width="72%"
+              height="70"
+              fill="rgba(255,255,255,0.03)"
+            />
+
+            {/* Lower shaded region - Quantum-Safe Bitcoin (cyan) */}
+            <rect
+              x="28%"
+              y="70"
+              width="72%"
+              height="130"
+              fill="rgba(0,240,255,0.04)"
+            />
+
             {/* Pre-fork line (BTC Genesis to Quantum Threat to fork point) */}
             <line
               x1="4%"
@@ -126,13 +144,13 @@ export default function GitBranchRoadmap() {
               </div>
             </div>
 
-            {/* Classical Bitcoin label (above upper dashed line) */}
-            <div className="absolute" style={{ left: '50%', top: '32px' }}>
+            {/* Classical Bitcoin label (upper region) */}
+            <div className="absolute" style={{ left: '64%', top: '10px', transform: 'translateX(-50%)' }}>
               <span className="text-[10px] font-dm-mono text-white/30 italic">Classical Bitcoin (vulnerable)</span>
             </div>
 
-            {/* BTQ branch label (left of lower line) */}
-            <div className="absolute" style={{ left: '3%', top: '90px' }}>
+            {/* BTQ branch label (lower region) */}
+            <div className="absolute" style={{ left: '64%', top: '165px', transform: 'translateX(-50%)' }}>
               <span className="text-[10px] font-dm-mono text-[#00f0ff]/60 whitespace-nowrap">BTQ: Quantum-Safe Bitcoin</span>
             </div>
 
@@ -170,6 +188,12 @@ export default function GitBranchRoadmap() {
           <div className="min-w-[800px] relative" style={{ height: '200px' }}>
             {/* SVG for lines */}
             <svg className="absolute inset-0 w-full h-full overflow-visible">
+              {/* Upper shaded region - Classical Bitcoin (gray) */}
+              <rect x="190" y="0" width="590" height="65" fill="rgba(255,255,255,0.03)" />
+
+              {/* Lower shaded region - Quantum-Safe Bitcoin (cyan) */}
+              <rect x="190" y="65" width="590" height="135" fill="rgba(0,240,255,0.04)" />
+
               {/* Pre-fork line */}
               <line x1="20" y1="40" x2="160" y2="40" stroke="rgba(0,240,255,0.4)" strokeWidth="2" />
 
@@ -206,11 +230,11 @@ export default function GitBranchRoadmap() {
             </div>
 
             {/* Labels */}
-            <div className="absolute" style={{ left: '240px', top: '22px' }}>
+            <div className="absolute" style={{ left: '485px', top: '8px', transform: 'translateX(-50%)' }}>
               <span className="text-[9px] font-dm-mono text-white/25 italic">Classical Bitcoin (vulnerable)</span>
             </div>
-            <div className="absolute" style={{ left: '240px', top: '108px' }}>
-              <span className="text-[9px] font-dm-mono text-[#00f0ff]/50 italic">BTQ: Quantum Safety</span>
+            <div className="absolute" style={{ left: '485px', top: '165px', transform: 'translateX(-50%)' }}>
+              <span className="text-[9px] font-dm-mono text-[#00f0ff]/50 italic">BTQ: Quantum-Safe Bitcoin</span>
             </div>
 
             {/* BTQ nodes - on lower line */}
