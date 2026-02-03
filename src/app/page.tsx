@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import TestnetBanner from '@/components/TestnetBanner';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -32,6 +33,7 @@ export default function Home() {
       {/* Grid background */}
       <div className="grid-background" />
 
+      <TestnetBanner />
       <Header />
 
       <main className="flex-1 relative z-10">
