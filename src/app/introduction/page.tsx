@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FeatureCarousel from '@/components/FeatureCarousel';
+import GitBranchRoadmap from '@/components/GitBranchRoadmap';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -45,6 +46,13 @@ export default function Introduction() {
           </div>
         </section>
 
+        {/* Roadmap Section - Full Width */}
+        <section className="py-8 border-y border-[rgba(0,240,255,0.1)] bg-[rgba(0,0,0,0.2)]">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <GitBranchRoadmap />
+          </div>
+        </section>
+
         {/* Content Sections */}
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -83,6 +91,9 @@ export default function Introduction() {
                   <div className="bg-[#0c1017] p-6 rounded-lg border border-[rgba(0,240,255,0.1)]">
                     <h3 className="text-lg font-semibold text-white mb-4 font-dm-mono">On This Page</h3>
                     <nav className="space-y-2 font-dm-mono">
+                      <a href="#roadmap" className="block text-white/60 hover:text-[#00f0ff] transition-colors text-sm">
+                        Roadmap
+                      </a>
                       <a href="#what-is-btq" className="block text-white/60 hover:text-[#00f0ff] transition-colors text-sm">
                         What is Bitcoin Quantum?
                       </a>
@@ -164,17 +175,19 @@ export default function Introduction() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link
-                    href="/development"
+                    href="/testnet"
                     className="bg-[#00f0ff] text-[#06080c] px-6 py-3 rounded-lg font-semibold hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] hover:-translate-y-0.5 transition-all font-dm-mono"
                   >
-                    View Development
+                    Join Testnet
                   </Link>
-                  <Link
-                    href="/faq"
+                  <a
+                    href="https://github.com/btq-ag/btq-core"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="border border-[rgba(0,240,255,0.1)] text-white px-6 py-3 rounded-lg font-semibold hover:border-[rgba(0,240,255,0.25)] hover:bg-[#0c1017] transition-all font-dm-mono"
                   >
-                    Read FAQ
-                  </Link>
+                    View on GitHub
+                  </a>
                 </div>
               </div>
 
