@@ -49,71 +49,74 @@ export default function GitBranchRoadmap() {
         Bitcoin Quantum forks from Bitcoin&apos;s legacy to build a quantum-resistant future.
       </p>
 
+      {/* Container for container queries */}
+      <div className="@container">
       {/* Desktop Layout */}
-      <div className="hidden lg:block">
+      <div className="hidden @lg:block">
         <div className="relative">
-          {/* SVG for all lines */}
-          <svg className="absolute inset-0 w-full overflow-visible" style={{ height: '200px' }} preserveAspectRatio="none">
+          {/* SVG for all lines - using viewBox for consistent scaling */}
+          <svg
+            className="absolute inset-0 w-full overflow-visible"
+            style={{ height: '200px' }}
+            viewBox="0 0 1000 200"
+            preserveAspectRatio="none"
+          >
             {/* Upper shaded region - Classical Bitcoin (gray) */}
             <rect
-              x="28%"
+              x="280"
               y="0"
-              width="72%"
+              width="720"
               height="70"
               fill="rgba(255,255,255,0.03)"
             />
 
             {/* Lower shaded region - Quantum-Safe Bitcoin (cyan) */}
             <rect
-              x="28%"
+              x="280"
               y="70"
-              width="72%"
+              width="720"
               height="130"
               fill="rgba(0,240,255,0.04)"
             />
 
             {/* Pre-fork line (BTC Genesis to Quantum Threat to fork point) */}
             <line
-              x1="4%"
+              x1="40"
               y1="48"
-              x2="24%"
+              x2="240"
               y2="48"
               stroke="rgba(0,240,255,0.5)"
               strokeWidth="2"
+              vectorEffect="non-scaling-stroke"
             />
 
             {/* Upper branch - Classical Bitcoin (continues straight, dashed) */}
             <line
-              x1="24%"
+              x1="240"
               y1="48"
-              x2="100%"
+              x2="1000"
               y2="48"
               stroke="rgba(255,255,255,0.12)"
               strokeWidth="2"
               strokeDasharray="6 4"
+              vectorEffect="non-scaling-stroke"
+            />
+
+            {/* Fork curve - connects upper line to lower branch */}
+            <path
+              d="M 240 48 C 280 48 280 98 320 98"
+              fill="none"
+              stroke="rgba(0,240,255,0.5)"
+              strokeWidth="2"
+              vectorEffect="non-scaling-stroke"
             />
 
             {/* Lower branch - BTQ Quantum Safety */}
             <line
-              x1="32%"
+              x1="320"
               y1="98"
-              x2="100%"
+              x2="1000"
               y2="98"
-              stroke="rgba(0,240,255,0.5)"
-              strokeWidth="2"
-            />
-          </svg>
-
-          {/* Fork curve - separate SVG for the connecting curve */}
-          <svg
-            className="absolute overflow-visible"
-            style={{ left: '24%', top: '48px', width: '8%', height: '50px' }}
-            viewBox="0 0 100 50"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M 0 0 C 20 0 30 50 100 50"
-              fill="none"
               stroke="rgba(0,240,255,0.5)"
               strokeWidth="2"
               vectorEffect="non-scaling-stroke"
@@ -183,7 +186,7 @@ export default function GitBranchRoadmap() {
       </div>
 
       {/* Tablet Layout */}
-      <div className="hidden md:block lg:hidden">
+      <div className="hidden @md:block @lg:hidden">
         <div className="relative overflow-x-auto pb-4">
           <div className="min-w-[800px] relative" style={{ height: '200px' }}>
             {/* SVG for lines */}
@@ -266,7 +269,7 @@ export default function GitBranchRoadmap() {
       </div>
 
       {/* Mobile Layout - Vertical */}
-      <div className="md:hidden">
+      <div className="@md:hidden">
         {/* BTC History */}
         <div className="mb-4 pl-2">
           <div className="text-[10px] text-white/40 font-dm-mono mb-2 uppercase tracking-wider">Bitcoin History</div>
@@ -332,6 +335,7 @@ export default function GitBranchRoadmap() {
             ))}
           </div>
         </div>
+      </div>
       </div>
 
       {/* Legend */}
