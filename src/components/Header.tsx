@@ -39,6 +39,14 @@ export default function Header() {
             >
               Development
             </Link>
+            <a
+              href="https://docs.bitcoinquantum.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-[#00f0ff] py-2 font-dm-mono font-medium transition-colors"
+            >
+              Docs
+            </a>
             <Link
               href="/testnet"
               className="text-white hover:text-[#00f0ff] py-2 font-dm-mono font-medium transition-colors"
@@ -104,6 +112,15 @@ export default function Header() {
               >
                 Development
               </Link>
+              <a
+                href="https://docs.bitcoinquantum.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-white hover:bg-[rgba(0,240,255,0.1)] hover:text-[#00f0ff] px-3 py-2 rounded-md font-dm-mono font-medium transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Docs
+              </a>
               <Link
                 href="/testnet"
                 className="block text-white hover:bg-[rgba(0,240,255,0.1)] hover:text-[#00f0ff] px-3 py-2 rounded-md font-dm-mono font-medium transition-colors"
