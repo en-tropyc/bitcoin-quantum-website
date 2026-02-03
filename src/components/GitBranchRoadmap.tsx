@@ -8,12 +8,12 @@ interface Milestone {
 }
 
 const btqRoadmap: Milestone[] = [
-  { id: 'phase-0', title: 'Phase 0', subtitle: 'Fork BTC', status: 'completed' },
-  { id: 'phase-1', title: 'Phase 1', subtitle: 'PQC Dev', status: 'completed' },
+  { id: 'phase-0', title: 'Phase 0', subtitle: 'BTC Fork', status: 'completed' },
+  { id: 'phase-1', title: 'Phase 1', subtitle: 'Development', status: 'completed' },
   { id: 'phase-2', title: 'Phase 2', subtitle: 'Pre-Release', status: 'completed' },
-  { id: 'testnet-v01', title: 'Testnet v0.1', subtitle: 'Current', status: 'in-progress' },
-  { id: 'testnet-v02', title: 'Testnet v0.2', subtitle: 'Upcoming', status: 'planned' },
-  { id: 'genesis', title: 'Genesis', subtitle: 'Mainnet', status: 'planned' },
+  { id: 'testnet-v01', title: 'Testnet v1', subtitle: 'Latest', status: 'in-progress' },
+  { id: 'testnet-v02', title: 'Testnet v2', subtitle: 'Upcoming', status: 'planned' },
+  { id: 'genesis', title: 'BTQ Genesis', subtitle: 'Mainnet', status: 'planned' },
 ];
 
 function StatusDot({ status, size = 'md' }: { status: 'completed' | 'in-progress' | 'planned'; size?: 'sm' | 'md' }) {
@@ -46,7 +46,7 @@ export default function GitBranchRoadmap() {
     <div id="roadmap" className="mb-12 scroll-mt-24">
       <h2 className="text-3xl font-bold text-white mb-4 font-dm-mono">Roadmap</h2>
       <p className="text-white/70 mb-10 font-dm-mono text-lg">
-        Bitcoin Quantum forks from Bitcoin&apos;s legacy to build a quantum-resistant future.
+        Bitcoin Quantum builds upon Bitcoin&apos;s legacy to create a quantum-resistant future for everyone.
       </p>
 
       {/* Container for container queries */}
@@ -129,8 +129,8 @@ export default function GitBranchRoadmap() {
             <div className="absolute" style={{ left: '4%', top: '0px' }}>
               <div className="flex flex-col items-center">
                 <div className="mb-2 text-center">
-                  <div className="text-xs font-dm-mono font-medium text-white whitespace-nowrap">BTC Genesis</div>
-                  <div className="text-[10px] font-dm-mono text-white/50">2009</div>
+                  <div className="text-sm font-dm-mono font-medium text-white whitespace-nowrap">BTC Genesis</div>
+                  <div className="text-xs font-dm-mono text-white/50">2009</div>
                 </div>
                 <StatusDot status="completed" />
               </div>
@@ -140,8 +140,8 @@ export default function GitBranchRoadmap() {
             <div className="absolute" style={{ left: '18%', top: '0px' }}>
               <div className="flex flex-col items-center">
                 <div className="mb-2 text-center">
-                  <div className="text-xs font-dm-mono font-medium text-white whitespace-nowrap">Quantum Threat</div>
-                  <div className="text-[10px] font-dm-mono text-white/50">Identified</div>
+                  <div className="text-sm font-dm-mono font-medium text-white whitespace-nowrap">Quantum Threat</div>
+                  <div className="text-xs font-dm-mono text-white/50">Identified</div>
                 </div>
                 <StatusDot status="completed" />
               </div>
@@ -149,12 +149,12 @@ export default function GitBranchRoadmap() {
 
             {/* Classical Bitcoin label (upper region) */}
             <div className="absolute" style={{ left: '64%', top: '10px', transform: 'translateX(-50%)' }}>
-              <span className="text-[10px] font-dm-mono text-white/30 italic">Classical Bitcoin (vulnerable)</span>
+              <span className="text-xs font-dm-mono text-white/30 italic">Classical Bitcoin (vulnerable)</span>
             </div>
 
             {/* BTQ branch label (lower region) */}
             <div className="absolute" style={{ left: '64%', top: '165px', transform: 'translateX(-50%)' }}>
-              <span className="text-[10px] font-dm-mono text-[#00f0ff]/60 whitespace-nowrap">BTQ: Quantum-Safe Bitcoin</span>
+              <span className="text-xs font-dm-mono text-[#00f0ff]/60 whitespace-nowrap">BTQ: Quantum-Safe Bitcoin</span>
             </div>
 
             {/* BTQ Roadmap nodes - on lower line */}
@@ -167,12 +167,12 @@ export default function GitBranchRoadmap() {
                 <div className="flex flex-col items-center">
                   <StatusDot status={milestone.status} />
                   <div className="mt-2 text-center">
-                    <div className={`text-xs font-dm-mono font-medium whitespace-nowrap ${
+                    <div className={`text-sm font-dm-mono font-medium whitespace-nowrap ${
                       milestone.status === 'planned' ? 'text-white/40' : 'text-white'
                     }`}>
                       {milestone.title}
                     </div>
-                    <div className={`text-[10px] font-dm-mono ${
+                    <div className={`text-xs font-dm-mono ${
                       milestone.status === 'planned' ? 'text-white/25' : 'text-white/50'
                     }`}>
                       {milestone.subtitle}
