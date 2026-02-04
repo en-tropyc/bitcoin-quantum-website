@@ -10,11 +10,20 @@ export default function TestnetBanner() {
     >
       {/* Animated gradient background */}
       <div
-        className="absolute inset-0 opacity-[0.12] group-hover:opacity-[0.18] transition-opacity"
+        className="absolute inset-0 opacity-[0.40] group-hover:opacity-[0.55] transition-opacity"
         style={{
           background: 'linear-gradient(90deg, #00f0ff, #a855f7, #00f0ff, #a855f7)',
           backgroundSize: '300% 100%',
-          animation: 'gradient-shift 10s ease-in-out infinite',
+          animation: 'gradient-shift 6s ease-in-out infinite',
+        }}
+      />
+      {/* Shimmer sweep effect */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: 'linear-gradient(110deg, transparent 20%, rgba(255,255,255,0.15) 40%, rgba(255,255,255,0.15) 45%, transparent 65%)',
+          backgroundSize: '200% 100%',
+          animation: 'shimmer 5s ease-in-out infinite',
         }}
       />
       <style jsx>{`
@@ -25,6 +34,10 @@ export default function TestnetBanner() {
           50% {
             background-position: 100% 50%;
           }
+        }
+        @keyframes shimmer {
+          0%, 100% { background-position: 200% 0; }
+          40%, 60% { background-position: -100% 0; }
         }
       `}</style>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
