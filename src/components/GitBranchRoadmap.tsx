@@ -44,7 +44,7 @@ function StatusDot({ status, size = 'md' }: { status: 'completed' | 'in-progress
 export default function GitBranchRoadmap() {
   return (
     <div id="roadmap" className="mb-12 scroll-mt-24">
-      <h2 className="text-3xl font-bold text-white mb-4 font-dm-mono">Roadmap</h2>
+      <h2 className="text-3xl font-bold text-white mb-4 font-dm-mono">The Path Forward</h2>
       <p className="text-white/70 mb-10 font-dm-mono text-lg">
         Bitcoin Quantum builds upon Bitcoin&apos;s legacy to create a quantum-resistant future for everyone.
       </p>
