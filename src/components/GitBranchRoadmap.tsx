@@ -51,8 +51,8 @@ export default function GitBranchRoadmap() {
 
       {/* Container for container queries */}
       <div className="@container">
-      {/* Desktop Layout */}
-      <div className="hidden @lg:block">
+      {/* Desktop Layout - shows at @4xl (896px) and above */}
+      <div className="hidden @4xl:block">
         <div className="relative">
           {/* SVG for all lines - using viewBox for consistent scaling */}
           <svg
@@ -149,7 +149,7 @@ export default function GitBranchRoadmap() {
 
             {/* Classical Bitcoin label (upper region) */}
             <div className="absolute" style={{ left: '64%', top: '10px', transform: 'translateX(-50%)' }}>
-              <span className="text-xs font-dm-mono text-white/30 italic">Classical Bitcoin (vulnerable)</span>
+              <span className="text-xs font-dm-mono text-white/30 italic">Classical Bitcoin (Vulnerable)</span>
             </div>
 
             {/* BTQ branch label (lower region) */}
@@ -185,8 +185,8 @@ export default function GitBranchRoadmap() {
         </div>
       </div>
 
-      {/* Tablet Layout */}
-      <div className="hidden @md:block @lg:hidden">
+      {/* Tablet Layout - shows between @md (448px) and @4xl (896px) */}
+      <div className="hidden @md:block @4xl:hidden">
         <div className="relative overflow-x-auto pb-4">
           <div className="min-w-[800px] relative" style={{ height: '200px' }}>
             {/* SVG for lines */}
@@ -210,8 +210,8 @@ export default function GitBranchRoadmap() {
               <line x1="220" y1="90" x2="780" y2="90" stroke="rgba(0,240,255,0.4)" strokeWidth="2" />
             </svg>
 
-            {/* BTC Genesis - on upper line */}
-            <div className="absolute" style={{ left: '30px', top: '28px' }}>
+            {/* BTC Genesis - on upper line (line y=40, dot center needs to be at 40, so top = 40-6 = 34) */}
+            <div className="absolute" style={{ left: '30px', top: '34px' }}>
               <div className="flex flex-col items-center">
                 <StatusDot status="completed" size="sm" />
                 <div className="mt-1.5 text-center">
@@ -222,7 +222,7 @@ export default function GitBranchRoadmap() {
             </div>
 
             {/* Quantum Threat - on upper line at fork point */}
-            <div className="absolute" style={{ left: '120px', top: '28px' }}>
+            <div className="absolute" style={{ left: '120px', top: '34px' }}>
               <div className="flex flex-col items-center">
                 <StatusDot status="completed" size="sm" />
                 <div className="mt-1.5 text-center">
@@ -234,18 +234,18 @@ export default function GitBranchRoadmap() {
 
             {/* Labels */}
             <div className="absolute" style={{ left: '485px', top: '8px', transform: 'translateX(-50%)' }}>
-              <span className="text-[9px] font-dm-mono text-white/25 italic">Classical Bitcoin (vulnerable)</span>
+              <span className="text-[9px] font-dm-mono text-white/25 italic">Classical Bitcoin (Vulnerable)</span>
             </div>
             <div className="absolute" style={{ left: '485px', top: '165px', transform: 'translateX(-50%)' }}>
               <span className="text-[9px] font-dm-mono text-[#00f0ff]/50 italic">Quantum-Safe Bitcoin</span>
             </div>
 
-            {/* BTQ nodes - on lower line */}
+            {/* BTQ nodes - on lower line (line y=90, dot center needs to be at 90, so top = 90-6 = 84) */}
             {btqRoadmap.map((milestone, idx) => (
               <div
                 key={milestone.id}
                 className="absolute"
-                style={{ left: `${240 + idx * 90}px`, top: '78px' }}
+                style={{ left: `${240 + idx * 90}px`, top: '84px' }}
               >
                 <div className="flex flex-col items-center">
                   <StatusDot status={milestone.status} size="sm" />
@@ -268,67 +268,81 @@ export default function GitBranchRoadmap() {
         </div>
       </div>
 
-      {/* Mobile Layout - Vertical */}
+      {/* Mobile Layout - Horizontal Scrolling */}
       <div className="@md:hidden">
-        {/* BTC History */}
-        <div className="mb-4 pl-2">
-          <div className="text-[10px] text-white/40 font-dm-mono mb-2 uppercase tracking-wider">Bitcoin History</div>
-          <div className="flex items-center gap-8 relative">
-            <div className="absolute top-[6px] left-[6px] w-28 h-0.5 bg-[rgba(0,240,255,0.3)]" />
-            <div className="flex flex-col items-center relative z-10">
-              <StatusDot status="completed" size="sm" />
-              <div className="mt-1.5 text-center">
-                <div className="text-[10px] font-dm-mono font-medium text-white">BTC Genesis</div>
-                <div className="text-[9px] font-dm-mono text-white/50">2009</div>
-              </div>
-            </div>
-            <div className="flex flex-col items-center relative z-10">
-              <StatusDot status="completed" size="sm" />
-              <div className="mt-1.5 text-center">
-                <div className="text-[10px] font-dm-mono font-medium text-white">Quantum Threat</div>
-                <div className="text-[9px] font-dm-mono text-white/50">Identified</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div className="relative overflow-x-auto pb-4">
+          <div className="min-w-[600px] relative" style={{ height: '180px' }}>
+            {/* SVG for lines */}
+            <svg className="absolute inset-0 w-full h-full overflow-visible">
+              {/* Upper shaded region - Classical Bitcoin (gray) */}
+              <rect x="140" y="0" width="460" height="60" fill="rgba(255,255,255,0.03)" />
 
-        {/* Fork visualization */}
-        <div className="relative ml-4 mb-2 h-12">
-          <svg width="100" height="48" className="overflow-visible">
-            {/* Dashed line continuing (Classical) */}
-            <line x1="0" y1="4" x2="90" y2="4" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5" strokeDasharray="3 3" />
-            {/* Fork curve down */}
-            <path d="M 0 4 Q 10 4 15 15 Q 20 26 30 26" fill="none" stroke="rgba(0,240,255,0.4)" strokeWidth="1.5" />
-            {/* BTQ line start */}
-            <line x1="30" y1="26" x2="50" y2="26" stroke="rgba(0,240,255,0.4)" strokeWidth="1.5" />
-          </svg>
-          <span className="absolute top-0 left-24 text-[9px] text-white/25 font-dm-mono italic">Classical (vulnerable)</span>
-          <span className="absolute top-5 left-14 text-[9px] text-[#00f0ff]/50 font-dm-mono italic">BTQ</span>
-        </div>
+              {/* Lower shaded region - Quantum-Safe Bitcoin (cyan) */}
+              <rect x="140" y="60" width="460" height="120" fill="rgba(0,240,255,0.04)" />
 
-        {/* BTQ Roadmap - vertical */}
-        <div className="relative pl-2">
-          <div className="text-[10px] text-white/40 font-dm-mono mb-2 uppercase tracking-wider">Quantum Safety</div>
+              {/* Pre-fork line */}
+              <line x1="15" y1="38" x2="120" y2="38" stroke="rgba(0,240,255,0.4)" strokeWidth="2" />
 
-          {/* Vertical line */}
-          <div className="absolute left-[8px] top-[24px] w-0.5 bg-gradient-to-b from-[rgba(0,240,255,0.4)] to-[rgba(0,240,255,0.1)]" style={{ height: 'calc(100% - 32px)' }} />
+              {/* Upper branch - dashed (Classical Bitcoin) */}
+              <line x1="120" y1="38" x2="600" y2="38" stroke="rgba(255,255,255,0.12)" strokeWidth="2" strokeDasharray="6 4" />
 
-          <div className="space-y-4">
-            {btqRoadmap.map((milestone) => (
-              <div key={milestone.id} className="flex items-center gap-4">
-                <div className="relative z-10">
-                  <StatusDot status={milestone.status} size="sm" />
+              {/* Fork curve connecting upper to lower */}
+              <path d="M 120 38 C 140 38 145 82 170 82" fill="none" stroke="rgba(0,240,255,0.4)" strokeWidth="2" />
+
+              {/* Lower branch (BTQ) */}
+              <line x1="170" y1="82" x2="600" y2="82" stroke="rgba(0,240,255,0.4)" strokeWidth="2" />
+            </svg>
+
+            {/* BTC Genesis - on upper line (line y=38, dot center at 38, so top = 38-6 = 32) */}
+            <div className="absolute" style={{ left: '20px', top: '32px' }}>
+              <div className="flex flex-col items-center">
+                <StatusDot status="completed" size="sm" />
+                <div className="mt-1.5 text-center">
+                  <div className="text-[10px] font-dm-mono font-medium text-white">BTC Genesis</div>
+                  <div className="text-[9px] font-dm-mono text-white/50">2009</div>
                 </div>
-                <div>
-                  <div className={`text-sm font-dm-mono font-medium ${
-                    milestone.status === 'planned' ? 'text-white/40' : 'text-white'
-                  }`}>
-                    {milestone.title}
-                  </div>
-                  <div className={`text-xs font-dm-mono ${
-                    milestone.status === 'planned' ? 'text-white/25' : 'text-white/50'
-                  }`}>
-                    {milestone.subtitle}
+              </div>
+            </div>
+
+            {/* Quantum Threat - on upper line at fork point */}
+            <div className="absolute" style={{ left: '90px', top: '32px' }}>
+              <div className="flex flex-col items-center">
+                <StatusDot status="completed" size="sm" />
+                <div className="mt-1.5 text-center">
+                  <div className="text-[10px] font-dm-mono font-medium text-white whitespace-nowrap">Quantum Threat</div>
+                  <div className="text-[9px] font-dm-mono text-white/50">Identified</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Labels */}
+            <div className="absolute" style={{ left: '370px', top: '8px', transform: 'translateX(-50%)' }}>
+              <span className="text-[9px] font-dm-mono text-white/25 italic">Classical Bitcoin (Vulnerable)</span>
+            </div>
+            <div className="absolute" style={{ left: '370px', top: '148px', transform: 'translateX(-50%)' }}>
+              <span className="text-[9px] font-dm-mono text-[#00f0ff]/50 italic">Quantum-Safe Bitcoin</span>
+            </div>
+
+            {/* BTQ nodes - on lower line (line y=82, dot center at 82, so top = 82-6 = 76) */}
+            {btqRoadmap.map((milestone, idx) => (
+              <div
+                key={milestone.id}
+                className="absolute"
+                style={{ left: `${185 + idx * 70}px`, top: '76px' }}
+              >
+                <div className="flex flex-col items-center">
+                  <StatusDot status={milestone.status} size="sm" />
+                  <div className="mt-1.5 text-center">
+                    <div className={`text-[10px] font-dm-mono font-medium whitespace-nowrap ${
+                      milestone.status === 'planned' ? 'text-white/40' : 'text-white'
+                    }`}>
+                      {milestone.title}
+                    </div>
+                    <div className={`text-[9px] font-dm-mono ${
+                      milestone.status === 'planned' ? 'text-white/25' : 'text-white/50'
+                    }`}>
+                      {milestone.subtitle}
+                    </div>
                   </div>
                 </div>
               </div>
