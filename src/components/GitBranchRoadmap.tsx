@@ -154,7 +154,7 @@ export default function GitBranchRoadmap() {
 
             {/* BTQ branch label (lower region) */}
             <div className="absolute" style={{ left: '64%', top: '165px', transform: 'translateX(-50%)' }}>
-              <span className="text-xs font-dm-mono text-[#00f0ff]/60 whitespace-nowrap">BTQ: Quantum-Safe Bitcoin</span>
+              <span className="text-xs font-dm-mono text-[#00f0ff]/60 whitespace-nowrap">Quantum-Safe Bitcoin</span>
             </div>
 
             {/* BTQ Roadmap nodes - on lower line */}
@@ -237,7 +237,7 @@ export default function GitBranchRoadmap() {
               <span className="text-[9px] font-dm-mono text-white/25 italic">Classical Bitcoin (vulnerable)</span>
             </div>
             <div className="absolute" style={{ left: '485px', top: '165px', transform: 'translateX(-50%)' }}>
-              <span className="text-[9px] font-dm-mono text-[#00f0ff]/50 italic">BTQ: Quantum-Safe Bitcoin</span>
+              <span className="text-[9px] font-dm-mono text-[#00f0ff]/50 italic">Quantum-Safe Bitcoin</span>
             </div>
 
             {/* BTQ nodes - on lower line */}
