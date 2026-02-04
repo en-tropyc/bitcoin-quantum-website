@@ -33,6 +33,20 @@ export default function Header() {
             >
               Introduction
             </Link>
+            <Link
+              href="/testnet"
+              className="text-white hover:text-[#00f0ff] py-2 font-dm-mono font-medium transition-colors"
+            >
+              Testnet
+            </Link>
+            <a
+              href="https://explorer.bitcoinquantum.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-[#00f0ff] py-2 font-dm-mono font-medium transition-colors"
+            >
+              Explorer
+            </a>
             <a
               href="https://docs.bitcoinquantum.com/"
               target="_blank"
@@ -41,12 +55,6 @@ export default function Header() {
             >
               Docs
             </a>
-            <Link
-              href="/testnet"
-              className="text-white hover:text-[#00f0ff] py-2 font-dm-mono font-medium transition-colors"
-            >
-              Testnet
-            </Link>
             <Link
               href="/faq"
               className="text-white hover:text-[#00f0ff] py-2 font-dm-mono font-medium transition-colors"
@@ -92,13 +100,22 @@ export default function Header() {
               >
                 Introduction
               </Link>
-              {/* <Link
-                href="/resources"
+              <Link
+                href="/testnet"
                 className="block text-white hover:bg-[rgba(0,240,255,0.1)] hover:text-[#00f0ff] px-3 py-2 rounded-md font-dm-mono font-medium transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Resources
-              </Link> */}
+                Testnet
+              </Link>
+              <a
+                href="https://explorer.bitcoinquantum.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-white hover:bg-[rgba(0,240,255,0.1)] hover:text-[#00f0ff] px-3 py-2 rounded-md font-dm-mono font-medium transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Explorer
+              </a>
               <a
                 href="https://docs.bitcoinquantum.com/"
                 target="_blank"
@@ -108,13 +125,6 @@ export default function Header() {
               >
                 Docs
               </a>
-              <Link
-                href="/testnet"
-                className="block text-white hover:bg-[rgba(0,240,255,0.1)] hover:text-[#00f0ff] px-3 py-2 rounded-md font-dm-mono font-medium transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Testnet
-              </Link>
               <Link
                 href="/faq"
                 className="block text-white hover:bg-[rgba(0,240,255,0.1)] hover:text-[#00f0ff] px-3 py-2 rounded-md font-dm-mono font-medium transition-colors"
