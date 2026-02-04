@@ -126,7 +126,7 @@ export default function GitBranchRoadmap() {
           {/* Content layer */}
           <div className="relative" style={{ height: '200px' }}>
             {/* BTC Genesis node - on upper line */}
-            <div className="absolute" style={{ left: '4%', top: '0px' }}>
+            <div className="absolute" style={{ left: '4%', top: '-6px' }}>
               <div className="flex flex-col items-center">
                 <div className="mb-2 text-center">
                   <div className="text-sm font-dm-mono font-medium text-white whitespace-nowrap">BTC Genesis</div>
@@ -137,7 +137,7 @@ export default function GitBranchRoadmap() {
             </div>
 
             {/* Quantum Threat node (fork point) - on upper line */}
-            <div className="absolute" style={{ left: '18%', top: '0px' }}>
+            <div className="absolute" style={{ left: '18%', top: '-6px' }}>
               <div className="flex flex-col items-center">
                 <div className="mb-2 text-center">
                   <div className="text-sm font-dm-mono font-medium text-white whitespace-nowrap">Quantum Threat</div>
