@@ -2,7 +2,6 @@ import { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import TestnetBanner from '@/components/TestnetBanner';
-import GitBranchRoadmap from '@/components/GitBranchRoadmap';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -56,13 +55,6 @@ export default function Home() {
             <p className="text-xl md:text-2xl text-white/80 font-dm-mono">
               BTC in Quantum State
             </p>
-          </div>
-        </section>
-
-        {/* Path Forward Section */}
-        <section className="py-12 border-y border-[rgba(0,240,255,0.1)] bg-[rgba(0,0,0,0.2)]">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <GitBranchRoadmap />
           </div>
         </section>
 
