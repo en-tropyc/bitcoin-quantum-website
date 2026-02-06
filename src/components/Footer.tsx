@@ -15,7 +15,7 @@ export default function Footer() {
             </svg>
           </a>
           <div className="font-dm-mono text-xs text-white/50 bg-[#0c1017] px-3 py-1.5 rounded-md border border-[rgba(0,240,255,0.1)]">
-            testnet-v0.1.0
+            testnet-v0.2.0
           </div>
         </div>
       </div>
