@@ -63,6 +63,16 @@
   animation: spin 60s linear infinite;
 }
 
+/* Magnetic cursor highlight */
+[data-magnetic-target] {
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+[data-magnetic-target].magnetic-highlight {
+  color: #00f0ff;
+  text-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+  cursor: pointer;
+}
+
 /* Hide scrollbar utility */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
@@ -77,6 +87,13 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-mono), 'Courier New', monospace;
   min-height: 100vh;
+}
+
+/* Hide default cursor when custom crosshair is active (desktop only) */
+@media (pointer: fine) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
 }
 
 h1, h2 {

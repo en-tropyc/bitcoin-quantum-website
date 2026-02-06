@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import TestnetBanner from '@/components/TestnetBanner';
+import ScrambleText from '@/components/ScrambleText';
+import MagneticTarget from '@/components/MagneticTarget';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -52,9 +54,11 @@ export default function Home() {
             />
           </div>
           <div className="relative text-center">
-            <p className="text-xl md:text-2xl text-white/80 font-dm-mono">
-              BTC in Quantum State
-            </p>
+            <MagneticTarget>
+              <p className="text-xl md:text-2xl text-white/80 font-dm-mono">
+                <ScrambleText text="BTC in Quantum State" />
+              </p>
+            </MagneticTarget>
           </div>
         </section>
 
@@ -120,20 +124,24 @@ export default function Home() {
               Bitcoin for a <span className="gradient-text">Quantum Era</span>
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://explorer.bitcoinquantum.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#00f0ff] text-[#06080c] px-8 py-3 rounded-lg font-semibold hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] hover:-translate-y-0.5 transition-all font-dm-mono"
-              >
-                View Testnet Explorer
-              </a>
-              <Link
-                href="/faq"
-                className="border border-[rgba(0,240,255,0.1)] text-white px-8 py-3 rounded-lg font-semibold hover:border-[rgba(0,240,255,0.25)] hover:bg-[#0c1017] transition-all font-dm-mono"
-              >
-                View FAQ
-              </Link>
+              <MagneticTarget>
+                <a
+                  href="https://explorer.bitcoinquantum.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#00f0ff] text-[#06080c] px-8 py-3 rounded-lg font-semibold hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] hover:-translate-y-0.5 transition-all font-dm-mono"
+                >
+                  View Testnet Explorer
+                </a>
+              </MagneticTarget>
+              <MagneticTarget>
+                <Link
+                  href="/faq"
+                  className="border border-[rgba(0,240,255,0.1)] text-white px-8 py-3 rounded-lg font-semibold hover:border-[rgba(0,240,255,0.25)] hover:bg-[#0c1017] transition-all font-dm-mono"
+                >
+                  View FAQ
+                </Link>
+              </MagneticTarget>
             </div>
           </div>
         </section>

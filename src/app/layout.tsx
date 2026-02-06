@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope, DM_Sans } from "next/font/google";
 import { GeistMono } from "geist/font/mono";
 import JsonLd from "@/components/JsonLd";
+import MagneticCursor from "@/components/MagneticCursor";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -97,6 +98,7 @@ export default function RootLayout({
             },
           }}
         />
+        <MagneticCursor />
         {children}
       </body>
     </html>
