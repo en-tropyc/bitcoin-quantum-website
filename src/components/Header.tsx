@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import MagneticTarget from '@/components/MagneticTarget';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,40 +28,50 @@ export default function Header() {
 
           {/* Navigation + Right side */}
           <nav className="hidden xl:flex items-center gap-6">
-            <Link
-              href="/introduction"
-              className="text-white hover:text-[#00f0ff] py-2 font-dm-mono font-medium transition-colors"
-            >
-              Introduction
-            </Link>
-            <Link
-              href="/testnet"
-              className="text-white hover:text-[#00f0ff] py-2 font-dm-mono font-medium transition-colors"
-            >
-              Testnet
-            </Link>
-            <a
-              href="https://explorer.bitcoinquantum.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-[#00f0ff] py-2 font-dm-mono font-medium transition-colors"
-            >
-              Explorer
-            </a>
-            <a
-              href="https://docs.bitcoinquantum.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-[#00f0ff] py-2 font-dm-mono font-medium transition-colors"
-            >
-              Docs
-            </a>
-            <Link
-              href="/faq"
-              className="text-white hover:text-[#00f0ff] py-2 font-dm-mono font-medium transition-colors"
-            >
-              FAQ
-            </Link>
+            <MagneticTarget>
+              <Link
+                href="/introduction"
+                className="text-white py-2 font-dm-mono font-medium transition-colors"
+              >
+                Introduction
+              </Link>
+            </MagneticTarget>
+            <MagneticTarget>
+              <Link
+                href="/testnet"
+                className="text-white py-2 font-dm-mono font-medium transition-colors"
+              >
+                Testnet
+              </Link>
+            </MagneticTarget>
+            <MagneticTarget>
+              <a
+                href="https://explorer.bitcoinquantum.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white py-2 font-dm-mono font-medium transition-colors"
+              >
+                Explorer
+              </a>
+            </MagneticTarget>
+            <MagneticTarget>
+              <a
+                href="https://docs.bitcoinquantum.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white py-2 font-dm-mono font-medium transition-colors"
+              >
+                Docs
+              </a>
+            </MagneticTarget>
+            <MagneticTarget>
+              <Link
+                href="/faq"
+                className="text-white py-2 font-dm-mono font-medium transition-colors"
+              >
+                FAQ
+              </Link>
+            </MagneticTarget>
             <div className="pl-6 border-l border-[rgba(0,240,255,0.1)]">
               <span className="text-white font-dm-mono text-sm tracking-widest opacity-80">
                 POWERED BY BTQ TECHNOLOGIES
