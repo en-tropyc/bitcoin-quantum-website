@@ -121,7 +121,7 @@ export default function MiningGuide() {
               '@type': 'HowToStep',
               name: 'Download the binary',
               text: 'Download the latest BTQ Core release for your platform from GitHub.',
-              url: 'https://github.com/btq-ag/BTQ-Core/releases/tag/v0.1.0-testnet',
+              url: 'https://github.com/btq-ag/btq-core/releases/tag/v0.2.0-testnet',
             },
             {
               '@type': 'HowToStep',
