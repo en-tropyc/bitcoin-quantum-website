@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import TestnetBanner from '@/components/TestnetBanner';
+import ScrambleText from '@/components/ScrambleText';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -53,7 +54,7 @@ export default function Home() {
           </div>
           <div className="relative text-center">
             <p className="text-xl md:text-2xl text-white/80 font-dm-mono">
-              BTC in Quantum State
+              <ScrambleText text="BTC in Quantum State" />
             </p>
           </div>
         </section>
