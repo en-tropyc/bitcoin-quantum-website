@@ -63,6 +63,16 @@
   animation: spin 60s linear infinite;
 }
 
+/* Magnetic cursor highlight */
+[data-magnetic-target] {
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+[data-magnetic-target].magnetic-highlight {
+  color: #00f0ff;
+  text-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+  cursor: pointer;
+}
+
 /* Hide scrollbar utility */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
