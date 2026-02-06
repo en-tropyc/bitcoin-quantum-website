@@ -187,7 +187,7 @@ export default function MiningGuide() {
 
             <div className="flex flex-wrap gap-4 justify-center">
               <a
-                href="https://github.com/btq-ag/BTQ-Core/releases/tag/v0.1.0-testnet"
+                href="https://github.com/btq-ag/btq-core/releases/tag/v0.2.0-testnet"
                 target="_blank"
                 rel="noopener noreferrer"
                 download

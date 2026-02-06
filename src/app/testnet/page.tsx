@@ -152,78 +152,31 @@ export default function Testnet() {
               Download the testnet binaries and join the network. Help us build and test the future of Bitcoin.
             </p>
 
-            <div className="mt-12 text-left">
-              <div className="grid gap-6 max-w-4xl mx-auto lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:gap-x-0 lg:gap-y-4">
-                {primaryResource && (
-                  <a
-                    key={primaryResource.title}
-                    href={primaryResource.href}
-                    download={primaryResource.download ? true : undefined}
-                    target={primaryResource.href.startsWith('http') ? '_blank' : undefined}
-                    rel={primaryResource.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className="relative overflow-hidden rounded-2xl border border-[rgba(0,240,255,0.18)] bg-gradient-to-br from-[rgba(0,240,255,0.12)] via-[rgba(0,10,15,0.92)] to-[rgba(167,139,250,0.08)] p-6 transition-all hover:-translate-y-1 hover:border-[rgba(0,240,255,0.3)] hover:shadow-[0_0_30px_rgba(0,240,255,0.2)] max-w-xl lg:max-w-none lg:mx-0"
-                  >
-                    <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-[rgba(0,240,255,0.15)] blur-3xl" />
-                    <div className="relative flex flex-col gap-4">
-                      <div className="flex items-center gap-4">
-                        <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[rgba(0,240,255,0.18)] text-white">
-                          {primaryResource.icon}
-                        </span>
-                      </div>
-                      <div className="relative">
-                        <h3 className="text-xl font-semibold text-white mb-1.5">{primaryResource.title}</h3>
-                        <p className="text-white/70 text-sm">{primaryResource.subtitle}</p>
-                      </div>
-                      <span className="relative inline-flex w-max items-center gap-2 rounded-md bg-[#00f0ff] px-4.5 py-1.5 text-sm font-semibold text-[#06080c] shadow-[0_0_20px_rgba(0,240,255,0.28)] transition-all">
-                        {primaryResource.cta}
-                        <svg width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                          <path d="M5 12h14M13 5l7 7-7 7"/>
-                        </svg>
-                      </span>
-                    </div>
-                  </a>
-                )}
-
-                <div className="space-y-3.5 max-w-sm w-full mx-auto lg:max-w-none">
-                  {secondaryResources.map((resource) => (
-                    <a
-                      key={resource.title}
-                      href={resource.href}
-                      download={resource.download ? true : undefined}
-                      target={resource.href.startsWith('http') ? '_blank' : undefined}
-                      rel={resource.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="group block rounded-xl border border-[rgba(0,240,255,0.1)] bg-[#0c1017] p-4 transition-all hover:-translate-y-1 hover:border-[rgba(0,240,255,0.22)] hover:bg-[#111820]"
-                    >
-                      <div className="flex items-start justify-between gap-3.5">
-                        <div className="flex items-center gap-3.5">
-                          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[rgba(0,240,255,0.12)] text-white/80 transition-all group-hover:bg-[rgba(0,240,255,0.18)]">
-                            {resource.icon}
-                          </span>
-                          <div>
-                            <h3 className="font-semibold text-white text-base mb-0.5">{resource.title}</h3>
-                            <p className="text-sm text-white/65">{resource.subtitle}</p>
-                          </div>
-                        </div>
-                        <svg
-                          width="16"
-                          height="16"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          viewBox="0 0 24 24"
-                          className="mt-1 opacity-40 transition-all group-hover:translate-x-1 group-hover:opacity-100"
-                        >
-                          <path d="M9 18l6-6-6-6"/>
-                        </svg>
-                      </div>
-                      <span className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.26em] text-[#00f0ff] transition-all group-hover:gap-2.5">
-                        {resource.cta}
-                        <span aria-hidden>→</span>
-                      </span>
-                    </a>
-                  ))}
-                </div>
-              </div>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <a
+                href="https://github.com/btq-ag/btq-core/releases/tag/v0.2.0-testnet"
+                target="_blank"
+                rel="noopener noreferrer"
+                download
+                className="inline-flex items-center gap-3 bg-[#00f0ff] text-[#06080c] px-7 py-3.5 rounded-lg font-semibold hover:shadow-[0_0_30px_rgba(0,240,255,0.3),0_0_60px_rgba(0,240,255,0.15)] hover:-translate-y-0.5 transition-all"
+              >
+                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                </svg>
+                <span className="flex flex-col items-start leading-tight">
+                  <span>Download Binaries</span>
+                  <span className="text-xs font-normal opacity-70">Available for Windows & Linux</span>
+                </span>
+              </a>
+              <Link
+                href="/testnet/mining-guide"
+                className="inline-flex items-center gap-2 bg-transparent text-white border border-[rgba(0,240,255,0.1)] px-7 py-3.5 rounded-lg font-semibold hover:border-[rgba(0,240,255,0.25)] hover:bg-[#0c1017] transition-all"
+              >
+                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"/>
+                </svg>
+                Mining Guide
+              </Link>
             </div>
           </div>
         </header>
@@ -327,6 +280,88 @@ export default function Testnet() {
                   </span>
                 </a>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Resources Section */}
+        <section id="resources" className="py-20">
+          <div className="max-w-[1100px] mx-auto px-6">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-3">Testnet Resources</h2>
+              <p className="text-white/60 text-lg">Everything you need to explore and test the network.</p>
+            </div>
+
+            <div className="grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
+              {primaryResource && (
+                <a
+                  key={primaryResource.title}
+                  href={primaryResource.href}
+                  download={primaryResource.download ? true : undefined}
+                  target={primaryResource.href.startsWith('http') ? '_blank' : undefined}
+                  rel={primaryResource.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className="relative overflow-hidden rounded-2xl border border-[rgba(0,240,255,0.2)] bg-gradient-to-br from-[rgba(0,240,255,0.12)] via-[rgba(0,10,15,0.9)] to-[rgba(167,139,250,0.08)] p-6 transition-all hover:-translate-y-1 hover:border-[rgba(0,240,255,0.35)] hover:shadow-[0_0_32px_rgba(0,240,255,0.22)]"
+                >
+                  <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-[rgba(0,240,255,0.15)] blur-3xl" />
+                  <div className="relative flex flex-col gap-4">
+                    <div className="flex items-center gap-4">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[rgba(0,240,255,0.18)] text-white">
+                        {primaryResource.icon}
+                      </span>
+                    </div>
+                    <div className="relative">
+                      <h3 className="text-2xl font-semibold text-white mb-2">{primaryResource.title}</h3>
+                      <p className="text-white/70 text-sm md:text-base">{primaryResource.subtitle}</p>
+                    </div>
+                    <span className="relative inline-flex w-max items-center gap-2 rounded-md bg-[#00f0ff] px-5 py-2 text-sm font-semibold text-[#06080c] shadow-[0_0_22px_rgba(0,240,255,0.3)] transition-all">
+                      {primaryResource.cta}
+                      <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <path d="M5 12h14M13 5l7 7-7 7"/>
+                      </svg>
+                    </span>
+                  </div>
+                </a>
+              )}
+
+              <div className="space-y-4">
+                {secondaryResources.map((resource) => (
+                  <a
+                    key={resource.title}
+                    href={resource.href}
+                    download={resource.download ? true : undefined}
+                    target={resource.href.startsWith('http') ? '_blank' : undefined}
+                    rel={resource.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className="group block rounded-xl border border-[rgba(0,240,255,0.1)] bg-[#0c1017] p-4 transition-all hover:-translate-y-1 hover:border-[rgba(0,240,255,0.24)] hover:bg-[#111820]"
+                  >
+                    <div className="flex items-start justify-between gap-3.5">
+                      <div className="flex items-center gap-3.5">
+                        <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[rgba(0,240,255,0.12)] text-white/80 transition-all group-hover:bg-[rgba(0,240,255,0.18)]">
+                          {resource.icon}
+                        </span>
+                        <div>
+                          <h3 className="font-semibold text-white text-base mb-0.5">{resource.title}</h3>
+                          <p className="text-sm text-white/65">{resource.subtitle}</p>
+                        </div>
+                      </div>
+                      <svg
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        viewBox="0 0 24 24"
+                        className="mt-1 opacity-40 transition-all group-hover:translate-x-1 group-hover:opacity-100"
+                      >
+                        <path d="M9 18l6-6-6-6"/>
+                      </svg>
+                    </div>
+                    <span className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.26em] text-[#00f0ff] transition-all group-hover:gap-2.5">
+                      {resource.cta}
+                      <span aria-hidden>→</span>
+                    </span>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </section>
