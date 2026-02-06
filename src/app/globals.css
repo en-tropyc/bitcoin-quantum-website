@@ -89,6 +89,13 @@ body {
   min-height: 100vh;
 }
 
+/* Hide default cursor when custom crosshair is active (desktop only) */
+@media (pointer: fine) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+}
+
 h1, h2 {
   font-weight: 400;
 }
