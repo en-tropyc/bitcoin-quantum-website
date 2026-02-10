@@ -14,8 +14,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'BTQ Testnet - Run a Quantum-Secure Node',
-    description:
-      'Download testnet binaries and join the Bitcoin Quantum network. Help build the future of quantum-resistant Bitcoin.',
+    description: 'Download testnet binaries and join the Bitcoin Quantum network. Help build the future of quantum-resistant Bitcoin.',
     url: 'https://bitcoinquantum.com/testnet',
     type: 'website',
   },
@@ -70,10 +69,12 @@ const resources = [
         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
       </svg>
     ),
-    title: "Testnet V0.1.0 Release",
-    subtitle: "Binaries for Linux and Windows",
-    href: "https://github.com/btq-ag/BTQ-Core/releases/tag/v0.1.0-testnet",
-    download: true
+    title: "Testnet V0.2.0 Release",
+    subtitle: "Binaries for Windows and Linux",
+    href: "https://github.com/btq-ag/btq-core/releases/tag/v0.2.0-testnet",
+    download: true,
+    cta: "Download Release",
+    highlight: true,
   },
   {
     icon: (
@@ -83,7 +84,8 @@ const resources = [
     ),
     title: "Mining Guide",
     subtitle: "Step-by-step instructions",
-    href: "/testnet/mining-guide"
+    href: "/testnet/mining-guide",
+    cta: "Read Guide",
   },
   {
     icon: (
@@ -93,7 +95,8 @@ const resources = [
     ),
     title: "Block Explorer",
     subtitle: "View transactions & blocks",
-    href: "https://explorer.bitcoinquantum.com"
+    href: "https://explorer.bitcoinquantum.com",
+    cta: "Open Explorer",
   },
   {
     icon: (
@@ -103,21 +106,14 @@ const resources = [
     ),
     title: "Mining Pool",
     subtitle: "Join the testnet pool",
-    href: "https://pool.bitcoinquantum.com"
-  },
-  {
-    icon: (
-      <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
-      </svg>
-    ),
-    title: "GitHub Releases",
-    subtitle: "Binaries & checksums",
-    href: "https://github.com/btq-ag/BTQ-Core/tags"
+    href: "https://pool.bitcoinquantum.com",
+    cta: "Join Pool",
   },
 ];
 
 export default function Testnet() {
+  const [primaryResource, ...secondaryResources] = resources;
+
   return (
     <div className="min-h-screen bg-[#06080c] flex flex-col relative">
       {/* Grid background */}
@@ -152,13 +148,13 @@ export default function Testnet() {
               Node
             </h1>
 
-            <p className="text-lg md:text-xl text-white/60 max-w-xl mx-auto mb-10">
+            <p className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto mb-10">
               Download the testnet binaries and join the network. Help us build and test the future of Bitcoin.
             </p>
 
             <div className="flex flex-wrap gap-4 justify-center">
               <a
-                href="https://github.com/btq-ag/BTQ-Core/releases/tag/v0.1.0-testnet"
+                href="https://github.com/btq-ag/btq-core/releases/tag/v0.2.0-testnet"
                 target="_blank"
                 rel="noopener noreferrer"
                 download
@@ -202,8 +198,8 @@ export default function Testnet() {
                     <h3 className="text-lg font-semibold mb-1">Download the binary</h3>
                     <p className="text-white/60 text-sm">
                       Grab the{' '}
-                      <a href="https://github.com/btq-ag/BTQ-Core/releases/tag/v0.1.0-testnet" download className="text-[#00f0ff] hover:underline" target="_blank" rel="noopener noreferrer">
-                        latest release for Linux and Windows
+                      <a href="https://github.com/btq-ag/btq-core/releases/tag/v0.2.0-testnet" download className="text-[#00f0ff] hover:underline" target="_blank" rel="noopener noreferrer">
+                        latest release for Windows and Linux
                       </a>
                       {' '}for your platform.
                     </p>
@@ -296,23 +292,76 @@ export default function Testnet() {
               <p className="text-white/60 text-lg">Everything you need to explore and test the network.</p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {resources.map((resource) => (
+            <div className="grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
+              {primaryResource && (
                 <a
-                  key={resource.title}
-                  href={resource.href}
-                  download={'download' in resource ? true : undefined}
-                  target={resource.href.startsWith('http') ? '_blank' : undefined}
-                  rel={resource.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="flex items-center gap-3 bg-[#0c1017] border border-[rgba(0,240,255,0.1)] rounded-xl p-5 hover:border-[rgba(0,240,255,0.25)] hover:bg-[#111820] transition-all"
+                  key={primaryResource.title}
+                  href={primaryResource.href}
+                  download={primaryResource.download ? true : undefined}
+                  target={primaryResource.href.startsWith('http') ? '_blank' : undefined}
+                  rel={primaryResource.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className="relative overflow-hidden rounded-2xl border border-[rgba(0,240,255,0.2)] bg-gradient-to-br from-[rgba(0,240,255,0.12)] via-[rgba(0,10,15,0.9)] to-[rgba(167,139,250,0.08)] p-6 transition-all hover:-translate-y-1 hover:border-[rgba(0,240,255,0.35)] hover:shadow-[0_0_32px_rgba(0,240,255,0.22)]"
                 >
-                  <span className="text-white/60">{resource.icon}</span>
-                  <div>
-                    <strong className="block font-semibold">{resource.title}</strong>
-                    <small className="text-white/50 text-sm">{resource.subtitle}</small>
+                  <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-[rgba(0,240,255,0.15)] blur-3xl" />
+                  <div className="relative flex flex-col gap-4">
+                    <div className="flex items-center gap-4">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[rgba(0,240,255,0.18)] text-white">
+                        {primaryResource.icon}
+                      </span>
+                    </div>
+                    <div className="relative">
+                      <h3 className="text-2xl font-semibold text-white mb-2">{primaryResource.title}</h3>
+                      <p className="text-white/70 text-sm md:text-base">{primaryResource.subtitle}</p>
+                    </div>
+                    <span className="relative inline-flex w-max items-center gap-2 rounded-md bg-[#00f0ff] px-5 py-2 text-sm font-semibold text-[#06080c] shadow-[0_0_22px_rgba(0,240,255,0.3)] transition-all">
+                      {primaryResource.cta}
+                      <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <path d="M5 12h14M13 5l7 7-7 7"/>
+                      </svg>
+                    </span>
                   </div>
                 </a>
-              ))}
+              )}
+
+              <div className="space-y-4">
+                {secondaryResources.map((resource) => (
+                  <a
+                    key={resource.title}
+                    href={resource.href}
+                    download={resource.download ? true : undefined}
+                    target={resource.href.startsWith('http') ? '_blank' : undefined}
+                    rel={resource.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className="group block rounded-xl border border-[rgba(0,240,255,0.1)] bg-[#0c1017] p-4 transition-all hover:-translate-y-1 hover:border-[rgba(0,240,255,0.24)] hover:bg-[#111820]"
+                  >
+                    <div className="flex items-start justify-between gap-3.5">
+                      <div className="flex items-center gap-3.5">
+                        <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[rgba(0,240,255,0.12)] text-white/80 transition-all group-hover:bg-[rgba(0,240,255,0.18)]">
+                          {resource.icon}
+                        </span>
+                        <div>
+                          <h3 className="font-semibold text-white text-base mb-0.5">{resource.title}</h3>
+                          <p className="text-sm text-white/65">{resource.subtitle}</p>
+                        </div>
+                      </div>
+                      <svg
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        viewBox="0 0 24 24"
+                        className="mt-1 opacity-40 transition-all group-hover:translate-x-1 group-hover:opacity-100"
+                      >
+                        <path d="M9 18l6-6-6-6"/>
+                      </svg>
+                    </div>
+                    <span className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.26em] text-[#00f0ff] transition-all group-hover:gap-2.5">
+                      {resource.cta}
+                      <span aria-hidden>→</span>
+                    </span>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </section>
