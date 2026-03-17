@@ -121,7 +121,7 @@ export default function MiningGuide() {
               '@type': 'HowToStep',
               name: 'Download the binary',
               text: 'Download the latest BTQ Core release for your platform from GitHub.',
-              url: 'https://github.com/btq-ag/btq-core/releases/tag/v0.2.0-testnet',
+              url: 'https://github.com/btq-ag/btq-core/releases/tag/v0.3.0-testnet',
             },
             {
               '@type': 'HowToStep',
@@ -146,7 +146,7 @@ export default function MiningGuide() {
             {
               '@type': 'HowToStep',
               name: 'Connect to Mining Pool',
-              text: 'Use CCMiner to connect to the mining pool at stratum+tcp://16.16.123.185:3333',
+              text: 'Use CCMiner to connect to the mining pool at stratum+tcp://65.20.111.197:3333',
             },
           ],
         }}
@@ -187,7 +187,7 @@ export default function MiningGuide() {
 
             <div className="flex flex-wrap gap-4 justify-center">
               <a
-                href="https://github.com/btq-ag/btq-core/releases/tag/v0.2.0-testnet"
+                href="https://github.com/btq-ag/btq-core/releases/tag/v0.3.0-testnet"
                 target="_blank"
                 rel="noopener noreferrer"
                 download
@@ -331,12 +331,9 @@ EOF`}</CodeBlock>
             <CodeBlock title="For Regtest (Local Testing)">{`./btqd -daemon -regtest`}</CodeBlock>
 
             <SubHeading>4. Verify Daemon is Synced & Running</SubHeading>
-            <p className="text-white/70 mb-4">After connecting with a seed node, you can verify the daemon is synced up with the blockchain network:</p>
+            <p className="text-white/70 mb-4">Confirm the daemon is in sync with the blockchain network:</p>
 
-            <CodeBlock>{`# Sync with blockchain network
-./btq-cli -testnet addnode "16.16.123.185" "onetry"
-
-# Check blockchain info
+            <CodeBlock>{`# Check blockchain info
 ./btq-cli -testnet getblockchaininfo
 
 # Check network info
@@ -410,7 +407,7 @@ cat ~/my_btq_mining_address.txt`}</CodeBlock>
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
                   <span className="text-white/50">Pool Address:</span>
-                  <span className="ml-2 font-dm-mono text-[#00f0ff]">16.16.123.185</span>
+                  <span className="ml-2 font-dm-mono text-[#00f0ff]">65.20.111.197</span>
                 </div>
                 <div>
                   <span className="text-white/50">Port:</span>
@@ -421,7 +418,7 @@ cat ~/my_btq_mining_address.txt`}</CodeBlock>
 
             <SubHeading>1. Prepare CCMiner</SubHeading>
             <CodeBlock>{`# Change permissions to executable
-chmod +x ~/.btq/ccminer
+chmod +x ./ccminer
 
 # Install prerequisites (if needed)
 sudo apt-get update
@@ -434,7 +431,7 @@ sudo apt-get install -y libjansson4`}</CodeBlock>
   -p x`}</CodeBlock>
 
             <CodeBlock title="Example with Actual Values">{`./ccminer -a sha256d \\
-  -o stratum+tcp://16.16.123.185:3333 \\
+  -o stratum+tcp://65.20.111.197:3333 \\
   -u n5KchJ9AJaiHRkLpKF7Bx8dbjsgt1CZdC4 \\
   -p x`}</CodeBlock>
 
@@ -443,7 +440,7 @@ sudo apt-get install -y libjansson4`}</CodeBlock>
             <CodeBlock>{`*** ccminer 2.3.1 for nVidia GPUs by tpruvot@github ***
     Built with the nVidia CUDA Toolkit 11.5 64-bits
 
-[2025-11-24 12:06:48] Starting on stratum+tcp://16.16.123.185:3333
+[2025-11-24 12:06:48] Starting on stratum+tcp://65.20.111.197:3333
 [2025-11-24 12:06:48] NVML GPU monitoring enabled.
 [2025-11-24 12:06:48] 1 miner thread started, using 'sha256d' algorithm.
 [2025-11-24 12:06:49] Stratum difficulty set to 0.01
@@ -453,19 +450,19 @@ sudo apt-get install -y libjansson4`}</CodeBlock>
 
             <SubHeading>4. Advanced CCMiner Options</SubHeading>
             <CodeBlock title="Use Specific GPU">{`./ccminer -a sha256d \\
-  -o stratum+tcp://16.16.123.185:3333 \\
+  -o stratum+tcp://65.20.111.197:3333 \\
   -u YOUR_ADDRESS \\
   -p x \\
   -d 0  # Use GPU 0`}</CodeBlock>
 
             <CodeBlock title="Adjust Intensity (0-31)">{`./ccminer -a sha256d \\
-  -o stratum+tcp://16.16.123.185:3333 \\
+  -o stratum+tcp://65.20.111.197:3333 \\
   -u YOUR_ADDRESS \\
   -p x \\
   -i 25  # Intensity 25`}</CodeBlock>
 
             <CodeBlock title="Run in Background">{`nohup ./ccminer -a sha256d \\
-  -o stratum+tcp://16.16.123.185:3333 \\
+  -o stratum+tcp://65.20.111.197:3333 \\
   -u YOUR_ADDRESS \\
   -p x > miner.log 2>&1 &`}</CodeBlock>
 
@@ -532,8 +529,8 @@ tail -100 ~/.btq/debug.log
 
             <SubHeading>Can&apos;t Connect to Mining Pool</SubHeading>
             <CodeBlock>{`# Test connectivity
-ping 16.16.123.185
-telnet 16.16.123.185 3333
+ping 65.20.111.197
+telnet 65.20.111.197 3333
 
 # Check firewall (if running pool)
 sudo ufw status

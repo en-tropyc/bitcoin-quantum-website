@@ -69,9 +69,9 @@ const resources = [
         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
       </svg>
     ),
-    title: "Testnet V0.2.0 Release",
+    title: "Testnet V0.3.0 Release",
     subtitle: "Binaries for Windows and Linux",
-    href: "https://github.com/btq-ag/btq-core/releases/tag/v0.2.0-testnet",
+    href: "https://github.com/btq-ag/btq-core/releases/tag/v0.3.0-testnet",
     download: true,
     cta: "Download Release",
     highlight: true,
@@ -154,7 +154,7 @@ export default function Testnet() {
 
             <div className="flex flex-wrap gap-4 justify-center">
               <a
-                href="https://github.com/btq-ag/btq-core/releases/tag/v0.2.0-testnet"
+                href="https://github.com/btq-ag/btq-core/releases/tag/v0.3.0-testnet"
                 target="_blank"
                 rel="noopener noreferrer"
                 download
@@ -198,7 +198,7 @@ export default function Testnet() {
                     <h3 className="text-lg font-semibold mb-1">Download the binary</h3>
                     <p className="text-white/60 text-sm">
                       Grab the{' '}
-                      <a href="https://github.com/btq-ag/btq-core/releases/tag/v0.2.0-testnet" download className="text-[#00f0ff] hover:underline" target="_blank" rel="noopener noreferrer">
+                      <a href="https://github.com/btq-ag/btq-core/releases/tag/v0.3.0-testnet" download className="text-[#00f0ff] hover:underline" target="_blank" rel="noopener noreferrer">
                         latest release for Windows and Linux
                       </a>
                       {' '}for your platform.
