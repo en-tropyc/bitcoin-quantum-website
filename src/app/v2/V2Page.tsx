@@ -410,7 +410,7 @@ export default function V2Page() {
               <div className="testnet-pitch">
                 <span className="live-badge reveal">
                   <span className="live-dot" aria-hidden="true" />
-                  Testnet live · v0.3.0
+                  Testnet live
                 </span>
                 <h2 className="h2 reveal d1" style={{ marginTop: 20 }}>
                   Run a quantum-secure node.
@@ -447,7 +447,7 @@ export default function V2Page() {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        v0.3.0 testnet binaries
+                        latest testnet release
                       </a>{' '}
                       for your platform.
                     </p>
