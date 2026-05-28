@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
+import Link from 'next/link';
 
 /* ===== Icon glyphs ===== */
 function ShieldIcon() {
@@ -213,10 +214,9 @@ export default function V2Page() {
           <img src="/v2/logo-dark.svg" alt="Bitcoin Quantum" className="nav-logo dark-v" />
         </a>
         <ul className={`nav-links${menuOpen ? ' open' : ''}`} id="navLinks">
-          <li><a href="#technology" onClick={closeMenu}>Technology</a></li>
-          <li><a href="#under" onClick={closeMenu}>Cryptography</a></li>
-          <li><a href="#roadmap" onClick={closeMenu}>Network</a></li>
-          <li><a href="#cta" onClick={closeMenu}>Community</a></li>
+          <li><a href="#technology" onClick={closeMenu}>Protocol</a></li>
+          <li><Link href="/testnet" onClick={closeMenu}>Testnet</Link></li>
+          <li><Link href="/faq" onClick={closeMenu}>FAQ</Link></li>
         </ul>
         <div className="nav-right">
           <a href="#cta" className="btn btn-primary">
@@ -651,7 +651,7 @@ export default function V2Page() {
           </div>
           <div className="footer-bottom">
             <span>© 2026 Bitcoin Quantum. Open-source under MIT.</span>
-            <span>Not financial advice · bitcoinquantum.com</span>
+            <span>bitcoinquantum.com</span>
           </div>
         </div>
       </footer>
