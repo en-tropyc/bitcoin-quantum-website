@@ -179,25 +179,25 @@ export default function V2Page() {
 
   const closeMenu = () => setMenuOpen(false);
 
-  // The code listing is intentionally kept as static markup — it's a
-  // brand element, not a real REPL.
+  // Real btq-cli testnet session using the commands documented in
+  // /testnet/mining-guide. Kept here as a static brand element.
   const code = useMemo(
     () => [
-      '<span class="cm">// Sign a Bitcoin Quantum transaction with a</span>',
-      '<span class="cm">// lattice-based, quantum-resistant key.</span>',
+      '<span class="cm"># Generate a quantum-safe Dilithium address</span>',
+      '<span class="cm"># and sign a testnet transaction.</span>',
       '',
-      '<span class="kw">use</span> bq::crypto::{<span class="hl">MlDsa</span>, Network};',
+      '<span class="cm">$</span> <span class="hl">btq-cli</span> <span class="kw">-testnet</span> <span class="fn">createwallet</span> <span class="st">&quot;main&quot;</span>',
+      '{ <span class="st">&quot;name&quot;</span>: <span class="st">&quot;main&quot;</span> }',
       '',
-      '<span class="kw">let</span> key  = <span class="hl">MlDsa</span>::<span class="fn">generate</span>(Network::<span class="nm">Mainnet</span>);',
-      '<span class="kw">let</span> addr = key.<span class="fn">address</span>();   <span class="cm">// bq1q…</span>',
+      '<span class="cm">$</span> <span class="hl">btq-cli</span> <span class="kw">-testnet</span> <span class="kw">-rpcwallet=main</span> \\',
+      '    <span class="fn">getnewdilithiumaddress</span>',
+      '<span class="nm">tdbt1qk4xv…q7n</span>        <span class="cm"># Dilithium-bech32</span>',
       '',
-      '<span class="kw">let</span> tx = <span class="fn">TxBuilder</span>::<span class="fn">new</span>()',
-      '    .<span class="fn">send</span>(<span class="nm">0.50</span>, <span class="st">&quot;bq1qk4…q7n&quot;</span>)',
-      '    .<span class="fn">fee_rate</span>(<span class="nm">3</span>)         <span class="cm">// sat/vB</span>',
-      '    .<span class="fn">build</span>();',
+      '<span class="cm">$</span> <span class="hl">btq-cli</span> <span class="kw">-testnet</span> <span class="kw">-rpcwallet=main</span> \\',
+      '    <span class="fn">sendtoaddress</span> <span class="st">&quot;tdbt1qk4xv…q7n&quot;</span> <span class="nm">0.50</span>',
+      '<span class="nm">8a7f…e2c1</span>',
       '',
-      '<span class="kw">let</span> signed = key.<span class="fn">sign</span>(tx);',
-      '<span class="hl">assert!</span>(signed.<span class="fn">is_quantum_safe</span>());  <span class="cm">// ✓</span>',
+      '<span class="cm"># Every spend signed with ML-DSA — quantum-safe.</span>',
     ],
     []
   );
@@ -379,15 +379,15 @@ export default function V2Page() {
                   primitives — verifiable today, secure against the computers of tomorrow.
                 </p>
                 <ul>
-                  <li><CheckIcon /> ML-DSA (Dilithium) lattice signatures for spending</li>
-                  <li><CheckIcon /> SLH-DSA (SPHINCS+) hash-based keys for cold storage</li>
-                  <li><CheckIcon /> Backwards-compatible address format &amp; migration path</li>
+                  <li><CheckIcon /> CRYSTALS-Dilithium (ML-DSA, NIST FIPS&nbsp;204) signatures replace ECDSA</li>
+                  <li><CheckIcon /> Native <code>dilithium-bech32</code> and <code>dilithium-legacy</code> address formats</li>
+                  <li><CheckIcon /> Cryptographic agility — ready to adopt new NIST PQC standards</li>
                 </ul>
               </div>
               <div className="code reveal d1">
                 <div className="code-bar">
                   <span className="dot" /><span className="dot" /><span className="dot" />
-                  <span className="fname">bqkit · sign_transaction.rs</span>
+                  <span className="fname">shell · btq-cli testnet</span>
                 </div>
                 <div className="code-body">
                   {code.map((line, i) => (
@@ -538,8 +538,8 @@ export default function V2Page() {
                 <div className="card-idx">03 · Researchers</div>
                 <h3 className="h3">Review the cryptographic primitives.</h3>
                 <p>
-                  Audit the ML-DSA integration, the migration path, and the protocol-level
-                  choices behind the larger signatures. Comments and issues welcome.
+                  Audit the ML-DSA integration and the protocol-level choices behind the
+                  larger post-quantum signatures. Comments and issues welcome.
                 </p>
                 <a
                   href="https://github.com/btq-ag/BTQ-Core/blob/master/WHITEPAPER_INTEGRATION_DESIGN.md"

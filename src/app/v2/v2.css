@@ -304,6 +304,16 @@
 .bqv2 .under ul { list-style: none; margin-top: 30px; display: flex; flex-direction: column; gap: 14px; }
 .bqv2 .under li { display: flex; gap: 12px; align-items: flex-start; color: var(--dark-ink2); font-size: 15.5px; }
 .bqv2 .under li svg { flex: none; margin-top: 3px; color: var(--accent); }
+.bqv2 .under li code {
+  font-family: var(--mono);
+  font-size: 0.92em;
+  background: rgba(53, 164, 234, 0.10);
+  color: var(--dark-ink);
+  border: 1px solid rgba(53, 164, 234, 0.18);
+  padding: 1px 7px;
+  border-radius: 5px;
+  white-space: nowrap;
+}
 .bqv2 .code { background: var(--dark-2); border: 1px solid var(--dark-line); border-radius: var(--radius); font-family: var(--mono); font-size: 13.5px; line-height: 1.85; overflow: hidden; }
 .bqv2 .code-bar { display: flex; align-items: center; gap: 8px; padding: 13px 18px; border-bottom: 1px solid var(--dark-line); }
 .bqv2 .code-bar .dot { width: 11px; height: 11px; border-radius: 50%; background: var(--dark-line); }
