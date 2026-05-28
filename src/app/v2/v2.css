@@ -318,6 +318,121 @@
 .bqv2 .code .hl { color: var(--accent); }
 
 /* ============================================================
+   LIVE TESTNET STRIP
+   ============================================================ */
+.bqv2 .testnet { background: var(--bg-2); border-top: 1px solid var(--line); }
+.bqv2 .testnet-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: clamp(36px, 5vw, 72px);
+  align-items: start;
+}
+.bqv2 .testnet-pitch .h2 { max-width: 14ch; }
+.bqv2 .testnet-pitch .lead { margin-top: 20px; max-width: 42ch; }
+.bqv2 .testnet-cta {
+  display: flex; gap: 14px; flex-wrap: wrap;
+  margin-top: 32px; margin-bottom: 14px;
+}
+.bqv2 .testnet-pitch .foot { display: block; margin-top: 4px; }
+
+.bqv2 .live-badge {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-family: var(--mono);
+  font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase;
+  font-weight: 600;
+  color: var(--accent-ink);
+  background: var(--accent-soft);
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  padding: 7px 14px 7px 12px;
+  border-radius: 999px;
+}
+.bqv2 .live-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 0 var(--accent);
+  animation: bqv2-pulse 1.8s ease-out infinite;
+}
+@keyframes bqv2-pulse {
+  0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 60%, transparent); }
+  70%  { box-shadow: 0 0 0 8px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bqv2 .live-dot { animation: none; }
+}
+
+.bqv2 .testnet-steps {
+  list-style: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(22px, 2.4vw, 32px) clamp(22px, 2.4vw, 32px);
+  display: flex; flex-direction: column;
+  counter-reset: tnstep;
+}
+.bqv2 .testnet-steps li {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 18px;
+  align-items: start;
+  padding-block: 18px;
+  border-top: 1px solid var(--line-2);
+}
+.bqv2 .testnet-steps li:first-child { padding-top: 6px; border-top: 0; }
+.bqv2 .testnet-steps li:last-child { padding-bottom: 6px; }
+.bqv2 .step-idx {
+  font-family: var(--mono);
+  font-size: 12px; letter-spacing: 0.12em;
+  color: var(--accent-ink);
+  background: var(--accent-soft);
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+  border-radius: 8px;
+  padding: 6px 10px;
+  text-align: center;
+  font-weight: 600;
+  width: 56px;
+}
+.bqv2 .testnet-steps h4 {
+  font-family: var(--display);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+  margin-bottom: 6px;
+}
+.bqv2 .testnet-steps p { font-size: 14.5px; color: var(--ink-2); }
+.bqv2 .testnet-steps a {
+  color: var(--accent-ink);
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  transition: border-color .2s, color .2s;
+}
+.bqv2 .testnet-steps a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* ============================================================
+   CHOOSE YOUR PATH (personas)
+   ============================================================ */
+.bqv2 .paths { background: var(--bg); }
+.bqv2 .path-card { min-height: 0; gap: 12px; }
+.bqv2 .path-card .h3 { font-size: clamp(18px, 1.8vw, 22px); line-height: 1.18; margin-top: 4px; }
+.bqv2 .path-card p { color: var(--ink-2); flex: 1; }
+.bqv2 .path-link {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+  font-weight: 600;
+  margin-top: 6px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-2);
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: color .2s, gap .2s;
+}
+.bqv2 .path-link .arrow { transition: transform .2s; }
+.bqv2 .path-card:hover .path-link { color: var(--accent); }
+.bqv2 .path-card:hover .path-link .arrow { transform: translateX(3px); }
+
+/* ============================================================
    ROADMAP
    ============================================================ */
 .bqv2 .road .sec-head { margin-bottom: clamp(48px, 6vw, 70px); }
@@ -380,6 +495,7 @@
   .bqv2 .cards-stat { grid-template-columns: 1fr 1fr; }
   .bqv2 .cards { grid-template-columns: 1fr; }
   .bqv2 .under-grid { grid-template-columns: 1fr; }
+  .bqv2 .testnet-grid { grid-template-columns: 1fr; }
   .bqv2 .timeline { grid-template-columns: 1fr 1fr; }
   .bqv2 .footer-top { grid-template-columns: 1fr 1fr; }
 }

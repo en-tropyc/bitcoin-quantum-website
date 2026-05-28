@@ -403,6 +403,157 @@ export default function V2Page() {
           </div>
         </section>
 
+        {/* ===================== LIVE TESTNET STRIP ===================== */}
+        <section className="testnet section" id="testnet">
+          <div className="wrap">
+            <div className="testnet-grid">
+              <div className="testnet-pitch">
+                <span className="live-badge reveal">
+                  <span className="live-dot" aria-hidden="true" />
+                  Testnet live · v0.3.0
+                </span>
+                <h2 className="h2 reveal d1" style={{ marginTop: 20 }}>
+                  Run a quantum-secure node.
+                </h2>
+                <p className="lead reveal d2">
+                  Spin up a testnet node in under fifteen minutes. Mine quantum-safe blocks,
+                  validate transactions, and help stress-test the network before mainnet.
+                </p>
+                <div className="testnet-cta reveal d3">
+                  <a
+                    href="https://github.com/btq-ag/btq-core/releases/tag/v0.3.0-testnet"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary"
+                  >
+                    Download binaries <span className="arrow">→</span>
+                  </a>
+                  <a href="/testnet/mining-guide" className="btn btn-ghost">
+                    Mining guide
+                  </a>
+                </div>
+                <span className="foot reveal">Windows · Linux · MIT-licensed</span>
+              </div>
+
+              <ol className="testnet-steps reveal d1">
+                <li>
+                  <span className="step-idx">01</span>
+                  <div>
+                    <h4>Download the release</h4>
+                    <p>
+                      Grab the{' '}
+                      <a
+                        href="https://github.com/btq-ag/btq-core/releases/tag/v0.3.0-testnet"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        v0.3.0 testnet binaries
+                      </a>{' '}
+                      for your platform.
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <span className="step-idx">02</span>
+                  <div>
+                    <h4>Configure your node</h4>
+                    <p>
+                      Follow the{' '}
+                      <a href="/testnet/mining-guide">mining guide</a> — extraction, daemon
+                      config, and pool connection in one place.
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <span className="step-idx">03</span>
+                  <div>
+                    <h4>Create a wallet &amp; mine</h4>
+                    <p>
+                      Generate a Dilithium key, connect to the pool, and start mining
+                      quantum-safe blocks.
+                    </p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        {/* ===================== CHOOSE YOUR PATH ===================== */}
+        <section className="paths section" id="paths">
+          <div className="wrap">
+            <div className="sec-head reveal">
+              <span className="eyebrow">Get involved</span>
+              <h2 className="h2">Three ways to engage with the network.</h2>
+            </div>
+            <div className="cards">
+              <article className="card path-card reveal">
+                <div className="glyph">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+                    <rect x="4" y="4" width="16" height="16" rx="2" />
+                    <path d="M9 9h6v6H9z" />
+                    <path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2" />
+                  </svg>
+                </div>
+                <div className="card-idx">01 · Miners</div>
+                <h3 className="h3">Run a node, mine quantum-safe blocks.</h3>
+                <p>
+                  Help secure the network and earn testnet BTQ. Same SHA-256 proof-of-work
+                  Bitcoin miners already know — with post-quantum signatures riding on top.
+                </p>
+                <a href="/testnet/mining-guide" className="path-link">
+                  Quick start <span className="arrow">→</span>
+                </a>
+              </article>
+
+              <article className="card path-card reveal d1">
+                <div className="glyph">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+                    <path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" />
+                  </svg>
+                </div>
+                <div className="card-idx">02 · Developers</div>
+                <h3 className="h3">Build wallets, tools, integrations.</h3>
+                <p>
+                  Bitcoin Core&apos;s UTXO model and scripting system, extended with a clean
+                  RPC API for post-quantum signing. Familiar surface, new primitives.
+                </p>
+                <a
+                  href="https://github.com/btq-ag/btq-core"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="path-link"
+                >
+                  View on GitHub <span className="arrow">→</span>
+                </a>
+              </article>
+
+              <article className="card path-card reveal d2">
+                <div className="glyph">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+                    <path d="M9 3h6v5l3 5a3 3 0 0 1-2.7 4.3H8.7A3 3 0 0 1 6 13l3-5V3Z" />
+                    <path d="M9 3h6M8 14h8" />
+                  </svg>
+                </div>
+                <div className="card-idx">03 · Researchers</div>
+                <h3 className="h3">Review the cryptographic primitives.</h3>
+                <p>
+                  Audit the ML-DSA integration, the migration path, and the protocol-level
+                  choices behind the larger signatures. Comments and issues welcome.
+                </p>
+                <a
+                  href="https://github.com/btq-ag/BTQ-Core/blob/master/WHITEPAPER_INTEGRATION_DESIGN.md"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="path-link"
+                >
+                  Technical blueprint <span className="arrow">→</span>
+                </a>
+              </article>
+            </div>
+          </div>
+        </section>
+
         {/* ===================== ROADMAP ===================== */}
         <section className="road section" id="roadmap">
           <div className="wrap">
