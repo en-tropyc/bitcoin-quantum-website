@@ -421,7 +421,7 @@ export default function V2Page() {
                 </p>
                 <div className="testnet-cta reveal d3">
                   <a
-                    href="https://github.com/btq-ag/btq-core/releases/tag/v0.3.0-testnet"
+                    href="https://github.com/btq-ag/btq-core/releases"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn btn-primary"
@@ -443,7 +443,7 @@ export default function V2Page() {
                     <p>
                       Grab the{' '}
                       <a
-                        href="https://github.com/btq-ag/btq-core/releases/tag/v0.3.0-testnet"
+                        href="https://github.com/btq-ag/btq-core/releases"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
