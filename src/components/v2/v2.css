@@ -173,23 +173,17 @@
    ============================================================ */
 .bqv2 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  /* Three-column grid: brand (auto) / nav-links (1fr, content
-     centered within) / get-started (auto). The middle column
-     expands to fill the space between the brand and the right
-     group, so nav-links sits at the geometric center of WHATEVER
-     space is left — re-flows automatically when the tagline shows
-     or hides. */
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  /* brand on the left, everything else right-grouped (Stripe/Vercel
+     pattern). margin-right: auto on .nav-brand pushes nav-links and
+     nav-right to the trailing edge in flex order. */
+  display: flex;
   align-items: center;
   gap: 38px;
   padding: 20px var(--gut);
   transition: background .35s, border-color .35s, padding .35s, box-shadow .35s;
   border-bottom: 1px solid transparent;
 }
-.bqv2 .nav > .nav-brand { justify-self: start; }
-.bqv2 .nav > .nav-links { justify-self: center; }
-.bqv2 .nav > .nav-right { justify-self: end; }
+.bqv2 .nav > .nav-brand { margin-right: auto; }
 .bqv2 .nav.scrolled {
   background: color-mix(in srgb, var(--bg) 84%, transparent);
   backdrop-filter: blur(14px) saturate(1.2);
