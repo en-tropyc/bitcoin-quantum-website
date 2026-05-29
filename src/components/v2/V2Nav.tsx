@@ -57,7 +57,7 @@ export default function V2Nav() {
         })}
       </ul>
       <div className="nav-right">
-        <Link href="/#cta" className="btn btn-primary">
+        <Link href="/#paths" className="btn btn-primary">
           Get started <span className="arrow">→</span>
         </Link>
         <button

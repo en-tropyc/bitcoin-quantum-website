@@ -367,7 +367,7 @@ export default function V2Page() {
           <div className="wrap">
             <div className="sec-head reveal">
               <span className="eyebrow">Get involved</span>
-              <h2 className="h2">Three ways to engage with the network.</h2>
+              <h2 className="h2">Three ways to join the network.</h2>
             </div>
             <div className="cards">
               <article className="card path-card reveal">
