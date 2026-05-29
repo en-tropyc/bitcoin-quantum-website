@@ -194,13 +194,18 @@
   position: relative; padding-block: 6px;
 }
 .bqv2 .nav-links a::after {
-  content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 1.5px;
+  content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 2px;
   background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .25s;
 }
 .bqv2 .nav-links a:hover { color: var(--ink); }
 .bqv2 .nav-links a:hover::after { transform: scaleX(1); }
 .bqv2 .nav-links a[aria-current="page"] { color: var(--ink); }
-.bqv2 .nav-links a[aria-current="page"]::after { transform: scaleX(1); }
+/* active state: full underline immediately, no transition. The page
+   you're on shouldn't draw itself in every navigation. */
+.bqv2 .nav-links a[aria-current="page"]::after {
+  transform: scaleX(1);
+  transition: none;
+}
 .bqv2 .nav-right { display: flex; align-items: center; gap: 18px; }
 .bqv2 .nav-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--ink); }
 
