@@ -280,8 +280,8 @@
   /* filter: black SVG → accent-blue tone. Sequence: dim, then
      hue-rotate into the brand blue band. */
   filter: brightness(0) saturate(100%) invert(45%) sepia(80%)
-          saturate(900%) hue-rotate(178deg) brightness(95%);
-  opacity: .55;
+          saturate(900%) hue-rotate(178deg) brightness(108%);
+  opacity: .85;
   animation: bqv2-circuit-spin 90s linear infinite;
   will-change: transform;
 }
@@ -295,7 +295,7 @@
 .bqv2[data-theme="dark"] .hero-circuit {
   filter: brightness(0) saturate(100%) invert(70%) sepia(60%)
           saturate(700%) hue-rotate(178deg) brightness(120%);
-  opacity: .42;
+  opacity: .7;
 }
 .bqv2 .hero-mark {
   position: relative; width: clamp(118px, 18vw, 180px); height: auto;
