@@ -75,7 +75,9 @@
 
 .bqv2 .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding-inline: var(--gut); }
 .bqv2 .section { padding-block: clamp(76px, 11vw, 154px); }
-.bqv2 .indent { padding-left: clamp(0px, 14vw, 200px); }
+/* indent floors at var(--gut) so it never drops the .wrap gutter on
+   narrow screens — at wide widths the editorial 14vw inset kicks in. */
+.bqv2 .indent { padding-left: clamp(var(--gut), 14vw, 200px); }
 
 /* layout utilities — replace inline styles across pages */
 .bqv2 .page-hero       { padding-top: clamp(128px, 16vw, 184px); position: relative; overflow: hidden; }
@@ -891,7 +893,7 @@
    responsive
    ============================================================ */
 @media (max-width: 980px) {
-  .bqv2 .indent { padding-left: 0; }
+  /* .indent now floors at var(--gut) via clamp, no override needed */
   .bqv2 .hero-grid { grid-template-columns: 1fr; gap: 30px; }
   .bqv2 .hero-visual { max-width: 420px; margin-inline: auto; order: -1; }
   .bqv2 .hero .display, .bqv2 .hero .lead { max-width: none; }
