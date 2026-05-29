@@ -6,11 +6,25 @@ import CryptographySection from '@/components/v2/CryptographySection';
 import RevealMount from '@/components/v2/RevealMount';
 import '@/components/v2/v2.css';
 
+const PROTOCOL_DESC =
+  "The architecture of Bitcoin Quantum: Bitcoin Core's UTXO model and SHA-256 proof-of-work, " +
+  'signed with NIST-standardized CRYSTALS-Dilithium primitives.';
+
 export const metadata: Metadata = {
-  title: 'Protocol — Bitcoin Quantum',
-  description:
-    "The architecture of Bitcoin Quantum: Bitcoin Core's UTXO model and SHA-256 proof-of-work, signed with NIST-standardized CRYSTALS-Dilithium primitives.",
+  title: 'Protocol',
+  description: PROTOCOL_DESC,
   alternates: { canonical: '/protocol' },
+  openGraph: {
+    title: 'Protocol — Bitcoin Quantum',
+    description: PROTOCOL_DESC,
+    url: '/protocol',
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Protocol — Bitcoin Quantum',
+    description: PROTOCOL_DESC,
+  },
 };
 
 /* Four specs that earn the stat-card treatment. Signatures lives in

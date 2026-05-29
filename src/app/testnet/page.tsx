@@ -6,11 +6,25 @@ import RevealMount from '@/components/v2/RevealMount';
 import '@/components/v2/v2.css';
 import Link from 'next/link';
 
+const TESTNET_DESC =
+  'Join the Bitcoin Quantum testnet. Download BTQ Core, run a quantum-safe node, ' +
+  'and mine quantum-safe blocks using NIST-standardized post-quantum cryptography.';
+
 export const metadata: Metadata = {
-  title: 'Testnet — Bitcoin Quantum',
-  description:
-    'Join the Bitcoin Quantum testnet. Download BTQ Core, run a quantum-safe node, and mine quantum-safe blocks using NIST-standardized post-quantum cryptography.',
+  title: 'Testnet',
+  description: TESTNET_DESC,
   alternates: { canonical: '/testnet' },
+  openGraph: {
+    title: 'Testnet — Bitcoin Quantum',
+    description: TESTNET_DESC,
+    url: '/testnet',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Testnet — Bitcoin Quantum',
+    description: TESTNET_DESC,
+  },
 };
 
 type Resource = {

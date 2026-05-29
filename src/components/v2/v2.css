@@ -173,11 +173,17 @@
    ============================================================ */
 .bqv2 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
+  /* brand on the left, everything else right-grouped (Stripe/Vercel
+     pattern). margin-right: auto on .nav-brand pushes nav-links and
+     nav-right to the trailing edge in flex order. */
+  display: flex;
+  align-items: center;
+  gap: 38px;
   padding: 20px var(--gut);
   transition: background .35s, border-color .35s, padding .35s, box-shadow .35s;
   border-bottom: 1px solid transparent;
 }
+.bqv2 .nav > .nav-brand { margin-right: auto; }
 .bqv2 .nav.scrolled {
   background: color-mix(in srgb, var(--bg) 84%, transparent);
   backdrop-filter: blur(14px) saturate(1.2);

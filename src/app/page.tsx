@@ -3,25 +3,26 @@ import { v2FontClassName } from '@/components/v2/fonts';
 import V2Page from './V2Page';
 import '@/components/v2/v2.css';
 
+// Home keeps the long brand title (root layout's title template only
+// fires when a page sets a string title; .absolute opts out of the template).
+const HOME_DESC =
+  'The same 21 million coins and the same proof-of-work network you trust — ' +
+  'rebuilt on NIST-standardized post-quantum cryptography.';
+
 export const metadata: Metadata = {
-  title: 'Bitcoin Quantum — Bitcoin for the post-quantum era',
-  description:
-    "Bitcoin Quantum (BTQ) is a quantum-resistant cryptocurrency built on Bitcoin's proven architecture with NIST-standardized CRYSTALS-Dilithium signatures. The same 21 million coins and the same network you trust — rebuilt on cryptography that quantum computers cannot break.",
-  keywords:
-    'Bitcoin Quantum, BTQ, quantum-resistant cryptocurrency, post-quantum Bitcoin, CRYSTALS-Dilithium, quantum-safe blockchain, quantum computing Bitcoin',
+  title: { absolute: 'Bitcoin Quantum — Bitcoin for the post-quantum era' },
+  description: HOME_DESC,
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'Bitcoin Quantum — Quantum-Resistant Bitcoin',
-    description:
-      'The same 21 million coins and the same network you trust — rebuilt on cryptography that quantum computers cannot break.',
-    url: 'https://bitcoinquantum.com',
+    title: 'Bitcoin Quantum — Bitcoin for the post-quantum era',
+    description: HOME_DESC,
+    url: '/',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bitcoin Quantum — Quantum-Resistant Bitcoin',
-    description:
-      'The same 21 million coins and the same network you trust — rebuilt on cryptography that quantum computers cannot break.',
+    title: 'Bitcoin Quantum — Bitcoin for the post-quantum era',
+    description: HOME_DESC,
   },
 };
 

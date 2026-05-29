@@ -1,8 +1,15 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Manrope, DM_Sans } from "next/font/google";
 import { GeistMono } from "geist/font/mono";
 import JsonLd from "@/components/JsonLd";
 import "./globals.css";
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#F1F2F4' },
+    { media: '(prefers-color-scheme: dark)',  color: '#081019' },
+  ],
+};
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -14,32 +21,40 @@ const dmSans = DM_Sans({
   subsets: ["latin"],
 });
 
+const DESCRIPTION =
+  "Bitcoin Quantum (BTQ) is Bitcoin rebuilt on NIST-standardized post-quantum cryptography. " +
+  "The same 21 million coins and the same proof-of-work network, signed with CRYSTALS-Dilithium.";
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://bitcoinquantum.com'),
-  title: "Bitcoin Quantum",
-  description: "Bitcoin Quantum represents the evolution of Bitcoin for the quantum era. Explore quantum-resistant cryptography and the future of decentralized digital currency.",
-  keywords: "Bitcoin, Quantum Computing, Cryptocurrency, Quantum Resistance, Blockchain, BTC",
+  title: {
+    template: '%s — Bitcoin Quantum',
+    default: 'Bitcoin Quantum — Bitcoin for the post-quantum era',
+  },
+  description: DESCRIPTION,
+  keywords: [
+    'Bitcoin Quantum', 'BTQ', 'quantum-resistant cryptocurrency',
+    'post-quantum Bitcoin', 'CRYSTALS-Dilithium', 'ML-DSA', 'NIST FIPS 204',
+    'quantum-safe blockchain', 'quantum computing Bitcoin', 'lattice cryptography',
+  ],
   authors: [{ name: "Bitcoin Quantum" }],
   creator: "Bitcoin Quantum",
   publisher: "Bitcoin Quantum",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
+  formatDetection: { email: false, address: false, telephone: false },
   openGraph: {
-    title: "Bitcoin Quantum - BTC in Quantum State",
-    description: "The evolution of Bitcoin for the quantum era",
-    url: "https://bitcoinquantum.com",
-    siteName: "Bitcoin Quantum",
-    locale: "en_US",
-    type: "website",
+    title: 'Bitcoin Quantum — Bitcoin for the post-quantum era',
+    description: DESCRIPTION,
+    url: 'https://bitcoinquantum.com',
+    siteName: 'Bitcoin Quantum',
+    locale: 'en_US',
+    type: 'website',
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Bitcoin Quantum - BTC in Quantum State",
-    description: "The evolution of Bitcoin for the quantum era",
-    creator: "@bitcoinquantum",
+    card: 'summary_large_image',
+    title: 'Bitcoin Quantum — Bitcoin for the post-quantum era',
+    description: DESCRIPTION,
+    creator: '@bitcoinquantum',
+    site: '@bitcoinquantum',
   },
   robots: {
     index: true,
