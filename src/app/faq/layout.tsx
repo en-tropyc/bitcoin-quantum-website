@@ -1,20 +1,26 @@
 import { Metadata } from 'next';
 
+const FAQ_DESC =
+  'Common questions about Bitcoin Quantum (BTQ) — quantum-resistant cryptography, ' +
+  'BTQ vs Bitcoin differences, mining, security model, and the 21 million supply cap.';
+
 export const metadata: Metadata = {
-  title: 'FAQ | Bitcoin Quantum Frequently Asked Questions',
-  description:
-    'Get answers to common questions about Bitcoin Quantum (BTQ). Learn about quantum-resistant cryptography, BTQ vs Bitcoin differences, mining, security, and the 21 million supply cap.',
-  keywords:
-    'Bitcoin Quantum FAQ, BTQ questions, quantum-resistant cryptocurrency FAQ, BTQ mining questions, BTQ security',
-  alternates: {
-    canonical: '/faq',
-  },
+  title: 'FAQ',
+  description: FAQ_DESC,
+  keywords: [
+    'Bitcoin Quantum FAQ', 'BTQ questions',
+    'quantum-resistant cryptocurrency FAQ', 'BTQ mining questions', 'BTQ security',
+  ],
+  alternates: { canonical: '/faq' },
   openGraph: {
-    title: 'Bitcoin Quantum FAQ',
-    description:
-      'Frequently asked questions about Bitcoin Quantum. Everything you need to know about BTQ.',
-    url: 'https://bitcoinquantum.com/faq',
-    type: 'website',
+    title: 'FAQ — Bitcoin Quantum',
+    description: FAQ_DESC,
+    url: '/faq',
+    type: 'article',
+  },
+  twitter: {
+    title: 'FAQ — Bitcoin Quantum',
+    description: FAQ_DESC,
   },
 };
 
