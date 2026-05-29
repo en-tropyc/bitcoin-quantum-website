@@ -37,7 +37,6 @@ export default function V2Footer() {
               <li><a href="https://github.com/btq-ag/btq-core" target="_blank" rel="noopener noreferrer">GitHub</a></li>
               <li><a href="https://t.me/+bE6I4gqX4Vo1ODJh" target="_blank" rel="noopener noreferrer">Telegram</a></li>
               <li><a href="https://x.com/btc_quantum" target="_blank" rel="noopener noreferrer">X / Twitter</a></li>
-              <li><a href="#" rel="noopener noreferrer">Discord</a></li>
             </ul>
           </div>
         </div>
