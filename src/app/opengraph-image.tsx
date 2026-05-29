@@ -13,7 +13,7 @@ import { join } from 'node:path';
  * SVG off disk and embed it instead of re-typing a wordmark.
  */
 export const runtime = 'nodejs';
-export const alt = 'Bitcoin Quantum — Bitcoin for the post-quantum era';
+export const alt = 'Bitcoin, secured for the quantum era.';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 

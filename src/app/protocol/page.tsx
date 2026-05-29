@@ -15,14 +15,14 @@ export const metadata: Metadata = {
   description: PROTOCOL_DESC,
   alternates: { canonical: '/protocol' },
   openGraph: {
-    title: 'Protocol — Bitcoin Quantum',
+    title: 'Protocol | Bitcoin Quantum',
     description: PROTOCOL_DESC,
     url: '/protocol',
     type: 'article',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Protocol — Bitcoin Quantum',
+    title: 'Protocol | Bitcoin Quantum',
     description: PROTOCOL_DESC,
   },
 };

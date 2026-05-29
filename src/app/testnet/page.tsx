@@ -15,14 +15,14 @@ export const metadata: Metadata = {
   description: TESTNET_DESC,
   alternates: { canonical: '/testnet' },
   openGraph: {
-    title: 'Testnet — Bitcoin Quantum',
+    title: 'Testnet | Bitcoin Quantum',
     description: TESTNET_DESC,
     url: '/testnet',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Testnet — Bitcoin Quantum',
+    title: 'Testnet | Bitcoin Quantum',
     description: TESTNET_DESC,
   },
 };
