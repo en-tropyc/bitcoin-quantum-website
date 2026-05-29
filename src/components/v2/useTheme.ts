@@ -30,6 +30,25 @@ export function useTheme() {
     applyTheme(next);
   }, []);
 
+  // Follow OS-level dark/light changes mid-session — but only when
+  // the user hasn't made an explicit toggle choice. Their click wins.
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    const onChange = (e: MediaQueryListEvent) => {
+      try {
+        if (localStorage.getItem(STORAGE_KEY)) return; // explicit choice locks the theme
+      } catch {
+        /* ignore */
+      }
+      const next: Theme = e.matches ? 'dark' : 'light';
+      setThemeState(next);
+      applyTheme(next);
+    };
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
   const setTheme = (next: Theme) => {
     setThemeState(next);
     applyTheme(next);
