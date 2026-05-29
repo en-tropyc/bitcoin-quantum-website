@@ -77,6 +77,22 @@
 .bqv2 .section { padding-block: clamp(76px, 11vw, 154px); }
 .bqv2 .indent { padding-left: clamp(0px, 14vw, 200px); }
 
+/* layout utilities — replace inline styles across pages */
+.bqv2 .page-hero       { padding-top: clamp(128px, 16vw, 184px); position: relative; overflow: hidden; }
+.bqv2 .section-flush-top { padding-top: 0; }
+.bqv2 .section-bg-2    { background: var(--bg-2); }
+.bqv2 .display-narrow  { max-width: 14ch; }
+.bqv2 .display-medium  { max-width: 18ch; }
+.bqv2 .display-wide    { max-width: 22ch; }
+.bqv2 .lead-narrow     { max-width: 42ch; }
+.bqv2 .lead-medium     { max-width: 50ch; }
+.bqv2 .lead-wide       { max-width: 54ch; }
+.bqv2 .ml-eyebrow      { margin-top: 18px; }
+.bqv2 .ml-display      { margin-top: 24px; }
+.bqv2 .ml-lead         { margin-top: 26px; }
+.bqv2 .ml-cta          { margin-top: 32px; }
+.bqv2 .ml-foot         { margin-top: 16px; display: block; }
+
 /* ---------- eyebrow with vertical tick ---------- */
 .bqv2 .eyebrow {
   font-family: var(--mono);
@@ -183,6 +199,8 @@
 }
 .bqv2 .nav-links a:hover { color: var(--ink); }
 .bqv2 .nav-links a:hover::after { transform: scaleX(1); }
+.bqv2 .nav-links a[aria-current="page"] { color: var(--ink); }
+.bqv2 .nav-links a[aria-current="page"]::after { transform: scaleX(1); }
 .bqv2 .nav-right { display: flex; align-items: center; gap: 18px; }
 .bqv2 .nav-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--ink); }
 
@@ -208,6 +226,20 @@
   -webkit-mask-image: radial-gradient(circle at center, #000 30%, transparent 70%);
   mask-image: radial-gradient(circle at center, #000 30%, transparent 70%);
   opacity: .7;
+}
+
+/* lattice variant — anchored to top-right of a page hero, fades out into the page.
+   Used on /protocol, /testnet, /faq for atmospheric carry-over from home. */
+.bqv2 .lattice-corner {
+  position: absolute;
+  top: -10%; right: -8%;
+  width: 60%; height: 80%;
+  pointer-events: none;
+  background-image: radial-gradient(var(--line) 1px, transparent 1px);
+  background-size: 30px 30px;
+  -webkit-mask-image: radial-gradient(circle at 75% 20%, #000 0%, transparent 65%);
+  mask-image: radial-gradient(circle at 75% 20%, #000 0%, transparent 65%);
+  opacity: .55;
 }
 .bqv2 .arcs { position: absolute; inset: -12%; pointer-events: none; }
 .bqv2 .arcs path { fill: none; stroke: var(--accent); opacity: .4; }

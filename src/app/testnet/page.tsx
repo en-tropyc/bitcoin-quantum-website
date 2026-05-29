@@ -2,13 +2,14 @@ import type { Metadata } from 'next';
 import { v2FontClassName } from '@/components/v2/fonts';
 import V2Nav from '@/components/v2/V2Nav';
 import V2Footer from '@/components/v2/V2Footer';
+import RevealMount from '@/components/v2/RevealMount';
 import '@/components/v2/v2.css';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Testnet — Bitcoin Quantum',
   description:
-    'Join the Bitcoin Quantum testnet. Download BTQ Core, run a quantum-secure node, and mine quantum-safe blocks using NIST-standardized post-quantum cryptography.',
+    'Join the Bitcoin Quantum testnet. Download BTQ Core, run a quantum-safe node, and mine quantum-safe blocks using NIST-standardized post-quantum cryptography.',
   alternates: { canonical: '/testnet' },
 };
 
@@ -19,7 +20,6 @@ type Resource = {
   href: string;
   cta: string;
   external?: boolean;
-  primary?: boolean;
 };
 
 const resources: Resource[] = [
@@ -30,7 +30,6 @@ const resources: Resource[] = [
     href: 'https://github.com/btq-ag/btq-core/releases',
     cta: 'Download',
     external: true,
-    primary: true,
   },
   {
     tag: 'Operator guide',
@@ -63,23 +62,25 @@ export default function TestnetPage() {
   return (
     <div className={v2FontClassName}>
       <div className="bqv2" data-theme="light" data-headline="grotesque">
+        <RevealMount />
         <V2Nav />
 
         <main>
           {/* ===== HERO ===== */}
-          <header className="section" style={{ paddingTop: 'clamp(128px, 16vw, 184px)' }}>
+          <header className="section page-hero">
+            <div className="lattice-corner" aria-hidden="true" />
             <div className="wrap">
-              <span className="eyebrow">
+              <span className="eyebrow reveal">
                 <span className="live-dot-inline" aria-hidden="true" /> Testnet live
               </span>
-              <h1 className="display" style={{ marginTop: 24, maxWidth: '14ch' }}>
+              <h1 className="display display-narrow ml-display reveal d1">
                 Run a <span className="serif">quantum-safe</span> node.
               </h1>
-              <p className="lead" style={{ marginTop: 26, maxWidth: '50ch' }}>
+              <p className="lead lead-medium ml-lead reveal d2">
                 The public test network is live. Download a release, spin up a node in under
                 fifteen minutes, and help stress-test post-quantum Bitcoin before mainnet.
               </p>
-              <div className="hero-cta" style={{ marginTop: 32 }}>
+              <div className="hero-cta ml-cta reveal d3">
                 <a
                   href="https://github.com/btq-ag/btq-core/releases"
                   target="_blank"
@@ -92,20 +93,20 @@ export default function TestnetPage() {
                   Mining guide
                 </Link>
               </div>
-              <span className="foot" style={{ display: 'block', marginTop: 16 }}>
+              <span className="foot ml-foot reveal">
                 Windows · Linux · MIT-licensed
               </span>
             </div>
           </header>
 
           {/* ===== QUICK START ===== */}
-          <section className="section" style={{ paddingTop: 0 }}>
+          <section className="section section-flush-top">
             <div className="wrap">
-              <div className="sec-head">
+              <div className="sec-head reveal">
                 <span className="eyebrow">Quick start</span>
                 <h2 className="h2">From zero to a quantum-safe node in four steps.</h2>
               </div>
-              <ol className="testnet-steps">
+              <ol className="testnet-steps reveal d1">
                 <li>
                   <span className="step-idx">01</span>
                   <div>
@@ -169,9 +170,9 @@ export default function TestnetPage() {
           </section>
 
           {/* ===== RESOURCES ===== */}
-          <section className="section" style={{ background: 'var(--bg-2)' }}>
+          <section className="section section-bg-2">
             <div className="wrap">
-              <div className="sec-head">
+              <div className="sec-head reveal">
                 <span className="eyebrow">Resources</span>
                 <h2 className="h2">Everything else you&apos;ll need.</h2>
               </div>
@@ -180,7 +181,7 @@ export default function TestnetPage() {
                   href={primary.href}
                   target={primary.external ? '_blank' : undefined}
                   rel={primary.external ? 'noopener noreferrer' : undefined}
-                  className="resource-primary"
+                  className="resource-primary reveal"
                 >
                   <span className="ref-tag">{primary.tag}</span>
                   <h3 className="h3">{primary.title}</h3>
@@ -190,8 +191,8 @@ export default function TestnetPage() {
                   </span>
                 </a>
                 <div className="resource-stack">
-                  {secondary.map((r) => {
-                    const isExternal = r.external;
+                  {secondary.map((r, i) => {
+                    const cls = `ref-card resource-row reveal d${i + 1}`;
                     const Inner = (
                       <>
                         <div>
@@ -204,18 +205,18 @@ export default function TestnetPage() {
                         </span>
                       </>
                     );
-                    return isExternal ? (
+                    return r.external ? (
                       <a
                         key={r.title}
                         href={r.href}
-                        className="ref-card resource-row"
+                        className={cls}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         {Inner}
                       </a>
                     ) : (
-                      <Link key={r.title} href={r.href} className="ref-card resource-row">
+                      <Link key={r.title} href={r.href} className={cls}>
                         {Inner}
                       </Link>
                     );
@@ -228,13 +229,13 @@ export default function TestnetPage() {
           {/* ===== NEED HELP ===== */}
           <section className="cta section">
             <div className="wrap">
-              <span className="eyebrow">Need help?</span>
-              <h2 className="h2">Talk to the testnet community.</h2>
-              <p className="lead">
+              <span className="eyebrow reveal">Need help?</span>
+              <h2 className="h2 reveal d1">Talk to the testnet community.</h2>
+              <p className="lead reveal d2">
                 Join the Telegram channel to ask questions, report bugs, or compare notes with
                 other operators. Core contributors hang out there too.
               </p>
-              <div className="cta-row">
+              <div className="cta-row reveal d2">
                 <a
                   href="https://t.me/+bE6I4gqX4Vo1ODJh"
                   target="_blank"

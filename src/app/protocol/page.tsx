@@ -3,6 +3,7 @@ import { v2FontClassName } from '@/components/v2/fonts';
 import V2Nav from '@/components/v2/V2Nav';
 import V2Footer from '@/components/v2/V2Footer';
 import CryptographySection from '@/components/v2/CryptographySection';
+import RevealMount from '@/components/v2/RevealMount';
 import '@/components/v2/v2.css';
 
 export const metadata: Metadata = {
@@ -12,13 +13,13 @@ export const metadata: Metadata = {
   alternates: { canonical: '/protocol' },
 };
 
+/* Four specs that earn the stat-card treatment. Signatures lives in
+   the Cryptography section beneath; Halving is a sub-detail of Supply. */
 const specs = [
-  { tag: 'Consensus',    val: 'SHA-256',   label: 'Proof-of-work, ASIC-compatible' },
-  { tag: 'Supply',       val: '21',        unit: 'M', label: 'Maximum BTQ, fixed at genesis' },
-  { tag: 'Block time',   val: '10',        unit: 'min', label: 'Target average between blocks' },
-  { tag: 'Block size',   val: '64',        unit: 'MiB', label: 'Sized for larger PQ signatures' },
-  { tag: 'Signatures',   val: 'ML-DSA',    label: 'CRYSTALS-Dilithium · FIPS 204' },
-  { tag: 'Halving',      val: '210k',      unit: 'blocks', label: 'Same reward schedule as Bitcoin' },
+  { val: 'SHA-256',                  label: 'Proof-of-work consensus' },
+  { val: '21',     unit: 'M',        label: 'Maximum BTQ supply' },
+  { val: '10',     unit: ' min',     label: 'Target block time' },
+  { val: '64',     unit: ' MiB',     label: 'Per-block size limit' },
 ];
 
 const netparams = [
@@ -66,17 +67,19 @@ export default function ProtocolPage() {
   return (
     <div className={v2FontClassName}>
       <div className="bqv2" data-theme="light" data-headline="grotesque">
+        <RevealMount />
         <V2Nav />
 
         <main>
           {/* ===== HERO ===== */}
-          <header className="section" style={{ paddingTop: 'clamp(128px, 16vw, 184px)' }}>
+          <header className="section page-hero">
+            <div className="lattice-corner" aria-hidden="true" />
             <div className="wrap">
-              <span className="eyebrow">Protocol</span>
-              <h1 className="display" style={{ marginTop: 24, maxWidth: '16ch' }}>
+              <span className="eyebrow reveal">Protocol</span>
+              <h1 className="display display-medium ml-display reveal d1">
                 Bitcoin Core, <span className="serif">hardened</span> for the quantum era.
               </h1>
-              <p className="lead" style={{ marginTop: 26, maxWidth: '54ch' }}>
+              <p className="lead lead-wide ml-lead reveal d2">
                 Bitcoin Quantum keeps Bitcoin&apos;s UTXO model, scripting system, halving
                 schedule and SHA-256 proof-of-work intact — and replaces the signature
                 algorithm with NIST-standardized post-quantum primitives.
@@ -85,42 +88,41 @@ export default function ProtocolPage() {
           </header>
 
           {/* ===== SPECIFICATIONS ===== */}
-          <section className="section" style={{ background: 'var(--bg-2)', paddingTop: 'clamp(64px, 8vw, 110px)' }}>
+          <section className="section section-bg-2">
             <div className="wrap">
-              <div className="sec-head">
+              <div className="sec-head reveal">
                 <span className="eyebrow">Specifications</span>
                 <h2 className="h2">Protocol parameters at a glance.</h2>
               </div>
-              <div className="specs">
-                {specs.map((s) => (
-                  <div key={s.tag} className="spec-card">
-                    <span className="spec-eyebrow">{s.tag}</span>
-                    <div className="spec-val">
+              <div className="cards-stat">
+                {specs.map((s, i) => (
+                  <div key={s.label} className={`fact reveal${i ? ` d${i}` : ''}`}>
+                    <div className="fact-num">
                       {s.val}
-                      {s.unit && <span className="unit">{s.unit}</span>}
+                      {s.unit && <span className="suffix">{s.unit}</span>}
                     </div>
-                    <div className="spec-label">{s.label}</div>
+                    <div className="fact-label">{s.label}</div>
                   </div>
                 ))}
               </div>
             </div>
           </section>
 
-          {/* ===== CRYPTOGRAPHY (dark band) ===== */}
+          {/* ===== CRYPTOGRAPHY (dark band, shared with home) ===== */}
           <CryptographySection id="cryptography" />
 
           {/* ===== NETWORK PARAMETERS ===== */}
           <section className="section" id="network">
             <div className="wrap">
-              <div className="sec-head">
+              <div className="sec-head reveal">
                 <span className="eyebrow">Network parameters</span>
                 <h2 className="h2">Ports and address prefixes.</h2>
-                <p className="lead" style={{ marginTop: 18, maxWidth: '54ch' }}>
+                <p className="lead lead-wide ml-lead">
                   The same three-network split Bitcoin operators expect — Mainnet for production,
                   Testnet for the public test network, Regtest for local development.
                 </p>
               </div>
-              <div className="netparams">
+              <div className="netparams reveal d1">
                 <table>
                   <thead>
                     <tr>
@@ -146,18 +148,18 @@ export default function ProtocolPage() {
           </section>
 
           {/* ===== REFERENCES ===== */}
-          <section className="section" id="references" style={{ background: 'var(--bg-2)' }}>
+          <section className="section section-bg-2" id="references">
             <div className="wrap">
-              <div className="sec-head">
+              <div className="sec-head reveal">
                 <span className="eyebrow">References</span>
                 <h2 className="h2">Read the source.</h2>
               </div>
               <div className="refs">
-                {refs.map((r) => (
+                {refs.map((r, i) => (
                   <a
                     key={r.title}
                     href={r.href}
-                    className="ref-card"
+                    className={`ref-card reveal${i ? ` d${i}` : ''}`}
                     target={r.external ? '_blank' : undefined}
                     rel={r.external ? 'noopener noreferrer' : undefined}
                   >

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import V2Nav from '@/components/v2/V2Nav';
 import V2Footer from '@/components/v2/V2Footer';
 import CryptographySection from '@/components/v2/CryptographySection';
+import RevealMount from '@/components/v2/RevealMount';
 
 /* ===== Icon glyphs ===== */
 function ShieldIcon() {
@@ -126,46 +127,13 @@ function HexRows() {
   );
 }
 
-/* ===== Intersection-driven reveal: adds .in to anything with .reveal ===== */
-function useRevealOnScroll() {
-  useEffect(() => {
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const items = Array.from(document.querySelectorAll<HTMLElement>('.bqv2 .reveal'));
-    if (reduce) {
-      items.forEach((el) => el.classList.add('in'));
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add('in');
-            io.unobserve(e.target);
-          }
-        });
-      },
-      { rootMargin: '0px 0px -10% 0px', threshold: 0.05 }
-    );
-    items.forEach((el) => io.observe(el));
-    // Safety net — anything still off-screen after 2.5s gets revealed.
-    const t = window.setTimeout(() => {
-      items.forEach((el) => el.classList.add('in'));
-    }, 2500);
-    return () => {
-      io.disconnect();
-      window.clearTimeout(t);
-    };
-  }, []);
-}
-
 /* ============================================================
    Page
    ============================================================ */
 export default function V2Page() {
-  useRevealOnScroll();
-
   return (
     <div className="bqv2" data-theme="light" data-headline="grotesque">
+      <RevealMount />
       <V2Nav />
 
       <main id="top">
@@ -316,7 +284,7 @@ export default function V2Page() {
                   Testnet live
                 </span>
                 <h2 className="h2 reveal d1" style={{ marginTop: 20 }}>
-                  Run a quantum-secure node.
+                  Run a quantum-safe node.
                 </h2>
                 <p className="lead reveal d2">
                   Spin up a testnet node in under fifteen minutes. Mine quantum-safe blocks,

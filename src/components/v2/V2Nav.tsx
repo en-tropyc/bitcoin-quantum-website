@@ -2,15 +2,23 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
+const NAV_LINKS = [
+  { href: '/protocol', label: 'Protocol' },
+  { href: '/testnet',  label: 'Testnet'  },
+  { href: '/faq',      label: 'FAQ'      },
+] as const;
 
 /**
  * Fixed v2 nav. Renders in light or dark mode based on parent theme.
- * Inline anchors point at home-page sections via `/#hash` so they
- * work the same from every route.
+ * The current page (matched against href) gets aria-current="page",
+ * which the stylesheet uses to draw the active underline.
  */
 export default function V2Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -21,6 +29,9 @@ export default function V2Nav() {
 
   const closeMenu = () => setMenuOpen(false);
 
+  const isActive = (href: string) =>
+    pathname === href || (href !== '/' && pathname?.startsWith(href + '/'));
+
   return (
     <nav className={`nav${scrolled ? ' scrolled' : ''}`} id="nav">
       <Link href="/" aria-label="Bitcoin Quantum home">
@@ -30,9 +41,20 @@ export default function V2Nav() {
         <img src="/v2/logo-dark.svg" alt="Bitcoin Quantum" className="nav-logo dark-v" />
       </Link>
       <ul className={`nav-links${menuOpen ? ' open' : ''}`} id="navLinks">
-        <li><Link href="/protocol" onClick={closeMenu}>Protocol</Link></li>
-        <li><Link href="/testnet" onClick={closeMenu}>Testnet</Link></li>
-        <li><Link href="/faq" onClick={closeMenu}>FAQ</Link></li>
+        {NAV_LINKS.map(({ href, label }) => {
+          const active = isActive(href);
+          return (
+            <li key={href}>
+              <Link
+                href={href}
+                onClick={closeMenu}
+                aria-current={active ? 'page' : undefined}
+              >
+                {label}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
       <div className="nav-right">
         <Link href="/#cta" className="btn btn-primary">
