@@ -67,6 +67,20 @@
   color-scheme: dark;
 }
 
+/* In dark mode, prose headlines go near-white instead of brand cyan
+   so the brand blue lands on accent strokes (eyebrows, ticks) and
+   the stat numbers (21M / 1 min / 8 MB / FIPS 204) — they pop more
+   when the headlines aren't competing for the same color. */
+.bqv2[data-theme="dark"] h1,
+.bqv2[data-theme="dark"] h2,
+.bqv2[data-theme="dark"] h3,
+.bqv2[data-theme="dark"] .statement .big,
+.bqv2[data-theme="dark"] .hero .display .serif,
+.bqv2[data-theme="dark"] .statement .big .serif,
+.bqv2[data-theme="dark"] .ref-card h3 {
+  color: var(--ink);
+}
+
 .bqv2 * { box-sizing: border-box; margin: 0; padding: 0; }
 .bqv2 img, .bqv2 svg { display: block; }
 .bqv2 a { color: inherit; text-decoration: none; }
