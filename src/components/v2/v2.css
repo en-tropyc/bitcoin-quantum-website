@@ -251,6 +251,24 @@
 .bqv2 .nav-right { display: flex; align-items: center; gap: 18px; }
 .bqv2 .nav-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--ink); }
 
+/* theme toggle — circular icon button beside Get started */
+.bqv2 .theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: color .15s, border-color .15s, background .15s, transform .15s;
+}
+.bqv2 .theme-toggle:hover {
+  color: var(--ink);
+  border-color: var(--ink-3);
+  background: color-mix(in srgb, var(--ink) 4%, transparent);
+}
+.bqv2 .theme-toggle:active { transform: scale(0.94); }
+
 /* ============================================================
    HERO
    ============================================================ */
