@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'Bitcoin Quantum',
     short_name: 'BTQ',
-    description: 'Bitcoin for the post-quantum era — NIST-standardized quantum-safe cryptography.',
+    description: 'Bitcoin for the post-quantum era. NIST-standardized quantum-safe cryptography.',
     start_url: '/',
     display: 'standalone',
     background_color: '#F1F2F4',

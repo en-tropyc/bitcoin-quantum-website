@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 const FAQ_DESC =
-  'Common questions about Bitcoin Quantum (BTQ) — quantum-resistant cryptography, ' +
+  'Common questions about Bitcoin Quantum (BTQ): quantum-resistant cryptography, ' +
   'BTQ vs Bitcoin differences, mining, security model, and the 21 million supply cap.';
 
 export const metadata: Metadata = {
@@ -13,13 +13,13 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/faq' },
   openGraph: {
-    title: 'FAQ — Bitcoin Quantum',
+    title: 'FAQ | Bitcoin Quantum',
     description: FAQ_DESC,
     url: '/faq',
     type: 'article',
   },
   twitter: {
-    title: 'FAQ — Bitcoin Quantum',
+    title: 'FAQ | Bitcoin Quantum',
     description: FAQ_DESC,
   },
 };

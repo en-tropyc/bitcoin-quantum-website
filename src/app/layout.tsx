@@ -23,14 +23,14 @@ const dmSans = DM_Sans({
 });
 
 const DESCRIPTION =
-  "Bitcoin Quantum (BTQ) is Bitcoin rebuilt on NIST-standardized post-quantum cryptography. " +
-  "The same 21 million coins and the same proof-of-work network, signed with CRYSTALS-Dilithium.";
+  'Bitcoin rebuilt on post-quantum cryptography. ' +
+  'Same 21 million coins, same proof-of-work network.';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://bitcoinquantum.com'),
   title: {
-    template: '%s — Bitcoin Quantum',
-    default: 'Bitcoin Quantum — Bitcoin for the post-quantum era',
+    template: '%s | Bitcoin Quantum',
+    default: 'Bitcoin, secured for the quantum era.',
   },
   description: DESCRIPTION,
   keywords: [
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   publisher: "Bitcoin Quantum",
   formatDetection: { email: false, address: false, telephone: false },
   openGraph: {
-    title: 'Bitcoin Quantum — Bitcoin for the post-quantum era',
+    title: 'Bitcoin, secured for the quantum era.',
     description: DESCRIPTION,
     url: 'https://bitcoinquantum.com',
     siteName: 'Bitcoin Quantum',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bitcoin Quantum — Bitcoin for the post-quantum era',
+    title: 'Bitcoin, secured for the quantum era.',
     description: DESCRIPTION,
     creator: '@bitcoinquantum',
     site: '@bitcoinquantum',
