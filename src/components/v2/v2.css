@@ -67,6 +67,20 @@
   color-scheme: dark;
 }
 
+/* In dark mode, prose headlines go near-white instead of brand cyan
+   so the brand blue lands on accent strokes (eyebrows, ticks) and
+   the stat numbers (21M / 1 min / 8 MB / FIPS 204) — they pop more
+   when the headlines aren't competing for the same color. */
+.bqv2[data-theme="dark"] h1,
+.bqv2[data-theme="dark"] h2,
+.bqv2[data-theme="dark"] h3,
+.bqv2[data-theme="dark"] .statement .big,
+.bqv2[data-theme="dark"] .hero .display .serif,
+.bqv2[data-theme="dark"] .statement .big .serif,
+.bqv2[data-theme="dark"] .ref-card h3 {
+  color: var(--ink);
+}
+
 .bqv2 * { box-sizing: border-box; margin: 0; padding: 0; }
 .bqv2 img, .bqv2 svg { display: block; }
 .bqv2 a { color: inherit; text-decoration: none; }
@@ -250,6 +264,24 @@
 }
 .bqv2 .nav-right { display: flex; align-items: center; gap: 18px; }
 .bqv2 .nav-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--ink); }
+
+/* theme toggle — circular icon button beside Get started */
+.bqv2 .theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: color .15s, border-color .15s, background .15s, transform .15s;
+}
+.bqv2 .theme-toggle:hover {
+  color: var(--ink);
+  border-color: var(--ink-3);
+  background: color-mix(in srgb, var(--ink) 4%, transparent);
+}
+.bqv2 .theme-toggle:active { transform: scale(0.94); }
 
 /* ============================================================
    HERO

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import ThemeToggle from './ThemeToggle';
 import { usePathname } from 'next/navigation';
 
 const NAV_LINKS = [
@@ -63,6 +64,7 @@ export default function V2Nav() {
         </li>
       </ul>
       <div className="nav-right">
+        <ThemeToggle />
         <Link href="/testnet#resources" className="btn btn-primary">
           Get started <span className="arrow">→</span>
         </Link>
