@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope, DM_Sans } from "next/font/google";
 import { GeistMono } from "geist/font/mono";
+import { Analytics } from '@vercel/analytics/next';
 import JsonLd from "@/components/JsonLd";
 import "./globals.css";
 
@@ -113,6 +114,7 @@ export default function RootLayout({
           }}
         />
         {children}
+        <Analytics />
       </body>
     </html>
   );
