@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-
 /**
  * The "Under the hood / Cryptography" dark band — shown on the home
  * page and on /protocol. Both surfaces want exactly the same content,
