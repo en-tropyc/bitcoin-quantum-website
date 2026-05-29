@@ -898,6 +898,10 @@
 @media (max-width: 620px) {
   .bqv2 .nav-links { display: none; }
   .bqv2 .nav-toggle { display: block; }
+  /* hide the in-nav "Get started" pill on phones so it doesn't
+     overlap the logo; visitors reach the same CTA via the hamburger
+     menu or the hero buttons below */
+  .bqv2 .nav-right .btn-primary { display: none; }
   .bqv2 .nav-links.open {
     display: flex; position: absolute; top: 100%; left: 0; right: 0;
     flex-direction: column; gap: 0;
