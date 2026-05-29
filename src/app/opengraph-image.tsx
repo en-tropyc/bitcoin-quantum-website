@@ -1,4 +1,6 @@
 import { ImageResponse } from 'next/og';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 
 /**
  * Single global OG / Twitter card for every page on the site.
@@ -6,8 +8,11 @@ import { ImageResponse } from 'next/og';
  * variant from this file's URL.
  *
  * 1200x630 is the canonical Twitter / LinkedIn / Slack preview size.
+ *
+ * Runs in the Node runtime (not edge) so we can read the real logo
+ * SVG off disk and embed it instead of re-typing a wordmark.
  */
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 export const alt = 'Bitcoin Quantum — Bitcoin for the post-quantum era';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
@@ -16,13 +21,16 @@ export const contentType = 'image/png';
 const BG       = '#F1F2F4';
 const HEADLINE = '#0B5A8E';
 const ACCENT   = '#35A4EA';
-const INK      = '#14171C';
-const INK_2    = '#4B515A';
 const INK_3    = '#888F99';
 
+// Real wordmark from /public/v2 → data URL so Satori can render it.
+const logoSvg = readFileSync(
+  join(process.cwd(), 'public/v2/logo-light.svg'),
+  'utf-8'
+);
+const LOGO_DATA_URL = `data:image/svg+xml;base64,${Buffer.from(logoSvg).toString('base64')}`;
+
 export default async function Image() {
-  // Pull Archivo (display) + Newsreader (italic flourish) at build time
-  // so the OG image renders in the brand voice.
   // @fontsource via jsdelivr has stable URLs (Google Fonts hashed
   // paths change). Pulling the Latin subset binaries at build time.
   const [archivo, newsreaderItalic] = await Promise.all([
@@ -42,7 +50,7 @@ export default async function Image() {
           flexDirection: 'column',
           justifyContent: 'space-between',
           background: BG,
-          padding: '72px 80px',
+          padding: '64px 80px',
           fontFamily: 'Archivo',
           position: 'relative',
         }}
@@ -53,41 +61,35 @@ export default async function Image() {
             position: 'absolute',
             top: -40,
             right: -40,
-            width: 520,
-            height: 520,
+            width: 540,
+            height: 540,
             backgroundImage: `radial-gradient(${ACCENT}22 2px, transparent 2px)`,
             backgroundSize: '24px 24px',
-            opacity: 0.6,
+            opacity: 0.65,
           }}
         />
 
-        {/* eyebrow */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            color: ACCENT,
-            fontSize: 22,
-            letterSpacing: 4,
-            textTransform: 'uppercase',
-            fontWeight: 600,
-          }}
-        >
-          <div style={{ width: 3, height: 22, background: ACCENT, marginRight: 14 }} />
-          POST-QUANTUM BITCOIN
-        </div>
+        {/* top — real Bitcoin Quantum wordmark */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={LOGO_DATA_URL}
+          alt="Bitcoin Quantum"
+          width={356}
+          height={45}
+        />
 
-        {/* headline — Satori collapses inline whitespace between adjacent
-            spans, so each "word" is its own flex item with gap for spaces. */}
+        {/* middle — headline. Satori collapses inline whitespace
+            between adjacent spans, so each word is its own flex item
+            with `gap` providing the spaces. */}
         <div
           style={{
             display: 'flex',
             flexDirection: 'column',
-            fontSize: 104,
+            fontSize: 102,
             fontWeight: 800,
             color: HEADLINE,
             letterSpacing: -3,
-            lineHeight: 1.02,
+            lineHeight: 1.04,
             maxWidth: 1000,
           }}
         >
@@ -98,6 +100,12 @@ export default async function Image() {
                 fontFamily: 'Newsreader',
                 fontStyle: 'italic',
                 fontWeight: 500,
+                letterSpacing: -1,
+                /* Satori's baseline lands each font on its own
+                   intrinsic baseline, which makes Newsreader's smaller
+                   x-height sit visibly higher than the surrounding
+                   Archivo. Nudge it down to share the visual baseline. */
+                transform: 'translateY(11px)',
               }}
             >
               secured
@@ -107,19 +115,27 @@ export default async function Image() {
           <span>the quantum era.</span>
         </div>
 
-        {/* footer row */}
+        {/* bottom — eyebrow tag and URL */}
         <div
           style={{
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'flex-end',
-            color: INK_2,
             fontSize: 22,
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', color: INK, fontWeight: 700 }}>
-            <span style={{ color: INK }}>bitcoin</span>
-            <span style={{ color: ACCENT, marginLeft: 6 }}>QUANTUM</span>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              color: ACCENT,
+              letterSpacing: 4,
+              textTransform: 'uppercase',
+              fontWeight: 600,
+            }}
+          >
+            <div style={{ width: 3, height: 22, background: ACCENT, marginRight: 14 }} />
+            POST-QUANTUM BITCOIN
           </div>
           <div style={{ color: INK_3, fontSize: 18, letterSpacing: 2, textTransform: 'uppercase' }}>
             bitcoinquantum.com

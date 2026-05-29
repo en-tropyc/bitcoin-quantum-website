@@ -195,6 +195,9 @@
   display: inline-flex;
   align-items: center;
   gap: 14px;
+  /* never let the brand compress — if it does, the nowrap tagline
+     bleeds past the box and overlaps nav-links to the right. */
+  flex-shrink: 0;
 }
 .bqv2 .nav-tagline {
   font-family: var(--mono);
@@ -208,11 +211,13 @@
   /* don't compete with the logo for vertical alignment */
   margin-top: 1px;
 }
-/* The slogan stays visible deeper into tablet now — only hides once
-   the nav genuinely gets cramped (~800px). At <=620px the menu turns
-   into a hamburger and the slogan reappears inside the open dropdown
+/* The slogan stays visible across desktop widths and most of tablet,
+   but disappears before the brand + nav-links + Get-started total
+   exceeds the viewport (real overlap threshold ~918px — we hide
+   slightly above that for headroom). At <=620px the menu turns into
+   a hamburger and the slogan reappears inside the open dropdown
    (see .nav-mobile-tagline below). */
-@media (max-width: 800px) {
+@media (max-width: 940px) {
   .bqv2 .nav-tagline { display: none; }
 }
 
