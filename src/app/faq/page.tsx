@@ -1,8 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import V2Nav from '@/components/v2/V2Nav';
+import V2Footer from '@/components/v2/V2Footer';
+import { v2FontClassName } from '@/components/v2/fonts';
+import '@/components/v2/v2.css';
 import Link from 'next/link';
 
 interface FAQItem {
@@ -125,7 +127,7 @@ export default function FAQ() {
   };
 
   return (
-    <div className="min-h-screen bg-[#06080c] flex flex-col relative">
+    <div className={`min-h-screen bg-[#06080c] flex flex-col relative ${v2FontClassName}`}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
@@ -133,7 +135,9 @@ export default function FAQ() {
       {/* Grid background */}
       <div className="grid-background" />
 
-      <Header />
+      <div className="bqv2" data-theme="dark">
+        <V2Nav />
+      </div>
 
       <main className="flex-1 relative z-10">
         {/* Hero Section */}
@@ -252,7 +256,9 @@ export default function FAQ() {
         </div>
       </main>
 
-      <Footer />
+      <div className="bqv2" data-theme="dark">
+        <V2Footer />
+      </div>
     </div>
   );
 }

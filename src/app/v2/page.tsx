@@ -1,33 +1,7 @@
 import type { Metadata } from 'next';
-import { Archivo, Newsreader, Hanken_Grotesk, IBM_Plex_Mono } from 'next/font/google';
+import { v2FontClassName } from '@/components/v2/fonts';
 import V2Page from './V2Page';
-import './v2.css';
-
-const archivo = Archivo({
-  variable: '--font-archivo',
-  subsets: ['latin'],
-  weight: ['500', '600', '700', '800'],
-  display: 'swap',
-});
-const newsreader = Newsreader({
-  variable: '--font-newsreader',
-  subsets: ['latin'],
-  style: ['italic', 'normal'],
-  weight: ['400', '500'],
-  display: 'swap',
-});
-const hanken = Hanken_Grotesk({
-  variable: '--font-hanken',
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  display: 'swap',
-});
-const plexMono = IBM_Plex_Mono({
-  variable: '--font-plex-mono',
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  display: 'swap',
-});
+import '@/components/v2/v2.css';
 
 export const metadata: Metadata = {
   title: 'Bitcoin Quantum — Bitcoin for the post-quantum era',
@@ -39,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className={`${archivo.variable} ${newsreader.variable} ${hanken.variable} ${plexMono.variable}`}>
+    <div className={v2FontClassName}>
       <V2Page />
     </div>
   );

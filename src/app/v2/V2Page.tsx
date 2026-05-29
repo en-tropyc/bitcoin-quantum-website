@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import Link from 'next/link';
+import V2Nav from '@/components/v2/V2Nav';
+import V2Footer from '@/components/v2/V2Footer';
 
 /* ===== Icon glyphs ===== */
 function ShieldIcon() {
@@ -167,18 +168,7 @@ function useRevealOnScroll() {
    Page
    ============================================================ */
 export default function V2Page() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
   useRevealOnScroll();
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  const closeMenu = () => setMenuOpen(false);
 
   // Real btq-cli testnet session using the commands documented in
   // /testnet/mining-guide. Kept here as a static brand element.
@@ -205,34 +195,7 @@ export default function V2Page() {
 
   return (
     <div className="bqv2" data-theme="light" data-headline="grotesque">
-      {/* ===================== NAV ===================== */}
-      <nav className={`nav${scrolled ? ' scrolled' : ''}`} id="nav">
-        <a href="#top" aria-label="Bitcoin Quantum home">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/v2/logo-light.svg" alt="Bitcoin Quantum" className="nav-logo light-v" />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/v2/logo-dark.svg" alt="Bitcoin Quantum" className="nav-logo dark-v" />
-        </a>
-        <ul className={`nav-links${menuOpen ? ' open' : ''}`} id="navLinks">
-          <li><a href="#technology" onClick={closeMenu}>Protocol</a></li>
-          <li><Link href="/testnet" onClick={closeMenu}>Testnet</Link></li>
-          <li><Link href="/faq" onClick={closeMenu}>FAQ</Link></li>
-        </ul>
-        <div className="nav-right">
-          <a href="#cta" className="btn btn-primary">
-            Get started <span className="arrow">→</span>
-          </a>
-          <button
-            className="nav-toggle"
-            aria-label="Menu"
-            onClick={() => setMenuOpen((v) => !v)}
-          >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-              <path d="M3 6h18M3 12h18M3 18h18" />
-            </svg>
-          </button>
-        </div>
-      </nav>
+      <V2Nav />
 
       <main id="top">
         {/* ===================== HERO ===================== */}
@@ -609,52 +572,7 @@ export default function V2Page() {
         </section>
       </main>
 
-      {/* ===================== FOOTER ===================== */}
-      <footer className="footer">
-        <div className="wrap">
-          <div className="footer-top">
-            <div>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/v2/logo-dark.svg" alt="Bitcoin Quantum" className="footer-logo" />
-              <p className="footer-blurb">
-                Bitcoin for the post-quantum era. The same sound money, secured by cryptography
-                built to outlast quantum computers.
-              </p>
-            </div>
-            <div>
-              <h4>Learn</h4>
-              <ul>
-                <li><a href="#under">Whitepaper</a></li>
-                <li><a href="#technology">Technology</a></li>
-                <li><a href="#under">Cryptography</a></li>
-                <li><a href="#roadmap">FAQ</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4>Network</h4>
-              <ul>
-                <li><a href="#roadmap">Roadmap</a></li>
-                <li><a href="#">Testnet</a></li>
-                <li><a href="#">Block explorer</a></li>
-                <li><a href="#">Run a node</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4>Community</h4>
-              <ul>
-                <li><a href="#">GitHub</a></li>
-                <li><a href="#">Forum</a></li>
-                <li><a href="#">X / Twitter</a></li>
-                <li><a href="#">Discord</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            <span>© 2026 Bitcoin Quantum. Open-source under MIT.</span>
-            <span>bitcoinquantum.com</span>
-          </div>
-        </div>
-      </footer>
+      <V2Footer />
     </div>
   );
 }
