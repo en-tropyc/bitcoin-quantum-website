@@ -286,8 +286,11 @@
   will-change: transform;
 }
 @keyframes bqv2-circuit-spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+  /* scale baked into the keyframe so the circuit reads bigger than
+     the centered Bitcoin mark — the .hero section is overflow: hidden,
+     so the rotating corners are safely clipped. */
+  from { transform: scale(1.3) rotate(0deg); }
+  to   { transform: scale(1.3) rotate(360deg); }
 }
 @media (prefers-reduced-motion: reduce) {
   .bqv2 .hero-circuit { animation: none; }
