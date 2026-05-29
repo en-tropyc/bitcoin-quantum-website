@@ -106,7 +106,7 @@ export default function TestnetPage() {
           </header>
 
           {/* ===== QUICK START ===== */}
-          <section className="section section-flush-top">
+          <section id="quickstart" className="section section-flush-top">
             <div className="wrap">
               <div className="sec-head reveal">
                 <span className="eyebrow">Quick start</span>
@@ -183,11 +183,11 @@ export default function TestnetPage() {
           </section>
 
           {/* ===== RESOURCES ===== */}
-          <section className="section section-bg-2">
+          <section id="resources" className="section section-bg-2">
             <div className="wrap">
               <div className="sec-head reveal">
                 <span className="eyebrow">Resources</span>
-                <h2 className="h2">Everything else you&apos;ll need.</h2>
+                <h2 className="h2">Everything you&apos;ll need.</h2>
               </div>
               <div className="resources-grid">
                 <a

@@ -402,6 +402,9 @@
   line-height: 1;
   letter-spacing: -0.02em;
 }
+/* spec/fact numbers like "SHA-256" mustn't break mid-token */
+.bqv2 .spec-val,
+.bqv2 .fact-num { white-space: nowrap; }
 .bqv2 .spec-val .unit { font-size: 0.55em; font-weight: 700; letter-spacing: -0.005em; margin-left: 4px; }
 .bqv2 .spec-label {
   font-size: 14px;
@@ -569,6 +572,12 @@
   color: var(--ink-2);
   font-size: 15.5px;
   max-width: 42ch;
+}
+/* primary card's Download CTA shouldn't stretch full-width — the
+   .btn is inside a flex-column container which would otherwise
+   stretch it. */
+.bqv2 .resource-primary .btn {
+  align-self: flex-start;
 }
 
 .bqv2 .resource-stack { display: flex; flex-direction: column; gap: 12px; }
@@ -914,13 +923,13 @@
   .bqv2 .timeline { grid-template-columns: 1fr; }
   .bqv2 .footer-top { grid-template-columns: 1fr; }
 
-  /* lattice corner shouldn't dominate a phone hero */
+  /* lattice corner shouldn't dominate a phone hero, but should still register */
   .bqv2 .lattice-corner {
     width: 70%;
     height: 50%;
     top: -6%;
     right: -12%;
-    opacity: .32;
+    opacity: .42;
   }
 
   /* let inline code chips wrap so getnewdilithiumaddress doesn't overflow */

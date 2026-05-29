@@ -57,7 +57,7 @@ export default function V2Nav() {
         })}
       </ul>
       <div className="nav-right">
-        <Link href="/#paths" className="btn btn-primary">
+        <Link href="/testnet#resources" className="btn btn-primary">
           Get started <span className="arrow">→</span>
         </Link>
         <button

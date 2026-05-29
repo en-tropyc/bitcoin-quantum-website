@@ -151,7 +151,7 @@ export default function V2Page() {
                   cryptography that quantum computers cannot break.
                 </p>
                 <div className="hero-cta reveal d3">
-                  <a href="#paths" className="btn btn-primary">
+                  <a href="/testnet#resources" className="btn btn-primary">
                     Get started <span className="arrow">→</span>
                   </a>
                   <a href="#under" className="btn btn-ghost">Read the whitepaper</a>
