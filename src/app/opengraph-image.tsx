@@ -115,12 +115,12 @@ export default async function Image() {
           <span>the quantum era.</span>
         </div>
 
-        {/* bottom — eyebrow tag and URL */}
+        {/* bottom — eyebrow tag and URL CTA */}
         <div
           style={{
             display: 'flex',
             justifyContent: 'space-between',
-            alignItems: 'flex-end',
+            alignItems: 'center',
             fontSize: 22,
           }}
         >
@@ -137,8 +137,18 @@ export default async function Image() {
             <div style={{ width: 3, height: 22, background: ACCENT, marginRight: 14 }} />
             POST-QUANTUM BITCOIN
           </div>
-          <div style={{ color: INK_3, fontSize: 18, letterSpacing: 2, textTransform: 'uppercase' }}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 12,
+              color: HEADLINE,
+              fontSize: 28,
+              fontWeight: 700,
+            }}
+          >
             bitcoinquantum.com
+            <span style={{ display: 'flex', alignItems: 'center', fontSize: 32 }}>→</span>
           </div>
         </div>
       </div>
