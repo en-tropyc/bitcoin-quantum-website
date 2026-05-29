@@ -121,7 +121,17 @@ function HexRows() {
   return (
     <div className="rows" id="hexRows">
       {(rows ?? ['', '', '']).map((html, i) => (
-        <span key={i} className="row" dangerouslySetInnerHTML={{ __html: html }} />
+        // Each row is a horizontal flex container with the same byte
+        // sequence rendered twice so the marquee can loop seamlessly.
+        // CSS animates the row's transform to -50% (one copy width).
+        <span key={i} className="row">
+          <span className="row-content" dangerouslySetInnerHTML={{ __html: html }} />
+          <span
+            className="row-content"
+            aria-hidden="true"
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
+        </span>
       ))}
     </div>
   );
@@ -184,19 +194,26 @@ export default function V2Page() {
                   <div className="fact-label">Maximum supply</div>
                 </div>
                 <div className="fact reveal d1">
-                  <StatNumber value={100} suffix="%" />
-                  <div className="fact-label">Quantum-resistant addresses</div>
+                  <StatNumber value={1} suffix="&nbsp;min" />
+                  <div className="fact-label">Target block time</div>
                 </div>
                 <div className="fact reveal d2">
-                  <StatNumber value={10} suffix="&nbsp;min" />
-                  <div className="fact-label">Average block time</div>
+                  <StatNumber value={8} suffix="&nbsp;MB" />
+                  <div className="fact-label">Block size limit</div>
                 </div>
                 <div className="fact reveal d3">
-                  <StatNumber fixed="NIST" />
-                  <div className="fact-label">Standardized cryptography</div>
+                  <StatNumber fixed="FIPS 204" />
+                  <div className="fact-label">NIST-standardized signatures</div>
                 </div>
               </div>
-              <span className="foot reveal">Protocol parameters · testnet live as of May 2026</span>
+              <a
+                href="https://docs.bitcoinquantum.com/btq-empirical-behavior-whitepaper.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="foot reveal facts-link"
+              >
+                Mining difficulty and parameters <span>→</span>
+              </a>
             </div>
           </div>
         </header>

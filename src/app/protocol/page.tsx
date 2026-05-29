@@ -18,8 +18,8 @@ export const metadata: Metadata = {
 const specs = [
   { val: 'SHA-256',                  label: 'Proof-of-work consensus' },
   { val: '21',     unit: 'M',        label: 'Maximum BTQ supply' },
-  { val: '10',     unit: ' min',     label: 'Target block time' },
-  { val: '64',     unit: ' MiB',     label: 'Per-block size limit' },
+  { val: '1',      unit: ' min',     label: 'Target block time' },
+  { val: '8',      unit: ' MB',      label: 'Per-block size limit' },
 ];
 
 const netparams = [
