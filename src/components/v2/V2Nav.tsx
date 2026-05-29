@@ -30,7 +30,7 @@ export default function V2Nav() {
         <img src="/v2/logo-dark.svg" alt="Bitcoin Quantum" className="nav-logo dark-v" />
       </Link>
       <ul className={`nav-links${menuOpen ? ' open' : ''}`} id="navLinks">
-        <li><Link href="/#technology" onClick={closeMenu}>Protocol</Link></li>
+        <li><Link href="/protocol" onClick={closeMenu}>Protocol</Link></li>
         <li><Link href="/testnet" onClick={closeMenu}>Testnet</Link></li>
         <li><Link href="/faq" onClick={closeMenu}>FAQ</Link></li>
       </ul>

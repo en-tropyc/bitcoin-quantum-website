@@ -328,6 +328,347 @@
 .bqv2 .code .hl { color: var(--accent); }
 
 /* ============================================================
+   SPECS GRID  (used on /protocol)
+   ============================================================ */
+.bqv2 .specs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.bqv2 .spec-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(22px, 2.4vw, 30px);
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+}
+.bqv2 .spec-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px -28px rgba(20,23,28,.5);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--line));
+}
+.bqv2 .spec-eyebrow {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 14px;
+}
+.bqv2 .spec-val {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(28px, 3vw, 40px);
+  color: var(--headline);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.bqv2 .spec-val .unit { font-size: 0.55em; font-weight: 700; letter-spacing: -0.005em; margin-left: 4px; }
+.bqv2 .spec-label {
+  font-size: 14px;
+  color: var(--ink-3);
+  margin-top: 12px;
+}
+
+/* ============================================================
+   NETWORK PARAMETERS TABLE  (used on /protocol)
+   ============================================================ */
+.bqv2 .netparams {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.bqv2 .netparams table { width: 100%; border-collapse: collapse; }
+.bqv2 .netparams th {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  text-align: left;
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--line);
+  font-weight: 500;
+  background: var(--bg-2);
+}
+.bqv2 .netparams td {
+  padding: 18px 22px;
+  border-top: 1px solid var(--line-2);
+  font-size: 14.5px;
+  color: var(--ink-2);
+}
+.bqv2 .netparams tbody tr:first-child td { border-top: 0; }
+.bqv2 .netparams td.net-name { font-weight: 600; color: var(--ink); }
+.bqv2 .netparams td.mono {
+  font-family: var(--mono);
+  color: var(--accent-ink);
+  font-size: 13.5px;
+}
+
+/* ============================================================
+   REFERENCES CARDS  (used on /protocol)
+   ============================================================ */
+.bqv2 .refs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.bqv2 .ref-card {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(22px, 2.4vw, 28px);
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+}
+.bqv2 .ref-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px -28px rgba(20,23,28,.5);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--line));
+}
+.bqv2 .ref-card .ref-tag {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+  font-weight: 600;
+}
+.bqv2 .ref-card h3 {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--headline);
+  margin: 10px 0 8px;
+  letter-spacing: -0.01em;
+}
+.bqv2 .ref-card p { font-size: 14.5px; color: var(--ink-2); margin-bottom: 16px; }
+.bqv2 .ref-card .ref-link {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.bqv2 .ref-card:hover .ref-link { color: var(--accent); }
+
+/* ============================================================
+   /testnet — inline-eyebrow pulse dot, resources grid
+   ============================================================ */
+.bqv2 .live-dot-inline {
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-right: 8px;
+  vertical-align: middle;
+  box-shadow: 0 0 0 0 var(--accent);
+  animation: bqv2-pulse 1.8s ease-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .bqv2 .live-dot-inline { animation: none; }
+}
+
+/* inline-code chips in light sections (steps, paragraphs) */
+.bqv2 .testnet-steps code,
+.bqv2 main p code {
+  font-family: var(--mono);
+  font-size: 0.92em;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+  padding: 1px 7px;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+
+/* resources grid: primary on the left, stacked secondary cards on right */
+.bqv2 .resources-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: stretch;
+}
+.bqv2 .resource-primary {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: clamp(28px, 3vw, 40px);
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+}
+.bqv2 .resource-primary::after {
+  content: "";
+  position: absolute;
+  inset: auto -20% -40% auto;
+  width: 60%; height: 90%;
+  background: radial-gradient(circle, var(--accent-soft), transparent 65%);
+  pointer-events: none;
+}
+.bqv2 .resource-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 48px -30px rgba(20,23,28,.5);
+  border-color: color-mix(in srgb, var(--accent) 38%, var(--line));
+}
+.bqv2 .resource-primary .h3 {
+  font-size: clamp(24px, 2.4vw, 30px);
+  margin-top: 4px;
+}
+.bqv2 .resource-primary p {
+  color: var(--ink-2);
+  font-size: 15.5px;
+  max-width: 42ch;
+}
+
+.bqv2 .resource-stack { display: flex; flex-direction: column; gap: 12px; }
+.bqv2 .resource-row {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 22px;
+}
+.bqv2 .resource-row h3 {
+  font-size: 17px;
+  margin: 6px 0 4px;
+  color: var(--ink);
+}
+.bqv2 .resource-row p {
+  font-size: 13.5px;
+  color: var(--ink-3);
+  margin-bottom: 0;
+  max-width: 42ch;
+}
+.bqv2 .resource-row .ref-link { white-space: nowrap; }
+
+@media (max-width: 980px) {
+  .bqv2 .resources-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   /faq — filter pills + question cards
+   ============================================================ */
+.bqv2 .faq-filters {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: clamp(36px, 4.5vw, 56px);
+}
+.bqv2 .faq-pill {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink-2);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 9px 16px;
+  display: inline-flex; align-items: center; gap: 8px;
+  cursor: pointer;
+  transition: color .15s, background .15s, border-color .15s;
+}
+.bqv2 .faq-pill .pill-count {
+  font-size: 10.5px;
+  color: var(--ink-3);
+  letter-spacing: 0.06em;
+}
+.bqv2 .faq-pill:hover { color: var(--ink); border-color: var(--ink-3); }
+.bqv2 .faq-pill.on {
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+}
+.bqv2 .faq-pill.on .pill-count { color: var(--accent-ink); opacity: .7; }
+
+.bqv2 .faq-list { display: flex; flex-direction: column; gap: 12px; }
+.bqv2 .faq-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color .2s, box-shadow .2s;
+}
+.bqv2 .faq-card.open {
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+  box-shadow: 0 18px 40px -28px rgba(20,23,28,.5);
+}
+.bqv2 .faq-q {
+  width: 100%;
+  display: flex; align-items: center; justify-content: space-between; gap: 18px;
+  padding: clamp(18px, 2vw, 24px) clamp(20px, 2.4vw, 28px);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  color: var(--headline);
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(15.5px, 1.4vw, 18px);
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+  transition: color .15s;
+}
+.bqv2 .faq-q:hover { color: var(--accent-ink); }
+.bqv2 .faq-chev {
+  flex: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--ink-3);
+  transition: transform .25s ease, color .15s, border-color .15s;
+}
+.bqv2 .faq-card.open .faq-chev {
+  transform: rotate(180deg);
+  color: var(--accent-ink);
+  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+}
+.bqv2 .faq-a {
+  padding: 0 clamp(20px, 2.4vw, 28px) clamp(20px, 2.4vw, 26px);
+  border-top: 1px solid var(--line-2);
+  color: var(--ink-2);
+  font-size: 15.5px;
+  line-height: 1.65;
+  max-width: 70ch;
+}
+.bqv2 .faq-a p { margin-top: 16px; }
+
+.bqv2 .faq-empty {
+  padding: 60px 0;
+  text-align: center;
+  color: var(--ink-3);
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   "Read more" inline link
+   ============================================================ */
+.bqv2 .read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+  font-weight: 600;
+  margin-top: 22px;
+  transition: color .2s, gap .2s;
+}
+.bqv2 .read-more:hover { color: var(--accent); gap: 12px; }
+
+/* ============================================================
    LIVE TESTNET STRIP
    ============================================================ */
 .bqv2 .testnet { background: var(--bg-2); border-top: 1px solid var(--line); }
@@ -508,6 +849,8 @@
   .bqv2 .testnet-grid { grid-template-columns: 1fr; }
   .bqv2 .timeline { grid-template-columns: 1fr 1fr; }
   .bqv2 .footer-top { grid-template-columns: 1fr 1fr; }
+  .bqv2 .specs { grid-template-columns: 1fr 1fr; }
+  .bqv2 .refs { grid-template-columns: 1fr; }
 }
 @media (max-width: 620px) {
   .bqv2 .nav-links { display: none; }

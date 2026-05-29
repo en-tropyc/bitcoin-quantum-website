@@ -16,9 +16,9 @@ export default function V2Footer() {
           <div>
             <h4>Learn</h4>
             <ul>
-              <li><Link href="/#under">Whitepaper</Link></li>
-              <li><Link href="/#technology">Technology</Link></li>
-              <li><Link href="/#under">Cryptography</Link></li>
+              <li><a href="https://github.com/btq-ag/BTQ-Core/blob/master/WHITEPAPER_INTEGRATION_DESIGN.md" target="_blank" rel="noopener noreferrer">Whitepaper</a></li>
+              <li><Link href="/protocol">Protocol</Link></li>
+              <li><Link href="/protocol#cryptography">Cryptography</Link></li>
               <li><Link href="/faq">FAQ</Link></li>
             </ul>
           </div>

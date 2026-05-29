@@ -127,136 +127,114 @@ export default function FAQ() {
   };
 
   return (
-    <div className={`min-h-screen bg-[#06080c] flex flex-col relative ${v2FontClassName}`}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      {/* Grid background */}
-      <div className="grid-background" />
+    <div className={v2FontClassName}>
+      <div className="bqv2" data-theme="light" data-headline="grotesque">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
 
-      <div className="bqv2" data-theme="dark">
         <V2Nav />
-      </div>
 
-      <main className="flex-1 relative z-10">
-        {/* Hero Section */}
-        <section className="text-white py-20">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 font-dm-mono">
-                Frequently Asked <span className="gradient-text">Questions</span>
+        <main>
+          {/* ===== HERO ===== */}
+          <header className="section" style={{ paddingTop: 'clamp(128px, 16vw, 184px)' }}>
+            <div className="wrap">
+              <span className="eyebrow">Help center</span>
+              <h1 className="display" style={{ marginTop: 24, maxWidth: '18ch' }}>
+                Common questions about <span className="serif">Bitcoin&nbsp;Quantum</span>.
               </h1>
-              <p className="text-xl md:text-2xl text-white/80 font-dm-mono">
-                Everything you need to know about BTC in quantum state
+              <p className="lead" style={{ marginTop: 26, maxWidth: '54ch' }}>
+                A working knowledge base — covering the cryptography, the network, security
+                assumptions, and how BTQ relates to Bitcoin. Filter by topic or scan the full
+                list.
               </p>
             </div>
-          </div>
-        </section>
+          </header>
 
-        <div className="py-16">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            {/* Category Filter */}
-            <div className="mb-12">
-              <div className="flex flex-wrap gap-2 justify-center">
-                {categories.map((category) => (
-                  <button
-                    key={category.id}
-                    onClick={() => setActiveCategory(category.id)}
-                    className={`px-4 py-2 rounded-lg font-medium font-dm-mono transition-all ${
-                      activeCategory === category.id
-                        ? 'bg-[rgba(0,240,255,0.2)] text-[#00f0ff] border border-[rgba(0,240,255,0.25)]'
-                        : 'bg-[#0c1017] text-white/70 border border-[rgba(0,240,255,0.1)] hover:bg-[rgba(0,240,255,0.1)] hover:text-[#00f0ff]'
-                    }`}
-                  >
-                    {category.label} ({category.count})
-                  </button>
-                ))}
+          {/* ===== FILTER + Q&A ===== */}
+          <section className="section" style={{ paddingTop: 0 }}>
+            <div className="wrap">
+              <div className="faq-filters" role="tablist" aria-label="Filter questions">
+                {categories.map((category) => {
+                  const on = activeCategory === category.id;
+                  return (
+                    <button
+                      key={category.id}
+                      role="tab"
+                      aria-selected={on}
+                      onClick={() => setActiveCategory(category.id)}
+                      className={`faq-pill${on ? ' on' : ''}`}
+                    >
+                      {category.label}
+                      <span className="pill-count">{category.count}</span>
+                    </button>
+                  );
+                })}
               </div>
-            </div>
 
-            {/* FAQ Items */}
-            <div className="space-y-4">
-              {filteredFAQs.map((faq) => (
-                <div key={faq.id} className="border border-[rgba(0,240,255,0.1)] rounded-lg hover:border-[rgba(0,240,255,0.25)] transition-all">
-                  <button
-                    onClick={() => toggleItem(faq.id)}
-                    className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-[rgba(0,240,255,0.05)] transition-all"
-                  >
-                    <span className="text-lg font-medium text-white font-dm-mono pr-4">
-                      {faq.question}
-                    </span>
-                    <span className="flex-shrink-0">
-                      {openItems.includes(faq.id) ? (
-                        <svg className="w-5 h-5 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
-                      ) : (
-                        <svg className="w-5 h-5 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
+              <div className="faq-list">
+                {filteredFAQs.map((faq) => {
+                  const open = openItems.includes(faq.id);
+                  return (
+                    <div key={faq.id} className={`faq-card${open ? ' open' : ''}`}>
+                      <button
+                        type="button"
+                        className="faq-q"
+                        aria-expanded={open}
+                        onClick={() => toggleItem(faq.id)}
+                      >
+                        <span>{faq.question}</span>
+                        <span className="faq-chev" aria-hidden="true">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <path d="M6 9l6 6 6-6" />
+                          </svg>
+                        </span>
+                      </button>
+                      {open && (
+                        <div className="faq-a">
+                          <p>{faq.answer}</p>
+                        </div>
                       )}
-                    </span>
-                  </button>
-                  
-                  {openItems.includes(faq.id) && (
-                    <div className="px-6 pb-4">
-                      <div className="border-t border-[rgba(0,240,255,0.1)] pt-4">
-                        <p className="text-white/80 leading-relaxed font-dm-mono">
-                          {faq.answer}
-                        </p>
-                      </div>
                     </div>
-                  )}
+                  );
+                })}
+              </div>
+
+              {filteredFAQs.length === 0 && (
+                <div className="faq-empty">
+                  No questions in this category yet.
                 </div>
-              ))}
+              )}
             </div>
+          </section>
 
-            {/* No results */}
-            {filteredFAQs.length === 0 && (
-              <div className="text-center py-12">
-                <p className="text-white/50 font-dm-mono">
-                  No questions found in this category.
-                </p>
-              </div>
-            )}
-
-            {/* Call to Action */}
-            <section className="mt-16 bg-gradient-to-br from-[rgba(0,240,255,0.08)] to-[rgba(167,139,250,0.08)] border border-[rgba(0,240,255,0.1)] rounded-lg p-8 text-center">
-              <h2 className="text-2xl font-bold text-white mb-4 font-dm-mono">
-                Still Have Questions?
-              </h2>
-              <p className="text-white/70 mb-6 font-dm-mono">
-                {"Can't find the answer you're looking for? Explore our other resources or join our community."}
+          {/* ===== STILL HAVE QUESTIONS CTA ===== */}
+          <section className="cta section">
+            <div className="wrap">
+              <span className="eyebrow">Still stuck?</span>
+              <h2 className="h2">Ask the testnet community.</h2>
+              <p className="lead">
+                Core contributors and other operators hang out on Telegram. For bugs or feature
+                requests, file an issue on the BTQ-Core GitHub.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/testnet"
-                  className="bg-[#00f0ff] text-[#06080c] px-6 py-3 rounded-lg font-semibold hover:shadow-[0_0_30px_rgba(0,240,255,0.3)] hover:-translate-y-0.5 transition-all font-dm-mono"
-                >
-                  Explore Testnet
-                </Link>
+              <div className="cta-row">
                 <a
-                  href="https://x.com/btc_quantum"
+                  href="https://t.me/+bE6I4gqX4Vo1ODJh"
                   target="_blank"
-                  className="border border-[rgba(0,240,255,0.1)] text-white px-6 py-3 rounded-lg font-semibold hover:border-[rgba(0,240,255,0.25)] hover:bg-[#0c1017] transition-all font-dm-mono"
+                  rel="noopener noreferrer"
+                  className="btn btn-accent"
                 >
-                  Join Community
+                  Join Telegram <span className="arrow">→</span>
                 </a>
-                <Link
-                  href="/introduction"
-                  className="text-[#00f0ff] hover:text-[#00f0ff]/80 px-6 py-3 font-semibold font-dm-mono"
-                >
-                  Learn More →
+                <Link href="/testnet" className="btn btn-ghost">
+                  Explore the testnet
                 </Link>
               </div>
-            </section>
-          </div>
-        </div>
-      </main>
+            </div>
+          </section>
+        </main>
 
-      <div className="bqv2" data-theme="dark">
         <V2Footer />
       </div>
     </div>
