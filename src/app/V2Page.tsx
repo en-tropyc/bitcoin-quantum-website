@@ -308,7 +308,7 @@ export default function V2Page() {
                     Mining guide
                   </a>
                 </div>
-                <span className="foot reveal">Windows · Linux · MIT-licensed</span>
+                <span className="foot reveal">Available for Windows, macOS, and Linux</span>
               </div>
 
               <ol className="testnet-steps reveal d1">
