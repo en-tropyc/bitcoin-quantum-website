@@ -18,8 +18,9 @@ const nextConfig: NextConfig = {
   // Permanent redirects for retired routes
   async redirects() {
     return [
-      { source: '/v2',           destination: '/', permanent: true },
-      { source: '/introduction', destination: '/', permanent: true },
+      { source: '/v2',                   destination: '/', permanent: true },
+      { source: '/introduction',         destination: '/', permanent: true },
+      { source: '/testnet/mining-guide', destination: 'https://docs.bitcoinquantum.com/mining/guide', permanent: true },
     ];
   },
 
