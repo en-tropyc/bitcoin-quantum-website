@@ -20,6 +20,7 @@ const nextConfig: NextConfig = {
     return [
       { source: '/v2',                   destination: '/', permanent: true },
       { source: '/introduction',         destination: '/', permanent: true },
+      { source: '/resources',            destination: '/testnet', permanent: true },
       { source: '/testnet/mining-guide', destination: 'https://docs.bitcoinquantum.com/mining/guide', permanent: true },
     ];
   },

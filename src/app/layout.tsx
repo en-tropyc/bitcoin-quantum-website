@@ -77,7 +77,7 @@ export default function RootLayout({
             logo: 'https://bitcoinquantum.com/icon.png',
             sameAs: [
               'https://x.com/btc_quantum',
-              'https://github.com/btq-ag/BTQ-Core',
+              'https://github.com/btq-ag/btq-core',
               'https://t.me/+bE6I4gqX4Vo1ODJh',
             ],
             description:

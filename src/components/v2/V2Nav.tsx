@@ -34,11 +34,12 @@ export default function V2Nav() {
 
   return (
     <nav className={`nav${scrolled ? ' scrolled' : ''}`} id="nav">
-      <Link href="/" aria-label="Bitcoin Quantum home">
+      <Link href="/" aria-label="Bitcoin Quantum home" className="nav-brand">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/v2/logo-light.svg" alt="Bitcoin Quantum" className="nav-logo light-v" />
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/v2/logo-dark.svg" alt="Bitcoin Quantum" className="nav-logo dark-v" />
+        <span className="nav-tagline" aria-hidden="true">Powered by BTQ Technologies</span>
       </Link>
       <ul className={`nav-links${menuOpen ? ' open' : ''}`} id="navLinks">
         {NAV_LINKS.map(({ href, label }) => {

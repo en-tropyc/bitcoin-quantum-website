@@ -168,16 +168,8 @@ export default function V2Page() {
                 </div>
               </div>
               <div className="hero-visual reveal d2" aria-hidden="true">
-                <div className="lattice" />
-                <svg className="arcs" viewBox="0 0 100 100" preserveAspectRatio="none">
-                  <path d="M-12 72 Q 50 -16 112 72" strokeWidth="0.4" style={{ opacity: 0.45 }} />
-                  <path d="M-12 92 Q 52 18 112 96" strokeWidth="0.35" style={{ opacity: 0.3 }} />
-                  <path d="M 14 114 Q 64 36 120 64" strokeWidth="0.35" style={{ opacity: 0.22 }} />
-                </svg>
-                <div className="rings">
-                  <div className="ring" style={{ width: '70%', height: '70%', opacity: 0.28 }} />
-                  <div className="ring" style={{ width: '94%', height: '94%', opacity: 0.16 }} />
-                </div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/circlebg.svg" alt="" className="hero-circuit" />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="/v2/mark-light.svg" alt="" className="hero-mark light-v" />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -278,7 +270,7 @@ export default function V2Page() {
                 <div className="card-idx">03</div>
                 <h3 className="h3">Bitcoin&apos;s model, unchanged</h3>
                 <p>
-                  21 million coins. Ten-minute blocks. Halvings and proof-of-work. The monetary
+                  21 million coins. One-minute blocks. Halvings and proof-of-work. The monetary
                   policy you already trust, hardened for what&apos;s coming.
                 </p>
               </article>

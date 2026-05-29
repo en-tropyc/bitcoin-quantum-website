@@ -98,7 +98,7 @@ const faqData: FAQItem[] = [
     category: 'general',
     question: 'Is BTQ open source?',
     answer:
-      "Yes — MIT-licensed. Source, documentation, and the full development history live at github.com/btq-ag/BTQ-Core. Review, fork, contribute, or run your own audit.",
+      "Yes — MIT-licensed. Source, documentation, and the full development history live at github.com/btq-ag/btq-core. Review, fork, contribute, or run your own audit.",
   },
 ];
 

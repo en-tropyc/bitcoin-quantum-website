@@ -185,6 +185,26 @@
   border-bottom-color: var(--line);
   padding-block: 13px;
 }
+.bqv2 .nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+.bqv2 .nav-tagline {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  border-left: 1px solid var(--line);
+  padding-left: 14px;
+  white-space: nowrap;
+  /* don't compete with the logo for vertical alignment */
+  margin-top: 1px;
+}
+@media (max-width: 980px) {
+  .bqv2 .nav-tagline { display: none; }
+}
 .bqv2 .nav-logo { height: 25px; width: auto; }
 .bqv2 .nav-logo.dark-v { display: none; }
 .bqv2[data-theme="dark"] .nav-logo.light-v { display: none; }
@@ -248,10 +268,35 @@
   mask-image: radial-gradient(circle at 75% 20%, #000 0%, transparent 65%);
   opacity: .55;
 }
-.bqv2 .arcs { position: absolute; inset: -12%; pointer-events: none; }
-.bqv2 .arcs path { fill: none; stroke: var(--accent); opacity: .4; }
-.bqv2 .rings { position: absolute; inset: 0; display: grid; place-items: center; }
-.bqv2 .rings .ring { position: absolute; border-radius: 50%; border: 1px solid var(--accent); }
+/* v1's circuit ring as the hero centerpiece. Rotates slowly, tinted
+   to accent via a filter so it reads as accent-on-light without
+   touching the SVG itself. */
+.bqv2 .hero-circuit {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* filter: black SVG → accent-blue tone. Sequence: dim, then
+     hue-rotate into the brand blue band. */
+  filter: brightness(0) saturate(100%) invert(45%) sepia(80%)
+          saturate(900%) hue-rotate(178deg) brightness(95%);
+  opacity: .55;
+  animation: bqv2-circuit-spin 90s linear infinite;
+  will-change: transform;
+}
+@keyframes bqv2-circuit-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bqv2 .hero-circuit { animation: none; }
+}
+.bqv2[data-theme="dark"] .hero-circuit {
+  filter: brightness(0) saturate(100%) invert(70%) sepia(60%)
+          saturate(700%) hue-rotate(178deg) brightness(120%);
+  opacity: .42;
+}
 .bqv2 .hero-mark {
   position: relative; width: clamp(118px, 18vw, 180px); height: auto;
   filter: drop-shadow(0 0 40px rgba(53,164,234,.5)); z-index: 2;
