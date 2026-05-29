@@ -299,7 +299,12 @@ export default function V2Page() {
                   >
                     Download binaries <span className="arrow">→</span>
                   </a>
-                  <a href="/testnet/mining-guide" className="btn btn-ghost">
+                  <a
+                    href="https://docs.bitcoinquantum.com/mining/guide"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-ghost"
+                  >
                     Mining guide
                   </a>
                 </div>
@@ -330,7 +335,14 @@ export default function V2Page() {
                     <h4>Configure your node</h4>
                     <p>
                       Follow the{' '}
-                      <a href="/testnet/mining-guide">mining guide</a> — extraction, daemon
+                      <a
+                        href="https://docs.bitcoinquantum.com/mining/guide"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        mining guide
+                      </a>{' '}
+                      — extraction, daemon
                       config, and pool connection in one place.
                     </p>
                   </div>
@@ -372,7 +384,12 @@ export default function V2Page() {
                   Help secure the network and earn testnet BTQ. Same SHA-256 proof-of-work
                   Bitcoin miners already know — with post-quantum signatures riding on top.
                 </p>
-                <a href="/testnet/mining-guide" className="path-link">
+                <a
+                  href="https://docs.bitcoinquantum.com/mining/guide"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="path-link"
+                >
                   Quick start <span className="arrow">→</span>
                 </a>
               </article>
@@ -413,7 +430,7 @@ export default function V2Page() {
                   larger post-quantum signatures. Comments and issues welcome.
                 </p>
                 <a
-                  href="https://github.com/btq-ag/BTQ-Core/blob/master/WHITEPAPER_INTEGRATION_DESIGN.md"
+                  href="https://github.com/btq-ag/btq-core/blob/master/WHITEPAPER_INTEGRATION_DESIGN.md"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="path-link"
@@ -471,7 +488,12 @@ export default function V2Page() {
               institutional custody. The transition starts today.
             </p>
             <div className="cta-row reveal d2">
-              <a href="#" className="btn btn-accent">
+              <a
+                href="https://docs.bitcoinquantum.com/wallet/basics"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-accent"
+              >
                 Create a wallet <span className="arrow">→</span>
               </a>
               <a href="#under" className="btn btn-ghost">Read the whitepaper</a>

@@ -28,7 +28,7 @@ export default function V2Footer() {
               <li><Link href="/#roadmap">Roadmap</Link></li>
               <li><Link href="/testnet">Testnet</Link></li>
               <li><a href="https://explorer.bitcoinquantum.com" target="_blank" rel="noopener noreferrer">Block explorer</a></li>
-              <li><Link href="/testnet/mining-guide">Run a node</Link></li>
+              <li><a href="https://docs.bitcoinquantum.com/mining/guide" target="_blank" rel="noopener noreferrer">Run a node</a></li>
             </ul>
           </div>
           <div>

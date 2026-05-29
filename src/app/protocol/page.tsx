@@ -41,7 +41,7 @@ const refs = [
     tag: 'Specification',
     title: 'Whitepaper integration design',
     body: 'How CRYSTALS-Dilithium is wired through the UTXO model, scripting system, and consensus rules.',
-    href: 'https://github.com/btq-ag/BTQ-Core/blob/master/WHITEPAPER_INTEGRATION_DESIGN.md',
+    href: 'https://github.com/btq-ag/btq-core/blob/master/WHITEPAPER_INTEGRATION_DESIGN.md',
     cta: 'Read the doc',
     external: true,
   },
@@ -57,9 +57,9 @@ const refs = [
     tag: 'Operator guide',
     title: 'Mining guide',
     body: 'Step-by-step setup for running a node and connecting to the testnet pool, including the full CLI reference.',
-    href: '/testnet/mining-guide',
+    href: 'https://docs.bitcoinquantum.com/mining/guide',
     cta: 'Read the guide',
-    external: false,
+    external: true,
   },
 ];
 

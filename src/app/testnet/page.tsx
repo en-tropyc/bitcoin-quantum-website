@@ -35,8 +35,9 @@ const resources: Resource[] = [
     tag: 'Operator guide',
     title: 'Mining guide',
     body: 'End-to-end walkthrough — daemon config, wallet creation, generating a Dilithium address, connecting to the pool.',
-    href: '/testnet/mining-guide',
+    href: 'https://docs.bitcoinquantum.com/mining/guide',
     cta: 'Read the guide',
+    external: true,
   },
   {
     tag: 'Explorer',
@@ -89,9 +90,14 @@ export default function TestnetPage() {
                 >
                   Download binaries <span className="arrow">→</span>
                 </a>
-                <Link href="/testnet/mining-guide" className="btn btn-ghost">
+                <a
+                  href="https://docs.bitcoinquantum.com/mining/guide"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-ghost"
+                >
                   Mining guide
-                </Link>
+                </a>
               </div>
               <span className="foot ml-foot reveal">
                 Windows · Linux · MIT-licensed
@@ -131,7 +137,14 @@ export default function TestnetPage() {
                     <p>
                       Set up <code>btq.conf</code> with the testnet flag, RPC credentials,
                       and any pool settings. The{' '}
-                      <Link href="/testnet/mining-guide">mining guide</Link> walks through
+                      <a
+                        href="https://docs.bitcoinquantum.com/mining/guide"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        mining guide
+                      </a>{' '}
+                      walks through
                       every option.
                     </p>
                   </div>
