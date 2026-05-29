@@ -411,9 +411,15 @@
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
 }
-.bqv2 .netparams table { width: 100%; border-collapse: collapse; }
+.bqv2 .netparams table {
+  width: 100%;
+  min-width: 540px;
+  border-collapse: collapse;
+}
 .bqv2 .netparams th {
   font-family: var(--mono);
   font-size: 11px;
@@ -898,4 +904,43 @@
   .bqv2 .statement-foot { grid-template-columns: 1fr; }
   .bqv2 .timeline { grid-template-columns: 1fr; }
   .bqv2 .footer-top { grid-template-columns: 1fr; }
+
+  /* lattice corner shouldn't dominate a phone hero */
+  .bqv2 .lattice-corner {
+    width: 70%;
+    height: 50%;
+    top: -6%;
+    right: -12%;
+    opacity: .32;
+  }
+
+  /* let inline code chips wrap so getnewdilithiumaddress doesn't overflow */
+  .bqv2 .testnet-steps code,
+  .bqv2 main p code,
+  .bqv2 .under li code {
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  /* quick-start steps: a tighter index column on phones */
+  .bqv2 .testnet-steps li {
+    grid-template-columns: 44px 1fr;
+    gap: 14px;
+  }
+  .bqv2 .step-idx { width: 44px; padding: 5px 8px; font-size: 11px; }
+
+  /* hero CTA stacks full-width on phones — easier tap targets */
+  .bqv2 .hero-cta .btn,
+  .bqv2 .testnet-cta .btn,
+  .bqv2 .cta-row .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* page-hero a little less padding-heavy on phones */
+  .bqv2 .page-hero { padding-top: clamp(108px, 22vw, 140px); }
+
+  /* foot mono labels never line-wrap awkwardly */
+  .bqv2 .foot { white-space: normal; }
 }
