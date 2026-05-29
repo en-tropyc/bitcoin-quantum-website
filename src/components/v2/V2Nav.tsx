@@ -56,6 +56,11 @@ export default function V2Nav() {
             </li>
           );
         })}
+        {/* Mobile-only tagline that surfaces inside the open menu.
+            Hidden by default; CSS reveals it at ≤620px when .open. */}
+        <li className="nav-mobile-tagline" aria-hidden="true">
+          Powered by BTQ Technologies
+        </li>
       </ul>
       <div className="nav-right">
         <Link href="/testnet#resources" className="btn btn-primary">
