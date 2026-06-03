@@ -177,6 +177,8 @@
 .bqv2[data-theme="dark"] .btn-primary { background: var(--accent); color: #04121d; }
 .bqv2 .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
 .bqv2 .btn-ghost:hover { border-color: var(--ink); transform: translateY(-2px); }
+.bqv2 .btn[aria-disabled="true"] { color: var(--ink-3); cursor: not-allowed; opacity: 0.7; }
+.bqv2 .btn[aria-disabled="true"]:hover { transform: none; border-color: var(--line); box-shadow: none; }
 .bqv2 .btn-accent { background: var(--accent); color: #04121d; }
 .bqv2 .btn-accent:hover { transform: translateY(-2px); box-shadow: 0 12px 34px -10px var(--accent); }
 .bqv2 .btn .arrow { transition: transform .2s; }
@@ -637,6 +639,10 @@
   gap: 8px;
 }
 .bqv2 .ref-card:hover .ref-link { color: var(--accent); }
+.bqv2 .ref-card.is-disabled { cursor: not-allowed; opacity: 0.65; }
+.bqv2 .ref-card.is-disabled:hover { transform: none; box-shadow: none; border-color: var(--line); }
+.bqv2 .ref-card.is-disabled:hover .ref-link { color: var(--ink-3); }
+.bqv2 .ref-card.is-disabled .ref-link { color: var(--ink-3); }
 
 /* ============================================================
    /testnet — inline-eyebrow pulse dot, resources grid
@@ -971,6 +977,8 @@
 .bqv2 .path-link .arrow { transition: transform .2s; }
 .bqv2 .path-card:hover .path-link { color: var(--accent); }
 .bqv2 .path-card:hover .path-link .arrow { transform: translateX(3px); }
+.bqv2 .path-link.is-disabled { color: var(--ink-3); opacity: 0.7; cursor: not-allowed; }
+.bqv2 .path-card:hover .path-link.is-disabled { color: var(--ink-3); }
 
 /* ============================================================
    ROADMAP
@@ -1006,6 +1014,7 @@
 .bqv2 .footer ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
 .bqv2 .footer ul a { font-size: 14.5px; color: var(--dark-ink2); transition: color .2s; }
 .bqv2 .footer ul a:hover { color: var(--accent); }
+.bqv2 .footer-soon { font-size: 14.5px; color: var(--dark-ink2); opacity: 0.55; font-style: italic; }
 .bqv2 .footer-bottom {
   margin-top: clamp(48px, 6vw, 72px); padding-top: 26px; border-top: 1px solid var(--dark-line);
   display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
