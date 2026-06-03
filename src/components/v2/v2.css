@@ -362,7 +362,7 @@
 .bqv2[data-theme="dark"] .hero-mark.light-v { display: none; }
 .bqv2[data-theme="dark"] .hero-mark.dark-v { display: block; }
 
-/* ---------- KEY FACTS stat cards ---------- */
+/* ---------- QUICK FACTS stat cards ---------- */
 .bqv2 .facts { margin-top: clamp(48px, 6vw, 78px); }
 .bqv2 .facts .eyebrow { margin-bottom: 22px; }
 .bqv2 .cards-stat { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }

@@ -177,9 +177,9 @@ export default function V2Page() {
               </div>
             </div>
 
-            {/* KEY FACTS */}
+            {/* QUICK FACTS */}
             <div className="facts">
-              <span className="eyebrow reveal">Key facts</span>
+              <span className="eyebrow reveal">Quick facts</span>
               <div className="cards-stat">
                 <div className="fact reveal">
                   <StatNumber value={21} suffix="M" />
