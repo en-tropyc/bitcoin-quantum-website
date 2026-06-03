@@ -184,11 +184,11 @@ export default function FAQ() {
                 })}
               </div>
 
-              <div className="faq-list">
+              <div className="faq-list reveal">
                 {filteredFAQs.map((faq) => {
                   const open = openItems.includes(faq.id);
                   return (
-                    <div key={faq.id} className={`faq-card reveal${open ? ' open' : ''}`}>
+                    <div key={faq.id} className={`faq-card${open ? ' open' : ''}`}>
                       <button
                         type="button"
                         className="faq-q"
@@ -202,11 +202,9 @@ export default function FAQ() {
                           </svg>
                         </span>
                       </button>
-                      {open && (
-                        <div className="faq-a">
-                          <p>{faq.answer}</p>
-                        </div>
-                      )}
+                      <div className="faq-a" hidden={!open}>
+                        <p>{faq.answer}</p>
+                      </div>
                     </div>
                   );
                 })}

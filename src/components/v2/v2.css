@@ -826,8 +826,8 @@
   color: var(--ink-2);
   font-size: 15.5px;
   line-height: 1.65;
-  max-width: 70ch;
 }
+.bqv2 .faq-a[hidden] { display: none; }
 .bqv2 .faq-a p { margin-top: 16px; }
 
 .bqv2 .faq-empty {
@@ -1059,7 +1059,21 @@
     background: var(--bg); border-bottom: 1px solid var(--line);
     padding: 8px var(--gut) 20px;
   }
-  .bqv2 .nav-links.open a { padding-block: 14px; border-bottom: 1px solid var(--line-2); }
+  .bqv2 .nav-links.open a {
+    display: block;
+    padding: 14px 0 18px;
+    border-bottom: 1px solid var(--line-2);
+    line-height: 1.35;
+  }
+  /* Desktop uses a full-row ::after bar; on mobile that reads too wide.
+     Active page gets a label-width underline via text-decoration. */
+  .bqv2 .nav-links.open a::after { display: none; }
+  .bqv2 .nav-links.open a[aria-current="page"] {
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+  }
   /* tagline reappears at the bottom of the open menu */
   .bqv2 .nav-links.open .nav-mobile-tagline {
     display: block;
