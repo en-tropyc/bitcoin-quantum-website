@@ -164,7 +164,7 @@ export default function V2Page() {
                   <a href="/testnet#resources" className="btn btn-primary">
                     Get started <span className="arrow">→</span>
                   </a>
-                  <a href="#under" className="btn btn-ghost">Read the whitepaper</a>
+                  <span className="btn btn-ghost" aria-disabled="true">Whitepaper · coming soon</span>
                 </div>
               </div>
               <div className="hero-visual reveal d2" aria-hidden="true">
@@ -438,14 +438,9 @@ export default function V2Page() {
                   Audit the ML-DSA integration and the protocol-level choices behind the
                   larger post-quantum signatures. Comments and issues welcome.
                 </p>
-                <a
-                  href="https://github.com/btq-ag/btq-core/blob/master/WHITEPAPER_INTEGRATION_DESIGN.md"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="path-link"
-                >
-                  Technical blueprint <span className="arrow">→</span>
-                </a>
+                <span className="path-link is-disabled" aria-disabled="true">
+                  Technical brief · coming soon
+                </span>
               </article>
             </div>
           </div>
@@ -493,8 +488,8 @@ export default function V2Page() {
             <span className="eyebrow reveal">Get started</span>
             <h2 className="h2 reveal d1">Be ready before quantum is.</h2>
             <p className="lead reveal d2">
-              Spin up a quantum-safe wallet on testnet, read the whitepaper, or talk to us about
-              institutional custody. The transition starts today.
+              Spin up a quantum-safe wallet on testnet or talk to us about institutional custody.
+              The transition starts today.
             </p>
             <div className="cta-row reveal d2">
               <a
@@ -505,7 +500,7 @@ export default function V2Page() {
               >
                 Create a wallet <span className="arrow">→</span>
               </a>
-              <a href="#under" className="btn btn-ghost">Read the whitepaper</a>
+              <span className="btn btn-ghost" aria-disabled="true">Whitepaper · coming soon</span>
             </div>
           </div>
         </section>
