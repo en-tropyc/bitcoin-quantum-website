@@ -166,7 +166,7 @@ export default function SignatureMigrationGuide() {
                 <code className="label">{op.name}</code>
                 <span className="ratio">{op.hex}</span>
               </div>
-              <p className="detail">{op.purpose}</p>
+              <div className="detail">{op.purpose}</div>
               <a
                 className="src"
                 href={`${REPO}/src/script/script.h#L${op.line}`}
