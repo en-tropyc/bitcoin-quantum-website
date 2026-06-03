@@ -1239,3 +1239,8 @@
 .bqv2 .guide-back { margin-top: 48px; }
 .bqv2 .guide-back a { color: var(--ink-3); text-decoration: none; font-size: 14px; }
 .bqv2 .guide-back a:hover { color: var(--accent-ink); }
+
+/* clickable hub cards (a data-row rendered as a link) get hover feedback;
+   static data rows inside articles (a plain div) are unaffected */
+.bqv2 .guide a.data-row { transition: border-color .15s ease, background .15s ease; }
+.bqv2 .guide a.data-row:hover { border-color: var(--accent); background: var(--bg-2); }
