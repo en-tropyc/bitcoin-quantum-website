@@ -42,7 +42,7 @@ const faqData: FAQItem[] = [
     category: 'general',
     question: 'How is BTQ different from Bitcoin?',
     answer:
-      "Two things change. Signatures switch from ECDSA to CRYSTALS-Dilithium, and block size grows from 1 MB to 64 MiB to absorb the larger post-quantum signatures. Everything else — the UTXO model, the scripting system, the halving schedule, SHA-256 proof-of-work — stays exactly as Bitcoin defined it.",
+      "Two things change. Signatures switch from ECDSA to CRYSTALS-Dilithium, and the block size limit grows from 1 MB to 8 MB to absorb the larger post-quantum signatures. Everything else — the UTXO model, the scripting system, the halving schedule, SHA-256 proof-of-work — stays exactly as Bitcoin defined it.",
   },
   {
     id: 5,
@@ -77,7 +77,7 @@ const faqData: FAQItem[] = [
     category: 'technical',
     question: 'How does BTQ mining work?',
     answer:
-      "Same SHA-256 proof-of-work as Bitcoin — existing ASIC miners work without modification. Difficulty adjustment, reward structure, and 10-minute target block time are all preserved. The only difference is block size: 64 MiB instead of 1 MB, sized for larger post-quantum signatures.",
+      "Same SHA-256 proof-of-work as Bitcoin — existing ASIC miners work without modification. The reward structure and halving schedule are preserved. Two things differ: the target block time is 1 minute (not Bitcoin's 10), and the block size limit is 8 MB instead of 1 MB, sized for larger post-quantum signatures.",
   },
   {
     id: 10,
@@ -91,7 +91,7 @@ const faqData: FAQItem[] = [
     category: 'trading',
     question: 'What are the transaction fees?',
     answer:
-      "Same fee market as Bitcoin: paid per byte, set by congestion, mined by whoever bids highest. Post-quantum signatures are larger, so the 64 MiB block size keeps per-byte fees competitive with what Bitcoin users already expect.",
+      "Same fee market as Bitcoin: paid per byte, set by congestion, mined by whoever bids highest. Post-quantum signatures are larger, so the 8 MB block size keeps per-byte fees competitive with what Bitcoin users already expect.",
   },
   {
     id: 12,
