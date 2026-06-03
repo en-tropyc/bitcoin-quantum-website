@@ -1244,3 +1244,19 @@
    static data rows inside articles (a plain div) are unaffected */
 .bqv2 .guide a.data-row { transition: border-color .15s ease, background .15s ease; }
 .bqv2 .guide a.data-row:hover { border-color: var(--accent); background: var(--bg-2); }
+
+/* inline citation markers + references list */
+.bqv2 .guide sup.cite { font-size: 0.65em; line-height: 0; margin-left: 1px; }
+.bqv2 .guide sup.cite a { color: var(--accent-ink); text-decoration: none; font-weight: 600; }
+.bqv2 .guide sup.cite a:hover { text-decoration: underline; }
+.bqv2 .guide ol.references {
+  margin: 0; padding-left: 24px;
+  display: flex; flex-direction: column; gap: 12px;
+  list-style: decimal;
+}
+.bqv2 .guide ol.references li {
+  color: var(--ink-2); font-size: 0.92em; line-height: 1.55;
+  scroll-margin-top: 96px; padding-left: 4px;
+}
+.bqv2 .guide ol.references li:target { color: var(--ink); }
+.bqv2 .guide ol.references em { font-style: italic; color: var(--ink); }

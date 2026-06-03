@@ -9,6 +9,107 @@ const TABLE_OF_CONTENTS = [
   { id: 'auto-detection', title: 'Auto-Detection: Running Both in One Block' },
   { id: 'wallet-integration', title: 'Wallet Integration' },
   { id: 'what-bitcoin-is-doing', title: 'What Bitcoin Itself Is Doing' },
+  { id: 'references', title: 'References' },
+];
+
+interface Reference {
+  id: string;
+  cite: React.ReactNode;
+}
+
+const REFERENCES: Reference[] = [
+  {
+    id: 'ref-1',
+    cite: (
+      <>
+        Roetteler, Naehrig, Svore &amp; Lauter.{' '}
+        <em>Quantum resource estimates for computing elliptic curve discrete logarithms.</em>{' '}
+        ASIACRYPT 2017.{' '}
+        <a href="https://arxiv.org/abs/1706.06752" target="_blank" rel="noopener noreferrer">
+          arXiv:1706.06752
+        </a>
+        . Origin of the ~2,330 logical-qubit estimate for secp256k1.
+      </>
+    ),
+  },
+  {
+    id: 'ref-2',
+    cite: (
+      <>
+        Webber, Elfving, Weidt &amp; Hensinger.{' '}
+        <em>The impact of hardware specifications on reaching quantum advantage in the fault-tolerant regime.</em>{' '}
+        AVS Quantum Science 4, 013801 (2022).{' '}
+        <a href="https://doi.org/10.1116/5.0073075" target="_blank" rel="noopener noreferrer">
+          doi:10.1116/5.0073075
+        </a>
+        . Physical-qubit estimates (≈317M for a 1-hour attack, ≈13M for a day).
+      </>
+    ),
+  },
+  {
+    id: 'ref-3',
+    cite: (
+      <>
+        Gidney.{' '}
+        <em>How to factor 2048-bit RSA integers with less than a million noisy qubits.</em>{' '}
+        Google Quantum AI, 2025.{' '}
+        <a href="https://arxiv.org/abs/2505.15917" target="_blank" rel="noopener noreferrer">
+          arXiv:2505.15917
+        </a>
+        . A 20x reduction from the 2019 estimate of ~20M physical qubits.
+      </>
+    ),
+  },
+  {
+    id: 'ref-4',
+    cite: (
+      <>
+        <em>The Pinnacle Architecture: reducing the cost of breaking RSA-2048 to 100,000 physical qubits using quantum LDPC codes.</em>{' '}
+        2026.{' '}
+        <a href="https://arxiv.org/abs/2602.11457" target="_blank" rel="noopener noreferrer">
+          arXiv:2602.11457
+        </a>
+        . Error-correction overhead cut ~100x, with aggressive qubit/time tradeoffs.
+      </>
+    ),
+  },
+  {
+    id: 'ref-5',
+    cite: (
+      <>
+        NIST.{' '}
+        <em>FIPS 204: Module-Lattice-Based Digital Signature Standard (ML-DSA).</em>{' '}
+        Published 13 August 2024.{' '}
+        <a href="https://csrc.nist.gov/pubs/fips/204/final" target="_blank" rel="noopener noreferrer">
+          csrc.nist.gov/pubs/fips/204/final
+        </a>
+      </>
+    ),
+  },
+  {
+    id: 'ref-6',
+    cite: (
+      <>
+        Open Quantum Safe.{' '}
+        <em>ML-DSA parameter sets</em> (ML-DSA-44: 1,312 / 2,560 / 2,420 bytes).{' '}
+        <a href="https://openquantumsafe.org/liboqs/algorithms/sig/ml-dsa.html" target="_blank" rel="noopener noreferrer">
+          openquantumsafe.org
+        </a>
+      </>
+    ),
+  },
+  {
+    id: 'ref-7',
+    cite: (
+      <>
+        Beast, Heilman &amp; Foster.{' '}
+        <em>BIP-360: Pay-to-Merkle-Root (P2MR)</em>, originally drafted as P2QRH.{' '}
+        <a href="https://bip360.org/" target="_blank" rel="noopener noreferrer">
+          bip360.org
+        </a>
+      </>
+    ),
+  },
 ];
 
 const DESC =
@@ -51,6 +152,14 @@ const OPCODES = [
 
 const REPO = 'https://github.com/btq-ag/btq-core/blob/v0.3.0-testnet';
 
+function Cite({ n }: { n: number }) {
+  return (
+    <sup className="cite">
+      <a href={`#ref-${n}`}>{n}</a>
+    </sup>
+  );
+}
+
 export default function SignatureMigrationGuide() {
   return (
     <GuideLayout
@@ -76,11 +185,21 @@ export default function SignatureMigrationGuide() {
           underlying problem, the elliptic curve discrete logarithm, in polynomial time.
         </p>
         <p>
-          A 2021 study by Webber et al. estimated that breaking secp256k1 would require approximately
-          2,330 logical qubits. With current error correction overhead (roughly 1,000 to 10,000
-          physical qubits per logical qubit), this translates to millions of physical qubits: beyond
-          today&rsquo;s machines, but within the range that multiple hardware roadmaps target for the
-          2030s and 2040s.
+          The first widely cited resource estimate, Roetteler et al. (2017), put the cost of breaking
+          secp256k1 at roughly 2,330 logical qubits.<Cite n={1} /> Accounting for error-correction
+          overhead (then on the order of 1,000 to 10,000 physical qubits per logical qubit), Webber et
+          al. (2022) translated that into the physical-hardware regime: about 317 million physical
+          qubits to break a key in an hour, or 13 million for a day.<Cite n={2} /> Either figure sits
+          far beyond today&rsquo;s machines, whose largest processors are in the low thousands of qubits.
+        </p>
+        <p>
+          Those estimates are falling fast. In 2025, Gidney showed RSA-2048 could be factored with
+          fewer than one million noisy physical qubits, a 20x reduction from his own 2019 figure of
+          roughly 20 million.<Cite n={3} /> In 2026, architectures built on quantum LDPC codes cut
+          error-correction overhead by about 100x, pushing RSA-2048 toward the 100,000 physical-qubit
+          range, with aggressive qubit-for-time tradeoffs reaching the low tens of thousands of qubits
+          at much longer runtimes.<Cite n={4} /> Elliptic-curve attacks against secp256k1 track the same
+          downward curve. The threat is not a fixed date on a roadmap; the bar keeps dropping.
         </p>
         <p>
           The vulnerability is specific: it applies to any output where the public key has been
@@ -96,7 +215,7 @@ export default function SignatureMigrationGuide() {
         <h2>What Replaces It: CRYSTALS-Dilithium</h2>
         <p>
           CRYSTALS-Dilithium, standardized by NIST as FIPS 204 (published August 2024), is a
-          lattice-based digital signature scheme. Its security rests on the Module Learning With Errors
+          lattice-based digital signature scheme.<Cite n={5} /> Its security rests on the Module Learning With Errors
           (MLWE) problem, a fundamentally different mathematical structure from the elliptic curve
           problems that Shor&rsquo;s algorithm exploits.
         </p>
@@ -127,7 +246,7 @@ export default function SignatureMigrationGuide() {
         <h2>The Size Comparison</h2>
         <p>
           The most consequential difference between ECDSA and Dilithium is not speed. Dilithium
-          verification (~1.5ms) is actually faster than ECDSA verification (~2ms). It is size.
+          verification (~1.5ms) is actually faster than ECDSA verification (~2ms). It is size.<Cite n={6} />
         </p>
         <div>
           {SIZE_ROWS.map((row) => (
@@ -259,9 +378,10 @@ export default function SignatureMigrationGuide() {
         <h2>What Bitcoin Itself Is Doing</h2>
         <p>
           Bitcoin Core has not yet begun implementing post-quantum signatures, but the research
-          community is active. The most developed proposal is BIP-360 by Hunter Beast, which defines a
-          Pay-to-Quantum-Resistant-Hash (P2QRH) output type supporting multiple PQC signature schemes
-          including FALCON, SPHINCS+, and lattice-based options.
+          community is active. The most developed proposal is BIP-360, co-authored by Hunter Beast,
+          Ethan Heilman, and Isabel Foster. First drafted in 2024 as Pay-to-Quantum-Resistant-Hash
+          (P2QRH), it has since been renamed Pay-to-Merkle-Root (P2MR), and defines a new output type
+          that commits to post-quantum signature schemes such as FALCON and lattice-based options.<Cite n={7} />
         </p>
         <p>
           Other proposals explore using <code>OP_CAT</code> (if re-enabled) to verify arbitrary
@@ -276,6 +396,17 @@ export default function SignatureMigrationGuide() {
           Ethereum researchers are exploring with their own PQC proposals, provide working reference
           implementations that the Bitcoin community can evaluate against real-world performance data.
         </p>
+      </section>
+
+      <section id="references">
+        <h2>References</h2>
+        <ol className="references">
+          {REFERENCES.map((ref) => (
+            <li key={ref.id} id={ref.id}>
+              {ref.cite}
+            </li>
+          ))}
+        </ol>
       </section>
     </GuideLayout>
   );
