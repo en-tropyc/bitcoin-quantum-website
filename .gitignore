@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# in-process source material (whitepaper drafts, content notes)
+/docs/whitepaper/
+
+# internal content/voice/strategy + Typefully integration — local-only,
+# not for the public repo
+/docs/content/
