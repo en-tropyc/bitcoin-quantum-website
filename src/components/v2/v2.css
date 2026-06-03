@@ -439,12 +439,6 @@
 @media (prefers-reduced-motion: reduce) {
   .bqv2 .hexband .row { animation: none; }
 }
-.bqv2 .hexband .tag {
-  position: absolute; left: var(--gut); top: 50%; transform: translateY(-50%);
-  background: var(--accent); color: #04121d; font-family: var(--mono); font-size: 11px;
-  letter-spacing: 0.14em; text-transform: uppercase; padding: 7px 13px; border-radius: 6px; font-weight: 600;
-  white-space: nowrap;
-}
 
 /* ============================================================
    TECHNOLOGY CARDS

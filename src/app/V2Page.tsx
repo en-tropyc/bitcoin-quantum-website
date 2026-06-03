@@ -235,7 +235,6 @@ export default function V2Page() {
 
         {/* ===================== HEX BAND ===================== */}
         <section className="hexband" aria-hidden="true">
-          <span className="tag">Quantum-safe ledger</span>
           <HexRows />
         </section>
 
