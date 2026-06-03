@@ -1,7 +1,7 @@
 # Guides Port — Pilot Article Design
 
 **Date:** 2026-06-03
-**Status:** Approved (pending spec review)
+**Status:** Pilot spec ready for review
 **Branch:** `feat/guides-quantum-secure-bitcoin`
 
 ## Goal
@@ -109,9 +109,11 @@ already used by `/protocol` and `/testnet`.
 ### Guides hub (`/guides`)
 
 A server component in the v2 system: short intro to the Quantum-Secure Bitcoin series
-and a list of articles. For the pilot, only `signature-migration` links live; the other
-7 are listed as "coming soon" or omitted (implementer's call, kept trivial). Its own
-`metadata` + canonical `/guides`.
+and a list of articles. **Only released articles are listed — unreleased guides are
+omitted entirely** (no "coming soon" placeholders), keeping the page clean and not
+visibly promising a full series before it ships. For the pilot that means a single
+linked article: `signature-migration`. The list is data-driven (an array of released
+articles) so adding a guide later is one entry. Its own `metadata` + canonical `/guides`.
 
 ## Voice pass (restyle + light)
 
