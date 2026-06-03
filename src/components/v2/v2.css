@@ -1115,3 +1115,127 @@
   /* foot mono labels never line-wrap awkwardly */
   .bqv2 .foot { white-space: normal; }
 }
+
+/* ============================================================
+   Guides — long-form article prose + layout chrome
+   ============================================================ */
+
+.bqv2 .guide-breadcrumb {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--ink-3);
+  margin-bottom: 28px;
+}
+.bqv2 .guide-breadcrumb a { color: var(--ink-3); text-decoration: none; }
+.bqv2 .guide-breadcrumb a:hover { color: var(--accent-ink); }
+.bqv2 .guide-breadcrumb .sep { margin: 0 8px; opacity: 0.5; }
+.bqv2 .guide-breadcrumb .current { color: var(--ink-2); }
+
+.bqv2 .guide-header { margin-bottom: 40px; }
+.bqv2 .guide-header h1 {
+  font-family: var(--display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--headline);
+  font-size: clamp(34px, 5vw, 52px);
+  margin: 0 0 16px;
+}
+.bqv2 .guide-header p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(18px, 2.2vw, 22px);
+  color: var(--ink-2);
+  max-width: 60ch;
+  margin: 0;
+}
+
+/* two-column body: sticky TOC + article */
+.bqv2 .guide-body { display: flex; flex-direction: column; gap: 40px; }
+@media (min-width: 1024px) {
+  .bqv2 .guide-body { flex-direction: row; gap: 56px; }
+  .bqv2 .guide-toc { width: 220px; flex-shrink: 0; }
+  .bqv2 .guide-toc-inner { position: sticky; top: 100px; }
+}
+.bqv2 .guide-toc h2 {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-3);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 10px;
+  margin: 0 0 14px;
+}
+.bqv2 .guide-toc ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+.bqv2 .guide-toc a {
+  display: flex; gap: 8px;
+  font-size: 14px; color: var(--ink-2); text-decoration: none; line-height: 1.4;
+}
+.bqv2 .guide-toc a:hover { color: var(--accent-ink); }
+.bqv2 .guide-toc a .n { color: var(--ink-3); }
+
+/* article prose */
+.bqv2 .guide { flex: 1; min-width: 0; max-width: 72ch; }
+.bqv2 .guide section { margin-bottom: 44px; scroll-margin-top: 96px; }
+.bqv2 .guide h2 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(22px, 3vw, 28px);
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 10px;
+  margin: 0 0 18px;
+}
+.bqv2 .guide p { color: var(--ink-2); line-height: 1.7; margin: 0 0 16px; }
+.bqv2 .guide p:last-child { margin-bottom: 0; }
+.bqv2 .guide strong { color: var(--ink); font-weight: 700; }
+.bqv2 .guide a { color: var(--accent-ink); text-decoration: underline; text-underline-offset: 2px; }
+.bqv2 .guide ul { margin: 0 0 16px; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
+.bqv2 .guide li { color: var(--ink-2); line-height: 1.6; }
+.bqv2 .guide sup { font-size: 0.7em; }
+.bqv2 .guide code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 1px 5px;
+}
+
+/* data rows (size comparison, opcode list) */
+.bqv2 .guide .data-row {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  margin-bottom: 10px;
+}
+.bqv2 .guide .data-row .row-head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 4px;
+}
+.bqv2 .guide .data-row .label { font-weight: 700; color: var(--ink); }
+.bqv2 .guide .data-row code.label { font-family: var(--mono); word-break: break-all; }
+.bqv2 .guide .data-row .ratio { color: var(--accent-ink); font-weight: 700; flex-shrink: 0; }
+.bqv2 .guide .data-row .detail { color: var(--ink-3); font-size: 0.92em; }
+.bqv2 .guide .data-row .src { font-size: 0.8em; }
+
+/* script / code block */
+.bqv2 .guide .script-block {
+  font-family: var(--mono);
+  font-size: 14px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  padding: 16px;
+  margin: 0 0 8px;
+  overflow-x: auto;
+}
+.bqv2 .guide .script-block .tag { color: var(--accent-ink); }
+
+.bqv2 .guide-back { margin-top: 48px; }
+.bqv2 .guide-back a { color: var(--ink-3); text-decoration: none; font-size: 14px; }
+.bqv2 .guide-back a:hover { color: var(--accent-ink); }
