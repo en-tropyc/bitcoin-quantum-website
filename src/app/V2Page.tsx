@@ -26,11 +26,11 @@ function LatticeIcon() {
     </svg>
   );
 }
-function ClockIcon() {
+function LockIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-      <circle cx="12" cy="12" r="9" />
-      <path d="M12 7v5l3 2" />
+      <rect x="4" y="10" width="16" height="11" rx="2" />
+      <path d="M8 10V7a4 4 0 0 1 8 0v3" />
     </svg>
   );
 }
@@ -177,9 +177,9 @@ export default function V2Page() {
               </div>
             </div>
 
-            {/* KEY FACTS */}
+            {/* QUICK FACTS */}
             <div className="facts">
-              <span className="eyebrow reveal">Key facts</span>
+              <span className="eyebrow reveal">Quick facts</span>
               <div className="cards-stat">
                 <div className="fact reveal">
                   <StatNumber value={21} suffix="M" />
@@ -235,7 +235,6 @@ export default function V2Page() {
 
         {/* ===================== HEX BAND ===================== */}
         <section className="hexband" aria-hidden="true">
-          <span className="tag">Quantum-safe ledger</span>
           <HexRows />
         </section>
 
@@ -266,12 +265,12 @@ export default function V2Page() {
                 </p>
               </article>
               <article className="card reveal d2">
-                <div className="glyph"><ClockIcon /></div>
+                <div className="glyph"><LockIcon /></div>
                 <div className="card-idx">03</div>
-                <h3 className="h3">Bitcoin&apos;s model, unchanged</h3>
+                <h3 className="h3">Public keys stay hidden</h3>
                 <p>
-                  21 million coins. One-minute blocks. Halvings and proof-of-work. The monetary
-                  policy you already trust, hardened for what&apos;s coming.
+                  Pay-to-Merkle-Root (BIP-360) puts only a Merkle root on-chain — no public key to
+                  attack while coins rest. Post-quantum signatures secure the spend window.
                 </p>
               </article>
             </div>
@@ -433,13 +432,13 @@ export default function V2Page() {
                   </svg>
                 </div>
                 <div className="card-idx">03 · Researchers</div>
-                <h3 className="h3">Review the cryptographic primitives.</h3>
+                <h3 className="h3">Review the post-quantum security model.</h3>
                 <p>
                   Audit the ML-DSA integration and the protocol-level choices behind the
                   larger post-quantum signatures. Comments and issues welcome.
                 </p>
                 <span className="path-link is-disabled" aria-disabled="true">
-                  Technical brief · coming soon
+                  Coming soon
                 </span>
               </article>
             </div>
@@ -454,10 +453,10 @@ export default function V2Page() {
               <h2 className="h2">A measured path to a quantum-safe chain.</h2>
             </div>
             <div className="timeline">
-              <div className="phase reveal">
+              <div className="phase is-complete reveal">
                 <div className="ph-tag">Phase 01</div>
                 <h3>Specification</h3>
-                <p>Peer-reviewed protocol design and the post-quantum signature standard.</p>
+                <p>Protocol design built on NIST-standardized post-quantum signatures.</p>
                 <div className="status">Complete</div>
               </div>
               <div className="phase active reveal d1">
