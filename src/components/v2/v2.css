@@ -1275,10 +1275,108 @@
 .bqv2 .guide ol.references li:target { color: var(--ink); }
 .bqv2 .guide ol.references em { font-style: italic; color: var(--ink); }
 
-/* Mobile: long opcode names (a <code> label) get their own line so the name
-   doesn't break mid-token and the hex tag doesn't strand at the top-right.
-   Short size-comparison rows use a <span> label and are unaffected. */
+/* ============================================================
+   guide tables
+   ============================================================ */
+.bqv2 .guide .table-wrap { overflow-x: auto; margin: 0 0 16px; }
+.bqv2 .guide table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95em;
+  min-width: 28rem;
+}
+.bqv2 .guide thead th {
+  font-family: var(--mono);
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-3);
+  font-weight: 600;
+  text-align: right;
+  padding: 0 0 10px 16px;
+  border-bottom: 1px solid var(--line);
+}
+.bqv2 .guide thead th:first-child { text-align: left; padding-left: 0; }
+.bqv2 .guide tbody td {
+  padding: 11px 0 11px 16px;
+  border-bottom: 1px solid var(--line-2);
+  text-align: right;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.bqv2 .guide tbody td:first-child { text-align: left; padding-left: 0; color: var(--ink-2); }
+.bqv2 .guide tbody tr:last-child td { border-bottom: 0; }
+.bqv2 .guide table .ratio-col { color: var(--accent-ink); font-weight: 700; }
+.bqv2 .guide table code { font-size: 0.88em; }
+
 @media (max-width: 620px) {
-  .bqv2 .guide .data-row .row-head { flex-wrap: wrap; }
-  .bqv2 .guide .data-row code.label { flex: 1 1 100%; word-break: normal; }
+  .bqv2 .guide .size-table { overflow-x: visible; }
+  .bqv2 .guide .size-table table { min-width: 0; }
+  .bqv2 .guide .size-table thead { display: none; }
+  .bqv2 .guide .size-table tbody tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 2px 10px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line-2);
+  }
+  .bqv2 .guide .size-table tbody tr:last-child { border-bottom: 0; }
+  .bqv2 .guide .size-table tbody td {
+    padding: 0;
+    border: none;
+    text-align: left;
+    font-size: 0.9em;
+    color: var(--ink-3);
+  }
+  .bqv2 .guide .size-table tbody td:first-child {
+    grid-column: 1 / -1;
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 1em;
+    margin-bottom: 1px;
+  }
+  .bqv2 .guide .size-table tbody td:nth-child(3) { color: var(--ink); }
+  .bqv2 .guide .size-table tbody td:nth-child(4) {
+    color: var(--accent-ink);
+    font-weight: 700;
+    text-align: right;
+  }
+
+  .bqv2 .guide .op-table { overflow-x: visible; }
+  .bqv2 .guide .op-table table { min-width: 0; }
+  .bqv2 .guide .op-table thead { display: none; }
+  .bqv2 .guide .op-table tbody tr {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 2px 10px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line-2);
+  }
+  .bqv2 .guide .op-table tbody tr:last-child { border-bottom: 0; }
+  .bqv2 .guide .op-table tbody td {
+    padding: 0;
+    border: none;
+    text-align: left;
+    color: var(--ink-3);
+    font-size: 0.88em;
+  }
+  .bqv2 .guide .op-table tbody td:first-child {
+    grid-column: 1 / -1;
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 1em;
+    margin-bottom: 1px;
+  }
+  .bqv2 .guide .op-table tbody td:first-child code {
+    font-size: inherit;
+    word-break: break-all;
+  }
+  .bqv2 .guide .op-table tbody td:nth-child(2) {
+    font-family: var(--mono);
+    font-size: 0.82em;
+    color: var(--ink-2);
+  }
+  .bqv2 .guide .op-table tbody td:nth-child(4) {
+    text-align: right;
+  }
 }
