@@ -248,18 +248,27 @@ export default function SignatureMigrationGuide() {
           The most consequential difference between ECDSA and Dilithium is not speed. Dilithium
           verification (~1.5ms) is actually faster than ECDSA verification (~2ms). It is size.<Cite n={6} />
         </p>
-        <div>
-          {SIZE_ROWS.map((row) => (
-            <div key={row.component} className="data-row">
-              <div className="row-head">
-                <span className="label">{row.component}</span>
-                <span className="ratio">{row.ratio}</span>
-              </div>
-              <div className="detail">
-                ECDSA: {row.ecdsa} &rarr; Dilithium2: {row.dilithium}
-              </div>
-            </div>
-          ))}
+        <div className="table-wrap size-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Component</th>
+                <th>ECDSA</th>
+                <th>Dilithium2</th>
+                <th>Ratio</th>
+              </tr>
+            </thead>
+            <tbody>
+              {SIZE_ROWS.map((row) => (
+                <tr key={row.component}>
+                  <td>{row.component}</td>
+                  <td>{row.ecdsa}</td>
+                  <td>{row.dilithium}</td>
+                  <td className="ratio-col">{row.ratio}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
         <p>
           Every one of these size increases propagates through the system: block sizes must grow to
@@ -278,24 +287,36 @@ export default function SignatureMigrationGuide() {
           The BTQ implementation adds five new opcodes in the unused opcode space above
           Bitcoin&rsquo;s <code>OP_CHECKSIGADD</code>:
         </p>
-        <div>
-          {OPCODES.map((op) => (
-            <div key={op.hex} className="data-row">
-              <div className="row-head">
-                <code className="label">{op.name}</code>
-                <span className="ratio">{op.hex}</span>
-              </div>
-              <div className="detail">{op.purpose}</div>
-              <a
-                className="src"
-                href={`${REPO}/src/script/script.h#L${op.line}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                script.h L{op.line} · v0.3.0-testnet
-              </a>
-            </div>
-          ))}
+        <div className="table-wrap op-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Opcode</th>
+                <th>Hex</th>
+                <th>Purpose</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {OPCODES.map((op) => (
+                <tr key={op.hex}>
+                  <td><code>{op.name}</code></td>
+                  <td>{op.hex}</td>
+                  <td style={{ color: 'var(--ink-3)', fontSize: '0.92em' }}>{op.purpose}</td>
+                  <td>
+                    <a
+                      href={`${REPO}/src/script/script.h#L${op.line}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ fontSize: '0.8em', whiteSpace: 'nowrap' }}
+                    >
+                      L{op.line}
+                    </a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
         <p>
           A standard Dilithium P2PKH (Pay-to-Public-Key-Hash) script looks almost identical to
