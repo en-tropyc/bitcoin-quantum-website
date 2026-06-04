@@ -1160,7 +1160,7 @@
   font-size: clamp(18px, 1.8vw, 21px);
   color: var(--ink-2);
   line-height: 1.55;
-  max-width: 60ch;
+  max-width: 72ch;
   margin: 0;
   text-wrap: pretty;
 }
