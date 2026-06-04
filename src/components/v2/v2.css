@@ -1157,12 +1157,12 @@
   margin: 0 0 16px;
 }
 .bqv2 .guide-header p {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(18px, 2.2vw, 22px);
+  font-size: clamp(18px, 1.8vw, 21px);
   color: var(--ink-2);
+  line-height: 1.55;
   max-width: 60ch;
   margin: 0;
+  text-wrap: pretty;
 }
 
 /* two-column body: sticky TOC + article */
