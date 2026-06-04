@@ -248,7 +248,7 @@ export default function SignatureMigrationGuide() {
           The most consequential difference between ECDSA and Dilithium is not speed. Dilithium
           verification (~1.5ms) is actually faster than ECDSA verification (~2ms). It is size.<Cite n={6} />
         </p>
-        <div className="table-wrap">
+        <div className="table-wrap size-table">
           <table>
             <thead>
               <tr>
@@ -287,7 +287,7 @@ export default function SignatureMigrationGuide() {
           The BTQ implementation adds five new opcodes in the unused opcode space above
           Bitcoin&rsquo;s <code>OP_CHECKSIGADD</code>:
         </p>
-        <div className="table-wrap">
+        <div className="table-wrap op-table">
           <table>
             <thead>
               <tr>
