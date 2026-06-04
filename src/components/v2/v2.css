@@ -1274,3 +1274,11 @@
 }
 .bqv2 .guide ol.references li:target { color: var(--ink); }
 .bqv2 .guide ol.references em { font-style: italic; color: var(--ink); }
+
+/* Mobile: long opcode names (a <code> label) get their own line so the name
+   doesn't break mid-token and the hex tag doesn't strand at the top-right.
+   Short size-comparison rows use a <span> label and are unaffected. */
+@media (max-width: 620px) {
+  .bqv2 .guide .data-row .row-head { flex-wrap: wrap; }
+  .bqv2 .guide .data-row code.label { flex: 1 1 100%; word-break: normal; }
+}
