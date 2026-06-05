@@ -97,6 +97,34 @@ const REFERENCES: Reference[] = [
       </>
     ),
   },
+  {
+    id: 'ref-5',
+    cite: (
+      <>
+        <em>Note — weight vs. serialized size.</em> BTQ&rsquo;s only consensus limit on block size is
+        weight: <code>CheckBlock</code> enforces{' '}
+        <code>GetBlockWeight() &le; MAX_BLOCK_WEIGHT</code> (8,000,000), while{' '}
+        <code>MAX_BLOCK_SERIALIZED_SIZE</code> (8 MB) bounds only P2P messages and the block-assembly
+        target, not block validity (
+        <a href={`${REPO}/src/consensus/validation.h`} target="_blank" rel="noopener noreferrer">
+          validation.h
+        </a>
+        ,{' '}
+        <a href={`${REPO}/src/consensus/consensus.h`} target="_blank" rel="noopener noreferrer">
+          consensus.h
+        </a>
+        ). Because weight = 15 &times; (non-witness size) + (total size), weight reaches its cap before
+        serialized size does for any transaction that carries non-witness data, so weight &mdash; not the
+        8 MB figure &mdash; is the binding constraint. A weight-full block of ordinary single-input
+        Dilithium payments holds ~1,540 transactions and is ~5.9 MB on disk (~8.5 GB/day); the 8 MB block
+        and ~11.5 GB/day figures are the asymptotic ceiling, approached only by witness-dominated blocks
+        where non-witness data is negligible. The Bitcoin and BTQ columns above are stated as this
+        serialized ceiling and computed the same way, so the comparison is like-for-like. The per-block
+        transaction counts elsewhere in this guide are likewise size-based; the weight-bound counts are
+        somewhat lower.
+      </>
+    ),
+  },
 ];
 
 function Cite({ n }: { n: number }) {
@@ -158,8 +186,10 @@ export default function BlockSizeTradeoffsGuide() {
         </p>
         <p>
           The BTQ project raised <code>MAX_BLOCK_SERIALIZED_SIZE</code> to 8 MB and{' '}
-          <code>MAX_BLOCK_WEIGHT</code> to 8,000,000 weight units. Even then, a full block holds only
-          about 2,100 Dilithium transactions, roughly 13% of what Bitcoin processes per block. The sigops
+          <code>MAX_BLOCK_WEIGHT</code> to 8,000,000 weight units. The binding consensus limit is block
+          weight, not serialized size,<Cite n={5} /> so a weight-full block of ordinary single-input
+          Dilithium transactions holds roughly 1,540 of them. (Dividing the 8 MB size cap by transaction
+          size suggests ~2,100, but a block of that many would exceed the 8 MW weight limit.) The sigops
           limit was doubled to 80,000 to cover the validation cost of the larger signatures.<Cite n={1} />
         </p>
         <p>
@@ -187,17 +217,21 @@ export default function BlockSizeTradeoffsGuide() {
         </p>
         <p>
           The BTQ project initially disabled the witness discount (setting weight equal to serialized
-          size) for simplicity, but community analysis quickly surfaced the consequences. Without the
-          discount, full blocks would generate ~75 GB per day of permanent UTXO set growth at the
-          increased block size, a rate that would make running a full node impractical within weeks.
+          size) for simplicity, but community analysis quickly surfaced the consequence. With output bytes
+          and witness bytes costing the same weight, nothing discourages bloating the permanent,
+          unprunable UTXO set relative to prunable witness data, exactly the economic signal SegWit&rsquo;s
+          discount exists to send. (Disabling the discount does not shrink chain growth, either; if
+          anything it lets blocks carry slightly more serialized data, since the per-byte penalty on
+          non-witness data is removed.)
         </p>
         <p>
           The fix was to restore and increase the witness scale factor to 16 (up from Bitcoin&rsquo;s 4),
           so witness data counts at 1/16 weight.<Cite n={1} /> That stronger discount reflects the reality
           that in a Dilithium world, an even larger share of each transaction is prunable witness data.
-          The per-input witness overhead (3,733 bytes) at 1/16 weight costs only ~233 weight units,
-          comparable to the ~26 weight units for ECDSA&rsquo;s ~105-byte witness at Bitcoin&rsquo;s 1/4
-          discount.
+          The per-input witness overhead (3,733 bytes) at the 1/16 discount contributes ~233 virtual bytes
+          to the block (weight &divide; 16), versus ~26 virtual bytes for ECDSA&rsquo;s ~105-byte witness
+          under Bitcoin&rsquo;s 1/4 discount. The heavier discount narrows the gap from ~36x in raw witness
+          bytes to ~9x in block-weight terms; it softens the cost, but does not erase it.
         </p>
       </section>
 
@@ -230,9 +264,12 @@ export default function BlockSizeTradeoffsGuide() {
         </div>
 
         <p>
-          These figures assume full blocks, a worst case for a young network. In practice, BTQ blocks are
-          far from full during bootstrapping. But the limits matter because they define the maximum stress
-          the network can sustain, and an attacker with enough funds could fill blocks to this level.
+          These figures are the absolute serialized ceiling, 8 MB per block × 1,440 blocks per day, and
+          assume full blocks, a worst case for a young network.<Cite n={5} /> In practice, BTQ blocks are
+          far from full during bootstrapping, and a full block of ordinary Dilithium payments is weight-limited
+          to ~5.9 MB (~8.5 GB/day); the 11.5 GB/day ceiling is approached only by witness-dominated blocks.
+          But the limits matter because they define the maximum stress the network can sustain, and an
+          attacker with enough funds could fill blocks toward this level.
         </p>
         <p>
           The growth rate is manageable with modern hardware (a 4 TB SSD stores roughly a year of
