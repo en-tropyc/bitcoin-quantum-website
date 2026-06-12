@@ -42,7 +42,7 @@ const faqData: FAQItem[] = [
     category: 'general',
     question: 'How is BTQ different from Bitcoin?',
     answer:
-      "Two things change. Signatures switch from ECDSA to CRYSTALS-Dilithium, and the block size limit grows from 1 MB to 8 MB to absorb the larger post-quantum signatures. Everything else — the UTXO model, the scripting system, the halving schedule, SHA-256 proof-of-work — stays exactly as Bitcoin defined it.",
+      "The signature scheme switches from ECDSA to CRYSTALS-Dilithium, and a few parameters are retuned to absorb the larger signatures: the block weight limit doubles (Bitcoin's ~4 MB cap becomes 8 MB), and blocks arrive every minute instead of every ten. The emission curve is preserved — same 21 million cap and ~4-year halving cadence, with the interval rescaled to match the faster blocks. Everything else — the UTXO model, the scripting system, SHA-256 proof-of-work — is exactly as Bitcoin defined it.",
   },
   {
     id: 5,
