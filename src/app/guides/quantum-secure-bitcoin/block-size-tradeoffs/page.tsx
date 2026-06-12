@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import GuideLayout from '../../_components/GuideLayout';
 
 const TABLE_OF_CONTENTS = [
-  { id: 'the-15x-problem', title: 'The 15x Problem' },
+  { id: 'the-20x-problem', title: 'The 20x Problem' },
   { id: 'block-capacity', title: 'Block Capacity Impact' },
   { id: 'witness-discount', title: 'The Witness Discount Question' },
   { id: 'chain-growth', title: 'Chain Growth and Node Viability' },
@@ -16,18 +16,18 @@ const DESC =
   'witness economics, emission schedules, and chain growth. A technical analysis of the tradeoffs.';
 
 export const metadata: Metadata = {
-  title: 'The 15x Problem: Why Quantum-Resistant Transactions Need Bigger Blocks',
+  title: 'The 20x Problem: Why Quantum-Resistant Transactions Need Bigger Blocks',
   description: DESC,
   alternates: { canonical: '/guides/quantum-secure-bitcoin/block-size-tradeoffs' },
   openGraph: {
-    title: 'The 15x Problem',
+    title: 'The 20x Problem',
     description: 'Why quantum-resistant transactions need bigger blocks, and what that costs.',
     url: '/guides/quantum-secure-bitcoin/block-size-tradeoffs',
     type: 'article',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'The 15x Problem',
+    title: 'The 20x Problem',
     description: 'Why quantum-resistant transactions need bigger blocks.',
   },
 };
@@ -115,8 +115,8 @@ const REFERENCES: Reference[] = [
         </a>
         ). Because weight = 15 &times; (non-witness size) + (total size), weight reaches its cap before
         serialized size does for any transaction that carries non-witness data, so weight &mdash; not the
-        8 MB figure &mdash; is the binding constraint. A weight-full block of ordinary single-input
-        Dilithium payments holds ~1,540 transactions and is ~5.9 MB on disk (~8.5 GB/day); the 8 MB block
+        8 MB figure &mdash; is the binding constraint. A weight-full block of ordinary two-input
+        Dilithium payments holds ~800 transactions and is ~6.1 MB on disk (~8.8 GB/day); the 8 MB block
         and ~11.5 GB/day figures are the asymptotic ceiling, approached only by witness-dominated blocks
         where non-witness data is negligible. The Bitcoin and BTQ columns above are stated as this
         serialized ceiling and computed the same way, so the comparison is like-for-like. The per-block
@@ -136,32 +136,33 @@ function Cite({ n }: { n: number }) {
 }
 
 const CHAIN_GROWTH = [
-  { metric: 'Full-block chain growth / 10 min', btc: '~4 MB', btq: '~80 MB' },
-  { metric: 'Chain growth / day (full blocks)', btc: '~576 MB', btq: '~11.5 GB' },
-  { metric: 'UTXO set growth / 10 min (full blocks)', btc: '~1 MB', btq: '~5.3 MB' },
+  { metric: 'Chain growth / day — full blocks (ceiling)', btc: '~576 MB', btq: '~11.5 GB' },
+  { metric: 'Chain growth / year — full blocks (ceiling)', btc: '~210 GB', btq: '~4.2 TB' },
+  { metric: 'Chain growth / year — realistic (~50% full)', btc: '~90–100 GB', btq: '~1 TB' },
+  { metric: 'UTXO-set growth / year — normal traffic', btc: '~1–2 GB', btq: '~3 GB' },
 ];
 
 export default function BlockSizeTradeoffsGuide() {
   return (
     <GuideLayout
-      title="The 15x Problem"
+      title="The 20x Problem"
       description="Why quantum-resistant transactions need bigger blocks, and how every parameter change cascades through emission schedules, witness economics, chain growth, and node viability."
       tableOfContents={TABLE_OF_CONTENTS}
     >
-      <section id="the-15x-problem">
-        <h2>The 15x Problem</h2>
+      <section id="the-20x-problem">
+        <h2>The 20x Problem</h2>
         <p>
-          A typical Bitcoin transaction with one input and two outputs (a payment and change) is
-          roughly 250 bytes. The same transaction signed with Dilithium2 is approximately 3,824 bytes,
-          about 15 times larger. This single ratio drives nearly every protocol-level change required
-          to build a quantum-resistant Bitcoin.
+          A typical Bitcoin transaction with two inputs and two outputs (the shape most planning
+          models use as the reference) is roughly 372 bytes. The same transaction signed with
+          Dilithium2 is approximately 7,636 bytes, about 20 times larger. This single ratio drives
+          nearly every protocol-level change required to build a quantum-resistant Bitcoin.
         </p>
         <p>
-          The size increase comes from the witness data. A Dilithium witness stack contains a 2,421-byte
-          signature (2,420 bytes plus one byte for the sighash type) and a 1,312-byte public key. Compare
-          that to ECDSA&rsquo;s ~72-byte signature and 33-byte compressed public key. The transaction
-          header, input outpoints, and output scripts stay roughly the same size. The authentication data
-          is what explodes.
+          The size increase comes from the witness data. Each input carries its own Dilithium witness
+          stack: a 2,421-byte signature (2,420 bytes plus one byte for the sighash type) and a 1,312-byte
+          public key, roughly 3,733 bytes per input. Compare that to ECDSA&rsquo;s ~72-byte signature and
+          33-byte compressed public key. The transaction header, input outpoints, and output scripts stay
+          roughly the same size. The authentication data is what explodes.
         </p>
         <p>
           This is not a flaw in Dilithium. It is the cost of quantum resistance. Every post-quantum
@@ -177,19 +178,19 @@ export default function BlockSizeTradeoffsGuide() {
         <p>
           Bitcoin&rsquo;s block weight limit is 4,000,000 weight units (4 MW), which translates to a
           maximum serialized block size of roughly 4 MB once you account for the SegWit witness discount.
-          With 250-byte ECDSA transactions, that fits approximately 16,000 transactions per block.
+          With 372-byte ECDSA transactions, that fits approximately 10,750 transactions per block.
         </p>
         <p>
-          With 3,824-byte Dilithium transactions, the same 4 MB block fits approximately 1,050
-          transactions, a 15x reduction in throughput at the same block size. To maintain even
+          With 7,636-byte Dilithium transactions, the same 4 MB block fits approximately 520
+          transactions, a 20x reduction in throughput at the same block size. To maintain even
           Bitcoin&rsquo;s current transaction throughput (already considered low), you need larger blocks.
         </p>
         <p>
           The BTQ project raised <code>MAX_BLOCK_SERIALIZED_SIZE</code> to 8 MB and{' '}
           <code>MAX_BLOCK_WEIGHT</code> to 8,000,000 weight units. The binding consensus limit is block
-          weight, not serialized size,<Cite n={5} /> so a weight-full block of ordinary single-input
-          Dilithium transactions holds roughly 1,540 of them. (Dividing the 8 MB size cap by transaction
-          size suggests ~2,100, but a block of that many would exceed the 8 MW weight limit.) The sigops
+          weight, not serialized size,<Cite n={5} /> so a weight-full block of ordinary two-input
+          Dilithium transactions holds roughly 800 of them. (Dividing the 8 MB size cap by transaction
+          size suggests ~1,050, but a block of that many would exceed the 8 MW weight limit.) The sigops
           limit was doubled to 80,000 to cover the validation cost of the larger signatures.<Cite n={1} />
         </p>
         <p>
@@ -264,19 +265,22 @@ export default function BlockSizeTradeoffsGuide() {
         </div>
 
         <p>
-          These figures are the absolute serialized ceiling, 8 MB per block × 1,440 blocks per day, and
-          assume full blocks, a worst case for a young network.<Cite n={5} /> In practice, BTQ blocks are
-          far from full during bootstrapping, and a full block of ordinary Dilithium payments is weight-limited
-          to ~5.9 MB (~8.5 GB/day); the 11.5 GB/day ceiling is approached only by witness-dominated blocks.
-          But the limits matter because they define the maximum stress the network can sustain, and an
+          The ceiling rows are the absolute serialized maximum, 8 MB per block × 1,440 blocks per day, a
+          worst case for a young network.<Cite n={5} /> In practice BTQ blocks are far from full during
+          bootstrapping; the realistic rows assume blocks about half full, the standard planning baseline.
+          A full block of ordinary two-input Dilithium payments is itself weight-limited to ~6.1 MB
+          (~8.8 GB/day); the 11.5 GB/day ceiling is approached only by witness-dominated blocks. The
+          limits still matter because they define the maximum stress the network can sustain, and an
           attacker with enough funds could fill blocks toward this level.
         </p>
         <p>
-          The growth rate is manageable with modern hardware (a 4 TB SSD stores roughly a year of
-          full-block data), but it is a meaningful increase over Bitcoin&rsquo;s current ~600 MB per day.
-          This is an inherent cost of quantum resistance: larger signatures mean more data, however you
-          structure the blocks. The design goal is to keep that cost within reach of commodity hardware,
-          not to eliminate it.
+          The growth rate is manageable with modern hardware. Provisioning roughly 1.5 TB covers an
+          archival node&rsquo;s first year (about 8 TB over five years) against a realistic ~1 TB of annual
+          growth; a pruned node, which validates every block but retains only recent blocks plus the UTXO
+          set, needs about 50 GB. That is a meaningful increase over Bitcoin&rsquo;s ~90&ndash;100 GB per
+          year, but it stays within reach of commodity hardware. This is an inherent cost of quantum
+          resistance: larger signatures mean more data, however you structure the blocks. The design goal
+          is to keep that cost manageable, not to eliminate it.
         </p>
       </section>
 
@@ -286,7 +290,7 @@ export default function BlockSizeTradeoffsGuide() {
           Block timing interacts with the emission schedule in ways that are easy to get wrong. BTQ
           adopted 1-minute blocks (10x faster than Bitcoin) to compensate for the reduced per-block
           transaction capacity. Faster blocks mean more total block space per hour, partially offsetting
-          the 15x transaction size increase.<Cite n={1} />
+          the 20x transaction size increase.<Cite n={1} />
         </p>
         <p>
           But Bitcoin&rsquo;s halving schedule is defined in block count, not wall-clock time. With

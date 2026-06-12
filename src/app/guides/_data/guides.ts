@@ -17,7 +17,7 @@ export const RELEASED_GUIDES: GuideListing[] = [
   {
     slug: 'block-size-tradeoffs',
     href: '/guides/quantum-secure-bitcoin/block-size-tradeoffs',
-    title: 'The 15x Problem',
+    title: 'The 20x Problem',
     blurb:
       'Why quantum-resistant transactions need bigger blocks, and how every ' +
       'parameter change cascades through emission schedules, witness economics, ' +

@@ -139,7 +139,7 @@ const SIZE_ROWS = [
   { component: 'Signature', ecdsa: '~72 bytes', dilithium: '2,420 bytes', ratio: '34x' },
   { component: 'Private key', ecdsa: '32 bytes', dilithium: '2,560 bytes', ratio: '80x' },
   { component: 'Per-input witness', ecdsa: '~105 bytes', dilithium: '~3,733 bytes', ratio: '36x' },
-  { component: '1-input transaction', ecdsa: '~250 bytes', dilithium: '~3,824 bytes', ratio: '15x' },
+  { component: '2-in/2-out transaction', ecdsa: '~372 bytes', dilithium: '~7,636 bytes', ratio: '20x' },
 ];
 
 const OPCODES = [
@@ -274,7 +274,7 @@ export default function SignatureMigrationGuide() {
           Every one of these size increases propagates through the system: block sizes must grow to
           maintain throughput, network message limits must increase for block propagation, script
           size limits must accommodate larger stack elements, and wallet storage expands significantly.
-          The 15x transaction size increase is the single most important number in quantum-resistant
+          The 20x transaction size increase is the single most important number in quantum-resistant
           Bitcoin design. Every engineering decision downstream flows from it.
         </p>
       </section>
