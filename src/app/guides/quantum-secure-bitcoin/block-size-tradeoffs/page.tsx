@@ -221,9 +221,9 @@ export default function BlockSizeTradeoffsGuide() {
           size) for simplicity, but community analysis quickly surfaced the consequence. With output bytes
           and witness bytes costing the same weight, nothing discourages bloating the permanent,
           unprunable UTXO set relative to prunable witness data, exactly the economic signal SegWit&rsquo;s
-          discount exists to send. (Disabling the discount does not shrink chain growth, either; if
-          anything it lets blocks carry slightly more serialized data, since the per-byte penalty on
-          non-witness data is removed.)
+          discount exists to send. Note: disabling the discount does not shrink chain growth, either; if
+          anything, it lets blocks carry slightly more serialized data since the per-byte penalty on
+          non-witness data is removed.
         </p>
         <p>
           The fix was to restore and increase the witness scale factor to 16 (up from Bitcoin&rsquo;s 4),
@@ -231,8 +231,8 @@ export default function BlockSizeTradeoffsGuide() {
           that in a Dilithium world, an even larger share of each transaction is prunable witness data.
           The per-input witness overhead (3,733 bytes) at the 1/16 discount contributes ~233 virtual bytes
           to the block (weight &divide; 16), versus ~26 virtual bytes for ECDSA&rsquo;s ~105-byte witness
-          under Bitcoin&rsquo;s 1/4 discount. The heavier discount narrows the gap from ~36x in raw witness
-          bytes to ~9x in block-weight terms; it softens the cost, but does not erase it.
+          under Bitcoin&rsquo;s 1/4 discount. In summary, the heavier discount narrows the gap from ~36x in raw witness
+          bytes to ~9x in block-weight terms. This softens the cost, but does not erase it.
         </p>
       </section>
 
@@ -240,7 +240,7 @@ export default function BlockSizeTradeoffsGuide() {
         <h2>Chain Growth and Node Viability</h2>
         <p>
           Chain growth rate determines who can run a full node, the foundation of Bitcoin&rsquo;s
-          decentralization. The arithmetic is straightforward:
+          decentralization. The arithmetic is straightforward as outlined below:
         </p>
 
         <div className="table-wrap">
@@ -266,7 +266,7 @@ export default function BlockSizeTradeoffsGuide() {
 
         <p>
           The ceiling rows are the absolute serialized maximum, 8 MB per block × 1,440 blocks per day, a
-          worst case for a young network.<Cite n={5} /> In practice BTQ blocks are far from full during
+          worst case scenario for an early network.<Cite n={5} /> In practice BTQ blocks are far from full during
           bootstrapping; the realistic rows assume blocks about half full, the standard planning baseline.
           A full block of ordinary two-input Dilithium payments is itself weight-limited to ~6.1 MB
           (~8.8 GB/day); the 11.5 GB/day ceiling is approached only by witness-dominated blocks. The
@@ -278,7 +278,7 @@ export default function BlockSizeTradeoffsGuide() {
           archival node&rsquo;s first year (about 8 TB over five years) against a realistic ~1 TB of annual
           growth; a pruned node, which validates every block but retains only recent blocks plus the UTXO
           set, needs about 50 GB. That is a meaningful increase over Bitcoin&rsquo;s ~90&ndash;100 GB per
-          year, but it stays within reach of commodity hardware. This is an inherent cost of quantum
+          year, but it stays within reach of today's commodity hardware. This is an inherent cost of quantum
           resistance: larger signatures mean more data, however you structure the blocks. The design goal
           is to keep that cost manageable, not to eliminate it.
         </p>
@@ -287,15 +287,15 @@ export default function BlockSizeTradeoffsGuide() {
       <section id="emission-schedule">
         <h2>Emission Schedule and Block Timing</h2>
         <p>
-          Block timing interacts with the emission schedule in ways that are easy to get wrong. BTQ
+          Block timing interacts with the emission schedule in ways that are easily misunderstood. BTQ
           adopted 1-minute blocks (10x faster than Bitcoin) to compensate for the reduced per-block
           transaction capacity. Faster blocks mean more total block space per hour, partially offsetting
           the 20x transaction size increase.<Cite n={1} />
         </p>
         <p>
-          But Bitcoin&rsquo;s halving schedule is defined in block count, not wall-clock time. With
+          But Bitcoin&rsquo;s halving schedule is defined in block count, not clock time. With
           Bitcoin&rsquo;s 210,000-block interval and 10-minute blocks, halvings land every ~4 years. With
-          1-minute blocks and the same interval, halvings would land every ~5 months, burning through the
+          1-minute blocks and all else constant, halvings would land every ~5 months, burning through the
           entire 21 million coin supply in under 3 years.
         </p>
         <p>
@@ -309,8 +309,8 @@ export default function BlockSizeTradeoffsGuide() {
           Getting these parameters right is critical. Errors in the emission schedule affect miner
           incentives, supply dynamics, and network security. During development, community review caught a
           mismatch where block timing was set to 10 minutes while the halving interval assumed 1-minute
-          blocks, which would have produced ~40-year halvings. It was corrected before mainnet deployment,
-          a reminder of why public code review matters for consensus-critical parameters.
+          blocks, which would have produced ~40-year halvings. It was corrected during testnet deployment,
+          a reminder of why live testing and public code review matters for consensus-critical parameters.
         </p>
       </section>
 
@@ -330,8 +330,8 @@ export default function BlockSizeTradeoffsGuide() {
           not whether to pay this cost, but when and how.
         </p>
         <p>
-          What projects like BTQ provide is a live dataset for evaluating these tradeoffs. Theoretical
-          chain-growth calculations are easy to dismiss. Numbers from a running chain processing real
+          Projects such as Bitcoin Quantum provide practical datasets for evaluating these tradeoffs. Theoretical
+          chain-growth calculations are easy to dismiss. Metrics gathered from a live hardened network processing real
           transactions are harder to ignore, and easier to use as the basis for informed protocol design.
         </p>
       </section>
