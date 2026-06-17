@@ -43,6 +43,10 @@ yarn-error.log*
 # not for the public repo
 /docs/content/
 
+# internal dev-team reference docs (storage model PDFs, reconciliation notes)
+# — local-only, not for the public repo
+/docs/reference/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
