@@ -63,4 +63,12 @@ export const RELEASED_GUIDES: GuideListing[] = [
       'SIKE was eliminated after years of analysis — one algorithm is never enough. ' +
       'Falcon, SPHINCS+, and designing for cryptographic agility from the start.',
   },
+  {
+    slug: 'hd-wallet-derivation',
+    href: '/guides/quantum-secure-bitcoin/hd-wallet-derivation',
+    title: 'HD Wallet Derivation',
+    blurb:
+      'Seed recovery works for hardened keys, but watch-only derivation does not. Why ' +
+      'lattices defeat naive BIP-32, and the Raccoon-G path to full HD wallets.',
+  },
 ];
