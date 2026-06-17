@@ -18,6 +18,15 @@ const DESC =
 export const metadata: Metadata = {
   title: 'The 20x Problem: Why Quantum-Resistant Transactions Need Bigger Blocks',
   description: DESC,
+  keywords: [
+    'Bitcoin block size',
+    'quantum-resistant transactions',
+    'Dilithium signature size',
+    'witness discount',
+    'SegWit block weight',
+    'blockchain growth',
+    'post-quantum Bitcoin',
+  ],
   alternates: { canonical: '/guides/quantum-secure-bitcoin/block-size-tradeoffs' },
   openGraph: {
     title: 'The 20x Problem',
@@ -148,6 +157,18 @@ export default function BlockSizeTradeoffsGuide() {
       title="The 20x Problem"
       description="Why quantum-resistant transactions need bigger blocks, and how every parameter change cascades through emission schedules, witness economics, chain growth, and node viability."
       tableOfContents={TABLE_OF_CONTENTS}
+      slug="/guides/quantum-secure-bitcoin/block-size-tradeoffs"
+      datePublished="2026-06-04"
+      dateModified="2026-06-12"
+      keywords={[
+        'Bitcoin block size',
+        'quantum-resistant transactions',
+        'Dilithium signature size',
+        'witness discount',
+        'SegWit block weight',
+        'blockchain growth',
+        'post-quantum Bitcoin',
+      ]}
     >
       <section id="the-20x-problem">
         <h2>The 20x Problem</h2>
