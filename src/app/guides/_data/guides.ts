@@ -55,4 +55,12 @@ export const RELEASED_GUIDES: GuideListing[] = [
       'You cannot flip a switch under a monetary system. Why ECDSA and Dilithium ' +
       'must coexist for years, plus lost coins, exposed keys, and the canary-network thesis.',
   },
+  {
+    slug: 'multi-algorithm-future',
+    href: '/guides/quantum-secure-bitcoin/multi-algorithm-future',
+    title: 'Beyond Dilithium',
+    blurb:
+      'SIKE was eliminated after years of analysis — one algorithm is never enough. ' +
+      'Falcon, SPHINCS+, and designing for cryptographic agility from the start.',
+  },
 ];
