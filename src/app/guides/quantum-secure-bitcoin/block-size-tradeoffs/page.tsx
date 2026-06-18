@@ -299,7 +299,7 @@ export default function BlockSizeTradeoffsGuide() {
           archival node&rsquo;s first year (about 8 TB over five years) against a realistic ~1 TB of annual
           growth; a pruned node, which validates every block but retains only recent blocks plus the UTXO
           set, needs about 50 GB. That is a meaningful increase over Bitcoin&rsquo;s ~90&ndash;100 GB per
-          year, but it stays within reach of today's commodity hardware. This is an inherent cost of quantum
+          year, but it stays within reach of today&rsquo;s commodity hardware. This is an inherent cost of quantum
           resistance: larger signatures mean more data, however you structure the blocks. The design goal
           is to keep that cost manageable, not to eliminate it.
         </p>
