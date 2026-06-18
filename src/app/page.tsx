@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     title: 'Bitcoin, secured for the quantum era.',
     description: HOME_DESC,
     url: '/',
+    siteName: 'Bitcoin Quantum',
     type: 'website',
   },
   twitter: {
