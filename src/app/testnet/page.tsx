@@ -13,6 +13,14 @@ const TESTNET_DESC =
 export const metadata: Metadata = {
   title: 'Testnet',
   description: TESTNET_DESC,
+  keywords: [
+    'Bitcoin Quantum testnet',
+    'BTQ Core download',
+    'run a quantum-safe node',
+    'quantum-safe mining',
+    'post-quantum cryptocurrency testnet',
+    'BTQ node setup',
+  ],
   alternates: { canonical: '/testnet' },
   openGraph: {
     title: 'Testnet | Bitcoin Quantum',

@@ -450,7 +450,7 @@ export default function V2Page() {
           <div className="wrap">
             <div className="sec-head reveal">
               <span className="eyebrow">The network</span>
-              <h2 className="h2">A measured path to a quantum-safe chain.</h2>
+              <h2 className="h2">The path to a quantum-safe store of value.</h2>
             </div>
             <div className="timeline">
               <div className="phase is-complete reveal">

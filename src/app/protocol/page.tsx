@@ -13,6 +13,15 @@ const PROTOCOL_DESC =
 export const metadata: Metadata = {
   title: 'Protocol',
   description: PROTOCOL_DESC,
+  keywords: [
+    'Bitcoin Quantum protocol',
+    'post-quantum Bitcoin architecture',
+    'CRYSTALS-Dilithium signatures',
+    'UTXO model',
+    'SHA-256 proof-of-work',
+    'NIST FIPS 204',
+    'quantum-resistant consensus',
+  ],
   alternates: { canonical: '/protocol' },
   openGraph: {
     title: 'Protocol | Bitcoin Quantum',
