@@ -1287,7 +1287,7 @@
 
 /* clickable hub cards (a data-row rendered as a link) get hover feedback;
    static data rows inside articles (a plain div) are unaffected */
-.bqv2 .guide a.data-row { transition: border-color .15s ease, background .15s ease; }
+.bqv2 .guide a.data-row { text-decoration: none; transition: border-color .15s ease, background .15s ease; }
 .bqv2 .guide a.data-row:hover { border-color: var(--accent); background: var(--bg-2); }
 
 /* inline citation markers + references list */
