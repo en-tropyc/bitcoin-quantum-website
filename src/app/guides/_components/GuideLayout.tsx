@@ -79,7 +79,7 @@ export default function GuideLayout({
         <V2Nav />
 
         <main>
-          <article className="section">
+          <article className="section guide-page">
             <div className="wrap">
               <nav className="guide-breadcrumb" aria-label="Breadcrumb">
                 <Link href="/">Home</Link>

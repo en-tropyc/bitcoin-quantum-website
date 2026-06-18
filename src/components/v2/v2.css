@@ -1254,6 +1254,37 @@
 .bqv2 .guide-back a { color: var(--ink-3); text-decoration: none; font-size: 14px; }
 .bqv2 .guide-back a:hover { color: var(--accent-ink); }
 
+/* individual guide pages: the subheader widens beyond the 72ch prose measure.
+   On desktop it stops at the right edge of the two-column article body — the
+   TOC (220px) + column gap (56px) + prose column (72ch ≈ 685px at the 17px body
+   font) = 961px — rather than filling the whole wrap. When the viewport is too
+   narrow for the prose to reach 72ch, the subheader is bounded by the same
+   available width and tracks the prose edge automatically. Below the two-column
+   breakpoint the TOC stacks full-width, so the subheader fills the column too. */
+.bqv2 .guide-page .guide-header p { max-width: none; }
+@media (min-width: 1024px) {
+  .bqv2 .guide-page .guide-header p { max-width: 961px; }
+}
+
+/* numbered guide cards (qdayanon-style: number badge + body) */
+.bqv2 .guide-hub .data-row { display: flex; align-items: flex-start; gap: 16px; }
+.bqv2 .guide-num {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  color: #fff;
+  background: var(--accent-ink);
+  border-radius: 8px;
+}
+.bqv2 .guide-card-body { flex: 1; min-width: 0; }
+
 /* clickable hub cards (a data-row rendered as a link) get hover feedback;
    static data rows inside articles (a plain div) are unaffected */
 .bqv2 .guide a.data-row { transition: border-color .15s ease, background .15s ease; }
