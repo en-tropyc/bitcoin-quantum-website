@@ -1267,21 +1267,25 @@
 }
 
 /* numbered guide cards (qdayanon-style: number badge + body) */
-.bqv2 .guide-hub .data-row { display: flex; align-items: flex-start; gap: 16px; }
+.bqv2 .guide-hub .data-row { display: flex; align-items: flex-start; gap: 18px; }
 .bqv2 .guide-num {
   flex-shrink: 0;
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--mono);
-  font-weight: 700;
-  font-size: 16px;
+  font-weight: 600;
+  font-size: 15px;
   line-height: 1;
-  color: #fff;
-  background: var(--accent-ink);
-  border-radius: 8px;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent-ink);
+  background: var(--accent-soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  transition: background .15s ease, border-color .15s ease, color .15s ease, transform .15s ease;
 }
 .bqv2 .guide-card-body { flex: 1; min-width: 0; }
 
@@ -1289,6 +1293,12 @@
    static data rows inside articles (a plain div) are unaffected */
 .bqv2 .guide a.data-row { text-decoration: none; transition: border-color .15s ease, background .15s ease; }
 .bqv2 .guide a.data-row:hover { border-color: var(--accent); background: var(--bg-2); }
+.bqv2 .guide a.data-row:hover .guide-num {
+  background: var(--accent-ink);
+  border-color: var(--accent-ink);
+  color: #fff;
+  transform: translateY(-1px);
+}
 
 /* inline citation markers + references list */
 .bqv2 .guide sup.cite { font-size: 0.65em; line-height: 0; margin-left: 1px; }
