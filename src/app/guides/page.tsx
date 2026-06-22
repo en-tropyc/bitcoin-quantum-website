@@ -82,14 +82,17 @@ export default function GuidesHub() {
                 <h1>Quantum-Secure Bitcoin</h1>
                 <p>{DESC}</p>
               </header>
-              <div className="guide" style={{ maxWidth: '72ch' }}>
-                {RELEASED_GUIDES.map((g) => (
-                  <Link key={g.slug} href={g.href} className="data-row" style={{ display: 'block', textDecoration: 'none' }}>
-                    <div className="row-head">
-                      <span className="label">{g.title}</span>
-                      <span className="ratio">&rarr;</span>
+              <div className="guide guide-hub">
+                {RELEASED_GUIDES.map((g, i) => (
+                  <Link key={g.slug} href={g.href} className="data-row">
+                    <span className="guide-num" aria-hidden="true">{i + 1}</span>
+                    <div className="guide-card-body">
+                      <div className="row-head">
+                        <span className="label">{g.title}</span>
+                        <span className="ratio">&rarr;</span>
+                      </div>
+                      <p className="detail">{g.blurb}</p>
                     </div>
-                    <p className="detail">{g.blurb}</p>
                   </Link>
                 ))}
               </div>

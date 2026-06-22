@@ -57,3 +57,5 @@ next-env.d.ts
 # internal content/voice/strategy + Typefully integration — local-only,
 # not for the public repo
 /docs/content/
+.gstack/
+.playwright-mcp/
