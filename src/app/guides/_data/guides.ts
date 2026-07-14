@@ -23,4 +23,12 @@ export const RELEASED_GUIDES: GuideListing[] = [
       'parameter change cascades through emission schedules, witness economics, ' +
       'chain growth, and node viability.',
   },
+  {
+    slug: 'taproot-quantum-vulnerability',
+    href: '/guides/quantum-secure-bitcoin/taproot-quantum-vulnerability',
+    title: 'Why Taproot Is Quantum-Vulnerable',
+    blurb:
+      'Taproot exposes the public key on-chain, so a quantum-resistant script in a ' +
+      "P2TR container is false security. BIP-360's P2MR removes the key path entirely.",
+  },
 ];
