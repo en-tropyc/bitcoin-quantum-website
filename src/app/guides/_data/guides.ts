@@ -31,4 +31,12 @@ export const RELEASED_GUIDES: GuideListing[] = [
       'Taproot exposes the public key on-chain, so a quantum-resistant script in a ' +
       "P2TR container is false security. BIP-360's P2MR removes the key path entirely.",
   },
+  {
+    slug: 'address-formats',
+    href: '/guides/quantum-secure-bitcoin/address-formats',
+    title: 'Quantum-Safe Addresses',
+    blurb:
+      'A 1,312-byte Dilithium public key still hashes to a 20-byte address. How ' +
+      'Hash160, dual prefixes, and bech32m keep quantum-resistant addresses small.',
+  },
 ];
