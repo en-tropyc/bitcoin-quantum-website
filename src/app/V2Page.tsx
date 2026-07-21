@@ -316,7 +316,7 @@ export default function V2Page() {
                     Mining guide
                   </a>
                 </div>
-                <span className="foot reveal">Available for Windows, macOS, and Linux</span>
+                <span className="foot reveal">Available for Windows and Linux · build from source on macOS</span>
               </div>
 
               <ol className="testnet-steps reveal d1">
