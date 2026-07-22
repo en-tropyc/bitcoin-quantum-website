@@ -39,4 +39,12 @@ export const RELEASED_GUIDES: GuideListing[] = [
       'A 1,312-byte Dilithium public key still hashes to a 20-byte address. How ' +
       'Hash160, dual prefixes, and bech32m keep quantum-resistant addresses small.',
   },
+  {
+    slug: 'mining-and-bootstrapping',
+    href: '/guides/quantum-secure-bitcoin/mining-and-bootstrapping',
+    title: 'Mining a Quantum-Resistant Network',
+    blurb:
+      'SHA-256 proof-of-work is unchanged, so existing ASICs work. The hard parts ' +
+      'are paying miners in 15x-larger transactions and bootstrapping without stealth.',
+  },
 ];
