@@ -48,7 +48,7 @@ const resources: Resource[] = [
   {
     tag: 'Binaries',
     title: 'Testnet release',
-    body: 'BTQ Core binaries for Windows, macOS, and Linux, plus checksums. Always points at the latest tagged release.',
+    body: 'BTQ Core binaries for Windows and Linux, plus checksums. Always points at the latest tagged release. macOS users can build from source.',
     href: 'https://github.com/btq-ag/btq-core/releases',
     cta: 'Download',
     external: true,
@@ -122,7 +122,7 @@ export default function TestnetPage() {
                 </a>
               </div>
               <span className="foot ml-foot reveal">
-                Available for Windows, macOS, and Linux
+                Available for Windows and Linux · build from source on macOS
               </span>
             </div>
           </header>

@@ -91,6 +91,8 @@ export default function AddressFormatsGuide() {
       title="Quantum-Safe Addresses"
       description="How a 1,312-byte public key becomes a 20-byte address — the same Hash160 compression Bitcoin has always used, applied to Dilithium keys with dual prefixes for safety."
       tableOfContents={TABLE_OF_CONTENTS}
+      slug="/guides/quantum-secure-bitcoin/address-formats"
+      datePublished="2026-06-17"
     >
       <section id="hash160-trick">
         <h2>The Hash160 Trick</h2>
