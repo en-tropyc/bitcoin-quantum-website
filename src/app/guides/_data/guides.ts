@@ -47,4 +47,12 @@ export const RELEASED_GUIDES: GuideListing[] = [
       'SHA-256 proof-of-work is unchanged, so existing ASICs work. The hard parts ' +
       'are paying miners in 15x-larger transactions and bootstrapping without stealth.',
   },
+  {
+    slug: 'migration-strategy',
+    href: '/guides/quantum-secure-bitcoin/migration-strategy',
+    title: 'The Gradual Migration',
+    blurb:
+      'You cannot flip a switch under a monetary system. Why ECDSA and Dilithium ' +
+      'must coexist for years, plus lost coins, exposed keys, and the canary-network thesis.',
+  },
 ];
