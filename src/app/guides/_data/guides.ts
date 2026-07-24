@@ -47,4 +47,28 @@ export const RELEASED_GUIDES: GuideListing[] = [
       'SHA-256 proof-of-work is unchanged, so existing ASICs work. The hard parts ' +
       'are paying miners in 15x-larger transactions and bootstrapping without stealth.',
   },
+  {
+    slug: 'migration-strategy',
+    href: '/guides/quantum-secure-bitcoin/migration-strategy',
+    title: 'The Gradual Migration',
+    blurb:
+      'You cannot flip a switch under a monetary system. Why ECDSA and Dilithium ' +
+      'must coexist for years, plus lost coins, exposed keys, and the canary-network thesis.',
+  },
+  {
+    slug: 'multi-algorithm-future',
+    href: '/guides/quantum-secure-bitcoin/multi-algorithm-future',
+    title: 'Beyond Dilithium',
+    blurb:
+      'SIKE was eliminated after years of analysis — one algorithm is never enough. ' +
+      'Falcon, SPHINCS+, and designing for cryptographic agility from the start.',
+  },
+  {
+    slug: 'hd-wallet-derivation',
+    href: '/guides/quantum-secure-bitcoin/hd-wallet-derivation',
+    title: 'HD Wallet Derivation',
+    blurb:
+      'Seed recovery works for hardened keys, but watch-only derivation does not. Why ' +
+      'lattices defeat naive BIP-32, and the Raccoon-G path to full HD wallets.',
+  },
 ];
