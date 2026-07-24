@@ -1250,6 +1250,30 @@
 }
 .bqv2 .guide .script-block .tag { color: var(--accent-ink); }
 
+/* editorial update / correction note */
+.bqv2 .guide .guide-note {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin: 0 0 24px;
+  font-size: 15px;
+  color: var(--ink-2);
+}
+.bqv2 .guide .guide-note .guide-note-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+  margin-bottom: 6px;
+}
+.bqv2 .guide .guide-note p { margin: 0 0 10px; }
+.bqv2 .guide .guide-note p:last-child { margin-bottom: 0; }
+.bqv2 .guide .guide-note a { color: var(--accent-ink); }
+
 .bqv2 .guide-back { margin-top: 48px; }
 .bqv2 .guide-back a { color: var(--ink-3); text-decoration: none; font-size: 14px; }
 .bqv2 .guide-back a:hover { color: var(--accent-ink); }
