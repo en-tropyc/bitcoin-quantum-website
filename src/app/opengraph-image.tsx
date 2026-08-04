@@ -21,7 +21,15 @@ export const contentType = 'image/png';
 const BG       = '#F1F2F4';
 const HEADLINE = '#0B5A8E';
 const ACCENT   = '#35A4EA';
-const INK_3    = '#888F99';
+
+// Fonts and the wordmark are read off disk rather than fetched from a CDN, so
+// image generation has no network dependency and can't break on an outage or a
+// non-200 response. The guides renderer (guides/_og.tsx) does the same, and
+// shares the Archivo binary.
+const archivo = readFileSync(join(process.cwd(), 'public/fonts/archivo-800.woff'));
+const newsreaderItalic = readFileSync(
+  join(process.cwd(), 'public/fonts/newsreader-500-italic.woff')
+);
 
 // Real wordmark from /public/v2 → data URL so Satori can render it.
 const logoSvg = readFileSync(
@@ -31,15 +39,6 @@ const logoSvg = readFileSync(
 const LOGO_DATA_URL = `data:image/svg+xml;base64,${Buffer.from(logoSvg).toString('base64')}`;
 
 export default async function Image() {
-  // @fontsource via jsdelivr has stable URLs (Google Fonts hashed
-  // paths change). Pulling the Latin subset binaries at build time.
-  const [archivo, newsreaderItalic] = await Promise.all([
-    fetch('https://cdn.jsdelivr.net/npm/@fontsource/archivo@5/files/archivo-latin-800-normal.woff')
-      .then((r) => r.arrayBuffer()),
-    fetch('https://cdn.jsdelivr.net/npm/@fontsource/newsreader@5/files/newsreader-latin-500-italic.woff')
-      .then((r) => r.arrayBuffer()),
-  ]);
-
   return new ImageResponse(
     (
       <div
@@ -70,7 +69,6 @@ export default async function Image() {
         />
 
         {/* top — real Bitcoin Quantum wordmark */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={LOGO_DATA_URL}
           alt="Bitcoin Quantum"
