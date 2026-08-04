@@ -90,9 +90,9 @@ export const RELEASED_GUIDES: GuideListing[] = [
       {
         date: '2026-08-05',
         summary:
-          'Corrected the claim that BTQ inherits Bitcoin\'s difficulty adjustment; it retargets ' +
-          'every block on a 45-block LWMA. Added sources for the network parameters and ' +
-          'signature sizes.',
+          "Corrected the claim that BTQ inherits Bitcoin's difficulty adjustment; it retargets " +
+          'every block on a linearly weighted moving average. Added sources for the network ' +
+          'parameters and signature sizes.',
       },
     ],
     title: 'Mining a Quantum-Resistant Network',

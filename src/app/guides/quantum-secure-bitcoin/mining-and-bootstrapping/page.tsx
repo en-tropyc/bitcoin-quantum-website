@@ -98,16 +98,18 @@ const REFERENCES: Reference[] = [
     cite: (
       <>
         BTQ-Core (v0.4.2-testnet): from the height set by <code>nLWMAHeight</code>, difficulty
-        retargets every block on a 45-block linearly-weighted moving average rather than
-        Bitcoin&rsquo;s 2,016-block window &mdash;{' '}
+        retargets every block on a linearly-weighted moving average rather than Bitcoin&rsquo;s
+        2,016-block window &mdash;{' '}
         <a href={`${REPO}/src/pow.cpp#L25`} target="_blank" rel="noopener noreferrer">
           pow.cpp L25
         </a>
-        , window constant in{' '}
+        , window constant (45) in{' '}
         <a href={`${REPO}/src/consensus/params.h#L143`} target="_blank" rel="noopener noreferrer">
           params.h L143
         </a>
-        .
+        . Since <code>bc42fcb4</code> (2 August 2026) the window is a per-network consensus
+        parameter, <code>nLWMAWindow</code>, still defaulting to 45 with no chainparams override, so
+        candidate values can be swept in tests without a rebuild.
       </>
     ),
   },
@@ -182,8 +184,7 @@ export default function MiningAndBootstrappingGuide() {
             As first published, this section said the block header format, the Merkle tree
             construction <em>and the difficulty adjustment algorithm</em> were all inherited from
             Bitcoin Core. The first two are; the third is not. BTQ replaced Bitcoin&rsquo;s
-            2,016-block retarget with a per-block linearly weighted moving average over a 45-block
-            window.
+            2,016-block retarget with a per-block linearly weighted moving average.
           </p>
           <p>
             This was wrong when it was written rather than overtaken by events: the LWMA hard fork
@@ -216,10 +217,19 @@ export default function MiningAndBootstrappingGuide() {
           whether a Dilithium spend is valid, or the chain forks. What is left untouched is block production.)
           A miner running SHA-256 hardware against a quantum-resistant chain is doing exactly the same work as
           mining Bitcoin. The block header format and the Merkle tree construction are inherited from Bitcoin
-          Core. The difficulty adjustment is not: BTQ retargets on <em>every</em> block using a 45-block
-          linearly weighted moving average, rather than Bitcoin&rsquo;s 2,016-block window &mdash; active from
-          block 1 on mainnet, and from height 300,000 on testnet.<Cite n={5} /> That changes how often the
-          target moves, not what a miner computes: the hashing your ASIC performs is identical either way.
+          Core. The difficulty adjustment is not: BTQ retargets on <em>every</em> block using a linearly
+          weighted moving average, rather than Bitcoin&rsquo;s 2,016-block window &mdash; active from block 1
+          on mainnet, and from height 300,000 on testnet.<Cite n={5} /> That changes how often the target
+          moves, not what a miner computes: the hashing your ASIC performs is identical either way.
+        </p>
+        <p>
+          The averaging window is <strong>45 blocks as of <code>v0.4.2-testnet</code></strong>, and it is a
+          tuning parameter rather than a settled constant &mdash; it was moved out of a compile-time constant
+          into per-network consensus parameters in August 2026 specifically so candidate values could be
+          swept and measured.<Cite n={5} /> Expect this number to move. The window trades two failure modes
+          against each other: a shorter window absorbs a hashrate burst with less overshoot, while a longer
+          one recovers faster once the burst leaves. Neither end dominates, which is why the value is settled
+          empirically rather than by argument.<Cite n={7} />
         </p>
       </section>
 
