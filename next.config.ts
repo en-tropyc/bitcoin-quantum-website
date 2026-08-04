@@ -22,6 +22,10 @@ const nextConfig: NextConfig = {
       { source: '/introduction',         destination: '/', permanent: true },
       { source: '/resources',            destination: '/testnet', permanent: true },
       { source: '/testnet/mining-guide', destination: 'https://docs.bitcoinquantum.com/mining/guide', permanent: true },
+      // The series lives one level down from its own path. /guides already is
+      // the Quantum-Secure Bitcoin collection, so send the guessable parent
+      // there rather than standing up a near-duplicate hub page.
+      { source: '/guides/quantum-secure-bitcoin', destination: '/guides', permanent: true },
     ];
   },
 

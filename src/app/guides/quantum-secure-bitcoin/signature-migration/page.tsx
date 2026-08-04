@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import GuideLayout from '../../_components/GuideLayout';
+import { socialMeta } from '@/lib/seo';
 
 const TABLE_OF_CONTENTS = [
   { id: 'why-ecdsa-breaks', title: 'Why ECDSA Breaks' },
@@ -130,17 +131,13 @@ export const metadata: Metadata = {
     'quantum-resistant Bitcoin',
   ],
   alternates: { canonical: '/guides/quantum-secure-bitcoin/signature-migration' },
-  openGraph: {
+  ...socialMeta({
     title: 'From ECDSA to Dilithium',
     description: "What changing Bitcoin's signature algorithm actually requires, in working code.",
-    url: '/guides/quantum-secure-bitcoin/signature-migration',
+    path: '/guides/quantum-secure-bitcoin/signature-migration',
     type: 'article',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'From ECDSA to Dilithium',
-    description: "What changing Bitcoin's signature algorithm actually requires.",
-  },
+    twitterDescription: "What changing Bitcoin's signature algorithm actually requires.",
+  }),
 };
 
 const SIZE_ROWS = [

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import V2Nav from '@/components/v2/V2Nav';
 import V2Footer from '@/components/v2/V2Footer';
@@ -34,6 +34,10 @@ function LockIcon() {
     </svg>
   );
 }
+/* useLayoutEffect has no server equivalent and warns during SSR. */
+const useIsomorphicLayoutEffect =
+  typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+
 /* ===== Animated count-up for stat cards ===== */
 function StatNumber({
   value,
@@ -45,10 +49,15 @@ function StatNumber({
   fixed?: string;
 }) {
   const ref = useRef<HTMLDivElement | null>(null);
-  const [display, setDisplay] = useState(0);
+  // Seeded with the real value so the server-rendered HTML carries "21" and
+  // not "0". Crawlers that never execute the animation — including most AI
+  // retrieval bots — read these stat cards as-is, so a zero here publishes
+  // the wrong number. useLayoutEffect rewinds to 0 before the first paint,
+  // which keeps the animation intact without ever showing the jump.
+  const [display, setDisplay] = useState(value ?? 0);
   const played = useRef(false);
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (fixed !== undefined || value === undefined) return;
     const el = ref.current;
     if (!el) return;
@@ -58,6 +67,8 @@ function StatNumber({
       setDisplay(value);
       return;
     }
+
+    if (!played.current) setDisplay(0);
 
     const io = new IntersectionObserver(
       (entries) => {

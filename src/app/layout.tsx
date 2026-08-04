@@ -3,6 +3,7 @@ import { Manrope, DM_Sans } from "next/font/google";
 import { GeistMono } from "geist/font/mono";
 import { Analytics } from '@vercel/analytics/next';
 import JsonLd from "@/components/JsonLd";
+import { SITE_URL, socialMeta } from "@/lib/seo";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -27,7 +28,7 @@ const DESCRIPTION =
   'Same 21 million coins, same proof-of-work network.';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://bitcoinquantum.com'),
+  metadataBase: new URL(SITE_URL),
   title: {
     template: '%s | Bitcoin Quantum',
     default: 'Bitcoin, secured for the quantum era.',
@@ -42,21 +43,11 @@ export const metadata: Metadata = {
   creator: "Bitcoin Quantum",
   publisher: "Bitcoin Quantum",
   formatDetection: { email: false, address: false, telephone: false },
-  openGraph: {
+  ...socialMeta({
     title: 'Bitcoin, secured for the quantum era.',
     description: DESCRIPTION,
-    url: 'https://bitcoinquantum.com',
-    siteName: 'Bitcoin Quantum',
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Bitcoin, secured for the quantum era.',
-    description: DESCRIPTION,
-    creator: '@bitcoinquantum',
-    site: '@bitcoinquantum',
-  },
+    path: '/',
+  }),
   robots: {
     index: true,
     follow: true,

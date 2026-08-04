@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import GuideLayout from '../../_components/GuideLayout';
+import { socialMeta } from '@/lib/seo';
 
 const TABLE_OF_CONTENTS = [
   { id: 'sha256-unchanged', title: 'SHA-256 Mining Is Unchanged' },
@@ -8,6 +9,121 @@ const TABLE_OF_CONTENTS = [
   { id: 'bootstrapping', title: 'Bootstrapping Without Stealth' },
   { id: 'utxo-consolidation', title: 'UTXO Consolidation and Block Timing' },
   { id: 'future-pow', title: 'Future: Quantum-Native Proof-of-Work' },
+  { id: 'references', title: 'References' },
+];
+
+interface Reference {
+  id: string;
+  cite: React.ReactNode;
+}
+
+const REPO = 'https://github.com/btq-ag/btq-core/blob/v0.4.2-testnet';
+
+function Cite({ n }: { n: number }) {
+  return (
+    <sup className="cite">
+      <a href={`#ref-${n}`}>{n}</a>
+    </sup>
+  );
+}
+
+const REFERENCES: Reference[] = [
+  {
+    id: 'ref-1',
+    cite: (
+      <>
+        Aggarwal, Brennen, Lee, Santha &amp; Tomamichel.{' '}
+        <em>Quantum attacks on Bitcoin, and how to protect against them</em> (2017). Finds
+        proof-of-work &ldquo;relatively resistant to substantial speedup by quantum computers
+        &hellip; mainly because specialized ASIC miners are extremely fast compared to the
+        estimated clock speed of near-term quantum computers.&rdquo;{' '}
+        <a href="https://arxiv.org/abs/1710.10377" target="_blank" rel="noopener noreferrer">
+          arXiv:1710.10377
+        </a>
+      </>
+    ),
+  },
+  {
+    id: 'ref-2',
+    cite: (
+      <>
+        BTQ-Core (v0.4.2-testnet): Dilithium2 parameter set &mdash; 2,420-byte signature,
+        1,312-byte public key &mdash; documented in{' '}
+        <a href={`${REPO}/src/script/script.h#L27`} target="_blank" rel="noopener noreferrer">
+          script.h L27
+        </a>
+        .
+      </>
+    ),
+  },
+  {
+    id: 'ref-3',
+    cite: (
+      <>
+        BTQ-Core (v0.4.2-testnet): <code>MAX_BLOCK_WEIGHT</code> of 8,000,000 and a{' '}
+        <code>WITNESS_SCALE_FACTOR</code> of 16 &mdash; four times Bitcoin&rsquo;s witness
+        discount factor &mdash; in{' '}
+        <a href={`${REPO}/src/consensus/consensus.h#L15`} target="_blank" rel="noopener noreferrer">
+          consensus.h L15
+        </a>{' '}
+        and{' '}
+        <a href={`${REPO}/src/consensus/consensus.h#L21`} target="_blank" rel="noopener noreferrer">
+          L21
+        </a>
+        .
+      </>
+    ),
+  },
+  {
+    id: 'ref-4',
+    cite: (
+      <>
+        BTQ-Core (v0.4.2-testnet): mainnet <code>nPowTargetSpacing</code> of 60 seconds and{' '}
+        <code>nSubsidyHalvingInterval</code> of 2,100,000 blocks &mdash; ten times
+        Bitcoin&rsquo;s interval, preserving the ~4-year halving cadence at 1-minute blocks
+        &mdash; in{' '}
+        <a href={`${REPO}/src/kernel/chainparams.cpp#L75`} target="_blank" rel="noopener noreferrer">
+          chainparams.cpp L75
+        </a>{' '}
+        and{' '}
+        <a href={`${REPO}/src/kernel/chainparams.cpp#L92`} target="_blank" rel="noopener noreferrer">
+          L92
+        </a>
+        .
+      </>
+    ),
+  },
+  {
+    id: 'ref-5',
+    cite: (
+      <>
+        BTQ-Core (v0.4.2-testnet): from the height set by <code>nLWMAHeight</code>, difficulty
+        retargets every block on a 45-block linearly-weighted moving average rather than
+        Bitcoin&rsquo;s 2,016-block window &mdash;{' '}
+        <a href={`${REPO}/src/pow.cpp#L25`} target="_blank" rel="noopener noreferrer">
+          pow.cpp L25
+        </a>
+        , window constant in{' '}
+        <a href={`${REPO}/src/consensus/params.h#L143`} target="_blank" rel="noopener noreferrer">
+          params.h L143
+        </a>
+        .
+      </>
+    ),
+  },
+  {
+    id: 'ref-6',
+    cite: (
+      <>
+        National Institute of Standards and Technology.{' '}
+        <em>FIPS 204: Module-Lattice-Based Digital Signature Standard</em> (August 2024). The
+        ML-DSA standard BTQ signatures implement.{' '}
+        <a href="https://csrc.nist.gov/pubs/fips/204/final" target="_blank" rel="noopener noreferrer">
+          csrc.nist.gov
+        </a>
+      </>
+    ),
+  },
 ];
 
 const DESC =
@@ -19,17 +135,13 @@ export const metadata: Metadata = {
   title: "Mining a Quantum-Resistant Network: What Changes and What Doesn't",
   description: DESC,
   alternates: { canonical: '/guides/quantum-secure-bitcoin/mining-and-bootstrapping' },
-  openGraph: {
+  ...socialMeta({
     title: 'Mining a Quantum-Resistant Network',
     description: "What changes and what doesn't when you mine a quantum-resistant blockchain.",
-    url: '/guides/quantum-secure-bitcoin/mining-and-bootstrapping',
+    path: '/guides/quantum-secure-bitcoin/mining-and-bootstrapping',
     type: 'article',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Mining a Quantum-Resistant Network',
-    description: 'SHA-256 is unchanged. The hard part is payouts and bootstrapping.',
-  },
+    twitterDescription: 'SHA-256 is unchanged. The hard part is payouts and bootstrapping.',
+  }),
 };
 
 export default function MiningAndBootstrappingGuide() {
@@ -92,7 +204,7 @@ export default function MiningAndBootstrappingGuide() {
           </li>
           <li>
             Difficulty retargeting keeps the block interval on schedule, but it does not level the playing
-            field. If quantum miners find blocks faster, difficulty rises to restore the target interval &mdash;
+            field.<Cite n={5} /> If quantum miners find blocks faster, difficulty rises to restore the target interval &mdash;
             the same mechanism that absorbs classical hardware improvements &mdash; yet a miner with a genuine
             speed advantage keeps that <em>relative</em> edge in hashrate share, exactly as a more efficient ASIC
             does. The real safeguard is that no quantum device is anywhere near that regime.
@@ -101,6 +213,7 @@ export default function MiningAndBootstrappingGuide() {
             The economic cost of quantum computation currently far exceeds the cost of equivalent
             classical ASIC hashing. A single SHA-256 ASIC produces trillions of hashes per second for a
             few thousand dollars. No quantum computer comes close to this cost-performance ratio.
+            <Cite n={1} />
           </li>
         </ul>
         <p>
@@ -123,7 +236,7 @@ export default function MiningAndBootstrappingGuide() {
         </p>
         <p>
           With Dilithium signatures, each spent input contributes ~3,732 bytes of witness data (2,420-byte
-          signature + 1,312-byte public key). A single transaction spending 100 Dilithium inputs would carry
+          signature + 1,312-byte public key).<Cite n={2} /><Cite n={6} /> A single transaction spending 100 Dilithium inputs would carry
           roughly 373 KB of witness data alone (100 &times; 3,732) &mdash; well past practical transaction size
           limits. The number of <em>recipients</em> is nearly free; the number of Dilithium-signed <em>inputs</em>
           is what explodes.
@@ -137,7 +250,7 @@ export default function MiningAndBootstrappingGuide() {
         <p>
           Fee implications multiply quickly. A Dilithium payout that spends 15 inputs costs several times the
           fees of an equivalent Bitcoin batch, because fees track witness weight and the witnesses are ~35x
-          larger per input. Pool operators must choose whether to absorb these fees (reducing margins), pass
+          larger per input.<Cite n={3} /> Pool operators must choose whether to absorb these fees (reducing margins), pass
           them to miners (reducing miner income), or adopt a hybrid approach. This is a real operational cost of
           quantum resistance that cannot be optimized away &mdash; larger signatures mean more block space
           consumed per input spent.
@@ -184,7 +297,7 @@ export default function MiningAndBootstrappingGuide() {
           can be combined in a single transaction.
         </p>
         <p>
-          The 1-minute block interval addresses this directly. With 10x more blocks per hour, the chain
+          The 1-minute block interval addresses this directly.<Cite n={4} /> With 10x more blocks per hour, the chain
           offers 10x more total block space for UTXO consolidation transactions. A pool with 500 pending
           UTXOs can consolidate them over multiple blocks without competing for space with regular
           transactions. The faster block interval also means mining rewards are distributed more
@@ -219,6 +332,17 @@ export default function MiningAndBootstrappingGuide() {
           consensus mechanisms would introduce unnecessary risk to a network whose primary value
           proposition is security.
         </p>
+      </section>
+
+      <section id="references">
+        <h2>References</h2>
+        <ol className="references">
+          {REFERENCES.map((ref) => (
+            <li key={ref.id} id={ref.id}>
+              {ref.cite}
+            </li>
+          ))}
+        </ol>
       </section>
     </GuideLayout>
   );

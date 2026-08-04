@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { socialMeta } from '@/lib/seo';
 
 const FAQ_DESC =
   'Common questions about Bitcoin Quantum (BTQ): quantum-resistant cryptography, ' +
@@ -12,16 +13,12 @@ export const metadata: Metadata = {
     'quantum-resistant cryptocurrency FAQ', 'BTQ mining questions', 'BTQ security',
   ],
   alternates: { canonical: '/faq' },
-  openGraph: {
+  ...socialMeta({
     title: 'FAQ | Bitcoin Quantum',
     description: FAQ_DESC,
-    url: '/faq',
+    path: '/faq',
     type: 'article',
-  },
-  twitter: {
-    title: 'FAQ | Bitcoin Quantum',
-    description: FAQ_DESC,
-  },
+  }),
 };
 
 export default function FAQLayout({

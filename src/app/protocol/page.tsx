@@ -4,6 +4,8 @@ import V2Nav from '@/components/v2/V2Nav';
 import V2Footer from '@/components/v2/V2Footer';
 import CryptographySection from '@/components/v2/CryptographySection';
 import RevealMount from '@/components/v2/RevealMount';
+import JsonLd from '@/components/JsonLd';
+import { SITE_NAME, SITE_URL, absoluteUrl, breadcrumbSchema, socialMeta } from '@/lib/seo';
 import '@/components/v2/v2.css';
 
 const PROTOCOL_DESC =
@@ -23,18 +25,37 @@ export const metadata: Metadata = {
     'quantum-resistant consensus',
   ],
   alternates: { canonical: '/protocol' },
-  openGraph: {
+  ...socialMeta({
     title: 'Protocol | Bitcoin Quantum',
     description: PROTOCOL_DESC,
-    url: '/protocol',
+    path: '/protocol',
     type: 'article',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Protocol | Bitcoin Quantum',
-    description: PROTOCOL_DESC,
-  },
+  }),
 };
+
+const PROTOCOL_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  '@id': absoluteUrl('/protocol'),
+  url: absoluteUrl('/protocol'),
+  headline: 'The Bitcoin Quantum protocol',
+  description: PROTOCOL_DESC,
+  inLanguage: 'en-US',
+  mainEntityOfPage: { '@type': 'WebPage', '@id': absoluteUrl('/protocol') },
+  author: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
+  publisher: {
+    '@type': 'Organization',
+    name: SITE_NAME,
+    logo: { '@type': 'ImageObject', url: `${SITE_URL}/icon.png` },
+  },
+  about: [
+    { '@type': 'Thing', name: 'CRYSTALS-Dilithium', sameAs: 'https://csrc.nist.gov/pubs/fips/204/final' },
+    { '@type': 'Thing', name: 'Post-quantum cryptography' },
+    { '@type': 'Thing', name: 'Bitcoin', sameAs: 'https://en.wikipedia.org/wiki/Bitcoin' },
+  ],
+};
+
+const PROTOCOL_BREADCRUMBS = breadcrumbSchema([{ name: 'Protocol', path: '/protocol' }]);
 
 /* Four specs that earn the stat-card treatment. Signatures lives in
    the Cryptography section beneath; Halving is a sub-detail of Supply. */
@@ -90,6 +111,8 @@ const refs = [
 export default function ProtocolPage() {
   return (
     <div className={v2FontClassName}>
+      <JsonLd data={PROTOCOL_SCHEMA} />
+      <JsonLd data={PROTOCOL_BREADCRUMBS} />
       <div className="bqv2" data-theme="light" data-headline="grotesque">
         <RevealMount />
         <V2Nav />

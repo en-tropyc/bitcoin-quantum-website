@@ -7,8 +7,7 @@ import RevealMount from '@/components/v2/RevealMount';
 import JsonLd from '@/components/JsonLd';
 import '@/components/v2/v2.css';
 import { RELEASED_GUIDES } from './_data/guides';
-
-const SITE_URL = 'https://bitcoinquantum.com';
+import { SITE_URL, socialMeta } from '@/lib/seo';
 
 const DESC =
   'Technical guides to quantum-secure Bitcoin: how post-quantum signatures, ' +
@@ -25,17 +24,11 @@ export const metadata: Metadata = {
     'BTQ technical guides',
   ],
   alternates: { canonical: '/guides' },
-  openGraph: {
+  ...socialMeta({
     title: 'Guides | Bitcoin Quantum',
     description: DESC,
-    url: '/guides',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Guides | Bitcoin Quantum',
-    description: DESC,
-  },
+    path: '/guides',
+  }),
 };
 
 const collectionSchema = {
