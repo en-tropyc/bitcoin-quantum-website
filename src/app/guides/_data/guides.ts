@@ -86,6 +86,15 @@ export const RELEASED_GUIDES: GuideListing[] = [
     href: '/guides/quantum-secure-bitcoin/mining-and-bootstrapping',
     datePublished: '2026-07-29',
     dateModified: '2026-07-29',
+    changes: [
+      {
+        date: '2026-08-05',
+        summary:
+          'Corrected the claim that BTQ inherits Bitcoin\'s difficulty adjustment; it retargets ' +
+          'every block on a 45-block LWMA. Added sources for the network parameters and ' +
+          'signature sizes.',
+      },
+    ],
     title: 'Mining a Quantum-Resistant Network',
     blurb:
       'SHA-256 proof-of-work is unchanged, so existing ASICs work. The hard parts ' +

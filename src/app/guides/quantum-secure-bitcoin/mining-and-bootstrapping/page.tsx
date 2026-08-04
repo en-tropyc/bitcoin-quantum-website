@@ -124,6 +124,28 @@ const REFERENCES: Reference[] = [
       </>
     ),
   },
+  {
+    id: 'ref-7',
+    cite: (
+      <>
+        <em>
+          Empirical Behavior of the Bitcoin Quantum Protocol under Difficulty Retargeting Stress and
+          Network Partitioning
+        </em>{' '}
+        (7 May 2026). A 293-trial Monte Carlo campaign across legacy, LWMA-1 and ASERT retargeting.
+        Under a &minus;95% hashrate shock the legacy retarget leaves mean block intervals near 678
+        seconds &mdash; 11.3&times; target &mdash; for thousands of blocks, while LWMA-1 recovers
+        within roughly 80 blocks.{' '}
+        <a
+          href="https://docs.bitcoinquantum.com/btq-empirical-behavior-whitepaper.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          docs.bitcoinquantum.com
+        </a>
+      </>
+    ),
+  },
 ];
 
 const DESC =
@@ -154,6 +176,25 @@ export default function MiningAndBootstrappingGuide() {
     >
       <section id="sha256-unchanged">
         <h2>SHA-256 Mining Is Unchanged</h2>
+        <div className="guide-note">
+          <span className="guide-note-label">Correction &middot; 5 August 2026</span>
+          <p>
+            As first published, this section said the block header format, the Merkle tree
+            construction <em>and the difficulty adjustment algorithm</em> were all inherited from
+            Bitcoin Core. The first two are; the third is not. BTQ replaced Bitcoin&rsquo;s
+            2,016-block retarget with a per-block linearly weighted moving average over a 45-block
+            window.
+          </p>
+          <p>
+            This was wrong when it was written rather than overtaken by events: the LWMA hard fork
+            shipped in <code>v0.3.1</code> on 1 April 2026, about four months before this guide was
+            published. The surrounding argument is unaffected &mdash; a change to how often the
+            target is recomputed does not change the proof-of-work a miner performs &mdash; but the
+            claim as stated was inaccurate, so it has been replaced rather than quietly softened.
+            The motivation for the change is the subject of a separate empirical study.
+            <Cite n={7} />
+          </p>
+        </div>
         <p>
           The most counter-intuitive fact about quantum-resistant Bitcoin mining: <strong>the mining
           algorithm does not change</strong>. Proof-of-work mining uses SHA-256d (double SHA-256) to
@@ -174,8 +215,11 @@ export default function MiningAndBootstrappingGuide() {
           blocks are produced. (Signature validation is still a consensus rule: every full node must agree on
           whether a Dilithium spend is valid, or the chain forks. What is left untouched is block production.)
           A miner running SHA-256 hardware against a quantum-resistant chain is doing exactly the same work as
-          mining Bitcoin. The block header format, the Merkle tree construction, and the difficulty adjustment
-          algorithm are all inherited from Bitcoin Core.
+          mining Bitcoin. The block header format and the Merkle tree construction are inherited from Bitcoin
+          Core. The difficulty adjustment is not: BTQ retargets on <em>every</em> block using a 45-block
+          linearly weighted moving average, rather than Bitcoin&rsquo;s 2,016-block window &mdash; active from
+          block 1 on mainnet, and from height 300,000 on testnet.<Cite n={5} /> That changes how often the
+          target moves, not what a miner computes: the hashing your ASIC performs is identical either way.
         </p>
       </section>
 
