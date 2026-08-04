@@ -173,8 +173,6 @@ export default function SignatureMigrationGuide() {
       description="What changing Bitcoin's signature algorithm actually requires: from the mathematical vulnerability to the new opcodes, wallet formats, and the challenge of running two cryptographic systems in parallel."
       tableOfContents={TABLE_OF_CONTENTS}
       slug="/guides/quantum-secure-bitcoin/signature-migration"
-      datePublished="2026-06-03"
-      dateModified="2026-06-12"
       keywords={[
         'ECDSA to Dilithium',
         'CRYSTALS-Dilithium',

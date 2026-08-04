@@ -3,7 +3,7 @@ import { Manrope, DM_Sans } from "next/font/google";
 import { GeistMono } from "geist/font/mono";
 import { Analytics } from '@vercel/analytics/next';
 import JsonLd from "@/components/JsonLd";
-import { SITE_URL, socialMeta } from "@/lib/seo";
+import { SITE_NAME, SITE_URL, X_ACCOUNT_URL, socialMeta } from "@/lib/seo";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -78,12 +78,12 @@ export default function RootLayout({
           data={{
             '@context': 'https://schema.org',
             '@type': 'Organization',
-            name: 'Bitcoin Quantum',
+            name: SITE_NAME,
             alternateName: 'BTQ',
-            url: 'https://bitcoinquantum.com',
-            logo: 'https://bitcoinquantum.com/icon.png',
+            url: SITE_URL,
+            logo: `${SITE_URL}/icon.png`,
             sameAs: [
-              'https://x.com/btc_quantum',
+              X_ACCOUNT_URL,
               'https://github.com/btq-ag/btq-core',
               'https://t.me/+bE6I4gqX4Vo1ODJh',
             ],
@@ -95,11 +95,11 @@ export default function RootLayout({
           data={{
             '@context': 'https://schema.org',
             '@type': 'WebSite',
-            name: 'Bitcoin Quantum',
-            url: 'https://bitcoinquantum.com',
+            name: SITE_NAME,
+            url: SITE_URL,
             potentialAction: {
               '@type': 'SearchAction',
-              target: 'https://bitcoinquantum.com/faq?q={search_term_string}',
+              target: `${SITE_URL}/faq?q={search_term_string}`,
               'query-input': 'required name=search_term_string',
             },
           }}

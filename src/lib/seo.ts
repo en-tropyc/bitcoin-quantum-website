@@ -9,6 +9,9 @@ export const SITE_NAME = 'Bitcoin Quantum';
  */
 export const X_HANDLE = '@btc_quantum';
 
+/** Profile URL for the same account, for Organization `sameAs` and footers. */
+export const X_ACCOUNT_URL = `https://x.com/${X_HANDLE.slice(1)}`;
+
 type SocialType = 'website' | 'article';
 
 /**

@@ -71,7 +71,7 @@ const faqData: FAQItem[] = [
     category: 'general',
     question: 'What is the maximum supply of BTQ?',
     answer:
-      "21 million coins. The same halving schedule (every 210,000 blocks), the same reward decay, the same monetary policy that makes Bitcoin sound money.",
+      "21 million coins, and the same ~4-year halving cadence that makes Bitcoin sound money. The block interval is what differs: BTQ halves every 2,100,000 blocks rather than Bitcoin's 210,000, because BTQ blocks arrive every minute instead of every ten. Ten times the blocks, ten times the interval, identical emission curve.",
   },
   {
     id: 9,

@@ -5,8 +5,8 @@ import V2Footer from '@/components/v2/V2Footer';
 import RevealMount from '@/components/v2/RevealMount';
 import JsonLd from '@/components/JsonLd';
 import '@/components/v2/v2.css';
-
-const SITE_URL = 'https://bitcoinquantum.com';
+import { SITE_URL } from '@/lib/seo';
+import { RELEASED_GUIDES } from '../_data/guides';
 
 interface TocEntry {
   id: string;
@@ -20,8 +20,14 @@ interface GuideLayoutProps {
   children: React.ReactNode;
   /** Canonical path for this guide, e.g. "/guides/quantum-secure-bitcoin/signature-migration". */
   slug: string;
-  /** ISO date (YYYY-MM-DD) the guide was first published. */
-  datePublished: string;
+  /**
+   * ISO date (YYYY-MM-DD) the guide was first published. Omit to take the date
+   * from the guide registry, which is what `sitemap.ts` and `llms.txt` read —
+   * omitting is preferred, because a value passed here that disagrees with the
+   * registry publishes one date in the article schema and another in the
+   * sitemap.
+   */
+  datePublished?: string;
   /** ISO date the guide was last substantively updated. Defaults to datePublished. */
   dateModified?: string;
   /** Topical keywords for the article schema. */
@@ -40,6 +46,19 @@ export default function GuideLayout({
 }: GuideLayoutProps) {
   const canonicalUrl = `${SITE_URL}${slug}`;
 
+  // The registry backing sitemap.ts and llms.txt is the source of truth for
+  // dates; explicit props override it only where a page still passes them.
+  const listing = RELEASED_GUIDES.find((g) => g.href === slug);
+  const published = datePublished ?? listing?.datePublished;
+  const modified = dateModified ?? listing?.dateModified ?? published;
+
+  if (!published) {
+    throw new Error(
+      `GuideLayout: no datePublished for "${slug}". Add the guide to RELEASED_GUIDES ` +
+        'in src/app/guides/_data/guides.ts, or pass datePublished explicitly.'
+    );
+  }
+
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -57,8 +76,8 @@ export default function GuideLayout({
     description,
     url: canonicalUrl,
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
-    datePublished,
-    dateModified: dateModified ?? datePublished,
+    datePublished: published,
+    dateModified: modified,
     inLanguage: 'en-US',
     image: `${SITE_URL}/opengraph-image`,
     author: { '@type': 'Organization', name: 'Bitcoin Quantum', url: SITE_URL },

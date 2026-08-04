@@ -151,7 +151,6 @@ export default function MiningAndBootstrappingGuide() {
       description="The proof-of-work algorithm doesn't change. Existing mining hardware works. But payout transactions are 15x larger, and you can't bootstrap a network in secret when the whole point is transparency."
       tableOfContents={TABLE_OF_CONTENTS}
       slug="/guides/quantum-secure-bitcoin/mining-and-bootstrapping"
-      datePublished="2026-07-29"
     >
       <section id="sha256-unchanged">
         <h2>SHA-256 Mining Is Unchanged</h2>

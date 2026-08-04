@@ -155,8 +155,6 @@ export default function BlockSizeTradeoffsGuide() {
       description="Why quantum-resistant transactions need bigger blocks, and how every parameter change cascades through emission schedules, witness economics, chain growth, and node viability."
       tableOfContents={TABLE_OF_CONTENTS}
       slug="/guides/quantum-secure-bitcoin/block-size-tradeoffs"
-      datePublished="2026-06-04"
-      dateModified="2026-06-12"
       keywords={[
         'Bitcoin block size',
         'quantum-resistant transactions',
