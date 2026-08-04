@@ -49,7 +49,8 @@ export const RELEASED_GUIDES: GuideListing[] = [
     slug: 'address-formats',
     href: '/guides/quantum-secure-bitcoin/address-formats',
     datePublished: '2026-06-17',
-    dateModified: '2026-06-17',
+    // Bump together with the dated correction note in the guide body.
+    dateModified: '2026-07-29',
     title: 'Quantum-Safe Addresses',
     blurb:
       'A 1,312-byte Dilithium public key still hashes to a 20-byte address. How ' +

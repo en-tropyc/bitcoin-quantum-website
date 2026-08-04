@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import GuideLayout from '../../_components/GuideLayout';
+import { socialMeta } from '@/lib/seo';
 
 const TABLE_OF_CONTENTS = [
   { id: 'hash160-trick', title: 'The Hash160 Trick' },
@@ -46,35 +47,56 @@ const REFERENCES: Reference[] = [
       </>
     ),
   },
+  {
+    id: 'ref-3',
+    cite: (
+      <>
+        Chambers, O. &amp; Chambers, B.{' '}
+        <em>A Field Guide to BTQ Transaction Types</em>, BTQ Core, 28 July 2026 (network{' '}
+        <code>v0.4.2-testnet</code>). Documents P2MR as the single home for Dilithium, the retirement
+        of the Dilithium witness-v0 format, and legacy Dilithium Base58 as historical, each with a
+        confirmed testnet transaction on the{' '}
+        <a href="https://explorer.bitcoinquantum.com" target="_blank" rel="noopener noreferrer">
+          public explorer
+        </a>
+        .
+      </>
+    ),
+  },
 ];
 
 const DESC =
-  'A 1,312-byte Dilithium public key compressed to a 20-byte address using the same ' +
-  'Hash160 function Bitcoin has always used. Dual prefixes, bech32m encoding, and why ' +
-  'address reuse matters more than ever.';
+  'A 1,312-byte Dilithium public key never lands in an address. Hash160 holds ECDSA and ' +
+  'legacy Dilithium addresses to 20 bytes; current Dilithium destinations commit to a ' +
+  '32-byte Merkle root under P2MR. Prefixes, bech32m, and why address reuse matters more ' +
+  'than ever.';
 
 export const metadata: Metadata = {
-  title: 'Quantum-Safe Addresses: How Hash160 Keeps Them Small',
+  title: 'Quantum-Safe Addresses: How BTQ Keeps Them Small',
   description: DESC,
   alternates: { canonical: '/guides/quantum-secure-bitcoin/address-formats' },
-  openGraph: {
+  ...socialMeta({
     title: 'Quantum-Safe Addresses',
-    description: 'How Hash160 keeps quantum-resistant addresses small.',
-    url: '/guides/quantum-secure-bitcoin/address-formats',
+    description:
+      'Why a 1,312-byte post-quantum public key still produces a short address.',
+    path: '/guides/quantum-secure-bitcoin/address-formats',
     type: 'article',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Quantum-Safe Addresses',
-    description: 'How Hash160 keeps quantum-resistant addresses small.',
-  },
+  }),
 };
 
-const PREFIX_ROWS = [
-  { format: 'Legacy (Base58)', ecdsa: 'B...', dilithium: 'D...' },
-  { format: 'SegWit (Bech32)', ecdsa: 'qbtc1q...', dilithium: 'dbtc1q...' },
-  { format: 'Testnet (Bech32)', ecdsa: 'tbtq1q...', dilithium: 'tdbt1q...' },
-  { format: 'P2MR (SegWit v2)', ecdsa: 'N/A', dilithium: 'bc1z...' },
+/**
+ * Verified against btq-core `src/kernel/chainparams.cpp` at tag v0.4.2-testnet:
+ * mainnet bech32_hrp "qbtc", testnet "tbtq". P2MR is witness v2 under the *same*
+ * HRP as ECDSA, distinguished by the version character (q = v0, z = v2) — not a
+ * separate HRP. `null` means the combination is not a spendable destination.
+ */
+const PREFIX_ROWS: { format: string; ecdsa: string | null; dilithium: string | null }[] = [
+  { format: 'Legacy (Base58), mainnet', ecdsa: 'B...', dilithium: null },
+  { format: 'Legacy (Base58), testnet', ecdsa: 'm... / n...', dilithium: 'n...' },
+  { format: 'SegWit v0 (Bech32), mainnet', ecdsa: 'qbtc1q...', dilithium: null },
+  { format: 'SegWit v0 (Bech32), testnet', ecdsa: 'tbtq1q...', dilithium: null },
+  { format: 'P2MR (SegWit v2, Bech32m), mainnet', ecdsa: null, dilithium: 'qbtc1z...' },
+  { format: 'P2MR (SegWit v2, Bech32m), testnet', ecdsa: null, dilithium: 'tbtq1z...' },
 ];
 
 function Cite({ n }: { n: number }) {
@@ -89,10 +111,9 @@ export default function AddressFormatsGuide() {
   return (
     <GuideLayout
       title="Quantum-Safe Addresses"
-      description="How a 1,312-byte public key becomes a 20-byte address — the same Hash160 compression Bitcoin has always used, applied to Dilithium keys with dual prefixes for safety."
+      description="A 1,312-byte public key still yields a short address, because an address commits to a key rather than carrying one. Hash160 does that for ECDSA and for BTQ's original Dilithium format; today's Dilithium destinations commit to a 32-byte Merkle root under P2MR."
       tableOfContents={TABLE_OF_CONTENTS}
       slug="/guides/quantum-secure-bitcoin/address-formats"
-      datePublished="2026-06-17"
     >
       <section id="hash160-trick">
         <h2>The Hash160 Trick</h2>
@@ -108,23 +129,67 @@ export default function AddressFormatsGuide() {
           checksum to create the address you see in wallets.
         </p>
         <p>
-          The same construction works for Dilithium keys. Take the 1,312-byte Dilithium public key,
-          apply SHA256, then apply RIPEMD160, and you get a 20-byte key ID &mdash; exactly the same
-          size as a Bitcoin ECDSA key ID. The full public key never appears on-chain until the moment
-          you spend from the address. Until then, only the 20-byte hash is stored in the UTXO set.
+          The same construction works on a Dilithium key. Take the 1,312-byte public key, apply
+          SHA256, then RIPEMD160, and you get a 20-byte key ID &mdash; exactly the size of a Bitcoin
+          ECDSA key ID. BTQ&rsquo;s original Dilithium address format did precisely this, and testnet
+          still carries outputs of that shape.<Cite n={3} />
         </p>
         <p>
-          This has a critical security benefit: the hash provides pre-image resistance. Even a quantum
-          computer running Grover&rsquo;s algorithm gets only a quadratic speedup against hash functions
-          &mdash; reducing RIPEMD160&rsquo;s security from 160 bits to approximately 80 bits, which is
-          still computationally infeasible. As long as you never reveal the full public key (by spending
-          from the address), a quantum attacker cannot apply Shor&rsquo;s algorithm because they
-          don&rsquo;t have the elliptic curve point to work with.
+          That format is now historical. Dilithium was consolidated into <strong>P2MR</strong>
+          (Pay-to-Merkle-Root, witness version 2), where the output commits not to a 20-byte hash of
+          one public key but to a <strong>32-byte Merkle root</strong> of a script tree &mdash; which
+          is what lets a single address stand for a single-key check, a multisig policy, or a
+          threshold accumulator.<Cite n={3} /> So Hash160 is the right mental model for ECDSA
+          addresses and for the deprecated Dilithium Base58 form; it is not how a Dilithium address
+          you generate today is built. The <a href="#p2mr-addresses">P2MR section</a> covers the
+          current construction.
+        </p>
+        <p>
+          What survives the change is the property that matters: <strong>an address is a commitment,
+          not a key</strong>. Whether it commits to a 20-byte key ID or a 32-byte Merkle root, the
+          Dilithium public key itself never appears on-chain until you spend. Twelve bytes of
+          difference does not change the economics &mdash; both are trivially small next to the
+          1,312-byte key they stand in for.
+        </p>
+        <p>
+          The commitment also carries a security benefit: it provides pre-image resistance. A quantum
+          computer running Grover&rsquo;s algorithm gets only a quadratic speedup against hash
+          functions &mdash; roughly halving the effective bits, which leaves both constructions
+          computationally infeasible to invert. As long as the full public key stays unrevealed, a
+          quantum attacker has nothing to run Shor&rsquo;s algorithm against.
         </p>
       </section>
 
       <section id="dual-prefixes">
         <h2>Dual Address Prefixes</h2>
+        <div className="guide-note">
+          <span className="guide-note-label">Correction &middot; 29 July 2026</span>
+          <p>
+            The prefix table below has been corrected. As first published it listed P2MR addresses as{' '}
+            <code>bc1z...</code>, which is Bitcoin&rsquo;s human-readable prefix rather than
+            BTQ&rsquo;s, and it listed <code>dbtc1q...</code> / <code>tdbt1q...</code> as Dilithium
+            receive addresses.
+          </p>
+          <p>
+            Two things changed since. Dilithium was restricted to P2MR (BIP-360) tapscript, so the
+            witness-v0 Dilithium bech32 format is no longer a spendable destination on any network.
+            And P2MR does not use a Dilithium-specific prefix at all: it shares the ECDSA
+            human-readable prefix and is distinguished by the witness version character.
+          </p>
+          <p>
+            The same consolidation makes the Hash160 construction described above a historical
+            account rather than a current one. It is how BTQ&rsquo;s original Dilithium Base58
+            addresses were built, and how ECDSA addresses are still built, but a Dilithium address
+            generated today commits to a 32-byte Merkle root instead. That section has been scoped
+            accordingly; it was not removed, because the deprecated outputs it describes are still
+            on testnet.
+          </p>
+          <p>
+            The corrected values are verified against btq-core at <code>v0.4.2-testnet</code>,
+            against live testnet outputs, and against the BTQ Core field guide to transaction
+            types.<Cite n={3} />
+          </p>
+        </div>
         <p>
           A quantum-resistant chain that supports both ECDSA and Dilithium must distinguish between the
           two address types. Sending funds to the wrong address type could result in lost coins if the
@@ -146,18 +211,28 @@ export default function AddressFormatsGuide() {
               {PREFIX_ROWS.map((row) => (
                 <tr key={row.format}>
                   <td>{row.format}</td>
-                  <td>{row.ecdsa === 'N/A' ? <em>N/A</em> : <code>{row.ecdsa}</code>}</td>
-                  <td><code>{row.dilithium}</code></td>
+                  <td>{row.ecdsa ? <code>{row.ecdsa}</code> : <em>not applicable</em>}</td>
+                  <td>
+                    {row.dilithium ? <code>{row.dilithium}</code> : <em>not a valid destination</em>}
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
         <p>
-          The prefix distinction serves as a visual safety check &mdash; users and wallet software can
-          immediately identify whether an address expects an ECDSA or Dilithium signature. This prevents
-          accidental cross-scheme transactions during the migration period. The convention of
-          &ldquo;D&rdquo; for Dilithium addresses provides intuitive recognition.
+          The distinction still serves as a visual safety check, but it is carried by the{' '}
+          <strong>witness version character</strong> rather than by a separate prefix. On testnet an
+          ECDSA SegWit v0 address reads <code>tbtq1q...</code> and a Dilithium P2MR address reads{' '}
+          <code>tbtq1z...</code> &mdash; same human-readable prefix, and the character after the
+          &ldquo;1&rdquo; separator tells you which scheme will authorize the spend. Wallet software
+          should key off the witness version, not the prefix string.
+        </p>
+        <p>
+          The legacy Base58 Dilithium format remains decodable so history and block explorers still
+          render it, and it stays a valid payment destination on testnet only while P2MR-only
+          enforcement is unscheduled there. It is deprecated: new wallets and mining payouts should use{' '}
+          <code>getnewdilithiumaddress</code>, which returns a P2MR address.
         </p>
       </section>
 
@@ -171,9 +246,9 @@ export default function AddressFormatsGuide() {
         <p>
           A Bech32m address has three parts: a human-readable prefix (HRP), a separator
           (&ldquo;1&rdquo;), and a data section including a version byte and the witness program. For
-          Dilithium SegWit addresses, the witness program is the same 20-byte Hash160 of the Dilithium
-          public key. For P2MR addresses, the witness program is the 32-byte Merkle root of the script
-          tree.
+          ECDSA SegWit v0 addresses, the witness program is a 20-byte Hash160 of the public key. For
+          P2MR addresses &mdash; the only bech32m form Dilithium uses &mdash; the witness program is
+          the 32-byte Merkle root of the script tree.
         </p>
         <p>
           The error detection properties of Bech32m are especially important for Dilithium addresses
@@ -212,8 +287,9 @@ export default function AddressFormatsGuide() {
       <section id="p2mr-addresses">
         <h2>P2MR: The Quantum-Safe Address</h2>
         <p>
-          Pay-to-Merkle-Root (P2MR) addresses, as proposed in BIP-360, use SegWit version 2 with the{' '}
-          <code>bc1z...</code> prefix. Unlike P2PKH or P2WPKH (which store a hash of the public key) or
+          Pay-to-Merkle-Root (P2MR) addresses, as proposed in BIP-360, use SegWit version 2 &mdash;{' '}
+          <code>qbtc1z...</code> on mainnet, <code>tbtq1z...</code> on testnet. Unlike P2PKH or
+          P2WPKH (which store a hash of the public key) or
           P2TR (which stores the tweaked public key directly), P2MR stores only the 32-byte Merkle root
           of the script tree.<Cite n={2} />
         </p>

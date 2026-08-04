@@ -1258,6 +1258,27 @@
 }
 .bqv2 .guide .script-block .tag { color: var(--accent-ink); }
 
+/* dated correction note: version drift is disclosed, not silently rewritten */
+.bqv2 .guide .guide-note {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent-ink);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin: 0 0 20px;
+}
+.bqv2 .guide .guide-note .guide-note-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+  margin-bottom: 6px;
+}
+.bqv2 .guide .guide-note p { font-size: 0.94em; margin-bottom: 10px; }
+.bqv2 .guide .guide-note p:last-child { margin-bottom: 0; }
+
 .bqv2 .guide-back { margin-top: 48px; }
 .bqv2 .guide-back a { color: var(--ink-3); text-decoration: none; font-size: 14px; }
 .bqv2 .guide-back a:hover { color: var(--accent-ink); }
