@@ -1,16 +1,34 @@
+export interface GuideChange {
+  /** ISO date (YYYY-MM-DD) the change shipped. */
+  date: string;
+  /** One sentence, past tense, describing what changed for a reader. */
+  summary: string;
+}
+
 export interface GuideListing {
   slug: string;
   href: string;
   title: string;
   blurb: string;
-  /**
-   * ISO dates, mirrored from the `datePublished` / `dateModified` props each
-   * guide passes to GuideLayout. Kept here so `sitemap.ts` can publish a real
-   * per-URL `lastmod` instead of a build timestamp. If you change a guide's
-   * dates, change them in both places.
-   */
+  /** ISO date (YYYY-MM-DD) the guide was first published. */
   datePublished: string;
+  /**
+   * Last substantive edit. Only consulted for guides with no `changes` entries
+   * — read `guideDateModified()` rather than this field directly.
+   */
   dateModified: string;
+  /**
+   * Reverse-chronological changelog, newest first. When present it is the
+   * single source of truth for the guide's modification date: the rendered
+   * "Changes" section, the TechArticle `dateModified`, and the sitemap
+   * `lastmod` all derive from it, so there is nothing to keep in sync.
+   */
+  changes?: GuideChange[];
+}
+
+/** Newest change date if the guide keeps a changelog, else its flat field. */
+export function guideDateModified(guide: GuideListing): string {
+  return guide.changes?.[0]?.date ?? guide.dateModified;
 }
 
 export const RELEASED_GUIDES: GuideListing[] = [
@@ -49,12 +67,19 @@ export const RELEASED_GUIDES: GuideListing[] = [
     slug: 'address-formats',
     href: '/guides/quantum-secure-bitcoin/address-formats',
     datePublished: '2026-06-17',
-    // Bump together with the dated correction note in the guide body.
-    dateModified: '2026-07-29',
+    dateModified: '2026-06-17',
+    changes: [
+      {
+        date: '2026-07-29',
+        summary:
+          'Corrected the prefix table for the P2MR consolidation, and scoped the Hash160 ' +
+          'construction to ECDSA and legacy Dilithium addresses.',
+      },
+    ],
     title: 'Quantum-Safe Addresses',
     blurb:
-      'A 1,312-byte Dilithium public key still hashes to a 20-byte address. How ' +
-      'Hash160, dual prefixes, and bech32m keep quantum-resistant addresses small.',
+      'A 1,312-byte Dilithium public key never lands in an address. Hash160 holds ECDSA ' +
+      'and legacy Dilithium addresses to 20 bytes; P2MR commits to a 32-byte Merkle root.',
   },
   {
     slug: 'mining-and-bootstrapping',

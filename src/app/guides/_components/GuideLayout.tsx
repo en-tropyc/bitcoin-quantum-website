@@ -6,11 +6,24 @@ import RevealMount from '@/components/v2/RevealMount';
 import JsonLd from '@/components/JsonLd';
 import '@/components/v2/v2.css';
 import { SITE_URL } from '@/lib/seo';
-import { RELEASED_GUIDES } from '../_data/guides';
+import { RELEASED_GUIDES, guideDateModified } from '../_data/guides';
 
 interface TocEntry {
   id: string;
   title: string;
+}
+
+/**
+ * "2026-07-29" -> "29 July 2026". Parsed as UTC so the rendered date cannot
+ * shift a day depending on where the build runs.
+ */
+function formatChangeDate(iso: string): string {
+  return new Date(`${iso}T00:00:00Z`).toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
 }
 
 interface GuideLayoutProps {
@@ -50,7 +63,16 @@ export default function GuideLayout({
   // dates; explicit props override it only where a page still passes them.
   const listing = RELEASED_GUIDES.find((g) => g.href === slug);
   const published = datePublished ?? listing?.datePublished;
-  const modified = dateModified ?? listing?.dateModified ?? published;
+  const modified =
+    dateModified ?? (listing ? guideDateModified(listing) : undefined) ?? published;
+  const changes = listing?.changes ?? [];
+
+  // The Changes section is rendered by this layout, so it is appended to the
+  // contents list here rather than repeated in every guide's TOC array.
+  const toc =
+    changes.length > 0
+      ? [...tableOfContents, { id: 'changes', title: 'Changes' }]
+      : tableOfContents;
 
   if (!published) {
     throw new Error(
@@ -118,7 +140,7 @@ export default function GuideLayout({
                   <div className="guide-toc-inner">
                     <h2>In this guide</h2>
                     <ol>
-                      {tableOfContents.map((entry, i) => (
+                      {toc.map((entry, i) => (
                         <li key={entry.id}>
                           <a href={`#${entry.id}`}>
                             <span className="n">{i + 1}.</span>
@@ -130,7 +152,30 @@ export default function GuideLayout({
                   </div>
                 </aside>
 
-                <div className="guide">{children}</div>
+                <div className="guide">
+                  {children}
+
+                  {/* Corrections and substantive revisions accumulate here rather
+                      than disappearing into the prose, so the guide reads as
+                      maintained instead of occasionally patched. */}
+                  {changes.length > 0 && (
+                    <section id="changes" className="guide-changes">
+                      <h2>Changes</h2>
+                      <ol>
+                        {changes.map((change) => (
+                          <li key={change.date}>
+                            <time dateTime={change.date}>{formatChangeDate(change.date)}</time>
+                            <span>{change.summary}</span>
+                          </li>
+                        ))}
+                        <li>
+                          <time dateTime={published}>{formatChangeDate(published)}</time>
+                          <span>Published.</span>
+                        </li>
+                      </ol>
+                    </section>
+                  )}
+                </div>
               </div>
 
               <div className="guide-back">

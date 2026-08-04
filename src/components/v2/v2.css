@@ -1279,6 +1279,31 @@
 .bqv2 .guide .guide-note p { font-size: 0.94em; margin-bottom: 10px; }
 .bqv2 .guide .guide-note p:last-child { margin-bottom: 0; }
 
+/* per-guide revision history, rendered at the foot of the article */
+.bqv2 .guide .guide-changes { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--line); }
+.bqv2 .guide .guide-changes ol { list-style: none; margin: 0; padding: 0; }
+.bqv2 .guide .guide-changes li {
+  display: grid;
+  grid-template-columns: minmax(9.5em, auto) 1fr;
+  gap: 4px 18px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line-2);
+  font-size: 0.94em;
+}
+.bqv2 .guide .guide-changes li:last-child { border-bottom: 0; }
+.bqv2 .guide .guide-changes time {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  letter-spacing: 0.03em;
+  color: var(--ink-3);
+  white-space: nowrap;
+  padding-top: 0.25em;
+}
+@media (max-width: 620px) {
+  .bqv2 .guide .guide-changes li { grid-template-columns: 1fr; }
+  .bqv2 .guide .guide-changes time { padding-top: 0; }
+}
+
 .bqv2 .guide-back { margin-top: 48px; }
 .bqv2 .guide-back a { color: var(--ink-3); text-decoration: none; font-size: 14px; }
 .bqv2 .guide-back a:hover { color: var(--accent-ink); }

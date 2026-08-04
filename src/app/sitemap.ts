@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { RELEASED_GUIDES } from './guides/_data/guides'
+import { RELEASED_GUIDES, guideDateModified } from './guides/_data/guides'
 import { SITE_URL } from '@/lib/seo'
 
 /**
@@ -32,7 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...RELEASED_GUIDES.map((guide) => ({
       url: `${SITE_URL}${guide.href}`,
-      lastModified: guide.dateModified,
+      lastModified: guideDateModified(guide),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     })),
