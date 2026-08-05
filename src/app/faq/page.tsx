@@ -57,7 +57,7 @@ const faqData: FAQItem[] = [
     category: 'security',
     question: 'How secure is BTQ?',
     answer:
-      "Bitcoin Core's security model, hardened with NIST FIPS 204 signatures. Spends are cryptographically secure against both classical and quantum attacks. To report a security issue, email oscar@btq.com or barney@btq.com.",
+      "Bitcoin Core's security model, hardened with NIST FIPS 204 signatures. Spends are cryptographically secure against both classical and quantum attacks. To report a security issue, email security@btq.tech — please don't open a public GitHub issue for vulnerabilities.",
   },
   {
     id: 7,
