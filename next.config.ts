@@ -22,6 +22,15 @@ const nextConfig: NextConfig = {
       { source: '/introduction',         destination: '/', permanent: true },
       { source: '/resources',            destination: '/testnet', permanent: true },
       { source: '/testnet/mining-guide', destination: 'https://docs.bitcoinquantum.com/mining/guide', permanent: true },
+      // An internal mining draft used to be served straight out of /public. It
+      // has been moved to /docs (not deployed), but it was publicly reachable
+      // and crawlable, so the URL redirects to the maintained guide instead of
+      // starting to 404.
+      { source: '/btq_mining_instructions.md', destination: 'https://docs.bitcoinquantum.com/mining/guide', permanent: true },
+      // The series lives one level down from its own path. /guides already is
+      // the Quantum-Secure Bitcoin collection, so send the guessable parent
+      // there rather than standing up a near-duplicate hub page.
+      { source: '/guides/quantum-secure-bitcoin', destination: '/guides', permanent: true },
     ];
   },
 

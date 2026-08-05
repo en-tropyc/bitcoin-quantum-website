@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import V2Nav from '@/components/v2/V2Nav';
 import V2Footer from '@/components/v2/V2Footer';
@@ -34,6 +34,10 @@ function LockIcon() {
     </svg>
   );
 }
+/* useLayoutEffect has no server equivalent and warns during SSR. */
+const useIsomorphicLayoutEffect =
+  typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+
 /* ===== Animated count-up for stat cards ===== */
 function StatNumber({
   value,
@@ -45,10 +49,15 @@ function StatNumber({
   fixed?: string;
 }) {
   const ref = useRef<HTMLDivElement | null>(null);
-  const [display, setDisplay] = useState(0);
+  // Seeded with the real value so the server-rendered HTML carries "21" and
+  // not "0". Crawlers that never execute the animation — including most AI
+  // retrieval bots — read these stat cards as-is, so a zero here publishes
+  // the wrong number. useLayoutEffect rewinds to 0 before the first paint,
+  // which keeps the animation intact without ever showing the jump.
+  const [display, setDisplay] = useState(value ?? 0);
   const played = useRef(false);
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (fixed !== undefined || value === undefined) return;
     const el = ref.current;
     if (!el) return;
@@ -58,6 +67,13 @@ function StatNumber({
       setDisplay(value);
       return;
     }
+
+    if (!played.current) setDisplay(0);
+
+    // Tracked so cleanup can cancel a frame loop that is still mid-animation;
+    // otherwise navigating away keeps calling setDisplay on an unmounted node
+    // for the rest of the 1.1s duration.
+    let raf = 0;
 
     const io = new IntersectionObserver(
       (entries) => {
@@ -70,16 +86,19 @@ function StatNumber({
               const p = Math.min(1, (now - t0) / dur);
               const eased = 1 - Math.pow(1 - p, 3);
               setDisplay(Math.round(value * eased));
-              if (p < 1) requestAnimationFrame(frame);
+              if (p < 1) raf = requestAnimationFrame(frame);
             };
-            requestAnimationFrame(frame);
+            raf = requestAnimationFrame(frame);
           }
         });
       },
       { threshold: 0.4 }
     );
     io.observe(el);
-    return () => io.disconnect();
+    return () => {
+      io.disconnect();
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, [value, fixed]);
 
   if (fixed !== undefined) {
@@ -161,9 +180,9 @@ export default function V2Page() {
                   cryptography that quantum computers cannot break.
                 </p>
                 <div className="hero-cta reveal d3">
-                  <a href="/testnet#resources" className="btn btn-primary">
+                  <Link href="/testnet#resources" className="btn btn-primary">
                     Get started <span className="arrow">→</span>
-                  </a>
+                  </Link>
                   <span className="btn btn-ghost" aria-disabled="true">Whitepaper · coming soon</span>
                 </div>
               </div>

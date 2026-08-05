@@ -7,6 +7,7 @@ import { v2FontClassName } from '@/components/v2/fonts';
 import RevealMount from '@/components/v2/RevealMount';
 import '@/components/v2/v2.css';
 import Link from 'next/link';
+import { breadcrumbSchema } from '@/lib/seo';
 
 interface FAQItem {
   id: number;
@@ -70,7 +71,7 @@ const faqData: FAQItem[] = [
     category: 'general',
     question: 'What is the maximum supply of BTQ?',
     answer:
-      "21 million coins. The same halving schedule (every 210,000 blocks), the same reward decay, the same monetary policy that makes Bitcoin sound money.",
+      "21 million coins, and the same ~4-year halving cadence that makes Bitcoin sound money. The block interval is what differs: BTQ halves every 2,100,000 blocks rather than Bitcoin's 210,000, because BTQ blocks arrive every minute instead of every ten. Ten times the blocks, ten times the interval, identical emission curve.",
   },
   {
     id: 9,
@@ -136,6 +137,8 @@ export default function FAQ() {
     })),
   };
 
+  const faqBreadcrumbs = breadcrumbSchema([{ name: 'FAQ', path: '/faq' }]);
+
   return (
     <div className={v2FontClassName}>
       <div className="bqv2" data-theme="light" data-headline="grotesque">
@@ -143,6 +146,10 @@ export default function FAQ() {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqBreadcrumbs) }}
         />
 
         <V2Nav />
@@ -189,20 +196,34 @@ export default function FAQ() {
                   const open = openItems.includes(faq.id);
                   return (
                     <div key={faq.id} className={`faq-card${open ? ' open' : ''}`}>
-                      <button
-                        type="button"
-                        className="faq-q"
-                        aria-expanded={open}
-                        onClick={() => toggleItem(faq.id)}
+                      {/* The question carries heading semantics as well as button
+                          semantics: extractors that walk the outline (including AI
+                          retrieval bots) get a real Q&A structure, not a flat list
+                          of unlabelled controls. */}
+                      <h3 className="faq-q-heading">
+                        <button
+                          type="button"
+                          className="faq-q"
+                          aria-expanded={open}
+                          aria-controls={`faq-answer-${faq.id}`}
+                          id={`faq-question-${faq.id}`}
+                          onClick={() => toggleItem(faq.id)}
+                        >
+                          <span>{faq.question}</span>
+                          <span className="faq-chev" aria-hidden="true">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                              <path d="M6 9l6 6 6-6" />
+                            </svg>
+                          </span>
+                        </button>
+                      </h3>
+                      <div
+                        className="faq-a"
+                        id={`faq-answer-${faq.id}`}
+                        role="region"
+                        aria-labelledby={`faq-question-${faq.id}`}
+                        hidden={!open}
                       >
-                        <span>{faq.question}</span>
-                        <span className="faq-chev" aria-hidden="true">
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <path d="M6 9l6 6 6-6" />
-                          </svg>
-                        </span>
-                      </button>
-                      <div className="faq-a" hidden={!open}>
                         <p>{faq.answer}</p>
                       </div>
                     </div>
