@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import GuideLayout from '../../_components/GuideLayout';
+import { socialMeta } from '@/lib/seo';
 
 const TABLE_OF_CONTENTS = [
   { id: 'why-ecdsa-breaks', title: 'Why ECDSA Breaks' },
@@ -130,17 +131,13 @@ export const metadata: Metadata = {
     'quantum-resistant Bitcoin',
   ],
   alternates: { canonical: '/guides/quantum-secure-bitcoin/signature-migration' },
-  openGraph: {
+  ...socialMeta({
     title: 'From ECDSA to Dilithium',
     description: "What changing Bitcoin's signature algorithm actually requires, in working code.",
-    url: '/guides/quantum-secure-bitcoin/signature-migration',
+    path: '/guides/quantum-secure-bitcoin/signature-migration',
     type: 'article',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'From ECDSA to Dilithium',
-    description: "What changing Bitcoin's signature algorithm actually requires.",
-  },
+    twitterDescription: "What changing Bitcoin's signature algorithm actually requires.",
+  }),
 };
 
 const SIZE_ROWS = [
@@ -176,8 +173,6 @@ export default function SignatureMigrationGuide() {
       description="What changing Bitcoin's signature algorithm actually requires: from the mathematical vulnerability to the new opcodes, wallet formats, and the challenge of running two cryptographic systems in parallel."
       tableOfContents={TABLE_OF_CONTENTS}
       slug="/guides/quantum-secure-bitcoin/signature-migration"
-      datePublished="2026-06-03"
-      dateModified="2026-06-12"
       keywords={[
         'ECDSA to Dilithium',
         'CRYSTALS-Dilithium',

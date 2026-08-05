@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import GuideLayout from '../../_components/GuideLayout';
+import { socialMeta } from '@/lib/seo';
 
 const TABLE_OF_CONTENTS = [
   { id: 'the-20x-problem', title: 'The 20x Problem' },
@@ -28,17 +29,13 @@ export const metadata: Metadata = {
     'post-quantum Bitcoin',
   ],
   alternates: { canonical: '/guides/quantum-secure-bitcoin/block-size-tradeoffs' },
-  openGraph: {
+  ...socialMeta({
     title: 'The 20x Problem',
     description: 'Why quantum-resistant transactions need bigger blocks, and what that costs.',
-    url: '/guides/quantum-secure-bitcoin/block-size-tradeoffs',
+    path: '/guides/quantum-secure-bitcoin/block-size-tradeoffs',
     type: 'article',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'The 20x Problem',
-    description: 'Why quantum-resistant transactions need bigger blocks.',
-  },
+    twitterDescription: 'Why quantum-resistant transactions need bigger blocks.',
+  }),
 };
 
 interface Reference {
@@ -158,8 +155,6 @@ export default function BlockSizeTradeoffsGuide() {
       description="Why quantum-resistant transactions need bigger blocks, and how every parameter change cascades through emission schedules, witness economics, chain growth, and node viability."
       tableOfContents={TABLE_OF_CONTENTS}
       slug="/guides/quantum-secure-bitcoin/block-size-tradeoffs"
-      datePublished="2026-06-04"
-      dateModified="2026-06-12"
       keywords={[
         'Bitcoin block size',
         'quantum-resistant transactions',

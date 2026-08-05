@@ -789,6 +789,14 @@
   border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
   box-shadow: 0 18px 40px -28px rgba(20,23,28,.5);
 }
+/* Heading wrapper around the accordion trigger. Purely semantic — every
+   visual property still lives on the .faq-q button inside it. */
+.bqv2 .faq-q-heading {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  letter-spacing: inherit;
+}
 .bqv2 .faq-q {
   width: 100%;
   display: flex; align-items: center; justify-content: space-between; gap: 18px;
@@ -1249,6 +1257,52 @@
   overflow-x: auto;
 }
 .bqv2 .guide .script-block .tag { color: var(--accent-ink); }
+
+/* dated correction note: version drift is disclosed, not silently rewritten */
+.bqv2 .guide .guide-note {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent-ink);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin: 0 0 20px;
+}
+.bqv2 .guide .guide-note .guide-note-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+  margin-bottom: 6px;
+}
+.bqv2 .guide .guide-note p { font-size: 0.94em; margin-bottom: 10px; }
+.bqv2 .guide .guide-note p:last-child { margin-bottom: 0; }
+
+/* per-guide revision history, rendered at the foot of the article */
+.bqv2 .guide .guide-changes { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--line); }
+.bqv2 .guide .guide-changes ol { list-style: none; margin: 0; padding: 0; }
+.bqv2 .guide .guide-changes li {
+  display: grid;
+  grid-template-columns: minmax(9.5em, auto) 1fr;
+  gap: 4px 18px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line-2);
+  font-size: 0.94em;
+}
+.bqv2 .guide .guide-changes li:last-child { border-bottom: 0; }
+.bqv2 .guide .guide-changes time {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  letter-spacing: 0.03em;
+  color: var(--ink-3);
+  white-space: nowrap;
+  padding-top: 0.25em;
+}
+@media (max-width: 620px) {
+  .bqv2 .guide .guide-changes li { grid-template-columns: 1fr; }
+  .bqv2 .guide .guide-changes time { padding-top: 0; }
+}
 
 .bqv2 .guide-back { margin-top: 48px; }
 .bqv2 .guide-back a { color: var(--ink-3); text-decoration: none; font-size: 14px; }

@@ -3,6 +3,8 @@ import { v2FontClassName } from '@/components/v2/fonts';
 import V2Nav from '@/components/v2/V2Nav';
 import V2Footer from '@/components/v2/V2Footer';
 import RevealMount from '@/components/v2/RevealMount';
+import JsonLd from '@/components/JsonLd';
+import { SITE_NAME, SITE_URL, absoluteUrl, breadcrumbSchema, socialMeta } from '@/lib/seo';
 import '@/components/v2/v2.css';
 import Link from 'next/link';
 
@@ -22,18 +24,43 @@ export const metadata: Metadata = {
     'BTQ node setup',
   ],
   alternates: { canonical: '/testnet' },
-  openGraph: {
+  ...socialMeta({
     title: 'Testnet | Bitcoin Quantum',
     description: TESTNET_DESC,
-    url: '/testnet',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Testnet | Bitcoin Quantum',
-    description: TESTNET_DESC,
-  },
+    path: '/testnet',
+  }),
 };
+
+/**
+ * Tracks the latest *published* btq-core GitHub release, which is what the
+ * download button resolves to — not the newest tag in the source tree.
+ * Bump on each release.
+ */
+const BTQ_CORE_VERSION = '0.4.0-testnet';
+
+const TESTNET_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  '@id': `${absoluteUrl('/testnet')}#btq-core`,
+  name: 'BTQ Core',
+  alternateName: 'Bitcoin Quantum Core',
+  description:
+    'The Bitcoin Quantum full-node implementation. Forked from Bitcoin Core and extended ' +
+    'with CRYSTALS-Dilithium (ML-DSA, NIST FIPS 204) signatures and BIP-360 P2MR outputs.',
+  applicationCategory: 'DeveloperApplication',
+  applicationSubCategory: 'Cryptocurrency full node',
+  operatingSystem: 'Windows, Linux',
+  softwareVersion: BTQ_CORE_VERSION,
+  downloadUrl: 'https://github.com/btq-ag/btq-core/releases',
+  softwareHelp: { '@type': 'CreativeWork', url: 'https://docs.bitcoinquantum.com/mining/guide' },
+  license: 'https://opensource.org/license/mit',
+  isAccessibleForFree: true,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  author: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
+  url: absoluteUrl('/testnet'),
+};
+
+const TESTNET_BREADCRUMBS = breadcrumbSchema([{ name: 'Testnet', path: '/testnet' }]);
 
 type Resource = {
   tag: string;
@@ -84,6 +111,8 @@ export default function TestnetPage() {
 
   return (
     <div className={v2FontClassName}>
+      <JsonLd data={TESTNET_SCHEMA} />
+      <JsonLd data={TESTNET_BREADCRUMBS} />
       <div className="bqv2" data-theme="light" data-headline="grotesque">
         <RevealMount />
         <V2Nav />
