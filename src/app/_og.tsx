@@ -3,8 +3,12 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 /**
- * Shared renderer for the guides' Open Graph images so the hub and every
- * article card stay visually identical and any fix lands in one place.
+ * Shared renderer for section Open Graph images so every card stays visually
+ * identical and any fix lands in one place. Used by the guides hub, each guide
+ * article, and the /protocol, /testnet and /faq pages.
+ *
+ * The home page keeps its own bespoke card (app/opengraph-image.tsx) because it
+ * sets the wordmark headline rather than a section title.
  *
  * Fonts and the wordmark are read off disk (vendored in /public) rather than
  * fetched from a CDN, so image generation has no network dependency and can't
@@ -23,7 +27,16 @@ const archivo = readFileSync(join(process.cwd(), 'public/fonts/archivo-800.woff'
 const logoSvg = readFileSync(join(process.cwd(), 'public/v2/logo-light.svg'), 'utf-8');
 const LOGO_DATA_URL = `data:image/svg+xml;base64,${Buffer.from(logoSvg).toString('base64')}`;
 
-export function renderGuideOg({ eyebrow, title }: { eyebrow: string; title: string }) {
+export function renderOgCard({
+  eyebrow,
+  title,
+  path,
+}: {
+  eyebrow: string;
+  title: string;
+  /** Section path shown bottom-left, e.g. '/guides'. Omit for the bare domain. */
+  path?: string;
+}) {
   return new ImageResponse(
     (
       <div
@@ -96,7 +109,7 @@ export function renderGuideOg({ eyebrow, title }: { eyebrow: string; title: stri
           }}
         >
           <span style={{ color: INK_3, fontWeight: 500, marginRight: 'auto', fontSize: 22 }}>
-            bitcoinquantum.com/guides
+            bitcoinquantum.com{path ?? ''}
           </span>
           bitcoinquantum.com
           <span style={{ display: 'flex', alignItems: 'center', fontSize: 32, marginLeft: 12 }}>→</span>
