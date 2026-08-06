@@ -22,6 +22,13 @@ const nextConfig: NextConfig = {
       { source: '/introduction',         destination: '/', permanent: true },
       { source: '/resources',            destination: '/testnet', permanent: true },
       { source: '/testnet/mining-guide', destination: 'https://docs.bitcoinquantum.com/mining/guide', permanent: true },
+      // btq-core's README and contrib docs point downloads at btqcore.org, which
+      // nobody has registered. They are being repointed here, so /download has to
+      // resolve. /testnet already is the download page — it carries the release
+      // links, the platform matrix and the SoftwareApplication schema — so this
+      // redirects rather than duplicating it.
+      { source: '/download',  destination: '/testnet#resources', permanent: true },
+      { source: '/downloads', destination: '/testnet#resources', permanent: true },
       // An internal mining draft used to be served straight out of /public. It
       // has been moved to /docs (not deployed), but it was publicly reachable
       // and crawlable, so the URL redirects to the maintained guide instead of
