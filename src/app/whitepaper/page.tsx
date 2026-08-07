@@ -65,10 +65,10 @@ const WP_BREADCRUMBS = breadcrumbSchema([{ name: 'Whitepaper', path: '/whitepape
 
 /** Headline numbers the paper establishes, for the dark facts band. */
 const wpNumbers = [
-  { val: '2,420', suffix: ' B', label: 'Raw ML-DSA signature before the sighash byte' },
-  { val: '1,312', suffix: ' B', label: 'Dilithium public key — never placed on-chain' },
-  { val: '1.2k', suffix: ' qbits', label: 'Logical qubits now enough to break secp256k1' },
-  { val: '90', suffix: ' M', label: 'Toffoli gates in the fast-clock key-recovery model' },
+  { val: '2,420', suffix: ' B', label: 'Raw ML-DSA-44 signature before the sighash byte' },
+  { val: '1,312', suffix: ' B', label: 'ML-DSA-44 public key — never placed on-chain' },
+  { val: '≤1.2k', suffix: ' qbits', label: 'Logical qubits estimated to break secp256k1' },
+  { val: '≤90', suffix: ' M', label: 'Toffoli gates in the 1,200-qubit attack circuit' },
 ];
 
 interface Chapter {
@@ -269,7 +269,9 @@ export default function WhitepaperPage() {
                 ))}
               </div>
               <span className="wp-under-note reveal">
-                1,200 qubits / 90M gates: Babbush et al., resource estimates published in the fast-clock attack model.
+                1,200 logical qubits / 90M Toffoli gates: upper-bound resource estimates from
+                Babbush et al., <em>Securing Elliptic Curve Cryptocurrencies against Quantum
+                Vulnerabilities</em> (2026).
               </span>
             </div>
           </section>
