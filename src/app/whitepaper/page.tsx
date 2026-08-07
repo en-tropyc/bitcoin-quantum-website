@@ -14,7 +14,7 @@ const WP_DESC =
   '21 million coin supply.';
 
 /** Canonical path of the served PDF (lives in /public). */
-const WP_PDF = '/whitepaper.pdf';
+const WP_PDF = '/bitcoinquantum_whitepaper.pdf';
 
 export const metadata: Metadata = {
   title: 'Whitepaper',
@@ -214,7 +214,7 @@ export default function WhitepaperPage() {
                 <a href={WP_PDF} className="btn btn-primary">
                   Read the PDF <span className="arrow">→</span>
                 </a>
-                <a href={WP_PDF} download="bitcoin-quantum-whitepaper.pdf" className="btn btn-ghost">
+                <a href={WP_PDF} download="bitcoinquantum_whitepaper.pdf" className="btn btn-ghost">
                   Download PDF
                 </a>
               </div>
