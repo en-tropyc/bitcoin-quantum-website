@@ -85,10 +85,9 @@ const refs = [
     tag: 'Specification',
     title: 'Whitepaper',
     body: 'How ML-DSA is wired through the UTXO model, scripting system, and consensus rules.',
-    href: '',
-    cta: 'Coming soon',
+    href: '/whitepaper',
+    cta: 'Read the paper',
     external: false,
-    coming: true,
   },
   {
     tag: 'Standard',
@@ -202,37 +201,20 @@ export default function ProtocolPage() {
                 <h2 className="h2">Read the source.</h2>
               </div>
               <div className="refs">
-                {refs.map((r, i) => {
-                  const className = `ref-card reveal${i ? ` d${i}` : ''}${r.coming ? ' is-disabled' : ''}`;
-                  const inner = (
-                    <>
-                      <span className="ref-tag">{r.tag}</span>
-                      <h3>{r.title}</h3>
-                      <p>{r.body}</p>
-                      <span className="ref-link">
-                        {r.cta} {!r.coming && <span>→</span>}
-                      </span>
-                    </>
-                  );
-                  if (r.coming) {
-                    return (
-                      <div key={r.title} className={className} aria-disabled="true">
-                        {inner}
-                      </div>
-                    );
-                  }
-                  return (
-                    <a
-                      key={r.title}
-                      href={r.href}
-                      className={className}
-                      target={r.external ? '_blank' : undefined}
-                      rel={r.external ? 'noopener noreferrer' : undefined}
-                    >
-                      {inner}
-                    </a>
-                  );
-                })}
+                {refs.map((r, i) => (
+                  <a
+                    key={r.title}
+                    href={r.href}
+                    className={`ref-card reveal${i ? ` d${i}` : ''}`}
+                    target={r.external ? '_blank' : undefined}
+                    rel={r.external ? 'noopener noreferrer' : undefined}
+                  >
+                    <span className="ref-tag">{r.tag}</span>
+                    <h3>{r.title}</h3>
+                    <p>{r.body}</p>
+                    <span className="ref-link">{r.cta} <span>→</span></span>
+                  </a>
+                ))}
               </div>
             </div>
           </section>

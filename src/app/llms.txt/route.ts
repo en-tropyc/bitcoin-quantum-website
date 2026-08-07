@@ -31,6 +31,7 @@ implementation is BTQ Core, an MIT-licensed fork of Bitcoin Core.
 
 - [Bitcoin Quantum](${SITE_URL}): What BTQ is, why post-quantum signatures matter, and the headline network parameters.
 - [Protocol](${SITE_URL}/protocol): Architecture — UTXO model, SHA-256 proof-of-work, Dilithium signing, network parameters and ports.
+- [Whitepaper](${SITE_URL}/whitepaper): "Bitcoin Quantum: A Post-Quantum Bitcoin Model" — the full protocol specification, with a downloadable PDF.
 - [Testnet](${SITE_URL}/testnet): Run a node. BTQ Core downloads, the mining guide, block explorer and public mining pool.
 - [FAQ](${SITE_URL}/faq): Common questions on cryptography, BTQ vs Bitcoin, mining, security model and supply.
 
