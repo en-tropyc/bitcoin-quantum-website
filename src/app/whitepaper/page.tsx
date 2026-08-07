@@ -66,7 +66,7 @@ const WP_BREADCRUMBS = breadcrumbSchema([{ name: 'Whitepaper', path: '/whitepape
 /** Headline numbers the paper establishes, for the dark facts band. */
 const wpNumbers = [
   { val: '2,420', suffix: ' B', label: 'Raw ML-DSA-44 signature before the sighash byte' },
-  { val: '1,312', suffix: ' B', label: 'ML-DSA-44 public key — never placed on-chain' },
+  { val: '1,312', suffix: ' B', label: 'ML-DSA-44 public key — absent from the output; revealed only on spend' },
   { val: '≤1.2k', suffix: ' qbits', label: 'Logical qubits estimated to break secp256k1' },
   { val: '≤90', suffix: ' M', label: 'Toffoli gates in the 1,200-qubit attack circuit' },
 ];
@@ -97,14 +97,14 @@ const chapters: Chapter[] = [
     num: '03',
     title: 'Design goals and non-goals',
     blurb:
-      'A deliberate boundary: retrofit the cryptography, leave the economic and consensus model ' +
-      'alone, and make no claim about migrating the Bitcoin ledger itself.',
+      'A deliberate boundary: preserve Bitcoin’s UTXO, Script and proof-of-work semantics while ' +
+      'changing only what the transition demands — and make no claim about migrating the Bitcoin ledger itself.',
   },
   {
     num: '04',
     title: 'Post-quantum signatures',
     blurb:
-      'CRYSTALS-Dilithium and why ML-DSA-44 beats Falcon and SPHINCS+ for a transactional hot path ' +
+      'CRYSTALS-Dilithium and why BTQ selects ML-DSA-44 over Falcon and SPHINCS+ for a transactional hot path ' +
       '— security category, byte sizes, and the three-way algorithm assessment.',
   },
   {
@@ -119,7 +119,7 @@ const chapters: Chapter[] = [
     title: 'Address and script system',
     blurb:
       'Address-namespace design and BIP-360 Pay-to-Merkle-Root (P2MR) — how a 1,312-byte key stays ' +
-      'off-chain behind a 32-byte root.',
+      'unexposed behind a 32-byte root until the output is spent.',
   },
   {
     num: '07',
@@ -161,9 +161,9 @@ const refs = [
     external: false,
   },
   {
-    tag: 'Standard',
+    tag: 'BIP',
     title: 'BIP-360 · Pay-to-Merkle-Root',
-    body: 'The output type BTQ implements so a 1,312-byte Dilithium key stays off-chain behind a 32-byte Merkle root.',
+    body: 'The output type BTQ implements so a 1,312-byte ML-DSA key stays unexposed until the output is spent.',
     href: 'https://bip360.org/',
     cta: 'Read the BIP',
     external: true,
@@ -207,7 +207,8 @@ export default function WhitepaperPage() {
               <p className="lead lead-wide ml-lead reveal d2">
                 Bitcoin Quantum: A Post-Quantum Bitcoin Model — how NIST-standardized ML-DSA
                 signatures, BIP-360 Pay-to-Merkle-Root and a signature-scheme lifecycle
-                secure Bitcoin Core without changing the model that made it sound money.
+                preserve Bitcoin&apos;s UTXO and proof-of-work architecture while replacing
+                quantum-vulnerable cryptography and selected network parameters.
               </p>
               <div className="hero-cta reveal d3">
                 <a href={WP_PDF} className="btn btn-primary">
@@ -231,20 +232,22 @@ export default function WhitepaperPage() {
             <div className="wrap indent">
               <span className="eyebrow reveal">The abstract</span>
               <p className="big reveal d1" style={{ marginTop: 4 }}>
-                Retire the one assumption a quantum machine can<span className="serif"> </span>break.
+                Retire the one assumption quantum algorithms can<span className="serif"> </span>break.
               </p>
               <div className="statement-foot">
                 <p className="reveal d1">
                   Bitcoin Quantum is a UTXO-model cryptocurrency whose transaction authorization
-                  need not rest on the one cryptographic assumption a quantum computer is known to
-                  break. It ships ML-DSA-44 (Dilithium2) as its signature scheme, implements BIP-360
+                  need not rest on the elliptic-curve assumption Shor&apos;s algorithm is known to
+                  break. It ships ML-DSA-44 — NIST&apos;s FIPS 204 standard derived from
+                  CRYSTALS-Dilithium — as its signature scheme, implements BIP-360
                   Pay-to-Merkle-Root for addresses, and retains SHA-256 proof of work.
                 </p>
                 <p className="reveal d2">
-                  The urgency is quantitative: recent estimates put secp256k1 key recovery as low as
-                  1,200 logical qubits and 90 million gates under a fast-clock attack model — inside
-                  the typical block confirmation window. The paper describes the protocol and its
-                  security properties under a quantum adversary.
+                  The urgency is quantitative: recent estimates reduce secp256k1 key recovery to
+                  ≤1,200 logical qubits and ≤90 million Toffoli gates. Under the paper&apos;s
+                  fast-clock superconducting model, the attack could execute in minutes — a
+                  window fast enough to enable on-spend attacks on some cryptocurrencies. The
+                  paper describes the protocol and its security properties under a quantum adversary.
                 </p>
               </div>
             </div>
@@ -283,8 +286,8 @@ export default function WhitepaperPage() {
                 <span className="eyebrow">Inside the paper</span>
                 <h2 className="h2">Ten sections. One question.</h2>
                 <p className="lead lead-wide ml-lead">
-                  How a Bitcoin fork keeps everything that makes it Bitcoin — and swaps the
-                  cryptography underneath for primitives proven resistant to quantum attack.
+                  How a Bitcoin fork preserves Bitcoin&apos;s UTXO and proof-of-work architecture
+                  while replacing quantum-vulnerable cryptography.
                 </p>
               </div>
               <div className="wp-chapters">

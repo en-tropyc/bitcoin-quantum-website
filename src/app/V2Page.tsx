@@ -244,9 +244,9 @@ export default function V2Page() {
                 before it opens.
               </p>
               <p className="reveal d2">
-                We preserve everything that makes Bitcoin sound money — its supply schedule,
-                proof-of-work consensus and peer-to-peer architecture — and swap the cryptography
-                underneath for primitives proven resistant to quantum attack.
+                We preserve Bitcoin&apos;s UTXO, supply schedule, proof-of-work consensus and
+                peer-to-peer architecture — and swap the cryptography underneath for
+                NIST-standardized post-quantum primitives.
               </p>
             </div>
           </div>
