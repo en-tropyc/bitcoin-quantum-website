@@ -304,7 +304,7 @@ export default function WhitepaperPage() {
             <div className="wrap">
               <div className="sec-head reveal">
                 <span className="eyebrow">Read it, don&apos;t just take our word</span>
-                <h2 className="h2">The paper, its source and the standards behind it.</h2>
+                <h2 className="h2">The paper and the standards behind it.</h2>
               </div>
               <div className="refs">
                 {refs.map((r, i) => (
