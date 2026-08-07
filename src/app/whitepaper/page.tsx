@@ -125,8 +125,8 @@ const chapters: Chapter[] = [
     num: '07',
     title: 'Sighash and signing',
     blurb:
-      'A worked P2WSH-style Dilithium spend with SIGHASH_ALL, and how the 2,420-byte signature ' +
-      'pushes through Script unchanged from the spending model.',
+      'How sighash works for Dilithium spends: the BIP-143 preimage, all four sighash types, and ' +
+      'the 2,421-byte signed stack element (signature plus the 1-byte sighash trailer).',
   },
   {
     num: '08',
