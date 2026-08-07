@@ -16,8 +16,6 @@ const WP_DESC =
 /** Canonical path of the served PDF (lives in /public). */
 const WP_PDF = '/whitepaper.pdf';
 
-const WP_REPO = 'https://github.com/btq-ag/bitcoin_quantum_whitepaper';
-
 export const metadata: Metadata = {
   title: 'Whitepaper',
   description: WP_DESC,
@@ -163,11 +161,11 @@ const refs = [
     external: false,
   },
   {
-    tag: 'Source',
-    title: 'Whitepaper source',
-    body: 'The LaTeX source and issue tracker, so the paper can be reviewed and revised in the open.',
-    href: WP_REPO,
-    cta: 'View on GitHub',
+    tag: 'Standard',
+    title: 'BIP-360 · Pay-to-Merkle-Root',
+    body: 'The output type BTQ implements so a 1,312-byte Dilithium key stays off-chain behind a 32-byte Merkle root.',
+    href: 'https://bip360.org/',
+    cta: 'Read the BIP',
     external: true,
   },
   {
@@ -217,9 +215,6 @@ export default function WhitepaperPage() {
                 </a>
                 <a href={WP_PDF} download="bitcoin-quantum-whitepaper.pdf" className="btn btn-ghost">
                   Download PDF
-                </a>
-                <a href={WP_REPO} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
-                  Source on GitHub
                 </a>
               </div>
               <div className="wp-meta reveal d3">
@@ -335,15 +330,12 @@ export default function WhitepaperPage() {
                 <span className="eyebrow">Read the full document</span>
                 <h3>Bitcoin Quantum: A Post-Quantum Bitcoin Model</h3>
                 <p>
-                  The complete 22-page whitepaper, released under CC-BY-4.0. Download the PDF,
-                  review the LaTeX source on GitHub, or read it right in your browser.
+                  The complete 22-page whitepaper, released under CC-BY-4.0. Download the PDF
+                  or read it right in your browser.
                 </p>
                 <div className="hero-cta">
                   <a href={WP_PDF} className="btn btn-primary">
                     Download PDF <span className="arrow">→</span>
-                  </a>
-                  <a href={WP_REPO} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
-                    View source
                   </a>
                 </div>
                 <div className="wp-meta">
