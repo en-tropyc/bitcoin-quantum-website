@@ -298,6 +298,10 @@
 .bqv2 .hero .display .serif { color: var(--headline); }
 .bqv2 .hero .lead { margin-bottom: 36px; max-width: 36ch; }
 .bqv2 .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+/* section-style heros (protocol, whitepaper) put CTAs directly under
+   the lead, which has no bottom margin — pad the gap so the buttons
+   don't crowd the copy. */
+.bqv2 .page-hero .hero-cta { margin-top: 34px; }
 
 .bqv2 .hero-visual { position: relative; aspect-ratio: 1/1; display: grid; place-items: center; width: 100%; }
 .bqv2 .lattice {
