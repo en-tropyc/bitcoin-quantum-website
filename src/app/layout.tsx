@@ -91,17 +91,22 @@ export default function RootLayout({
               "Bitcoin Quantum is a quantum-resistant cryptocurrency built on Bitcoin's proven architecture with NIST-standardized CRYSTALS-Dilithium signatures.",
           }}
         />
+        {/* Advertises /llms.txt to agents that parse the head rather than
+            robots.txt, which carries the same pointer. Written as JSX rather
+            than via `alternates.types` because Next does not emit that field.
+            React hoists the tag into <head>. */}
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt" />
+        {/* No `potentialAction`/SearchAction here. The site has no search
+            endpoint — /faq filters by category and ignores a `q` parameter —
+            so declaring one would assert something untrue. Google also
+            retired the sitelinks searchbox rich result, so it buys nothing.
+            Add it back only alongside a real search route. */}
         <JsonLd
           data={{
             '@context': 'https://schema.org',
             '@type': 'WebSite',
             name: SITE_NAME,
             url: SITE_URL,
-            potentialAction: {
-              '@type': 'SearchAction',
-              target: `${SITE_URL}/faq?q={search_term_string}`,
-              'query-input': 'required name=search_term_string',
-            },
           }}
         />
         {children}
