@@ -16,7 +16,7 @@ export default function V2Footer() {
           <div>
             <h4>Learn</h4>
             <ul>
-              <li><span className="footer-soon">Whitepaper · coming soon</span></li>
+              <li><Link href="/whitepaper">Whitepaper</Link></li>
               <li><Link href="/protocol">Protocol</Link></li>
               <li><Link href="/protocol#cryptography">Cryptography</Link></li>
               <li><Link href="/faq">FAQ</Link></li>

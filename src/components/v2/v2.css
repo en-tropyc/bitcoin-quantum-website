@@ -298,6 +298,10 @@
 .bqv2 .hero .display .serif { color: var(--headline); }
 .bqv2 .hero .lead { margin-bottom: 36px; max-width: 36ch; }
 .bqv2 .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+/* section-style heros (protocol, whitepaper) put CTAs directly under
+   the lead, which has no bottom margin — pad the gap so the buttons
+   don't crowd the copy. */
+.bqv2 .page-hero .hero-cta { margin-top: 34px; }
 
 .bqv2 .hero-visual { position: relative; aspect-ratio: 1/1; display: grid; place-items: center; width: 100%; }
 .bqv2 .lattice {
@@ -1474,4 +1478,57 @@
   .bqv2 .guide .op-table tbody td:nth-child(4) {
     text-align: right;
   }
+}
+
+/* ============================================================
+   WHITEPAPER page
+   ============================================================ */
+/* hero metadata chips (pages / version / license) */
+.bqv2 .wp-meta { display: flex; flex-wrap: wrap; gap: 12px 26px; margin-top: 34px; }
+.bqv2 .wp-meta .chip {
+  display: inline-flex; align-items: baseline; gap: 8px;
+  font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.04em; color: var(--ink-3);
+}
+.bqv2 .wp-meta .chip::before {
+  content: ""; width: 5px; height: 5px; border-radius: 50%;
+  background: var(--accent); transform: translateY(-1px);
+}
+.bqv2 .wp-meta .chip b { color: var(--ink-2); font-weight: 600; }
+
+/* chapter list on the "inside the paper" section */
+.bqv2 .wp-chapters { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.bqv2 .wp-chapter {
+  display: flex; flex-direction: column; gap: 7px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: clamp(18px, 2.2vw, 28px);
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+}
+.bqv2 .wp-chapter:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px -28px rgba(20,23,28,.5);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--line));
+}
+.bqv2 .wp-chapter .wp-ch-idx { font-family: var(--mono); font-size: 12px; color: var(--accent-ink); letter-spacing: 0.1em; }
+.bqv2 .wp-chapter h3 { font-family: var(--display); font-size: 19px; color: var(--ink); letter-spacing: -0.01em; }
+.bqv2 .wp-chapter p { font-size: 14.5px; color: var(--ink-2); }
+
+/* footnote under the dark numbers band */
+.bqv2 .wp-under-note { display: block; margin-top: 26px; font-family: var(--mono); font-size: 13px; color: var(--dark-ink2); max-width: 70ch; }
+
+/* download card */
+.bqv2 .wp-dl {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 18px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: clamp(28px, 3vw, 44px); position: relative; overflow: hidden;
+}
+.bqv2 .wp-dl::before {
+  content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent 70%);
+}
+.bqv2 .wp-dl h3 { font-family: var(--display); font-size: clamp(22px, 2.6vw, 30px); color: var(--ink); letter-spacing: -0.01em; }
+.bqv2 .wp-dl p { max-width: 56ch; color: var(--ink-2); font-size: 15.5px; }
+.bqv2 .wp-dl .wp-meta { margin-top: 2px; }
+
+@media (max-width: 640px) {
+  .bqv2 .wp-chapters { grid-template-columns: 1fr; }
 }

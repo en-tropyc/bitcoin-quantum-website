@@ -183,7 +183,7 @@ export default function V2Page() {
                   <Link href="/testnet#resources" className="btn btn-primary">
                     Get started <span className="arrow">→</span>
                   </Link>
-                  <span className="btn btn-ghost" aria-disabled="true">Whitepaper · coming soon</span>
+<Link href="/whitepaper" className="btn btn-ghost">Read the whitepaper <span className="arrow">→</span></Link>
                 </div>
               </div>
               <div className="hero-visual reveal d2" aria-hidden="true">
@@ -244,9 +244,9 @@ export default function V2Page() {
                 before it opens.
               </p>
               <p className="reveal d2">
-                We preserve everything that makes Bitcoin sound money — its supply schedule,
-                proof-of-work consensus and peer-to-peer architecture — and swap the cryptography
-                underneath for primitives proven resistant to quantum attack.
+                We preserve Bitcoin&apos;s UTXO, supply schedule, proof-of-work consensus and
+                peer-to-peer architecture — and swap the cryptography underneath for
+                NIST-standardized post-quantum primitives.
               </p>
             </div>
           </div>
@@ -456,9 +456,9 @@ export default function V2Page() {
                   Audit the ML-DSA integration and the protocol-level choices behind the
                   larger post-quantum signatures. Comments and issues welcome.
                 </p>
-                <span className="path-link is-disabled" aria-disabled="true">
-                  Coming soon
-                </span>
+                <a href="/whitepaper" className="path-link">
+                  Read the whitepaper <span className="arrow">→</span>
+                </a>
               </article>
             </div>
           </div>
@@ -518,7 +518,7 @@ export default function V2Page() {
               >
                 Create a wallet <span className="arrow">→</span>
               </a>
-              <span className="btn btn-ghost" aria-disabled="true">Whitepaper · coming soon</span>
+              <Link href="/whitepaper" className="btn btn-ghost">Read the whitepaper <span className="arrow">→</span></Link>
             </div>
           </div>
         </section>
