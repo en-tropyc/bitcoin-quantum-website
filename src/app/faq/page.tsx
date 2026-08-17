@@ -200,7 +200,7 @@ export default function FAQ() {
                           semantics: extractors that walk the outline (including AI
                           retrieval bots) get a real Q&A structure, not a flat list
                           of unlabelled controls. */}
-                      <h3 className="faq-q-heading">
+                      <h2 className="faq-q-heading">
                         <button
                           type="button"
                           className="faq-q"
@@ -216,7 +216,7 @@ export default function FAQ() {
                             </svg>
                           </span>
                         </button>
-                      </h3>
+                      </h2>
                       <div
                         className="faq-a"
                         id={`faq-answer-${faq.id}`}

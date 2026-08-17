@@ -1,4 +1,4 @@
-import { renderGuideOg, OG_SIZE, OG_CONTENT_TYPE } from '../../_og';
+import { renderOgCard, OG_SIZE, OG_CONTENT_TYPE } from '../../../_og';
 
 export const runtime = 'nodejs';
 export const alt = 'Quantum-Safe Addresses — Bitcoin Quantum guide';
@@ -6,5 +6,5 @@ export const size = OG_SIZE;
 export const contentType = OG_CONTENT_TYPE;
 
 export default function Image() {
-  return renderGuideOg({ eyebrow: 'GUIDE · QUANTUM-SECURE BITCOIN', title: 'Quantum-Safe Addresses' });
+  return renderOgCard({ eyebrow: 'GUIDE · QUANTUM-SECURE BITCOIN', title: 'Quantum-Safe Addresses', path: '/guides' });
 }

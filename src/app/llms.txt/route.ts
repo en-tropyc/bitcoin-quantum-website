@@ -40,11 +40,16 @@ ${guides}
 
 ## Related sources
 
-- [BTQ Core source](https://github.com/btq-ag/btq-core): The full-node implementation (MIT).
-- [BTQ Core documentation](https://docs.bitcoinquantum.com): Operator and mining documentation.
-- [Block explorer](https://explorer.bitcoinquantum.com): Live testnet chain data.
+- [BTQ Core source](https://github.com/btq-ag/btq-core): The full-node implementation (MIT). Also carries the operator documentation — INSTALL.md, TESTING_GUIDE.md and doc/.
 - [NIST FIPS 204](https://csrc.nist.gov/pubs/fips/204/final): The ML-DSA standard BTQ signatures implement.
 - [BIP-360](https://bip360.org/): The Pay-to-Merkle-Root output type BTQ implements.
+
+Two further BTQ services exist but are deliberately not listed above, because
+they refuse automated clients and would return 403 to anything that followed
+them: docs.bitcoinquantum.com (operator and mining documentation) and
+explorer.bitcoinquantum.com (live testnet chain data). Both are open to people
+in a browser. Read the BTQ Core repository instead — the same operator material
+lives there and is fetchable.
 `
 }
 
