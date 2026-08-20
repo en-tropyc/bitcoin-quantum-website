@@ -260,7 +260,7 @@ export default function TransactionTypesPage() {
               <h1 className="display display-medium ml-display reveal d1">
                 Every BTQ spend type, <span className="serif">live on-chain.</span>
               </h1>
-              <p className="lead lead-wide ml-lead reveal d2">
+              <p className="lead tt-lead ml-lead reveal d2">
                 A Field Guide to BTQ Transaction Types tours the ten address and spend
                 constructions BTQ ships — the ECDSA family Bitcoin users already know, and
                 the Dilithium P2MR family that keeps custody post-quantum. Every type comes
@@ -310,12 +310,12 @@ export default function TransactionTypesPage() {
           </section>
 
           {/* ===== CATALOGUE ===== */}
-          <section className="section section-bg-2" id="catalogue">
+          <section className="section section-bg-2 tt-sec" id="catalogue">
             <div className="wrap">
               <div className="sec-head reveal">
                 <span className="eyebrow">Inside the guide</span>
                 <h2 className="h2">Ten types. All with receipts.</h2>
-                <p className="lead lead-wide ml-lead">
+                <p className="lead tt-lead ml-lead">
                   Every address and spend construction BTQ ships, from legacy ECDSA
                   compatibility to Dilithium post-quantum custody. Each row links to a
                   confirmed testnet transaction.
@@ -355,12 +355,12 @@ export default function TransactionTypesPage() {
           </section>
 
           {/* ===== SIDE-BY-SIDE TOURS ===== */}
-          <section className="section" id="tours">
+          <section className="section tt-sec" id="tours">
             <div className="wrap">
               <div className="sec-head reveal">
                 <span className="eyebrow">Start here</span>
                 <h2 className="h2">Four side-by-side tours.</h2>
-                <p className="lead lead-wide ml-lead">
+                <p className="lead tt-lead ml-lead">
                   The guide&apos;s suggested path through the explorer — open each pair in two
                   tabs and compare what you see.
                 </p>

@@ -1482,6 +1482,13 @@
 /* hero CTA spacing under a page-hero lead (which carries no bottom margin) */
 .bqv2 .tt-hero .hero-cta { margin-top: 34px; }
 
+/* captions below headers — widen toward the content edge like the
+   guide-header caption, instead of stopping at the 54ch lead measure.
+   The sections cap their head block at 62ch; lift it for the tt
+   sections so the caption can run wide on desktop. */
+.bqv2 .tt-lead { max-width: 961px; }
+.bqv2 .tt-sec .sec-head { max-width: none; }
+
 /* hero/download metadata chips (pages / examples / date / network) */
 .bqv2 .tt-meta { display: flex; flex-wrap: wrap; gap: 12px 26px; margin-top: 34px; }
 .bqv2 .tt-meta .chip {
