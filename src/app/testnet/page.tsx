@@ -97,6 +97,14 @@ const resources: Resource[] = [
     external: true,
   },
   {
+    tag: 'Field guide',
+    title: 'Transaction types',
+    body: 'Every address and spend type BTQ ships — five ECDSA, five Dilithium P2MR — each linked to a confirmed testnet transaction to inspect.',
+    href: '/transaction-types',
+    cta: 'Browse the types',
+    external: false,
+  },
+  {
     tag: 'Pool',
     title: 'Mining pool',
     body: 'The public testnet pool — point your hashpower here to start earning testnet BTQ.',

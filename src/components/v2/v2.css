@@ -1475,3 +1475,107 @@
     text-align: right;
   }
 }
+
+/* ============================================================
+   TRANSACTION TYPES field-guide page
+   ============================================================ */
+/* hero CTA spacing under a page-hero lead (which carries no bottom margin) */
+.bqv2 .tt-hero .hero-cta { margin-top: 34px; }
+
+/* captions below headers — widen toward the content edge like the
+   guide-header caption, instead of stopping at the 54ch lead measure.
+   The sections cap their head block at 62ch; lift it for the tt
+   sections so the caption can run wide on desktop. */
+.bqv2 .tt-lead { max-width: 961px; }
+.bqv2 .tt-sec .sec-head { max-width: none; }
+
+/* catalogue table — same skin as .netparams, wider for four columns */
+.bqv2 .tt-catalog {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch;
+}
+.bqv2 .tt-catalog table { width: 100%; min-width: 720px; border-collapse: collapse; }
+.bqv2 .tt-catalog th {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink-3); text-align: left; padding: 18px 22px;
+  border-bottom: 1px solid var(--line); font-weight: 500; background: var(--bg-2);
+}
+.bqv2 .tt-catalog td {
+  padding: 16px 22px; border-top: 1px solid var(--line-2);
+  font-size: 14.5px; color: var(--ink-2);
+}
+.bqv2 .tt-catalog tbody tr:first-child td { border-top: 0; }
+.bqv2 .tt-catalog tbody tr { transition: background .15s; }
+.bqv2 .tt-catalog tbody tr:hover { background: var(--bg-2); }
+.bqv2 .tt-catalog td.tt-type { font-weight: 600; color: var(--ink); white-space: nowrap; }
+
+/* family pill — Dilithium picks up the accent so the PQ half reads at a glance */
+.bqv2 .tt-fam {
+  display: inline-block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
+  padding: 3px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink-3);
+  white-space: nowrap;
+}
+.bqv2 .tt-fam.is-pq {
+  color: var(--accent-ink);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+}
+
+/* explorer deep links inside the catalogue */
+.bqv2 .tt-catalog a.tt-txid {
+  font-family: var(--mono); font-size: 13px; color: var(--accent-ink); white-space: nowrap;
+  transition: color .15s;
+}
+.bqv2 .tt-catalog a.tt-txid:hover { color: var(--accent); }
+
+/* side-by-side explorer tours */
+.bqv2 .tt-tour { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.bqv2 .tt-step {
+  display: flex; flex-direction: column; gap: 8px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: clamp(18px, 2.2vw, 28px);
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+}
+.bqv2 .tt-step:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px -28px rgba(20,23,28,.5);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--line));
+}
+.bqv2 .tt-step .tt-step-idx { font-family: var(--mono); font-size: 12px; color: var(--accent-ink); letter-spacing: 0.1em; }
+.bqv2 .tt-step h3 { font-family: var(--display); font-size: 19px; color: var(--ink); letter-spacing: -0.01em; }
+.bqv2 .tt-step p { font-size: 14.5px; color: var(--ink-2); margin-bottom: 8px; }
+.bqv2 .tt-step-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+.bqv2 .tt-step-links a {
+  font-family: var(--mono); font-size: 12.5px; color: var(--accent-ink);
+  border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; white-space: nowrap;
+  transition: border-color .15s, color .15s;
+}
+.bqv2 .tt-step-links a:hover { border-color: var(--accent); color: var(--accent); }
+
+/* download card */
+.bqv2 .tt-dl {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 18px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: clamp(28px, 3vw, 44px); position: relative; overflow: hidden;
+}
+.bqv2 .tt-dl::before {
+  content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent 70%);
+}
+.bqv2 .tt-dl h3 { font-family: var(--display); font-size: clamp(22px, 2.6vw, 30px); color: var(--ink); letter-spacing: -0.01em; }
+.bqv2 .tt-dl p { max-width: 56ch; color: var(--ink-2); font-size: 15.5px; }
+
+@media (max-width: 640px) {
+  .bqv2 .tt-tour { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   GUIDES hub — companion material row
+   Same data-row language as the numbered series, with a dashed
+   PDF badge so it reads as a document, not series entry N+1.
+   ============================================================ */
+.bqv2 .guide-hub-companion { margin-top: 40px; }
+.bqv2 .guide-hub-companion > .eyebrow { display: block; margin-bottom: 16px; }
+.bqv2 .guide-num-doc {
+  font-size: 12px; letter-spacing: 0.08em;
+  color: var(--ink-2); background: var(--bg-2); border-style: dashed;
+}
