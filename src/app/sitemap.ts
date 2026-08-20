@@ -18,6 +18,7 @@ const STATIC_PAGES: {
   { path: '', lastModified: '2026-07-22', changeFrequency: 'weekly', priority: 1.0 },
   { path: '/protocol', lastModified: '2026-07-22', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/testnet', lastModified: '2026-07-22', changeFrequency: 'weekly', priority: 0.9 },
+  { path: '/transaction-types', lastModified: '2026-08-20', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/guides', lastModified: '2026-07-29', changeFrequency: 'weekly', priority: 0.8 },
   { path: '/faq', lastModified: '2026-07-22', changeFrequency: 'monthly', priority: 0.7 },
 ]
