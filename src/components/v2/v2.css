@@ -1573,3 +1573,15 @@
 @media (max-width: 640px) {
   .bqv2 .tt-tour { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   GUIDES hub — companion material row
+   Same data-row language as the numbered series, with a dashed
+   PDF badge so it reads as a document, not series entry N+1.
+   ============================================================ */
+.bqv2 .guide-hub-companion { margin-top: 40px; }
+.bqv2 .guide-hub-companion > .eyebrow { display: block; margin-bottom: 16px; }
+.bqv2 .guide-num-doc {
+  font-size: 12px; letter-spacing: 0.08em;
+  color: var(--ink-2); background: var(--bg-2); border-style: dashed;
+}

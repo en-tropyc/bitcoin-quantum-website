@@ -89,6 +89,29 @@ export default function GuidesHub() {
                   </Link>
                 ))}
               </div>
+
+              {/* Companion material — same row language as the series, but a
+                  document rather than a numbered guide, so it sits outside the
+                  list and carries a PDF badge instead of a number. */}
+              <div className="guide-hub-companion reveal">
+                <span className="eyebrow">Companion material</span>
+                <div className="guide guide-hub">
+                  <Link href="/transaction-types" className="data-row">
+                    <span className="guide-num guide-num-doc" aria-hidden="true">PDF</span>
+                    <div className="guide-card-body">
+                      <div className="row-head">
+                        <span className="label">A Field Guide to BTQ Transaction Types</span>
+                        <span className="ratio">&rarr;</span>
+                      </div>
+                      <p className="detail">
+                        Every address and spend type BTQ ships — five ECDSA, five Dilithium
+                        P2MR — each linked to a confirmed testnet transaction to inspect in
+                        the explorer.
+                      </p>
+                    </div>
+                  </Link>
+                </div>
+              </div>
             </div>
           </article>
         </main>
