@@ -13,10 +13,10 @@ const code = [
   '',
   '<span class="cm">$</span> <span class="hl">btq-cli</span> <span class="kw">-testnet</span> <span class="kw">-rpcwallet=main</span> \\',
   '    <span class="fn">getnewdilithiumaddress</span>',
-  '<span class="nm">tdbt1qk4xv…q7n</span>        <span class="cm"># Dilithium-bech32</span>',
+  '<span class="nm">tbtq1z9u4k…</span>         <span class="cm"># Dilithium P2MR</span>',
   '',
   '<span class="cm">$</span> <span class="hl">btq-cli</span> <span class="kw">-testnet</span> <span class="kw">-rpcwallet=main</span> \\',
-  '    <span class="fn">sendtoaddress</span> <span class="st">&quot;tdbt1qk4xv…q7n&quot;</span> <span class="nm">0.50</span>',
+  '    <span class="fn">sendtoaddress</span> <span class="st">&quot;tbtq1z9u4k…&quot;</span> <span class="nm">0.50</span>',
   '<span class="nm">8a7f…e2c1</span>',
   '',
   '<span class="cm"># Every spend signed with ML-DSA — quantum-safe.</span>',
@@ -42,9 +42,22 @@ export default function CryptographySection({ id = 'under' }: { id?: string }) {
               Every address is generated and spent with NIST-standardized post-quantum
               primitives — verifiable today, secure against the computers of tomorrow.
             </p>
+            <aside className="note" role="note">
+              <span className="note-label">Note · 20 August 2026</span>
+              <p>
+                Early testnet builds issued Dilithium addresses in two legacy formats — a
+                Base58 type and a witness-v0 bech32 experiment that has since been switched
+                off. Both predate P2MR; their outputs are still on testnet, and they are
+                history rather than the default.
+              </p>
+              <p>
+                The standard Dilithium receive address today is BIP-360 P2MR —{' '}
+                <code>tbtq1z…</code> on testnet.
+              </p>
+            </aside>
             <ul>
               <li><CheckIcon /> CRYSTALS-Dilithium (ML-DSA, NIST FIPS&nbsp;204) signatures replace ECDSA</li>
-              <li><CheckIcon /> Native <code>dilithium-bech32</code> and <code>dilithium-legacy</code> address formats</li>
+              <li><CheckIcon /> BIP-360 P2MR receive addresses — the public key stays hidden until the output is spent</li>
               <li><CheckIcon /> Cryptographic agility — ready to adopt new NIST PQC standards</li>
             </ul>
           </div>
