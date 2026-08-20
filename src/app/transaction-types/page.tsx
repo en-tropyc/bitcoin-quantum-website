@@ -274,12 +274,6 @@ export default function TransactionTypesPage() {
                   Download PDF
                 </a>
               </div>
-              <div className="tt-meta reveal d3">
-                <span className="chip"><b>9 pages</b></span>
-                <span className="chip"><b>10 live examples</b></span>
-                <span className="chip"><b>28 July 2026</b></span>
-                <span className="chip"><b>v0.4.2-testnet</b></span>
-              </div>
             </div>
           </header>
 
@@ -435,11 +429,6 @@ export default function TransactionTypesPage() {
                   <a href={TT_PDF} className="btn btn-primary">
                     Download PDF <span className="arrow">→</span>
                   </a>
-                </div>
-                <div className="tt-meta">
-                  <span className="chip"><b>397 KB</b></span>
-                  <span className="chip"><b>9 pages</b></span>
-                  <span className="chip"><b>10 live examples</b></span>
                 </div>
               </div>
             </div>

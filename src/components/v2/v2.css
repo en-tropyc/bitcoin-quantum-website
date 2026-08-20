@@ -1489,18 +1489,6 @@
 .bqv2 .tt-lead { max-width: 961px; }
 .bqv2 .tt-sec .sec-head { max-width: none; }
 
-/* hero/download metadata chips (pages / examples / date / network) */
-.bqv2 .tt-meta { display: flex; flex-wrap: wrap; gap: 12px 26px; margin-top: 34px; }
-.bqv2 .tt-meta .chip {
-  display: inline-flex; align-items: baseline; gap: 8px;
-  font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.04em; color: var(--ink-3);
-}
-.bqv2 .tt-meta .chip::before {
-  content: ""; width: 5px; height: 5px; border-radius: 50%;
-  background: var(--accent); transform: translateY(-1px);
-}
-.bqv2 .tt-meta .chip b { color: var(--ink-2); font-weight: 600; }
-
 /* catalogue table — same skin as .netparams, wider for four columns */
 .bqv2 .tt-catalog {
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
@@ -1575,7 +1563,6 @@
 }
 .bqv2 .tt-dl h3 { font-family: var(--display); font-size: clamp(22px, 2.6vw, 30px); color: var(--ink); letter-spacing: -0.01em; }
 .bqv2 .tt-dl p { max-width: 56ch; color: var(--ink-2); font-size: 15.5px; }
-.bqv2 .tt-dl .tt-meta { margin-top: 2px; }
 
 @media (max-width: 640px) {
   .bqv2 .tt-tour { grid-template-columns: 1fr; }
